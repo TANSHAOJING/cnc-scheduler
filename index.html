@@ -231,11 +231,6 @@
                 </div>
             </div>
             <nav class="space-y-1" id="desktopNav"></nav>
-            <div class="absolute bottom-6 left-6 right-6">
-                <button onclick="logout()" class="btn btn-secondary btn-block">
-                    <i class="fas fa-sign-out-alt"></i> 退出登录
-                </button>
-            </div>
         </div>
 
         <!-- 主内容区 -->
@@ -249,6 +244,13 @@
                         <button onclick="showPage('sync')" class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
                             <i class="fas fa-cloud"></i>
                         </button>
+                        <div id="userBadge" class="hidden flex items-center gap-2 bg-gray-100 rounded-lg px-3 py-1.5">
+                            <i class="fas fa-user-circle text-gray-500"></i>
+                            <span id="headerUsername" class="text-sm font-medium text-gray-700">未登录</span>
+                            <button onclick="logout()" class="text-xs text-red-600 hover:text-red-700 font-medium ml-1">
+                                <i class="fas fa-sign-out-alt"></i> 退出
+                            </button>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -510,11 +512,11 @@
                 repo: 'cnc-scheduler',
                 branch: 'main',
                 path: 'data.json',
-                token: '',
                 autoSync: false
             },
             version: 1
         };
+        const GH_TOKEN_KEY = 'cnc_scheduler_gh_token';
 
         const menuConfig = {
             admin: [
@@ -552,7 +554,8 @@
         // ================= 本地存储 =================
         function saveLocal() {
             localStorage.setItem('cnc_scheduler_data', JSON.stringify(appData));
-            if (appData.githubConfig.autoSync && appData.githubConfig.token) {
+            const token = localStorage.getItem(GH_TOKEN_KEY);
+            if (appData.githubConfig.autoSync && token) {
                 debouncedUpload();
             }
         }
@@ -565,6 +568,12 @@
                     appData = { ...appData, ...parsed };
                     if (!appData.users.find(u => u.username === '谭绍景')) {
                         appData.users.unshift(defaultAdmin);
+                    }
+                    // 迁移：旧版本可能把 token 存在 appData.githubConfig 里
+                    if (appData.githubConfig && appData.githubConfig.token) {
+                        localStorage.setItem(GH_TOKEN_KEY, appData.githubConfig.token);
+                        delete appData.githubConfig.token;
+                        localStorage.setItem('cnc_scheduler_data', JSON.stringify(appData));
                     }
                 } catch (e) {
                     console.error('加载数据失败', e);
@@ -644,12 +653,16 @@
             document.getElementById('loginPage').classList.add('active');
             document.getElementById('loginUsername').value = '';
             document.getElementById('loginPassword').value = '';
+            document.getElementById('userBadge').classList.add('hidden');
+            document.getElementById('headerUsername').textContent = '未登录';
         }
 
         function enterApp() {
             document.getElementById('loginPage').classList.remove('active');
             document.getElementById('appPage').classList.add('active');
             document.getElementById('sidebarUser').textContent = `${currentUser.username} · ${roleText(currentUser.role)}`;
+            document.getElementById('headerUsername').textContent = `${currentUser.username} (${roleText(currentUser.role)})`;
+            document.getElementById('userBadge').classList.remove('hidden');
             renderNav();
             syncGhConfigToUI();
             showPage('home');
@@ -1152,30 +1165,35 @@
             document.getElementById('ghRepo').value = c.repo || '';
             document.getElementById('ghBranch').value = c.branch || 'main';
             document.getElementById('ghPath').value = c.path || 'data.json';
-            document.getElementById('ghToken').value = c.token || '';
+            document.getElementById('ghToken').value = localStorage.getItem(GH_TOKEN_KEY) || '';
             document.getElementById('ghAutoSync').checked = c.autoSync || false;
         }
 
         function saveGhConfig() {
+            const token = document.getElementById('ghToken').value.trim();
             appData.githubConfig = {
                 owner: document.getElementById('ghOwner').value.trim(),
                 repo: document.getElementById('ghRepo').value.trim(),
                 branch: document.getElementById('ghBranch').value.trim() || 'main',
                 path: document.getElementById('ghPath').value.trim() || 'data.json',
-                token: document.getElementById('ghToken').value.trim(),
                 autoSync: document.getElementById('ghAutoSync').checked
             };
+            if (token) {
+                localStorage.setItem(GH_TOKEN_KEY, token);
+            } else {
+                localStorage.removeItem(GH_TOKEN_KEY);
+            }
             saveLocal();
             showToast('GitHub配置已保存', 'success');
         }
 
         async function testGitHub() {
-            const c = appData.githubConfig;
-            if (!c.token) { showToast('请先填写 Token', 'error'); return; }
+            const token = localStorage.getItem(GH_TOKEN_KEY);
+            if (!token) { showToast('请先填写 Token', 'error'); return; }
             showLoading('测试中...');
             try {
                 const res = await fetch(`https://api.github.com/user`, {
-                    headers: { 'Authorization': `token ${c.token}`, 'Accept': 'application/vnd.github.v3+json' }
+                    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
                 });
                 if (!res.ok) throw new Error(await res.text());
                 const user = await res.json();
@@ -1187,17 +1205,34 @@
             }
         }
 
+        function getSyncData() {
+            // 上传时移除所有敏感/本地信息
+            const syncData = JSON.parse(JSON.stringify(appData));
+            if (syncData.githubConfig) {
+                syncData.githubConfig = {
+                    owner: syncData.githubConfig.owner,
+                    repo: syncData.githubConfig.repo,
+                    branch: syncData.githubConfig.branch,
+                    path: syncData.githubConfig.path,
+                    autoSync: false
+                };
+            }
+            return syncData;
+        }
+
         async function uploadToGitHub() {
             const c = appData.githubConfig;
-            if (!c.token || !c.owner || !c.repo) { showToast('请完整配置 GitHub', 'error'); return; }
+            const token = localStorage.getItem(GH_TOKEN_KEY);
+            if (!token || !c.owner || !c.repo) { showToast('请完整配置 GitHub', 'error'); return; }
             showLoading('上传中...');
             try {
-                const content = btoa(unescape(encodeURIComponent(JSON.stringify(appData, null, 2))));
+                const syncData = getSyncData();
+                const content = btoa(unescape(encodeURIComponent(JSON.stringify(syncData, null, 2))));
                 const apiUrl = `https://api.github.com/repos/${c.owner}/${c.repo}/contents/${c.path}`;
                 let sha = null;
                 try {
                     const getRes = await fetch(`${apiUrl}?ref=${c.branch}`, {
-                        headers: { 'Authorization': `token ${c.token}`, 'Accept': 'application/vnd.github.v3+json' }
+                        headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
                     });
                     if (getRes.ok) { const data = await getRes.json(); sha = data.sha; }
                 } catch (e) {}
@@ -1205,7 +1240,7 @@
                 if (sha) body.sha = sha;
                 const res = await fetch(apiUrl, {
                     method: 'PUT',
-                    headers: { 'Authorization': `token ${c.token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+                    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
                 });
                 if (!res.ok) throw new Error(await res.text());
@@ -1221,11 +1256,12 @@
 
         async function downloadFromGitHub() {
             const c = appData.githubConfig;
-            if (!c.token || !c.owner || !c.repo) { showToast('请完整配置 GitHub', 'error'); return; }
+            const token = localStorage.getItem(GH_TOKEN_KEY);
+            if (!token || !c.owner || !c.repo) { showToast('请完整配置 GitHub', 'error'); return; }
             showLoading('拉取中...');
             try {
                 const res = await fetch(`https://api.github.com/repos/${c.owner}/${c.repo}/contents/${c.path}?ref=${c.branch}`, {
-                    headers: { 'Authorization': `token ${c.token}`, 'Accept': 'application/vnd.github.v3+json' }
+                    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
                 });
                 if (!res.ok) throw new Error(await res.text());
                 const data = await res.json();
