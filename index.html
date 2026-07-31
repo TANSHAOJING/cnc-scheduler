@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="CNC加工生产排产管理系统">
+    <title>CNC排产管理系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --success: #16a34a;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --bg: #f3f4f6;
+        }
+        * { -webkit-tap-highlight-color: transparent; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            min-height: 100vh;
+        }
+        .page { display: none; }
+        .page.active { display: block; }
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-success { background: var(--success); color: white; }
+        .btn-warning { background: var(--warning); color: white; }
+        .btn-danger { background: var(--danger); color: white; }
+        .btn-secondary { background: #e5e7eb; color: #374151; }
+        .btn-block { width: 100%; }
+        .form-input {
+            width: 100%;
+            padding: 0.625rem 0.875rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            outline: none;
+        }
+        .form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+        .form-label { display: block; margin-bottom: 0.375rem; font-size: 0.875rem; font-weight: 500; color: #374151; }
+        .nav-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-around;
+            padding: 0.5rem 0;
+            z-index: 50;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.75rem;
+            color: #6b7280;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+        .nav-item.active { color: var(--primary); }
+        .nav-item i { font-size: 1.25rem; }
+        .pb-nav { padding-bottom: 5rem; }
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.625rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .status-success { background: #dcfce7; color: #166534; }
+        .status-warning { background: #fef3c7; color: #92400e; }
+        .status-danger { background: #fee2e2; color: #991b1b; }
+        .status-info { background: #dbeafe; color: #1e40af; }
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+        th, td { padding: 0.625rem; text-align: left; border-bottom: 1px solid #e5e7eb; white-space: nowrap; }
+        th { background: #f9fafb; font-weight: 600; color: #374151; }
+        tr:hover { background: #f9fafb; }
+        .progress-bar {
+            height: 0.5rem;
+            background: #e5e7eb;
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+        .progress-fill { height: 100%; border-radius: 9999px; transition: width 0.3s; }
+        .toast {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            color: white;
+            font-weight: 500;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: slideDown 0.3s ease;
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translate(-50%, -1rem); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 60;
+            padding: 1rem;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: white;
+            border-radius: 1rem;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .hidden { display: none !important; }
+        @media (min-width: 768px) {
+            .nav-bottom { display: none; }
+            .desktop-sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 240px;
+                background: white;
+                border-right: 1px solid #e5e7eb;
+                padding: 1.5rem;
+                z-index: 40;
+            }
+            .desktop-main { margin-left: 240px; }
+            .pb-nav { padding-bottom: 1rem; }
+        }
+        @media (max-width: 767px) {
+            .desktop-sidebar { display: none; }
+        }
+        .stat-card { text-align: center; }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.75rem; color: #6b7280; }
+    </style>
+</head>
+<body>
+    <!-- 登录页 -->
+    <div id="loginPage" class="page active min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-md">
+            <div class="card text-center mb-6">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-industry text-2xl text-blue-600"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-800">CNC排产管理系统</h1>
+                <p class="text-gray-500 text-sm mt-1">生产排产 · 人员调配 · 产能统计</p>
+            </div>
+            <div class="card">
+                <div class="flex mb-4 bg-gray-100 rounded-lg p-1">
+                    <button id="loginTab" class="flex-1 py-2 rounded-md text-sm font-medium bg-white shadow-sm" onclick="switchAuthTab('login')">登录</button>
+                    <button id="registerTab" class="flex-1 py-2 rounded-md text-sm font-medium text-gray-500" onclick="switchAuthTab('register')">注册</button>
+                </div>
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="mb-4">
+                        <label class="form-label">账号</label>
+                        <input type="text" id="loginUsername" class="form-input" placeholder="请输入账号" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="form-label">密码</label>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="请输入密码" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">登录</button>
+                </form>
+                <form id="registerForm" class="hidden" onsubmit="handleRegister(event)">
+                    <div class="mb-4">
+                        <label class="form-label">账号</label>
+                        <input type="text" id="regUsername" class="form-input" placeholder="设置账号" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">密码</label>
+                        <input type="password" id="regPassword" class="form-input" placeholder="设置密码" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="form-label">确认密码</label>
+                        <input type="password" id="regPassword2" class="form-input" placeholder="再次输入密码" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">注册</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主应用 -->
+    <div id="appPage" class="page">
+        <!-- 桌面侧边栏 -->
+        <div class="desktop-sidebar">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-industry text-blue-600"></i>
+                </div>
+                <div>
+                    <h2 class="font-bold text-gray-800">CNC排产系统</h2>
+                    <p class="text-xs text-gray-500" id="sidebarUser">未登录</p>
+                </div>
+            </div>
+            <nav class="space-y-1" id="desktopNav"></nav>
+            <div class="absolute bottom-6 left-6 right-6">
+                <button onclick="logout()" class="btn btn-secondary btn-block">
+                    <i class="fas fa-sign-out-alt"></i> 退出登录
+                </button>
+            </div>
+        </div>
+
+        <!-- 主内容区 -->
+        <div class="desktop-main pb-nav">
+            <!-- 顶部栏 -->
+            <header class="bg-white border-b border-gray-200 sticky top-0 z-30">
+                <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+                    <h1 id="pageTitle" class="text-lg font-bold text-gray-800">首页</h1>
+                    <div class="flex items-center gap-2">
+                        <span id="syncStatus" class="text-xs text-gray-500 hidden md:inline"></span>
+                        <button onclick="showPage('sync')" class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                            <i class="fas fa-cloud"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="max-w-7xl mx-auto px-4 py-4">
+                <!-- 首页/仪表盘 -->
+                <div id="page-home" class="page active">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                        <div class="card stat-card">
+                            <div class="stat-value" id="statMachines">0</div>
+                            <div class="stat-label">机台总数</div>
+                        </div>
+                        <div class="card stat-card">
+                            <div class="stat-value" id="statProducts">0</div>
+                            <div class="stat-label">产品工序</div>
+                        </div>
+                        <div class="card stat-card">
+                            <div class="stat-value" id="statSchedules">0</div>
+                            <div class="stat-label">今日排产</div>
+                        </div>
+                        <div class="card stat-card">
+                            <div class="stat-value" id="statCompletion">0%</div>
+                            <div class="stat-label">整体完成率</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-3">快捷入口</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="quickActions"></div>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-3">今日产能概览</h3>
+                        <div id="todayOverview" class="space-y-3"></div>
+                    </div>
+                </div>
+
+                <!-- 基础数据 -->
+                <div id="page-data" class="page">
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-4">导入基础数据</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="form-label">1. 导入机台工序表 (各机台加工产品工序表.xlsx)</label>
+                                <input type="file" id="machineFile" accept=".xlsx,.xls" class="form-input" onchange="importMachines(this)">
+                                <p class="text-xs text-gray-500 mt-1">需包含列：机台号、所属车间、产品名称、工序</p>
+                            </div>
+                            <div>
+                                <label class="form-label">2. 导入产品工时表 (各款产品工序工时表.xlsx)</label>
+                                <input type="file" id="productFile" accept=".xlsx,.xls" class="form-input" onchange="importProducts(this)">
+                                <p class="text-xs text-gray-500 mt-1">需包含列：产品名称、工序、加工区域、UPH</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="downloadTemplate('machine')" class="btn btn-secondary flex-1"><i class="fas fa-download"></i> 机台表模板</button>
+                                <button onclick="downloadTemplate('product')" class="btn btn-secondary flex-1"><i class="fas fa-download"></i> 工时表模板</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-bold text-gray-800">机台列表</h3>
+                            <span class="text-sm text-gray-500" id="machineCount">0 台</span>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead><tr><th>机台号</th><th>车间</th><th>产品</th><th>工序</th></tr></thead>
+                                <tbody id="machineTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-bold text-gray-800">产品工序UPH</h3>
+                            <span class="text-sm text-gray-500" id="productCount">0 条</span>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead><tr><th>产品</th><th>工序</th><th>加工区域</th><th>UPH</th></tr></thead>
+                                <tbody id="productTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 排产管理 -->
+                <div id="page-schedule" class="page">
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-4">新增排产</h3>
+                        <form onsubmit="handleAddSchedule(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="form-label">日期</label>
+                                <input type="date" id="schDate" class="form-input" required>
+                            </div>
+                            <div>
+                                <label class="form-label">机台</label>
+                                <select id="schMachine" class="form-input" required onchange="onMachineChange()">
+                                    <option value="">选择机台</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="form-label">操作工</label>
+                                <select id="schOperator" class="form-input" required></select>
+                            </div>
+                            <div>
+                                <label class="form-label">班次</label>
+                                <select id="schShift" class="form-input">
+                                    <option value="白班">白班</option>
+                                    <option value="夜班">夜班</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="form-label">工作时长(小时)</label>
+                                <input type="number" id="schHours" class="form-input" value="8" min="1" max="24" step="0.5" required onchange="updatePlanQty()">
+                            </div>
+                            <div>
+                                <label class="form-label">计划数量</label>
+                                <input type="number" id="schPlanQty" class="form-input" min="1" required>
+                                <p class="text-xs text-gray-500 mt-1" id="planQtyHint">根据UPH自动计算</p>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="form-label">备注</label>
+                                <input type="text" id="schNote" class="form-input" placeholder="可选">
+                            </div>
+                            <div class="md:col-span-2">
+                                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> 添加排产</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-bold text-gray-800">排产列表</h3>
+                            <div class="flex gap-2">
+                                <input type="date" id="scheduleFilterDate" class="form-input text-sm py-1" onchange="renderScheduleList()">
+                                <button onclick="clearScheduleFilter()" class="btn btn-secondary text-sm py-1"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div id="scheduleList" class="space-y-3"></div>
+                    </div>
+                </div>
+
+                <!-- 加工录入 -->
+                <div id="page-record" class="page">
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-4">加工数量录入</h3>
+                        <div id="recordList" class="space-y-3"></div>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-3">我的产能统计</h3>
+                        <div id="myStats"></div>
+                    </div>
+                </div>
+
+                <!-- 产能报表 -->
+                <div id="page-report" class="page">
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-bold text-gray-800">产能达标报表</h3>
+                            <div class="flex gap-2">
+                                <input type="date" id="reportDate" class="form-input text-sm py-1" onchange="renderReport()">
+                                <select id="reportShift" class="form-input text-sm py-1" onchange="renderReport()">
+                                    <option value="">全部班次</option>
+                                    <option value="白班">白班</option>
+                                    <option value="夜班">夜班</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="reportList" class="space-y-3"></div>
+                    </div>
+                </div>
+
+                <!-- 账号管理(管理员) -->
+                <div id="page-users" class="page">
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-4">注册账号列表</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead><tr><th>账号</th><th>角色</th><th>注册时间</th><th>操作</th></tr></thead>
+                                <tbody id="userTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GitHub同步 -->
+                <div id="page-sync" class="page">
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-4"><i class="fab fa-github"></i> GitHub 数据同步</h3>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="form-label">GitHub 用户名 / 组织名</label>
+                                    <input type="text" id="ghOwner" class="form-input" placeholder="如：TANSHAOJING">
+                                </div>
+                                <div>
+                                    <label class="form-label">仓库名</label>
+                                    <input type="text" id="ghRepo" class="form-input" placeholder="如：cnc-scheduler">
+                                </div>
+                                <div>
+                                    <label class="form-label">分支名</label>
+                                    <input type="text" id="ghBranch" class="form-input" value="main">
+                                </div>
+                                <div>
+                                    <label class="form-label">数据文件路径</label>
+                                    <input type="text" id="ghPath" class="form-input" value="data.json">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="form-label">Personal Access Token <span class="text-red-500">*</span></label>
+                                <input type="password" id="ghToken" class="form-input" placeholder="ghp_xxxxxxxx">
+                                <p class="text-xs text-gray-500 mt-1">在 GitHub Settings → Developer settings → Personal access tokens 中创建，需勾选 repo 权限</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="ghAutoSync" class="w-4 h-4" onchange="saveGhConfig()">
+                                <label for="ghAutoSync" class="text-sm text-gray-700">数据变更时自动同步</label>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <button onclick="saveGhConfig()" class="btn btn-success"><i class="fas fa-save"></i> 保存配置</button>
+                                <button onclick="testGitHub()" class="btn btn-secondary"><i class="fas fa-plug"></i> 测试连接</button>
+                                <button onclick="uploadToGitHub()" class="btn btn-primary"><i class="fas fa-upload"></i> 上传到 GitHub</button>
+                                <button onclick="downloadFromGitHub()" class="btn btn-warning"><i class="fas fa-download"></i> 从 GitHub 拉取</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-3">同步说明</h3>
+                        <ul class="text-sm text-gray-600 space-y-2 list-disc pl-5">
+                            <li>首次使用请先保存配置，然后点击「上传到 GitHub」创建数据文件。</li>
+                            <li>在多台设备使用时，先「从 GitHub 拉取数据」获取最新数据。</li>
+                            <li>Token 仅保存在当前浏览器本地，不会上传到服务器。</li>
+                            <li>建议每个独立应用使用独立的仓库，可用同一个 Token 管理多个仓库。</li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- 底部导航 -->
+        <nav class="nav-bottom" id="bottomNav"></nav>
+    </div>
+
+    <!-- 全局遮罩/加载 -->
+    <div id="loadingOverlay" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-[70]">
+        <div class="bg-white rounded-xl p-6 flex flex-col items-center">
+            <i class="fas fa-circle-notch fa-spin text-3xl text-blue-600 mb-3"></i>
+            <p class="text-gray-700" id="loadingText">处理中...</p>
+        </div>
+    </div>
+
+    <script>
+        // ================= 全局状态 =================
+        const defaultAdmin = { username: '谭绍景', password: '226178', role: 'admin', createdAt: new Date().toISOString() };
+        let currentUser = null;
+        let appData = {
+            users: [defaultAdmin],
+            machines: [],
+            products: [],
+            schedules: [],
+            records: [],
+            githubConfig: {
+                owner: 'TANSHAOJING',
+                repo: 'cnc-scheduler',
+                branch: 'main',
+                path: 'data.json',
+                token: '',
+                autoSync: false
+            },
+            version: 1
+        };
+
+        const menuConfig = {
+            admin: [
+                { id: 'home', label: '首页', icon: 'fa-home' },
+                { id: 'data', label: '基础数据', icon: 'fa-database' },
+                { id: 'schedule', label: '排产管理', icon: 'fa-calendar-alt' },
+                { id: 'record', label: '加工录入', icon: 'fa-edit' },
+                { id: 'report', label: '产能报表', icon: 'fa-chart-bar' },
+                { id: 'users', label: '账号管理', icon: 'fa-users' },
+                { id: 'sync', label: '数据同步', icon: 'fa-cloud' }
+            ],
+            manager: [
+                { id: 'home', label: '首页', icon: 'fa-home' },
+                { id: 'schedule', label: '排产管理', icon: 'fa-calendar-alt' },
+                { id: 'report', label: '产能报表', icon: 'fa-chart-bar' },
+                { id: 'sync', label: '数据同步', icon: 'fa-cloud' }
+            ],
+            operator: [
+                { id: 'home', label: '首页', icon: 'fa-home' },
+                { id: 'record', label: '加工录入', icon: 'fa-edit' },
+                { id: 'report', label: '我的报表', icon: 'fa-chart-bar' },
+                { id: 'sync', label: '数据同步', icon: 'fa-cloud' }
+            ]
+        };
+
+        // ================= 初始化 =================
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData();
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('schDate').value = today;
+            document.getElementById('scheduleFilterDate').value = today;
+            document.getElementById('reportDate').value = today;
+        });
+
+        // ================= 本地存储 =================
+        function saveLocal() {
+            localStorage.setItem('cnc_scheduler_data', JSON.stringify(appData));
+            if (appData.githubConfig.autoSync && appData.githubConfig.token) {
+                debouncedUpload();
+            }
+        }
+
+        function loadData() {
+            const saved = localStorage.getItem('cnc_scheduler_data');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    appData = { ...appData, ...parsed };
+                    if (!appData.users.find(u => u.username === '谭绍景')) {
+                        appData.users.unshift(defaultAdmin);
+                    }
+                } catch (e) {
+                    console.error('加载数据失败', e);
+                }
+            }
+        }
+
+        // ================= 登录/注册 =================
+        function switchAuthTab(tab) {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const loginTab = document.getElementById('loginTab');
+            const registerTab = document.getElementById('registerTab');
+            if (tab === 'login') {
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+                loginTab.classList.add('bg-white', 'shadow-sm');
+                loginTab.classList.remove('text-gray-500');
+                registerTab.classList.remove('bg-white', 'shadow-sm');
+                registerTab.classList.add('text-gray-500');
+            } else {
+                loginForm.classList.add('hidden');
+                registerForm.classList.remove('hidden');
+                registerTab.classList.add('bg-white', 'shadow-sm');
+                registerTab.classList.remove('text-gray-500');
+                loginTab.classList.remove('bg-white', 'shadow-sm');
+                loginTab.classList.add('text-gray-500');
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const user = appData.users.find(u => u.username === username && u.password === password);
+            if (user) {
+                currentUser = user;
+                enterApp();
+                showToast('登录成功', 'success');
+            } else {
+                showToast('账号或密码错误', 'error');
+            }
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const username = document.getElementById('regUsername').value.trim();
+            const password = document.getElementById('regPassword').value;
+            const password2 = document.getElementById('regPassword2').value;
+            if (!username || !password) {
+                showToast('账号和密码不能为空', 'error');
+                return;
+            }
+            if (password !== password2) {
+                showToast('两次输入的密码不一致', 'error');
+                return;
+            }
+            if (appData.users.find(u => u.username === username)) {
+                showToast('该账号已存在', 'error');
+                return;
+            }
+            appData.users.push({
+                username,
+                password,
+                role: 'operator',
+                createdAt: new Date().toISOString()
+            });
+            saveLocal();
+            showToast('注册成功，请登录', 'success');
+            switchAuthTab('login');
+            document.getElementById('loginUsername').value = username;
+        }
+
+        function logout() {
+            currentUser = null;
+            document.getElementById('appPage').classList.remove('active');
+            document.getElementById('loginPage').classList.add('active');
+            document.getElementById('loginUsername').value = '';
+            document.getElementById('loginPassword').value = '';
+        }
+
+        function enterApp() {
+            document.getElementById('loginPage').classList.remove('active');
+            document.getElementById('appPage').classList.add('active');
+            document.getElementById('sidebarUser').textContent = `${currentUser.username} · ${roleText(currentUser.role)}`;
+            renderNav();
+            syncGhConfigToUI();
+            showPage('home');
+        }
+
+        function roleText(role) {
+            return { admin: '管理员', manager: '负责人', operator: '操作工' }[role] || role;
+        }
+
+        // ================= 导航 =================
+        function renderNav() {
+            const role = currentUser.role === 'admin' ? 'admin' : (currentUser.role === 'manager' ? 'manager' : 'operator');
+            const items = menuConfig[role] || menuConfig.operator;
+            const desktopNav = document.getElementById('desktopNav');
+            const bottomNav = document.getElementById('bottomNav');
+            desktopNav.innerHTML = items.map(item => `
+                <div class="nav-item flex-row gap-3 px-3 py-2 rounded-lg hover:bg-gray-50 ${item.id === 'home' ? 'active' : ''}" data-page="${item.id}" onclick="showPage('${item.id}')">
+                    <i class="fas ${item.icon}"></i>
+                    <span>${item.label}</span>
+                </div>
+            `).join('');
+            bottomNav.innerHTML = items.map(item => `
+                <div class="nav-item ${item.id === 'home' ? 'active' : ''}" data-page="${item.id}" onclick="showPage('${item.id}')">
+                    <i class="fas ${item.icon}"></i>
+                    <span>${item.label}</span>
+                </div>
+            `).join('');
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('#appPage .page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + pageId)?.classList.add('active');
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.page === pageId));
+            const titles = { home: '首页', data: '基础数据', schedule: '排产管理', record: '加工录入', report: '产能报表', users: '账号管理', sync: 'GitHub同步' };
+            document.getElementById('pageTitle').textContent = titles[pageId] || pageId;
+            if (pageId === 'home') renderHome();
+            if (pageId === 'data') renderData();
+            if (pageId === 'schedule') renderSchedulePage();
+            if (pageId === 'record') renderRecordPage();
+            if (pageId === 'report') renderReport();
+            if (pageId === 'users') renderUsers();
+            if (pageId === 'sync') syncGhConfigToUI();
+            window.scrollTo(0, 0);
+        }
+
+        // ================= 首页 =================
+        function renderHome() {
+            const today = new Date().toISOString().split('T')[0];
+            const todaySchedules = appData.schedules.filter(s => s.date === today);
+            const totalPlan = todaySchedules.reduce((sum, s) => sum + (parseFloat(s.planQty) || 0), 0);
+            const totalActual = todaySchedules.reduce((sum, s) => {
+                const recs = appData.records.filter(r => r.scheduleId === s.id && r.date === today);
+                return sum + recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+            }, 0);
+            document.getElementById('statMachines').textContent = appData.machines.length;
+            document.getElementById('statProducts').textContent = appData.products.length;
+            document.getElementById('statSchedules').textContent = todaySchedules.length;
+            document.getElementById('statCompletion').textContent = totalPlan ? Math.round(totalActual / totalPlan * 100) + '%' : '0%';
+
+            const role = currentUser.role;
+            const quickActions = document.getElementById('quickActions');
+            let actions = [];
+            if (role === 'admin') {
+                actions = [
+                    { label: '导入基础数据', icon: 'fa-file-import', page: 'data' },
+                    { label: '新增排产', icon: 'fa-calendar-plus', page: 'schedule' },
+                    { label: '查看报表', icon: 'fa-chart-pie', page: 'report' },
+                    { label: '账号管理', icon: 'fa-users', page: 'users' }
+                ];
+            } else if (role === 'manager') {
+                actions = [
+                    { label: '新增排产', icon: 'fa-calendar-plus', page: 'schedule' },
+                    { label: '查看报表', icon: 'fa-chart-pie', page: 'report' },
+                    { label: '数据同步', icon: 'fa-cloud', page: 'sync' }
+                ];
+            } else {
+                actions = [
+                    { label: '加工录入', icon: 'fa-edit', page: 'record' },
+                    { label: '我的报表', icon: 'fa-chart-pie', page: 'report' },
+                    { label: '数据同步', icon: 'fa-cloud', page: 'sync' }
+                ];
+            }
+            quickActions.innerHTML = actions.map(a => `
+                <button onclick="showPage('${a.page}')" class="btn btn-secondary btn-block flex-col py-4">
+                    <i class="fas ${a.icon} text-xl mb-1 text-blue-600"></i>
+                    <span class="text-xs">${a.label}</span>
+                </button>
+            `).join('');
+
+            const overview = document.getElementById('todayOverview');
+            if (!todaySchedules.length) {
+                overview.innerHTML = '<p class="text-gray-500 text-center py-4">今日暂无排产</p>';
+                return;
+            }
+            overview.innerHTML = todaySchedules.map(s => {
+                const recs = appData.records.filter(r => r.scheduleId === s.id && r.date === today);
+                const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                const pct = Math.min(100, Math.round((actual / s.planQty) * 100));
+                const color = pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500');
+                return `
+                    <div class="border rounded-lg p-3">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <div class="font-semibold text-gray-800">${s.machineId} · ${s.productName || '未指定产品'}</div>
+                                <div class="text-xs text-gray-500">${s.operator} · ${s.shift} · 计划 ${s.planQty} 件</div>
+                            </div>
+                            <span class="status-badge ${pct >= 100 ? 'status-success' : (pct >= 70 ? 'status-warning' : 'status-danger')}">${actual}/${s.planQty}</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill ${color}" style="width:${pct}%"></div></div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ================= 基础数据 =================
+        function renderData() {
+            document.getElementById('machineCount').textContent = `${appData.machines.length} 台`;
+            document.getElementById('productCount').textContent = `${appData.products.length} 条`;
+            document.getElementById('machineTable').innerHTML = appData.machines.map(m => `
+                <tr><td>${m.id}</td><td>${m.workshop}</td><td>${m.productName || '-'}</td><td>${m.process || '-'}</td></tr>
+            `).join('') || '<tr><td colspan="4" class="text-center text-gray-500">暂无数据</td></tr>';
+            document.getElementById('productTable').innerHTML = appData.products.map(p => `
+                <tr><td>${p.name}</td><td>${p.process}</td><td>${p.area}</td><td>${p.uph}</td></tr>
+            `).join('') || '<tr><td colspan="4" class="text-center text-gray-500">暂无数据</td></tr>';
+        }
+
+        function importMachines(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+                    const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+                    if (json.length < 2) { showToast('文件数据为空', 'error'); return; }
+                    const headers = json[0].map(h => String(h).trim());
+                    const idx = {
+                        id: headers.indexOf('机台号'),
+                        workshop: headers.indexOf('所属车间'),
+                        productName: headers.indexOf('产品名称'),
+                        process: headers.indexOf('工序')
+                    };
+                    if (idx.id === -1 || idx.workshop === -1) {
+                        showToast('缺少必要列：机台号、所属车间', 'error');
+                        return;
+                    }
+                    appData.machines = [];
+                    for (let i = 1; i < json.length; i++) {
+                        const row = json[i];
+                        if (!row[idx.id]) continue;
+                        appData.machines.push({
+                            id: String(row[idx.id]).trim(),
+                            workshop: String(row[idx.workshop] || '').trim(),
+                            productName: row[idx.productName] ? String(row[idx.productName]).trim() : '',
+                            process: row[idx.process] ? String(row[idx.process]).trim() : ''
+                        });
+                    }
+                    saveLocal();
+                    renderData();
+                    showToast(`成功导入 ${appData.machines.length} 条机台数据`, 'success');
+                } catch (err) {
+                    showToast('导入失败：' + err.message, 'error');
+                }
+            };
+            reader.readAsArrayBuffer(file);
+            input.value = '';
+        }
+
+        function importProducts(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+                    const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+                    if (json.length < 2) { showToast('文件数据为空', 'error'); return; }
+                    const headers = json[0].map(h => String(h).trim());
+                    const idx = {
+                        name: headers.indexOf('产品名称'),
+                        process: headers.indexOf('工序'),
+                        area: headers.indexOf('加工区域'),
+                        uph: headers.indexOf('UPH')
+                    };
+                    if (idx.name === -1 || idx.process === -1 || idx.uph === -1) {
+                        showToast('缺少必要列：产品名称、工序、UPH', 'error');
+                        return;
+                    }
+                    appData.products = [];
+                    for (let i = 1; i < json.length; i++) {
+                        const row = json[i];
+                        if (!row[idx.name] || !row[idx.process]) continue;
+                        appData.products.push({
+                            name: String(row[idx.name]).trim(),
+                            process: String(row[idx.process]).trim(),
+                            area: row[idx.area] ? String(row[idx.area]).trim() : '',
+                            uph: parseFloat(row[idx.uph]) || 0
+                        });
+                    }
+                    saveLocal();
+                    renderData();
+                    showToast(`成功导入 ${appData.products.length} 条产品工时数据`, 'success');
+                } catch (err) {
+                    showToast('导入失败：' + err.message, 'error');
+                }
+            };
+            reader.readAsArrayBuffer(file);
+            input.value = '';
+        }
+
+        function downloadTemplate(type) {
+            let ws, wb, filename;
+            if (type === 'machine') {
+                ws = XLSX.utils.aoa_to_sheet([['机台号', '所属车间', '产品名称', '工序'], ['CNC1', '粗加车间', '示例产品', '一序']]);
+                filename = '机台工序表模板.xlsx';
+            } else {
+                ws = XLSX.utils.aoa_to_sheet([['产品名称', '工序', '加工区域', 'UPH'], ['示例产品', '一序', '正面', '10']]);
+                filename = '产品工时表模板.xlsx';
+            }
+            wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+            XLSX.writeFile(wb, filename);
+        }
+
+        // ================= 排产管理 =================
+        function renderSchedulePage() {
+            const machineSelect = document.getElementById('schMachine');
+            const operatorSelect = document.getElementById('schOperator');
+            machineSelect.innerHTML = '<option value="">选择机台</option>' + appData.machines.map(m => `<option value="${m.id}" data-product="${m.productName || ''}" data-process="${m.process || ''}">${m.id} · ${m.workshop} · ${m.productName || '无产品'}</option>`).join('');
+            operatorSelect.innerHTML = '<option value="">选择操作工</option>' + appData.users.filter(u => u.role === 'operator').map(u => `<option value="${u.username}">${u.username}</option>`).join('');
+            renderScheduleList();
+        }
+
+        function onMachineChange() {
+            updatePlanQty();
+        }
+
+        function getUph(machineId) {
+            const machine = appData.machines.find(m => m.id === machineId);
+            if (!machine || !machine.productName || !machine.process) return 0;
+            const product = appData.products.find(p => p.name === machine.productName && p.process === machine.process);
+            return product ? product.uph : 0;
+        }
+
+        function updatePlanQty() {
+            const machineId = document.getElementById('schMachine').value;
+            const hours = parseFloat(document.getElementById('schHours').value) || 0;
+            const uph = getUph(machineId);
+            const planInput = document.getElementById('schPlanQty');
+            const hint = document.getElementById('planQtyHint');
+            if (uph > 0 && hours > 0) {
+                const suggested = Math.round(uph * hours);
+                if (!planInput.value) planInput.value = suggested;
+                hint.textContent = `建议计划数量：${suggested} 件（UPH ${uph} × ${hours}小时）`;
+                hint.classList.add('text-blue-600');
+            } else {
+                hint.textContent = uph ? '请输入工作时长' : '该机台未配置产品工序UPH';
+                hint.classList.remove('text-blue-600');
+            }
+        }
+
+        function handleAddSchedule(e) {
+            e.preventDefault();
+            const machineId = document.getElementById('schMachine').value;
+            const machine = appData.machines.find(m => m.id === machineId);
+            const schedule = {
+                id: 'sch_' + Date.now(),
+                date: document.getElementById('schDate').value,
+                machineId,
+                productName: machine?.productName || '',
+                process: machine?.process || '',
+                operator: document.getElementById('schOperator').value,
+                shift: document.getElementById('schShift').value,
+                hours: parseFloat(document.getElementById('schHours').value),
+                planQty: parseInt(document.getElementById('schPlanQty').value),
+                note: document.getElementById('schNote').value,
+                createdAt: new Date().toISOString(),
+                createdBy: currentUser.username
+            };
+            appData.schedules.push(schedule);
+            saveLocal();
+            e.target.reset();
+            document.getElementById('schDate').value = new Date().toISOString().split('T')[0];
+            document.getElementById('schHours').value = 8;
+            document.getElementById('planQtyHint').textContent = '根据UPH自动计算';
+            renderSchedulePage();
+            showToast('排产添加成功', 'success');
+        }
+
+        function renderScheduleList() {
+            const filterDate = document.getElementById('scheduleFilterDate').value;
+            let list = appData.schedules;
+            if (filterDate) list = list.filter(s => s.date === filterDate);
+            list = list.sort((a, b) => new Date(b.date) - new Date(a.date));
+            const container = document.getElementById('scheduleList');
+            if (!list.length) {
+                container.innerHTML = '<p class="text-gray-500 text-center py-4">暂无排产记录</p>';
+                return;
+            }
+            container.innerHTML = list.map(s => {
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                const pct = Math.min(100, Math.round((actual / s.planQty) * 100));
+                return `
+                    <div class="border rounded-lg p-3">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="font-semibold text-gray-800">${s.date} · ${s.machineId}</div>
+                                <div class="text-sm text-gray-600">${s.productName || '-'} ${s.process || ''}</div>
+                                <div class="text-xs text-gray-500 mt-1">操作工：${s.operator} · ${s.shift} · ${s.hours}小时</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-bold text-lg">${actual}/${s.planQty}</div>
+                                <div class="text-xs text-gray-500">完成 ${pct}%</div>
+                            </div>
+                        </div>
+                        <div class="progress-bar mt-2"><div class="progress-fill ${pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500')}" style="width:${pct}%"></div></div>
+                        ${s.note ? `<div class="text-xs text-gray-500 mt-2">备注：${s.note}</div>` : ''}
+                        ${currentUser.role !== 'operator' ? `<button onclick="deleteSchedule('${s.id}')" class="text-xs text-red-500 mt-2 hover:underline">删除排产</button>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function deleteSchedule(id) {
+            if (!confirm('确定删除该排产？')) return;
+            appData.schedules = appData.schedules.filter(s => s.id !== id);
+            appData.records = appData.records.filter(r => r.scheduleId !== id);
+            saveLocal();
+            renderScheduleList();
+            showToast('排产已删除', 'success');
+        }
+
+        function clearScheduleFilter() {
+            document.getElementById('scheduleFilterDate').value = '';
+            renderScheduleList();
+        }
+
+        // ================= 加工录入 =================
+        function renderRecordPage() {
+            const today = new Date().toISOString().split('T')[0];
+            let mySchedules = appData.schedules.filter(s => {
+                if (currentUser.role === 'operator' && s.operator !== currentUser.username) return false;
+                return s.date <= today;
+            }).sort((a, b) => new Date(b.date) - new Date(a.date));
+            const container = document.getElementById('recordList');
+            if (!mySchedules.length) {
+                container.innerHTML = '<p class="text-gray-500 text-center py-4">暂无您的排产任务</p>';
+            } else {
+                container.innerHTML = mySchedules.map(s => {
+                    const recs = appData.records.filter(r => r.scheduleId === s.id);
+                    const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                    const pct = Math.min(100, Math.round((actual / s.planQty) * 100));
+                    return `
+                        <div class="border rounded-lg p-3">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <div class="font-semibold text-gray-800">${s.date} · ${s.machineId}</div>
+                                    <div class="text-sm text-gray-600">${s.productName || '-'} ${s.process || ''}</div>
+                                    <div class="text-xs text-gray-500">计划：${s.planQty} 件 · 已完成：${actual} 件</div>
+                                </div>
+                                <span class="status-badge ${pct >= 100 ? 'status-success' : (pct >= 70 ? 'status-warning' : 'status-danger')}">${pct}%</span>
+                            </div>
+                            <form onsubmit="handleRecordSubmit(event, '${s.id}')" class="flex gap-2 mt-2">
+                                <input type="number" name="qty" class="form-input flex-1" placeholder="本班完成数量" min="0" required>
+                                <input type="text" name="note" class="form-input flex-1 hidden md:block" placeholder="备注">
+                                <button type="submit" class="btn btn-primary whitespace-nowrap"><i class="fas fa-save"></i> 提交</button>
+                            </form>
+                            ${recs.length ? `<div class="mt-2 text-xs text-gray-500">历史记录：${recs.map(r => `${r.date} +${r.qty}`).join('；')}</div>` : ''}
+                        </div>
+                    `;
+                }).join('');
+            }
+            renderMyStats();
+        }
+
+        function handleRecordSubmit(e, scheduleId) {
+            e.preventDefault();
+            const form = e.target;
+            const qty = parseInt(form.qty.value);
+            const note = form.note?.value || '';
+            appData.records.push({
+                id: 'rec_' + Date.now(),
+                scheduleId,
+                date: new Date().toISOString().split('T')[0],
+                qty,
+                note,
+                operator: currentUser.username,
+                createdAt: new Date().toISOString()
+            });
+            saveLocal();
+            form.reset();
+            renderRecordPage();
+            showToast('加工数量录入成功', 'success');
+        }
+
+        function renderMyStats() {
+            const records = appData.records.filter(r => r.operator === currentUser.username);
+            const totalQty = records.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+            const scheduleIds = [...new Set(records.map(r => r.scheduleId))];
+            let totalPlan = 0;
+            scheduleIds.forEach(sid => {
+                const s = appData.schedules.find(s => s.id === sid);
+                if (s) totalPlan += s.planQty;
+            });
+            document.getElementById('myStats').innerHTML = `
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="stat-card"><div class="stat-value">${records.length}</div><div class="stat-label">提交次数</div></div>
+                    <div class="stat-card"><div class="stat-value">${totalQty}</div><div class="stat-label">累计完成</div></div>
+                    <div class="stat-card"><div class="stat-value">${totalPlan ? Math.round(totalQty / totalPlan * 100) : 0}%</div><div class="stat-label">计划达成</div></div>
+                </div>
+            `;
+        }
+
+        // ================= 产能报表 =================
+        function renderReport() {
+            const date = document.getElementById('reportDate').value;
+            const shift = document.getElementById('reportShift').value;
+            let list = appData.schedules.filter(s => s.date === date);
+            if (shift) list = list.filter(s => s.shift === shift);
+            const container = document.getElementById('reportList');
+            if (!list.length) {
+                container.innerHTML = '<p class="text-gray-500 text-center py-4">该日期暂无排产</p>';
+                return;
+            }
+            container.innerHTML = list.map(s => {
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                const pct = Math.round((actual / s.planQty) * 100);
+                const standardQty = Math.round((s.hours || 0) * getUph(s.machineId));
+                const reachStandard = standardQty > 0 && actual >= standardQty;
+                return `
+                    <div class="border rounded-lg p-3">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <div class="font-semibold text-gray-800">${s.machineId} · ${s.operator}</div>
+                                <div class="text-sm text-gray-600">${s.productName || '-'} ${s.process || ''} · ${s.shift}</div>
+                            </div>
+                            <span class="status-badge ${reachStandard ? 'status-success' : (pct >= 100 ? 'status-info' : 'status-warning')}">${reachStandard ? '产能达标' : (pct >= 100 ? '计划完成' : '未达标')}</span>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm mt-3">
+                            <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">计划数量</div><div class="font-semibold">${s.planQty}</div></div>
+                            <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">实际完成</div><div class="font-semibold">${actual}</div></div>
+                            <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">标准产量</div><div class="font-semibold">${standardQty || '-'}</div></div>
+                            <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">完成率</div><div class="font-semibold">${pct}%</div></div>
+                        </div>
+                        <div class="progress-bar mt-2"><div class="progress-fill ${pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500')}" style="width:${Math.min(100, pct)}%"></div></div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ================= 账号管理 =================
+        function renderUsers() {
+            const tbody = document.getElementById('userTable');
+            tbody.innerHTML = appData.users.map(u => `
+                <tr>
+                    <td>${u.username}</td>
+                    <td>${roleText(u.role)}</td>
+                    <td>${new Date(u.createdAt).toLocaleString()}</td>
+                    <td>
+                        ${u.username !== '谭绍景' ? `
+                            <select onchange="changeUserRole('${u.username}', this.value)" class="form-input text-xs py-1 inline-block w-auto">
+                                <option value="operator" ${u.role === 'operator' ? 'selected' : ''}>操作工</option>
+                                <option value="manager" ${u.role === 'manager' ? 'selected' : ''}>负责人</option>
+                            </select>
+                            <button onclick="deleteUser('${u.username}')" class="text-red-500 text-xs ml-2 hover:underline">删除</button>
+                        ` : '<span class="text-gray-400">管理员</span>'}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function changeUserRole(username, role) {
+            const user = appData.users.find(u => u.username === username);
+            if (user) {
+                user.role = role;
+                saveLocal();
+                showToast('角色更新成功', 'success');
+                renderUsers();
+            }
+        }
+
+        function deleteUser(username) {
+            if (!confirm(`确定删除账号「${username}」？`)) return;
+            appData.users = appData.users.filter(u => u.username !== username);
+            saveLocal();
+            renderUsers();
+            showToast('账号已删除', 'success');
+        }
+
+        // ================= GitHub 同步 =================
+        function syncGhConfigToUI() {
+            const c = appData.githubConfig;
+            document.getElementById('ghOwner').value = c.owner || '';
+            document.getElementById('ghRepo').value = c.repo || '';
+            document.getElementById('ghBranch').value = c.branch || 'main';
+            document.getElementById('ghPath').value = c.path || 'data.json';
+            document.getElementById('ghToken').value = c.token || '';
+            document.getElementById('ghAutoSync').checked = c.autoSync || false;
+        }
+
+        function saveGhConfig() {
+            appData.githubConfig = {
+                owner: document.getElementById('ghOwner').value.trim(),
+                repo: document.getElementById('ghRepo').value.trim(),
+                branch: document.getElementById('ghBranch').value.trim() || 'main',
+                path: document.getElementById('ghPath').value.trim() || 'data.json',
+                token: document.getElementById('ghToken').value.trim(),
+                autoSync: document.getElementById('ghAutoSync').checked
+            };
+            saveLocal();
+            showToast('GitHub配置已保存', 'success');
+        }
+
+        async function testGitHub() {
+            const c = appData.githubConfig;
+            if (!c.token) { showToast('请先填写 Token', 'error'); return; }
+            showLoading('测试中...');
+            try {
+                const res = await fetch(`https://api.github.com/user`, {
+                    headers: { 'Authorization': `token ${c.token}`, 'Accept': 'application/vnd.github.v3+json' }
+                });
+                if (!res.ok) throw new Error(await res.text());
+                const user = await res.json();
+                showToast(`连接成功：${user.login}`, 'success');
+            } catch (err) {
+                showToast('连接失败：' + err.message, 'error');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function uploadToGitHub() {
+            const c = appData.githubConfig;
+            if (!c.token || !c.owner || !c.repo) { showToast('请完整配置 GitHub', 'error'); return; }
+            showLoading('上传中...');
+            try {
+                const content = btoa(unescape(encodeURIComponent(JSON.stringify(appData, null, 2))));
+                const apiUrl = `https://api.github.com/repos/${c.owner}/${c.repo}/contents/${c.path}`;
+                let sha = null;
+                try {
+                    const getRes = await fetch(`${apiUrl}?ref=${c.branch}`, {
+                        headers: { 'Authorization': `token ${c.token}`, 'Accept': 'application/vnd.github.v3+json' }
+                    });
+                    if (getRes.ok) { const data = await getRes.json(); sha = data.sha; }
+                } catch (e) {}
+                const body = { message: '更新 CNC 排产数据', content, branch: c.branch };
+                if (sha) body.sha = sha;
+                const res = await fetch(apiUrl, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `token ${c.token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body)
+                });
+                if (!res.ok) throw new Error(await res.text());
+                showToast('上传成功', 'success');
+                updateSyncStatus('已同步');
+            } catch (err) {
+                showToast('上传失败：' + err.message, 'error');
+                updateSyncStatus('同步失败');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function downloadFromGitHub() {
+            const c = appData.githubConfig;
+            if (!c.token || !c.owner || !c.repo) { showToast('请完整配置 GitHub', 'error'); return; }
+            showLoading('拉取中...');
+            try {
+                const res = await fetch(`https://api.github.com/repos/${c.owner}/${c.repo}/contents/${c.path}?ref=${c.branch}`, {
+                    headers: { 'Authorization': `token ${c.token}`, 'Accept': 'application/vnd.github.v3+json' }
+                });
+                if (!res.ok) throw new Error(await res.text());
+                const data = await res.json();
+                const content = decodeURIComponent(escape(atob(data.content)));
+                const parsed = JSON.parse(content);
+                appData = { ...appData, ...parsed };
+                if (!appData.users.find(u => u.username === '谭绍景')) {
+                    appData.users.unshift(defaultAdmin);
+                }
+                saveLocal();
+                renderHome();
+                showToast('拉取成功', 'success');
+                updateSyncStatus('已同步');
+            } catch (err) {
+                showToast('拉取失败：' + err.message, 'error');
+                updateSyncStatus('同步失败');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        let uploadTimer = null;
+        function debouncedUpload() {
+            clearTimeout(uploadTimer);
+            uploadTimer = setTimeout(uploadToGitHub, 3000);
+        }
+
+        function updateSyncStatus(text) {
+            const el = document.getElementById('syncStatus');
+            el.textContent = text;
+            el.classList.remove('hidden');
+        }
+
+        // ================= 工具函数 =================
+        function showToast(message, type = 'info') {
+            const colors = { success: '#16a34a', error: '#dc2626', info: '#2563eb', warning: '#d97706' };
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.style.background = colors[type] || colors.info;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function showLoading(text) {
+            document.getElementById('loadingText').textContent = text;
+            document.getElementById('loadingOverlay').classList.remove('hidden');
+            document.getElementById('loadingOverlay').classList.add('flex');
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').classList.add('hidden');
+            document.getElementById('loadingOverlay').classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
