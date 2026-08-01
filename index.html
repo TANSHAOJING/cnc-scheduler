@@ -7,6 +7,7 @@
     <title>CNC排产管理系统</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -169,6 +170,13 @@
         .stat-card { text-align: center; }
         .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
         .stat-label { font-size: 0.75rem; color: #6b7280; }
+        .chart-container { position: relative; height: 300px; width: 100%; }
+        .measure-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 0.75rem; margin-top: 0.5rem; }
+        .measure-row { display: flex; gap: 0.5rem; align-items: flex-start; padding: 0.25rem 0; font-size: 0.8rem; }
+        .measure-dim { flex: 1; color: #475569; }
+        .measure-inst { color: #6366f1; white-space: nowrap; }
+        .tab-btn { padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; cursor: pointer; border: 1px solid #e5e7eb; background: white; color: #6b7280; }
+        .tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
     </style>
 </head>
 <body>
@@ -177,47 +185,47 @@
         <div class="min-h-screen flex items-center justify-center p-4">
             <div class="w-full max-w-md">
                 <div class="card text-center mb-6">
-                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-industry text-2xl text-blue-600"></i>
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-industry text-2xl text-blue-600"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-gray-800">CNC排产管理系统</h1>
+                    <p class="text-gray-500 text-sm mt-1">生产排产 · 人员调配 · 产能统计</p>
                 </div>
-                <h1 class="text-2xl font-bold text-gray-800">CNC排产管理系统</h1>
-                <p class="text-gray-500 text-sm mt-1">生产排产 · 人员调配 · 产能统计</p>
-            </div>
-            <div class="card">
-                <div class="flex mb-4 bg-gray-100 rounded-lg p-1">
-                    <button id="loginTab" class="flex-1 py-2 rounded-md text-sm font-medium bg-white shadow-sm" onclick="switchAuthTab('login')">登录</button>
-                    <button id="registerTab" class="flex-1 py-2 rounded-md text-sm font-medium text-gray-500" onclick="switchAuthTab('register')">注册</button>
+                <div class="card">
+                    <div class="flex mb-4 bg-gray-100 rounded-lg p-1">
+                        <button id="loginTab" class="flex-1 py-2 rounded-md text-sm font-medium bg-white shadow-sm" onclick="switchAuthTab('login')">登录</button>
+                        <button id="registerTab" class="flex-1 py-2 rounded-md text-sm font-medium text-gray-500" onclick="switchAuthTab('register')">注册</button>
+                    </div>
+                    <form id="loginForm" onsubmit="handleLogin(event)">
+                        <div class="mb-4">
+                            <label class="form-label">账号</label>
+                            <input type="text" id="loginUsername" class="form-input" placeholder="请输入账号" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="form-label">密码</label>
+                            <input type="password" id="loginPassword" class="form-input" placeholder="请输入密码" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">登录</button>
+                    </form>
+                    <form id="registerForm" class="hidden" onsubmit="handleRegister(event)">
+                        <div class="mb-4">
+                            <label class="form-label">账号</label>
+                            <input type="text" id="regUsername" class="form-input" placeholder="设置账号" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">密码</label>
+                            <input type="password" id="regPassword" class="form-input" placeholder="设置密码" required>
+                        </div>
+                        <div class="mb-6">
+                            <label class="form-label">确认密码</label>
+                            <input type="password" id="regPassword2" class="form-input" placeholder="再次输入密码" required>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">注册</button>
+                    </form>
                 </div>
-                <form id="loginForm" onsubmit="handleLogin(event)">
-                    <div class="mb-4">
-                        <label class="form-label">账号</label>
-                        <input type="text" id="loginUsername" class="form-input" placeholder="请输入账号" required>
-                    </div>
-                    <div class="mb-6">
-                        <label class="form-label">密码</label>
-                        <input type="password" id="loginPassword" class="form-input" placeholder="请输入密码" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">登录</button>
-                </form>
-                <form id="registerForm" class="hidden" onsubmit="handleRegister(event)">
-                    <div class="mb-4">
-                        <label class="form-label">账号</label>
-                        <input type="text" id="regUsername" class="form-input" placeholder="设置账号" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label">密码</label>
-                        <input type="password" id="regPassword" class="form-input" placeholder="设置密码" required>
-                    </div>
-                    <div class="mb-6">
-                        <label class="form-label">确认密码</label>
-                        <input type="password" id="regPassword2" class="form-input" placeholder="再次输入密码" required>
-                    </div>
-                    <button type="submit" class="btn btn-success btn-block">注册</button>
-                </form>
             </div>
         </div>
     </div>
-</div>
 
     <!-- 主应用 -->
     <div id="appPage" class="page" style="display:none;">
@@ -278,6 +286,16 @@
                             <div class="stat-label">整体完成率</div>
                         </div>
                     </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="card stat-card">
+                            <div class="stat-value" id="statEmployees">0</div>
+                            <div class="stat-label">在册员工</div>
+                        </div>
+                        <div class="card stat-card">
+                            <div class="stat-value" id="statUtilization">0%</div>
+                            <div class="stat-label">机台利用率</div>
+                        </div>
+                    </div>
                     <div class="card">
                         <h3 class="font-bold text-gray-800 mb-3">快捷入口</h3>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="quickActions"></div>
@@ -285,6 +303,10 @@
                     <div class="card">
                         <h3 class="font-bold text-gray-800 mb-3">今日产能概览</h3>
                         <div id="todayOverview" class="space-y-3"></div>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-3">今日班次产能对比</h3>
+                        <div class="chart-container"><canvas id="homeShiftChart"></canvas></div>
                     </div>
                 </div>
 
@@ -301,12 +323,12 @@
                             <div>
                                 <label class="form-label">2. 导入产品工时表 (各款产品工序工时表.xlsx)</label>
                                 <input type="file" id="productFile" accept=".xlsx,.xls" class="form-input" onchange="importProducts(this)">
-                                <p class="text-xs text-gray-500 mt-1">需包含列：产品名称、工序、加工区域、UPH</p>
+                                <p class="text-xs text-gray-500 mt-1">需包含列：产品名称、工序、加工区域、UPH、测量尺寸、测量仪器</p>
                             </div>
                             <div>
                                 <label class="form-label">3. 导入员工信息表 (员工信息.xlsx)</label>
                                 <input type="file" id="employeeFile" accept=".xlsx,.xls" class="form-input" onchange="importEmployees(this)">
-                                <p class="text-xs text-gray-500 mt-1">需包含列：编号、姓名、职位/岗位、备注/负责事项</p>
+                                <p class="text-xs text-gray-500 mt-1">支持白班/夜班双列格式，自动识别班次</p>
                             </div>
                             <div class="flex gap-2 flex-wrap">
                                 <button onclick="downloadTemplate('machine')" class="btn btn-secondary flex-1"><i class="fas fa-download"></i> 机台表模板</button>
@@ -334,7 +356,7 @@
                         </div>
                         <div class="table-container">
                             <table>
-                                <thead><tr><th>产品</th><th>工序</th><th>加工区域</th><th>UPH</th></tr></thead>
+                                <thead><tr><th>产品</th><th>工序</th><th>加工区域</th><th>UPH</th><th>测量尺寸</th></tr></thead>
                                 <tbody id="productTable"></tbody>
                             </table>
                         </div>
@@ -342,11 +364,18 @@
                     <div class="card">
                         <div class="flex items-center justify-between mb-3">
                             <h3 class="font-bold text-gray-800">员工信息</h3>
-                            <span class="text-sm text-gray-500" id="employeeCount">0 人</span>
+                            <div class="flex gap-2 items-center">
+                                <select id="empFilterShift" class="form-input text-sm py-1" onchange="renderData()">
+                                    <option value="">全部班次</option>
+                                    <option value="白班">白班</option>
+                                    <option value="夜班">夜班</option>
+                                </select>
+                                <span class="text-sm text-gray-500" id="employeeCount">0 人</span>
+                            </div>
                         </div>
                         <div class="table-container">
                             <table>
-                                <thead><tr><th>编号</th><th>姓名</th><th>职位/岗位</th><th>备注</th></tr></thead>
+                                <thead><tr><th>编号</th><th>姓名</th><th>班次</th><th>职位/岗位</th><th>备注</th></tr></thead>
                                 <tbody id="employeeTable"></tbody>
                             </table>
                         </div>
@@ -359,34 +388,36 @@
                         <h3 class="font-bold text-gray-800 mb-4">新增排产</h3>
                         <form onsubmit="handleAddSchedule(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="form-label">日期</label>
-                                <input type="date" id="schDate" class="form-input" required>
-                            </div>
-                            <div>
-                                <label class="form-label">机台</label>
-                                <select id="schMachine" class="form-input" required onchange="onMachineChange()">
-                                    <option value="">选择机台</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="form-label">操作工</label>
-                                <select id="schOperator" class="form-input" required></select>
+                                <label class="form-label">排产日期</label>
+                                <input type="date" id="schDate" class="form-input" required onchange="onDateChange()">
                             </div>
                             <div>
                                 <label class="form-label">班次</label>
-                                <select id="schShift" class="form-input">
+                                <select id="schShift" class="form-input" required onchange="onShiftChange()">
                                     <option value="白班">白班</option>
                                     <option value="夜班">夜班</option>
                                 </select>
                             </div>
                             <div>
+                                <label class="form-label">操作工</label>
+                                <select id="schOperator" class="form-input" required>
+                                    <option value="">请先选择班次</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="form-label">机台</label>
+                                <select id="schMachine" class="form-input" required onchange="onMachineChange()">
+                                    <option value="">请先选择日期</option>
+                                </select>
+                            </div>
+                            <div>
                                 <label class="form-label">工作时长(小时)</label>
-                                <input type="number" id="schHours" class="form-input" value="8" min="1" max="24" step="0.5" required onchange="updatePlanQty()">
+                                <input type="number" id="schHours" class="form-input" value="10" min="1" max="24" step="0.5" required oninput="updatePlanQty()">
                             </div>
                             <div>
                                 <label class="form-label">计划数量</label>
-                                <input type="number" id="schPlanQty" class="form-input" min="1" required>
-                                <p class="text-xs text-gray-500 mt-1" id="planQtyHint">根据UPH自动计算</p>
+                                <input type="number" id="schPlanQty" class="form-input" min="0" required>
+                                <p class="text-xs text-blue-600 mt-1" id="planQtyHint">根据UPH自动计算</p>
                             </div>
                             <div class="md:col-span-2">
                                 <label class="form-label">备注</label>
@@ -436,6 +467,37 @@
                             </div>
                         </div>
                         <div id="reportList" class="space-y-3"></div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-3">产能图表分析</h3>
+                        <div class="flex gap-2 mb-4 flex-wrap">
+                            <button class="tab-btn active" onclick="switchChartTab('product', this)">按产品工序</button>
+                            <button class="tab-btn" onclick="switchChartTab('operator', this)">按人员</button>
+                            <button class="tab-btn" onclick="switchChartTab('workshop', this)">按车间</button>
+                            <button class="tab-btn" onclick="switchChartTab('shift', this)">班次对比</button>
+                            <button class="tab-btn" onclick="switchChartTab('trend', this)">达成趋势</button>
+                        </div>
+                        <div id="chartAreaProduct" class="chart-container"><canvas id="chartProduct"></canvas></div>
+                        <div id="chartAreaOperator" class="chart-container hidden"><canvas id="chartOperator"></canvas></div>
+                        <div id="chartAreaWorkshop" class="chart-container hidden"><canvas id="chartWorkshop"></canvas></div>
+                        <div id="chartAreaShift" class="chart-container hidden"><canvas id="chartShift"></canvas></div>
+                        <div id="chartAreaTrend" class="chart-container hidden"><canvas id="chartTrend"></canvas></div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-3">瓶颈分析</h3>
+                        <div id="bottleneckAnalysis"></div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-3">人员绩效排行</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead><tr><th>排名</th><th>操作工</th><th>计划数量</th><th>实际完成</th><th>达标产量</th><th>达成率</th><th>状态</th></tr></thead>
+                                <tbody id="operatorRankTable"></tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -535,9 +597,10 @@
                 path: 'data.json',
                 autoSync: false
             },
-            version: 1
+            version: 2
         };
         const GH_TOKEN_KEY = 'cnc_scheduler_gh_token';
+        let reportCharts = {};
 
         const menuConfig = {
             admin: [
@@ -590,7 +653,6 @@
                     if (!appData.users.find(u => u.username === '谭绍景')) {
                         appData.users.unshift(defaultAdmin);
                     }
-                    // 迁移：旧版本可能把 token 存在 appData.githubConfig 里
                     if (appData.githubConfig && appData.githubConfig.token) {
                         localStorage.setItem(GH_TOKEN_KEY, appData.githubConfig.token);
                         delete appData.githubConfig.token;
@@ -656,12 +718,7 @@
                 showToast('该账号已存在', 'error');
                 return;
             }
-            appData.users.push({
-                username,
-                password,
-                role: 'operator',
-                createdAt: new Date().toISOString()
-            });
+            appData.users.push({ username, password, role: 'operator', createdAt: new Date().toISOString() });
             saveLocal();
             showToast('注册成功，请登录', 'success');
             switchAuthTab('login');
@@ -685,8 +742,8 @@
             document.getElementById('appPage').style.display = 'block';
             document.getElementById('loginPage').classList.remove('active');
             document.getElementById('appPage').classList.add('active');
-            document.getElementById('sidebarUser').textContent = `${currentUser.username} · ${roleText(currentUser.role)}`;
-            document.getElementById('headerUsername').textContent = `${currentUser.username} (${roleText(currentUser.role)})`;
+            document.getElementById('sidebarUser').textContent = currentUser.username + ' · ' + roleText(currentUser.role);
+            document.getElementById('headerUsername').textContent = currentUser.username + ' (' + roleText(currentUser.role) + ')';
             document.getElementById('userBadge').classList.remove('hidden');
             renderNav();
             syncGhConfigToUI();
@@ -746,6 +803,12 @@
             document.getElementById('statProducts').textContent = appData.products.length;
             document.getElementById('statSchedules').textContent = todaySchedules.length;
             document.getElementById('statCompletion').textContent = totalPlan ? Math.round(totalActual / totalPlan * 100) + '%' : '0%';
+            document.getElementById('statEmployees').textContent = appData.employees.length;
+
+            const usedMachines = new Set(todaySchedules.map(s => s.machineId));
+            const totalMachines = appData.machines.length;
+            const utilizationRate = totalMachines ? Math.round(usedMachines.size / totalMachines * 100) : 0;
+            document.getElementById('statUtilization').textContent = utilizationRate + '%';
 
             const role = currentUser.role;
             const quickActions = document.getElementById('quickActions');
@@ -780,42 +843,82 @@
             const overview = document.getElementById('todayOverview');
             if (!todaySchedules.length) {
                 overview.innerHTML = '<p class="text-gray-500 text-center py-4">今日暂无排产</p>';
-                return;
-            }
-            overview.innerHTML = todaySchedules.map(s => {
-                const recs = appData.records.filter(r => r.scheduleId === s.id && r.date === today);
-                const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
-                const pct = Math.min(100, Math.round((actual / s.planQty) * 100));
-                const color = pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500');
-                return `
-                    <div class="border rounded-lg p-3">
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <div class="font-semibold text-gray-800">${s.machineId} · ${s.productName || '未指定产品'}</div>
-                                <div class="text-xs text-gray-500">${s.operator} · ${s.shift} · 计划 ${s.planQty} 件</div>
+            } else {
+                overview.innerHTML = todaySchedules.map(s => {
+                    const recs = appData.records.filter(r => r.scheduleId === s.id && r.date === today);
+                    const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                    const pct = Math.min(100, Math.round((actual / (s.planQty || 1)) * 100));
+                    const color = pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500');
+                    return `
+                        <div class="border rounded-lg p-3">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <div class="font-semibold text-gray-800">${s.machineId} · ${s.productName || '未指定产品'}</div>
+                                    <div class="text-xs text-gray-500">${s.operator} · ${s.shift} · 计划 ${s.planQty} 件</div>
+                                </div>
+                                <span class="status-badge ${pct >= 100 ? 'status-success' : (pct >= 70 ? 'status-warning' : 'status-danger')}">${actual}/${s.planQty}</span>
                             </div>
-                            <span class="status-badge ${pct >= 100 ? 'status-success' : (pct >= 70 ? 'status-warning' : 'status-danger')}">${actual}/${s.planQty}</span>
+                            <div class="progress-bar"><div class="progress-fill ${color}" style="width:${pct}%"></div></div>
                         </div>
-                        <div class="progress-bar"><div class="progress-fill ${color}" style="width:${pct}%"></div></div>
-                    </div>
-                `;
-            }).join('');
+                    `;
+                }).join('');
+            }
+
+            // 班次对比图
+            renderHomeShiftChart(todaySchedules);
+        }
+
+        function renderHomeShiftChart(todaySchedules) {
+            const ctx = document.getElementById('homeShiftChart');
+            if (!ctx) return;
+            const dayShift = todaySchedules.filter(s => s.shift === '白班');
+            const nightShift = todaySchedules.filter(s => s.shift === '夜班');
+            const dayPlan = dayShift.reduce((a, s) => a + (s.planQty || 0), 0);
+            const dayActual = dayShift.reduce((a, s) => {
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                return a + recs.reduce((b, r) => b + (parseFloat(r.qty) || 0), 0);
+            }, 0);
+            const nightPlan = nightShift.reduce((a, s) => a + (s.planQty || 0), 0);
+            const nightActual = nightShift.reduce((a, s) => {
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                return a + recs.reduce((b, r) => b + (parseFloat(r.qty) || 0), 0);
+            }, 0);
+            if (reportCharts.homeShift) reportCharts.homeShift.destroy();
+            reportCharts.homeShift = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['白班', '夜班'],
+                    datasets: [
+                        { label: '计划数量', data: [dayPlan, nightPlan], backgroundColor: 'rgba(37,99,235,0.6)' },
+                        { label: '实际完成', data: [dayActual, nightActual], backgroundColor: 'rgba(22,163,74,0.6)' }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' } } }
+            });
         }
 
         // ================= 基础数据 =================
         function renderData() {
-            document.getElementById('machineCount').textContent = `${appData.machines.length} 台`;
-            document.getElementById('productCount').textContent = `${appData.products.length} 条`;
-            document.getElementById('employeeCount').textContent = `${appData.employees.length} 人`;
+            document.getElementById('machineCount').textContent = appData.machines.length + ' 台';
+            document.getElementById('productCount').textContent = appData.products.length + ' 条';
+
+            const empFilter = document.getElementById('empFilterShift')?.value || '';
+            let emps = appData.employees;
+            if (empFilter) emps = emps.filter(e => e.shift === empFilter);
+            document.getElementById('employeeCount').textContent = emps.length + ' 人';
+
             document.getElementById('machineTable').innerHTML = appData.machines.map(m => `
                 <tr><td>${m.id}</td><td>${m.workshop}</td><td>${m.productName || '-'}</td><td>${m.process || '-'}</td></tr>
             `).join('') || '<tr><td colspan="4" class="text-center text-gray-500">暂无数据</td></tr>';
-            document.getElementById('productTable').innerHTML = appData.products.map(p => `
-                <tr><td>${p.name}</td><td>${p.process}</td><td>${p.area}</td><td>${p.uph}</td></tr>
-            `).join('') || '<tr><td colspan="4" class="text-center text-gray-500">暂无数据</td></tr>';
-            document.getElementById('employeeTable').innerHTML = appData.employees.map(e => `
-                <tr><td>${e.id}</td><td>${e.name}</td><td>${e.position}</td><td>${(e.remark || '').replace(/\\n/g, '<br>')}</td></tr>
-            `).join('') || '<tr><td colspan="4" class="text-center text-gray-500">暂无数据</td></tr>';
+
+            document.getElementById('productTable').innerHTML = appData.products.map(p => {
+                const measureStr = (p.measurements || []).filter(m => m.dimension).map(m => m.dimension).join('；');
+                return `<tr><td>${p.name}</td><td>${p.process}</td><td>${p.area || '-'}</td><td>${p.uph}</td><td style="white-space:normal;max-width:300px;">${measureStr || '-'}</td></tr>`;
+            }).join('') || '<tr><td colspan="5" class="text-center text-gray-500">暂无数据</td></tr>';
+
+            document.getElementById('employeeTable').innerHTML = emps.map(e => `
+                <tr><td>${e.id}</td><td>${e.name}</td><td><span class="status-badge ${e.shift === '白班' ? 'status-info' : 'status-warning'}">${e.shift || '-'}</span></td><td>${e.position || '-'}</td><td style="white-space:normal;">${(e.remark || '').replace(/\\n/g, '<br>')}</td></tr>
+            `).join('') || '<tr><td colspan="5" class="text-center text-gray-500">暂无数据</td></tr>';
         }
 
         function importMachines(input) {
@@ -830,16 +933,8 @@
                     const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
                     if (json.length < 2) { showToast('文件数据为空', 'error'); return; }
                     const headers = json[0].map(h => String(h).trim());
-                    const idx = {
-                        id: headers.indexOf('机台号'),
-                        workshop: headers.indexOf('所属车间'),
-                        productName: headers.indexOf('产品名称'),
-                        process: headers.indexOf('工序')
-                    };
-                    if (idx.id === -1 || idx.workshop === -1) {
-                        showToast('缺少必要列：机台号、所属车间', 'error');
-                        return;
-                    }
+                    const idx = { id: headers.indexOf('机台号'), workshop: headers.indexOf('所属车间'), productName: headers.indexOf('产品名称'), process: headers.indexOf('工序') };
+                    if (idx.id === -1 || idx.workshop === -1) { showToast('缺少必要列：机台号、所属车间', 'error'); return; }
                     appData.machines = [];
                     for (let i = 1; i < json.length; i++) {
                         const row = json[i];
@@ -847,16 +942,13 @@
                         appData.machines.push({
                             id: String(row[idx.id]).trim(),
                             workshop: String(row[idx.workshop] || '').trim(),
-                            productName: row[idx.productName] ? String(row[idx.productName]).trim() : '',
-                            process: row[idx.process] ? String(row[idx.process]).trim() : ''
+                            productName: row[idx.productName] != null ? String(row[idx.productName]).trim() : '',
+                            process: row[idx.process] != null ? String(row[idx.process]).trim() : ''
                         });
                     }
-                    saveLocal();
-                    renderData();
-                    showToast(`成功导入 ${appData.machines.length} 条机台数据`, 'success');
-                } catch (err) {
-                    showToast('导入失败：' + err.message, 'error');
-                }
+                    saveLocal(); renderData();
+                    showToast('成功导入 ' + appData.machines.length + ' 条机台数据', 'success');
+                } catch (err) { showToast('导入失败：' + err.message, 'error'); }
             };
             reader.readAsArrayBuffer(file);
             input.value = '';
@@ -873,34 +965,41 @@
                     const sheet = workbook.Sheets[workbook.SheetNames[0]];
                     const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
                     if (json.length < 2) { showToast('文件数据为空', 'error'); return; }
-                    const headers = json[0].map(h => String(h).trim());
-                    const idx = {
-                        name: headers.indexOf('产品名称'),
-                        process: headers.indexOf('工序'),
-                        area: headers.indexOf('加工区域'),
-                        uph: headers.indexOf('UPH')
-                    };
-                    if (idx.name === -1 || idx.process === -1 || idx.uph === -1) {
-                        showToast('缺少必要列：产品名称、工序、UPH', 'error');
-                        return;
-                    }
+                    const headers = json[0].map(h => String(h || '').trim());
+                    const idx = { name: headers.indexOf('产品名称'), process: headers.indexOf('工序'), area: headers.indexOf('加工区域'), uph: headers.indexOf('UPH') };
+                    if (idx.name === -1 || idx.process === -1 || idx.uph === -1) { showToast('缺少必要列：产品名称、工序、UPH', 'error'); return; }
+
+                    // 查找所有测量尺寸/测量仪器列对
+                    const dimIndices = [];
+                    const instIndices = [];
+                    headers.forEach((h, i) => {
+                        if (h.includes('测量尺寸')) dimIndices.push(i);
+                        if (h.includes('测量仪器')) instIndices.push(i);
+                    });
+
                     appData.products = [];
                     for (let i = 1; i < json.length; i++) {
                         const row = json[i];
                         if (!row[idx.name] || !row[idx.process]) continue;
+                        const measurements = [];
+                        for (let j = 0; j < dimIndices.length; j++) {
+                            const dim = row[dimIndices[j]];
+                            const inst = instIndices[j] !== undefined ? row[instIndices[j]] : '';
+                            if (dim != null && String(dim).trim()) {
+                                measurements.push({ dimension: String(dim).trim(), instrument: inst != null ? String(inst).trim() : '' });
+                            }
+                        }
                         appData.products.push({
                             name: String(row[idx.name]).trim(),
                             process: String(row[idx.process]).trim(),
-                            area: row[idx.area] ? String(row[idx.area]).trim() : '',
-                            uph: parseFloat(row[idx.uph]) || 0
+                            area: row[idx.area] != null ? String(row[idx.area]).trim() : '',
+                            uph: parseFloat(row[idx.uph]) || 0,
+                            measurements: measurements
                         });
                     }
-                    saveLocal();
-                    renderData();
-                    showToast(`成功导入 ${appData.products.length} 条产品工时数据`, 'success');
-                } catch (err) {
-                    showToast('导入失败：' + err.message, 'error');
-                }
+                    saveLocal(); renderData();
+                    showToast('成功导入 ' + appData.products.length + ' 条产品工时数据（含测量尺寸）', 'success');
+                } catch (err) { showToast('导入失败：' + err.message, 'error'); }
             };
             reader.readAsArrayBuffer(file);
             input.value = '';
@@ -917,34 +1016,70 @@
                     const sheet = workbook.Sheets[workbook.SheetNames[0]];
                     const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
                     if (json.length < 2) { showToast('文件数据为空', 'error'); return; }
-                    const headers = json[0].map(h => String(h).trim());
-                    const idx = {
-                        id: headers.indexOf('编号'),
-                        name: headers.indexOf('姓名'),
-                        position: headers.indexOf('职位/岗位'),
-                        remark: headers.indexOf('备注/负责事项')
-                    };
-                    if (idx.name === -1) {
-                        showToast('缺少必要列：姓名', 'error');
-                        return;
-                    }
+
+                    // 检测白班/夜班双列格式
+                    const row0 = json[0].map(h => String(h || '').trim());
+                    const dayShiftCol = row0.indexOf('白班');
+                    const nightShiftCol = row0.indexOf('夜班');
+
                     appData.employees = [];
-                    for (let i = 1; i < json.length; i++) {
-                        const row = json[i];
-                        if (!row[idx.name]) continue;
-                        appData.employees.push({
-                            id: row[idx.id] != null ? String(row[idx.id]).trim() : String(i),
-                            name: String(row[idx.name]).trim(),
-                            position: idx.position !== -1 && row[idx.position] != null ? String(row[idx.position]).trim() : '',
-                            remark: idx.remark !== -1 && row[idx.remark] != null ? String(row[idx.remark]).trim() : ''
-                        });
+
+                    if (dayShiftCol !== -1 && nightShiftCol !== -1) {
+                        // 双列格式：白班在 dayShiftCol~nightShiftCol-1，夜班在 nightShiftCol~
+                        // 第1行是子表头（编号、姓名、职位/岗位、备注/负责事项）
+                        const dayCols = nightShiftCol - dayShiftCol; // 白班占的列数
+                        const dataStartRow = 1; // 第1行是子表头
+
+                        // 白班数据
+                        for (let i = dataStartRow; i < json.length; i++) {
+                            const row = json[i];
+                            if (!row) continue;
+                            const nameIdx = dayShiftCol + 1;
+                            const name = row[nameIdx];
+                            if (!name || !String(name).trim()) continue;
+                            appData.employees.push({
+                                id: row[dayShiftCol] != null ? String(row[dayShiftCol]).trim() : String(appData.employees.length + 1),
+                                name: String(name).trim(),
+                                shift: '白班',
+                                position: row[dayShiftCol + 2] != null ? String(row[dayShiftCol + 2]).trim() : '',
+                                remark: row[dayShiftCol + 3] != null ? String(row[dayShiftCol + 3]).trim() : ''
+                            });
+                        }
+
+                        // 夜班数据
+                        for (let i = dataStartRow; i < json.length; i++) {
+                            const row = json[i];
+                            if (!row) continue;
+                            const name = row[nightShiftCol + 1];
+                            if (!name || !String(name).trim()) continue;
+                            appData.employees.push({
+                                id: row[nightShiftCol] != null ? String(row[nightShiftCol]).trim() : String(appData.employees.length + 1),
+                                name: String(name).trim(),
+                                shift: '夜班',
+                                position: row[nightShiftCol + 2] != null ? String(row[nightShiftCol + 2]).trim() : '',
+                                remark: row[nightShiftCol + 3] != null ? String(row[nightShiftCol + 3]).trim() : ''
+                            });
+                        }
+                    } else {
+                        // 单列格式（兼容旧格式）
+                        const headers = json[0].map(h => String(h || '').trim());
+                        const idx = { id: headers.indexOf('编号'), name: headers.indexOf('姓名'), position: headers.indexOf('职位/岗位'), remark: headers.indexOf('备注/负责事项'), shift: headers.indexOf('班次') };
+                        if (idx.name === -1) { showToast('缺少必要列：姓名', 'error'); return; }
+                        for (let i = 1; i < json.length; i++) {
+                            const row = json[i];
+                            if (!row || !row[idx.name]) continue;
+                            appData.employees.push({
+                                id: row[idx.id] != null ? String(row[idx.id]).trim() : String(i),
+                                name: String(row[idx.name]).trim(),
+                                shift: idx.shift !== -1 && row[idx.shift] ? String(row[idx.shift]).trim() : '白班',
+                                position: idx.position !== -1 && row[idx.position] != null ? String(row[idx.position]).trim() : '',
+                                remark: idx.remark !== -1 && row[idx.remark] != null ? String(row[idx.remark]).trim() : ''
+                            });
+                        }
                     }
-                    saveLocal();
-                    renderData();
-                    showToast(`成功导入 ${appData.employees.length} 条员工信息`, 'success');
-                } catch (err) {
-                    showToast('导入失败：' + err.message, 'error');
-                }
+                    saveLocal(); renderData();
+                    showToast('成功导入 ' + appData.employees.length + ' 条员工信息（白班' + appData.employees.filter(e => e.shift === '白班').length + '人，夜班' + appData.employees.filter(e => e.shift === '夜班').length + '人）', 'success');
+                } catch (err) { showToast('导入失败：' + err.message, 'error'); }
             };
             reader.readAsArrayBuffer(file);
             input.value = '';
@@ -956,10 +1091,18 @@
                 ws = XLSX.utils.aoa_to_sheet([['机台号', '所属车间', '产品名称', '工序'], ['CNC1', '粗加车间', '示例产品', '一序']]);
                 filename = '机台工序表模板.xlsx';
             } else if (type === 'product') {
-                ws = XLSX.utils.aoa_to_sheet([['产品名称', '工序', '加工区域', 'UPH'], ['示例产品', '一序', '正面', '10']]);
+                ws = XLSX.utils.aoa_to_sheet([
+                    ['产品名称', '工序', '加工区域', 'UPH', '测量尺寸', '测量仪器', '测量尺寸', '测量仪器', '测量尺寸', '测量仪器'],
+                    ['示例产品', '一序', '正面', '10', '小孔：∮5.05~∮5.15', '通止规', '', '', '', '']
+                ]);
                 filename = '产品工时表模板.xlsx';
             } else {
-                ws = XLSX.utils.aoa_to_sheet([['编号', '姓名', '职位/岗位', '备注/负责事项'], [1, '张三', 'CNC设备操作员', '']]);
+                ws = XLSX.utils.aoa_to_sheet([
+                    ['白班', '', '', '', '夜班', '', '', ''],
+                    ['编号', '姓名', '职位/岗位', '备注/负责事项', '编号', '姓名', '职位/岗位', '备注/负责事项'],
+                    [1, '张三', 'CNC设备操作员', '', 50, '李四', '车床师傅', '']
+                ]);
+                ws['!merges'] = [{ s: { r: 0, c: 0 }, e: { r: 0, c: 3 } }, { s: { r: 0, c: 4 }, e: { r: 0, c: 7 } }];
                 filename = '员工信息表模板.xlsx';
             }
             wb = XLSX.utils.book_new();
@@ -969,17 +1112,41 @@
 
         // ================= 排产管理 =================
         function renderSchedulePage() {
-            const machineSelect = document.getElementById('schMachine');
-            const operatorSelect = document.getElementById('schOperator');
-            machineSelect.innerHTML = '<option value="">选择机台</option>' + appData.machines.map(m => `<option value="${m.id}" data-product="${m.productName || ''}" data-process="${m.process || ''}">${m.id} · ${m.workshop} · ${m.productName || '无产品'}</option>`).join('');
-            let operatorOptions;
-            if (appData.employees.length > 0) {
-                operatorOptions = appData.employees.map(e => `<option value="${e.name}">${e.name}${e.position ? ' · ' + e.position : ''}</option>`).join('');
-            } else {
-                operatorOptions = appData.users.filter(u => u.role === 'operator').map(u => `<option value="${u.username}">${u.username}</option>`).join('');
-            }
-            operatorSelect.innerHTML = '<option value="">选择操作工</option>' + operatorOptions;
+            onDateChange();
+            onShiftChange();
+            updatePlanQty();
             renderScheduleList();
+        }
+
+        function onShiftChange() {
+            const shift = document.getElementById('schShift').value;
+            const operatorSelect = document.getElementById('schOperator');
+            let operators;
+            if (appData.employees.length > 0) {
+                operators = appData.employees.filter(e => e.shift === shift);
+            } else {
+                operators = appData.users.filter(u => u.role === 'operator');
+            }
+            operatorSelect.innerHTML = '<option value="">选择操作工</option>' + operators.map(o =>
+                '<option value="' + o.name + '">' + o.name + (o.position ? ' · ' + o.position : '') + '</option>'
+            ).join('');
+        }
+
+        function onDateChange() {
+            const date = document.getElementById('schDate').value;
+            const machineSelect = document.getElementById('schMachine');
+            // 排除当天已排产的机台
+            const scheduledMachineIds = new Set(
+                appData.schedules.filter(s => s.date === date).map(s => s.machineId)
+            );
+            const availableMachines = appData.machines.filter(m => !scheduledMachineIds.has(m.id));
+            machineSelect.innerHTML = '<option value="">选择机台</option>' + availableMachines.map(m =>
+                '<option value="' + m.id + '" data-product="' + (m.productName || '') + '" data-process="' + (m.process || '') + '">' +
+                m.id + ' · ' + (m.workshop || '') + ' · ' + (m.productName || '无产品') + ' · ' + (m.process || '') + '</option>'
+            ).join('');
+            if (availableMachines.length === 0 && appData.machines.length > 0) {
+                machineSelect.innerHTML = '<option value="">该日期所有机台已排产</option>';
+            }
         }
 
         function onMachineChange() {
@@ -993,6 +1160,12 @@
             return product ? product.uph : 0;
         }
 
+        function getProductInfo(machineId) {
+            const machine = appData.machines.find(m => m.id === machineId);
+            if (!machine || !machine.productName || !machine.process) return null;
+            return appData.products.find(p => p.name === machine.productName && p.process === machine.process);
+        }
+
         function updatePlanQty() {
             const machineId = document.getElementById('schMachine').value;
             const hours = parseFloat(document.getElementById('schHours').value) || 0;
@@ -1001,12 +1174,11 @@
             const hint = document.getElementById('planQtyHint');
             if (uph > 0 && hours > 0) {
                 const suggested = Math.round(uph * hours);
-                if (!planInput.value) planInput.value = suggested;
-                hint.textContent = `建议计划数量：${suggested} 件（UPH ${uph} × ${hours}小时）`;
-                hint.classList.add('text-blue-600');
+                planInput.value = suggested;
+                hint.textContent = 'UPH ' + uph + ' × ' + hours + '小时 = ' + suggested + ' 件';
             } else {
+                planInput.value = '';
                 hint.textContent = uph ? '请输入工作时长' : '该机台未配置产品工序UPH';
-                hint.classList.remove('text-blue-600');
             }
         }
 
@@ -1014,12 +1186,15 @@
             e.preventDefault();
             const machineId = document.getElementById('schMachine').value;
             const machine = appData.machines.find(m => m.id === machineId);
+            const productInfo = getProductInfo(machineId);
             const schedule = {
                 id: 'sch_' + Date.now(),
                 date: document.getElementById('schDate').value,
                 machineId,
-                productName: machine?.productName || '',
-                process: machine?.process || '',
+                productName: machine ? (machine.productName || '') : '',
+                process: machine ? (machine.process || '') : '',
+                area: productInfo ? (productInfo.area || '') : '',
+                measurements: productInfo ? (productInfo.measurements || []) : [],
                 operator: document.getElementById('schOperator').value,
                 shift: document.getElementById('schShift').value,
                 hours: parseFloat(document.getElementById('schHours').value),
@@ -1031,10 +1206,14 @@
             appData.schedules.push(schedule);
             saveLocal();
             e.target.reset();
-            document.getElementById('schDate').value = new Date().toISOString().split('T')[0];
-            document.getElementById('schHours').value = 8;
-            document.getElementById('planQtyHint').textContent = '根据UPH自动计算';
-            renderSchedulePage();
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('schDate').value = today;
+            document.getElementById('schHours').value = 10;
+            document.getElementById('schShift').value = '白班';
+            onDateChange();
+            onShiftChange();
+            updatePlanQty();
+            renderScheduleList();
             showToast('排产添加成功', 'success');
         }
 
@@ -1051,7 +1230,7 @@
             container.innerHTML = list.map(s => {
                 const recs = appData.records.filter(r => r.scheduleId === s.id);
                 const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
-                const pct = Math.min(100, Math.round((actual / s.planQty) * 100));
+                const pct = Math.min(100, Math.round((actual / (s.planQty || 1)) * 100));
                 return `
                     <div class="border rounded-lg p-3">
                         <div class="flex justify-between items-start">
@@ -1066,8 +1245,8 @@
                             </div>
                         </div>
                         <div class="progress-bar mt-2"><div class="progress-fill ${pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500')}" style="width:${pct}%"></div></div>
-                        ${s.note ? `<div class="text-xs text-gray-500 mt-2">备注：${s.note}</div>` : ''}
-                        ${currentUser.role !== 'operator' ? `<button onclick="deleteSchedule('${s.id}')" class="text-xs text-red-500 mt-2 hover:underline">删除排产</button>` : ''}
+                        ${s.note ? '<div class="text-xs text-gray-500 mt-2">备注：' + s.note + '</div>' : ''}
+                        ${currentUser.role !== 'operator' ? '<button onclick="deleteSchedule(\'' + s.id + '\')" class="text-xs text-red-500 mt-2 hover:underline">删除排产</button>' : ''}
                     </div>
                 `;
             }).join('');
@@ -1101,7 +1280,24 @@
                 container.innerHTML = mySchedules.map(s => {
                     const recs = appData.records.filter(r => r.scheduleId === s.id);
                     const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
-                    const pct = Math.min(100, Math.round((actual / s.planQty) * 100));
+                    const pct = Math.min(100, Math.round((actual / (s.planQty || 1)) * 100));
+                    // 显示加工区域和测量尺寸
+                    let measureHtml = '';
+                    if (s.area) {
+                        measureHtml += '<div class="text-xs text-blue-600 mt-1"><i class="fas fa-map-marker-alt"></i> 加工区域：' + s.area + '</div>';
+                    }
+                    if (s.measurements && s.measurements.length > 0) {
+                        const validMeasures = s.measurements.filter(m => m.dimension);
+                        if (validMeasures.length > 0) {
+                            measureHtml += '<div class="measure-card"><div class="text-xs font-semibold text-gray-700 mb-1"><i class="fas fa-ruler"></i> 测量尺寸</div>';
+                            validMeasures.forEach(function(m) {
+                                measureHtml += '<div class="measure-row"><span class="measure-dim">' + m.dimension + '</span>';
+                                if (m.instrument) measureHtml += '<span class="measure-inst"><i class="fas fa-tools"></i> ' + m.instrument + '</span>';
+                                measureHtml += '</div>';
+                            });
+                            measureHtml += '</div>';
+                        }
+                    }
                     return `
                         <div class="border rounded-lg p-3">
                             <div class="flex justify-between items-start mb-2">
@@ -1109,6 +1305,7 @@
                                     <div class="font-semibold text-gray-800">${s.date} · ${s.machineId}</div>
                                     <div class="text-sm text-gray-600">${s.productName || '-'} ${s.process || ''}</div>
                                     <div class="text-xs text-gray-500">计划：${s.planQty} 件 · 已完成：${actual} 件</div>
+                                    ${measureHtml}
                                 </div>
                                 <span class="status-badge ${pct >= 100 ? 'status-success' : (pct >= 70 ? 'status-warning' : 'status-danger')}">${pct}%</span>
                             </div>
@@ -1117,7 +1314,7 @@
                                 <input type="text" name="note" class="form-input flex-1 hidden md:block" placeholder="备注">
                                 <button type="submit" class="btn btn-primary whitespace-nowrap"><i class="fas fa-save"></i> 提交</button>
                             </form>
-                            ${recs.length ? `<div class="mt-2 text-xs text-gray-500">历史记录：${recs.map(r => `${r.date} +${r.qty}`).join('；')}</div>` : ''}
+                            ${recs.length ? '<div class="mt-2 text-xs text-gray-500">历史记录：' + recs.map(r => r.date + ' +' + r.qty).join('；') + '</div>' : ''}
                         </div>
                     `;
                 }).join('');
@@ -1129,7 +1326,7 @@
             e.preventDefault();
             const form = e.target;
             const qty = parseInt(form.qty.value);
-            const note = form.note?.value || '';
+            const note = form.note ? form.note.value : '';
             appData.records.push({
                 id: 'rec_' + Date.now(),
                 scheduleId,
@@ -1172,31 +1369,275 @@
             const container = document.getElementById('reportList');
             if (!list.length) {
                 container.innerHTML = '<p class="text-gray-500 text-center py-4">该日期暂无排产</p>';
+            } else {
+                container.innerHTML = list.map(s => {
+                    const recs = appData.records.filter(r => r.scheduleId === s.id);
+                    const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                    const pct = Math.round((actual / (s.planQty || 1)) * 100);
+                    const standardQty = Math.round((s.hours || 0) * getUph(s.machineId));
+                    const reachStandard = standardQty > 0 && actual >= standardQty;
+                    return `
+                        <div class="border rounded-lg p-3">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <div class="font-semibold text-gray-800">${s.machineId} · ${s.operator}</div>
+                                    <div class="text-sm text-gray-600">${s.productName || '-'} ${s.process || ''} · ${s.shift}</div>
+                                </div>
+                                <span class="status-badge ${reachStandard ? 'status-success' : (pct >= 100 ? 'status-info' : 'status-warning')}">${reachStandard ? '产能达标' : (pct >= 100 ? '计划完成' : '未达标')}</span>
+                            </div>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm mt-3">
+                                <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">计划数量</div><div class="font-semibold">${s.planQty}</div></div>
+                                <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">实际完成</div><div class="font-semibold">${actual}</div></div>
+                                <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">标准产量</div><div class="font-semibold">${standardQty || '-'}</div></div>
+                                <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">完成率</div><div class="font-semibold">${pct}%</div></div>
+                            </div>
+                            <div class="progress-bar mt-2"><div class="progress-fill ${pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500')}" style="width:${Math.min(100, pct)}%"></div></div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            renderReportCharts(list);
+            renderBottleneckAnalysis(date, shift);
+            renderOperatorRank(date, shift);
+        }
+
+        function switchChartTab(tab, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            ['product', 'operator', 'workshop', 'shift', 'trend'].forEach(function(t) {
+                document.getElementById('chartArea' + t.charAt(0).toUpperCase() + t.slice(1)).classList.add('hidden');
+            });
+            document.getElementById('chartArea' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.remove('hidden');
+        }
+
+        function renderReportCharts(list) {
+            renderProductChart(list);
+            renderOperatorChart(list);
+            renderWorkshopChart(list);
+            renderShiftChart(list);
+            renderTrendChart();
+        }
+
+        function renderProductChart(list) {
+            const ctx = document.getElementById('chartProduct');
+            if (!ctx) return;
+            const productMap = {};
+            list.forEach(s => {
+                const key = (s.productName || '未知') + ' ' + (s.process || '');
+                if (!productMap[key]) productMap[key] = { plan: 0, actual: 0 };
+                productMap[key].plan += s.planQty || 0;
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                productMap[key].actual += recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+            });
+            const labels = Object.keys(productMap);
+            const planData = labels.map(k => productMap[k].plan);
+            const actualData = labels.map(k => productMap[k].actual);
+            if (reportCharts.product) reportCharts.product.destroy();
+            reportCharts.product = new Chart(ctx, {
+                type: 'bar',
+                data: { labels: labels, datasets: [
+                    { label: '计划数量', data: planData, backgroundColor: 'rgba(37,99,235,0.6)' },
+                    { label: '实际完成', data: actualData, backgroundColor: 'rgba(22,163,74,0.6)' }
+                ]},
+                options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+                    plugins: { legend: { position: 'top' } },
+                    scales: { x: { beginAtZero: true } }
+                }
+            });
+        }
+
+        function renderOperatorChart(list) {
+            const ctx = document.getElementById('chartOperator');
+            if (!ctx) return;
+            const opMap = {};
+            list.forEach(s => {
+                if (!opMap[s.operator]) opMap[s.operator] = { plan: 0, actual: 0, standard: 0 };
+                opMap[s.operator].plan += s.planQty || 0;
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                opMap[s.operator].actual += recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                opMap[s.operator].standard += Math.round((s.hours || 0) * getUph(s.machineId));
+            });
+            const labels = Object.keys(opMap);
+            if (reportCharts.operator) reportCharts.operator.destroy();
+            reportCharts.operator = new Chart(ctx, {
+                type: 'bar',
+                data: { labels: labels, datasets: [
+                    { label: '计划数量', data: labels.map(k => opMap[k].plan), backgroundColor: 'rgba(37,99,235,0.6)' },
+                    { label: '实际完成', data: labels.map(k => opMap[k].actual), backgroundColor: 'rgba(22,163,74,0.6)' },
+                    { label: '达标产量', data: labels.map(k => opMap[k].standard), backgroundColor: 'rgba(217,119,6,0.6)' }
+                ]},
+                options: { responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top' } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+        }
+
+        function renderWorkshopChart(list) {
+            const ctx = document.getElementById('chartWorkshop');
+            if (!ctx) return;
+            const wsMap = {};
+            list.forEach(s => {
+                const machine = appData.machines.find(m => m.id === s.machineId);
+                const ws = machine ? (machine.workshop || '未分类') : '未分类';
+                if (!wsMap[ws]) wsMap[ws] = { plan: 0, actual: 0 };
+                wsMap[ws].plan += s.planQty || 0;
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                wsMap[ws].actual += recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+            });
+            const labels = Object.keys(wsMap);
+            if (reportCharts.workshop) reportCharts.workshop.destroy();
+            reportCharts.workshop = new Chart(ctx, {
+                type: 'doughnut',
+                data: { labels: labels, datasets: [{
+                    label: '完成数量',
+                    data: labels.map(k => wsMap[k].actual),
+                    backgroundColor: ['rgba(37,99,235,0.7)', 'rgba(22,163,74,0.7)', 'rgba(217,119,6,0.7)', 'rgba(220,38,38,0.7)', 'rgba(99,102,241,0.7)', 'rgba(234,179,8,0.7)']
+                }]},
+                options: { responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'right' } }
+                }
+            });
+        }
+
+        function renderShiftChart(list) {
+            const ctx = document.getElementById('chartShift');
+            if (!ctx) return;
+            const dayList = list.filter(s => s.shift === '白班');
+            const nightList = list.filter(s => s.shift === '夜班');
+            const dayPlan = dayList.reduce((a, s) => a + (s.planQty || 0), 0);
+            const dayActual = dayList.reduce((a, s) => {
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                return a + recs.reduce((b, r) => b + (parseFloat(r.qty) || 0), 0);
+            }, 0);
+            const nightPlan = nightList.reduce((a, s) => a + (s.planQty || 0), 0);
+            const nightActual = nightList.reduce((a, s) => {
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                return a + recs.reduce((b, r) => b + (parseFloat(r.qty) || 0), 0);
+            }, 0);
+            if (reportCharts.shift) reportCharts.shift.destroy();
+            reportCharts.shift = new Chart(ctx, {
+                type: 'radar',
+                data: { labels: ['计划数量', '实际完成', '排产任务数', '平均完成率'],
+                    datasets: [
+                        { label: '白班', data: [dayPlan, dayActual, dayList.length, dayPlan ? Math.round(dayActual/dayPlan*100) : 0], borderColor: 'rgba(37,99,235,0.8)', backgroundColor: 'rgba(37,99,235,0.2)' },
+                        { label: '夜班', data: [nightPlan, nightActual, nightList.length, nightPlan ? Math.round(nightActual/nightPlan*100) : 0], borderColor: 'rgba(217,119,6,0.8)', backgroundColor: 'rgba(217,119,6,0.2)' }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top' } }
+                }
+            });
+        }
+
+        function renderTrendChart() {
+            const ctx = document.getElementById('chartTrend');
+            if (!ctx) return;
+            // 最近7天的达成趋势
+            const dates = [];
+            const planData = [];
+            const actualData = [];
+            for (let i = 6; i >= 0; i--) {
+                const d = new Date();
+                d.setDate(d.getDate() - i);
+                const dateStr = d.toISOString().split('T')[0];
+                dates.push(dateStr.slice(5));
+                const daySchedules = appData.schedules.filter(s => s.date === dateStr);
+                const plan = daySchedules.reduce((a, s) => a + (s.planQty || 0), 0);
+                const actual = daySchedules.reduce((a, s) => {
+                    const recs = appData.records.filter(r => r.scheduleId === s.id);
+                    return a + recs.reduce((b, r) => b + (parseFloat(r.qty) || 0), 0);
+                }, 0);
+                planData.push(plan);
+                actualData.push(actual);
+            }
+            if (reportCharts.trend) reportCharts.trend.destroy();
+            reportCharts.trend = new Chart(ctx, {
+                type: 'line',
+                data: { labels: dates, datasets: [
+                    { label: '计划数量', data: planData, borderColor: 'rgba(37,99,235,0.8)', backgroundColor: 'rgba(37,99,235,0.1)', fill: true, tension: 0.3 },
+                    { label: '实际完成', data: actualData, borderColor: 'rgba(22,163,74,0.8)', backgroundColor: 'rgba(22,163,74,0.1)', fill: true, tension: 0.3 }
+                ]},
+                options: { responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top' } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+        }
+
+        function renderBottleneckAnalysis(date, shift) {
+            const container = document.getElementById('bottleneckAnalysis');
+            let list = appData.schedules.filter(s => s.date === date);
+            if (shift) list = list.filter(s => s.shift === shift);
+            const productMap = {};
+            list.forEach(s => {
+                const key = (s.productName || '未知') + ' - ' + (s.process || '');
+                if (!productMap[key]) productMap[key] = { plan: 0, actual: 0, count: 0 };
+                productMap[key].plan += s.planQty || 0;
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                productMap[key].actual += recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                productMap[key].count++;
+            });
+            const entries = Object.entries(productMap).map(([key, v]) => ({
+                product: key, plan: v.plan, actual: v.actual,
+                rate: v.plan ? Math.round(v.actual / v.plan * 100) : 0
+            })).sort((a, b) => a.rate - b.rate);
+            if (!entries.length) {
+                container.innerHTML = '<p class="text-gray-500 text-center py-4">暂无数据</p>';
                 return;
             }
-            container.innerHTML = list.map(s => {
-                const recs = appData.records.filter(r => r.scheduleId === s.id);
-                const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
-                const pct = Math.round((actual / s.planQty) * 100);
-                const standardQty = Math.round((s.hours || 0) * getUph(s.machineId));
-                const reachStandard = standardQty > 0 && actual >= standardQty;
+            container.innerHTML = entries.map((e, i) => {
+                const isBottleneck = e.rate < 70;
+                const color = e.rate >= 100 ? 'text-green-600' : (e.rate >= 70 ? 'text-yellow-600' : 'text-red-600');
                 return `
-                    <div class="border rounded-lg p-3">
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <div class="font-semibold text-gray-800">${s.machineId} · ${s.operator}</div>
-                                <div class="text-sm text-gray-600">${s.productName || '-'} ${s.process || ''} · ${s.shift}</div>
-                            </div>
-                            <span class="status-badge ${reachStandard ? 'status-success' : (pct >= 100 ? 'status-info' : 'status-warning')}">${reachStandard ? '产能达标' : (pct >= 100 ? '计划完成' : '未达标')}</span>
+                    <div class="flex items-center justify-between py-2 border-b last:border-0">
+                        <div class="flex items-center gap-2">
+                            ${isBottleneck ? '<i class="fas fa-exclamation-triangle text-red-500"></i>' : '<i class="fas fa-check-circle text-green-500"></i>'}
+                            <span class="text-sm font-medium">${e.product}</span>
                         </div>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm mt-3">
-                            <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">计划数量</div><div class="font-semibold">${s.planQty}</div></div>
-                            <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">实际完成</div><div class="font-semibold">${actual}</div></div>
-                            <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">标准产量</div><div class="font-semibold">${standardQty || '-'}</div></div>
-                            <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">完成率</div><div class="font-semibold">${pct}%</div></div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs text-gray-500">${e.actual}/${e.plan}</span>
+                            <span class="font-bold ${color}">${e.rate}%</span>
                         </div>
-                        <div class="progress-bar mt-2"><div class="progress-fill ${pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500')}" style="width:${Math.min(100, pct)}%"></div></div>
                     </div>
+                `;
+            }).join('');
+        }
+
+        function renderOperatorRank(date, shift) {
+            const tbody = document.getElementById('operatorRankTable');
+            let list = appData.schedules.filter(s => s.date === date);
+            if (shift) list = list.filter(s => s.shift === shift);
+            const opMap = {};
+            list.forEach(s => {
+                if (!opMap[s.operator]) opMap[s.operator] = { plan: 0, actual: 0, standard: 0 };
+                opMap[s.operator].plan += s.planQty || 0;
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                opMap[s.operator].actual += recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                opMap[s.operator].standard += Math.round((s.hours || 0) * getUph(s.machineId));
+            });
+            const ranked = Object.entries(opMap).map(([name, v]) => ({
+                name, ...v, rate: v.plan ? Math.round(v.actual / v.plan * 100) : 0
+            })).sort((a, b) => b.actual - a.actual);
+            if (!ranked.length) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center text-gray-500">暂无数据</td></tr>';
+                return;
+            }
+            tbody.innerHTML = ranked.map((r, i) => {
+                const passRate = r.standard ? Math.round(r.actual / r.standard * 100) : 0;
+                const status = r.standard > 0 && r.actual >= r.standard ? '达标' : (passRate >= 80 ? '接近达标' : '未达标');
+                const statusClass = r.standard > 0 && r.actual >= r.standard ? 'status-success' : (passRate >= 80 ? 'status-warning' : 'status-danger');
+                const medal = i === 0 ? '<i class="fas fa-medal text-yellow-500"></i> ' : (i === 1 ? '<i class="fas fa-medal text-gray-400"></i> ' : (i === 2 ? '<i class="fas fa-medal text-orange-400"></i> ' : ''));
+                return `
+                    <tr>
+                        <td>${medal}${i + 1}</td>
+                        <td>${r.name}</td>
+                        <td>${r.plan}</td>
+                        <td>${r.actual}</td>
+                        <td>${r.standard || '-'}</td>
+                        <td>${r.rate}%</td>
+                        <td><span class="status-badge ${statusClass}">${status}</span></td>
+                    </tr>
                 `;
             }).join('');
         }
@@ -1233,7 +1674,7 @@
         }
 
         function deleteUser(username) {
-            if (!confirm(`确定删除账号「${username}」？`)) return;
+            if (!confirm('确定删除账号「' + username + '」？')) return;
             appData.users = appData.users.filter(u => u.username !== username);
             saveLocal();
             renderUsers();
@@ -1260,11 +1701,7 @@
                 path: document.getElementById('ghPath').value.trim() || 'data.json',
                 autoSync: document.getElementById('ghAutoSync').checked
             };
-            if (token) {
-                localStorage.setItem(GH_TOKEN_KEY, token);
-            } else {
-                localStorage.removeItem(GH_TOKEN_KEY);
-            }
+            if (token) { localStorage.setItem(GH_TOKEN_KEY, token); } else { localStorage.removeItem(GH_TOKEN_KEY); }
             saveLocal();
             showToast('GitHub配置已保存', 'success');
         }
@@ -1274,12 +1711,12 @@
             if (!token) { showToast('请先填写 Token', 'error'); return; }
             showLoading('测试中...');
             try {
-                const res = await fetch(`https://api.github.com/user`, {
-                    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+                const res = await fetch('https://api.github.com/user', {
+                    headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
                 });
                 if (!res.ok) throw new Error(await res.text());
                 const user = await res.json();
-                showToast(`连接成功：${user.login}`, 'success');
+                showToast('连接成功：' + user.login, 'success');
             } catch (err) {
                 showToast('连接失败：' + err.message, 'error');
             } finally {
@@ -1288,7 +1725,6 @@
         }
 
         function getSyncData() {
-            // 上传时移除所有敏感/本地信息
             const syncData = JSON.parse(JSON.stringify(appData));
             if (syncData.githubConfig) {
                 syncData.githubConfig = {
@@ -1310,19 +1746,19 @@
             try {
                 const syncData = getSyncData();
                 const content = btoa(unescape(encodeURIComponent(JSON.stringify(syncData, null, 2))));
-                const apiUrl = `https://api.github.com/repos/${c.owner}/${c.repo}/contents/${c.path}`;
+                const apiUrl = 'https://api.github.com/repos/' + c.owner + '/' + c.repo + '/contents/' + c.path;
                 let sha = null;
                 try {
-                    const getRes = await fetch(`${apiUrl}?ref=${c.branch}`, {
-                        headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+                    const getRes = await fetch(apiUrl + '?ref=' + c.branch, {
+                        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
                     });
                     if (getRes.ok) { const data = await getRes.json(); sha = data.sha; }
                 } catch (e) {}
-                const body = { message: '更新 CNC 排产数据', content, branch: c.branch };
+                const body = { message: '更新 CNC 排产数据', content: content, branch: c.branch };
                 if (sha) body.sha = sha;
                 const res = await fetch(apiUrl, {
                     method: 'PUT',
-                    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+                    headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
                     body: JSON.stringify(body)
                 });
                 if (!res.ok) throw new Error(await res.text());
@@ -1342,8 +1778,8 @@
             if (!token || !c.owner || !c.repo) { showToast('请完整配置 GitHub', 'error'); return; }
             showLoading('拉取中...');
             try {
-                const res = await fetch(`https://api.github.com/repos/${c.owner}/${c.repo}/contents/${c.path}?ref=${c.branch}`, {
-                    headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+                const res = await fetch('https://api.github.com/repos/' + c.owner + '/' + c.repo + '/contents/' + c.path + '?ref=' + c.branch, {
+                    headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
                 });
                 if (!res.ok) throw new Error(await res.text());
                 const data = await res.json();
@@ -1378,7 +1814,8 @@
         }
 
         // ================= 工具函数 =================
-        function showToast(message, type = 'info') {
+        function showToast(message, type) {
+            type = type || 'info';
             const colors = { success: '#16a34a', error: '#dc2626', info: '#2563eb', warning: '#d97706' };
             const toast = document.createElement('div');
             toast.className = 'toast';
