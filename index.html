@@ -339,25 +339,13 @@
                     </div>
                     <div class="card">
                         <div class="flex items-center justify-between mb-3">
-                            <h3 class="font-bold text-gray-800">机台列表</h3>
-                            <span class="text-sm text-gray-500" id="machineCount">0 台</span>
+                            <h3 class="font-bold text-gray-800">产品工序综合表</h3>
+                            <span class="text-sm text-gray-500" id="mergedCount">0 条</span>
                         </div>
                         <div class="table-container">
                             <table>
-                                <thead><tr><th>机台号</th><th>车间</th><th>产品</th><th>工序</th></tr></thead>
-                                <tbody id="machineTable"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="flex items-center justify-between mb-3">
-                            <h3 class="font-bold text-gray-800">产品工序UPH</h3>
-                            <span class="text-sm text-gray-500" id="productCount">0 条</span>
-                        </div>
-                        <div class="table-container">
-                            <table>
-                                <thead><tr><th>产品</th><th>工序</th><th>加工区域</th><th>UPH</th><th>测量尺寸</th></tr></thead>
-                                <tbody id="productTable"></tbody>
+                                <thead><tr><th>机台号</th><th>车间</th><th>产品名称</th><th>工序</th><th>加工区域</th><th>UPH</th><th>测量尺寸/仪器</th></tr></thead>
+                                <tbody id="mergedTable"></tbody>
                             </table>
                         </div>
                     </div>
@@ -442,6 +430,30 @@
 
                 <!-- 加工录入 -->
                 <div id="page-record" class="page">
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-3">筛选</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                            <div>
+                                <label class="form-label">日期</label>
+                                <input type="date" id="recordFilterDate" class="form-input text-sm py-2" onchange="renderRecordPage()">
+                            </div>
+                            <div>
+                                <label class="form-label">产品</label>
+                                <select id="recordFilterProduct" class="form-input text-sm py-2" onchange="renderRecordPage()">
+                                    <option value="">全部产品</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="form-label">车间</label>
+                                <select id="recordFilterWorkshop" class="form-input text-sm py-2" onchange="renderRecordPage()">
+                                    <option value="">全部车间</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button onclick="clearRecordFilter()" class="btn btn-secondary btn-block text-sm"><i class="fas fa-times"></i> 清除筛选</button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card">
                         <h3 class="font-bold text-gray-800 mb-4">加工数量录入</h3>
                         <div id="recordList" class="space-y-3"></div>
@@ -899,26 +911,56 @@
 
         // ================= 基础数据 =================
         function renderData() {
-            document.getElementById('machineCount').textContent = appData.machines.length + ' 台';
-            document.getElementById('productCount').textContent = appData.products.length + ' 条';
+            // 整合机台和产品数据为一个表格
+            const merged = [];
+            // 先按机台匹配产品信息
+            appData.machines.forEach(function(m) {
+                const product = appData.products.find(function(p) {
+                    return p.name === m.productName && p.process === m.process;
+                });
+                merged.push({
+                    machineId: m.id,
+                    workshop: m.workshop,
+                    productName: m.productName || '',
+                    process: m.process || '',
+                    area: product ? (product.area || '') : '',
+                    uph: product ? product.uph : '',
+                    measurements: product ? (product.measurements || []) : []
+                });
+            });
+            // 再加上没有机台匹配的产品工序
+            appData.products.forEach(function(p) {
+                const hasMachine = appData.machines.some(function(m) {
+                    return m.productName === p.name && m.process === p.process;
+                });
+                if (!hasMachine) {
+                    merged.push({
+                        machineId: '-',
+                        workshop: '-',
+                        productName: p.name,
+                        process: p.process,
+                        area: p.area || '',
+                        uph: p.uph,
+                        measurements: p.measurements || []
+                    });
+                }
+            });
+            document.getElementById('mergedCount').textContent = merged.length + ' 条';
+            document.getElementById('mergedTable').innerHTML = merged.map(function(r) {
+                var measureStr = (r.measurements || []).filter(function(m) { return m.dimension; }).map(function(m) {
+                    return m.dimension + (m.instrument ? '(' + m.instrument + ')' : '');
+                }).join('；');
+                return '<tr><td>' + (r.machineId || '-') + '</td><td>' + (r.workshop || '-') + '</td><td>' + (r.productName || '-') + '</td><td>' + (r.process || '-') + '</td><td>' + (r.area || '-') + '</td><td>' + (r.uph || '-') + '</td><td style="white-space:normal;max-width:350px;">' + (measureStr || '-') + '</td></tr>';
+            }).join('') || '<tr><td colspan="7" class="text-center text-gray-500">暂无数据</td></tr>';
 
-            const empFilter = document.getElementById('empFilterShift')?.value || '';
-            let emps = appData.employees;
-            if (empFilter) emps = emps.filter(e => e.shift === empFilter);
+            // 员工信息
+            var empFilter = document.getElementById('empFilterShift') ? document.getElementById('empFilterShift').value : '';
+            var emps = appData.employees;
+            if (empFilter) emps = emps.filter(function(e) { return e.shift === empFilter; });
             document.getElementById('employeeCount').textContent = emps.length + ' 人';
-
-            document.getElementById('machineTable').innerHTML = appData.machines.map(m => `
-                <tr><td>${m.id}</td><td>${m.workshop}</td><td>${m.productName || '-'}</td><td>${m.process || '-'}</td></tr>
-            `).join('') || '<tr><td colspan="4" class="text-center text-gray-500">暂无数据</td></tr>';
-
-            document.getElementById('productTable').innerHTML = appData.products.map(p => {
-                const measureStr = (p.measurements || []).filter(m => m.dimension).map(m => m.dimension).join('；');
-                return `<tr><td>${p.name}</td><td>${p.process}</td><td>${p.area || '-'}</td><td>${p.uph}</td><td style="white-space:normal;max-width:300px;">${measureStr || '-'}</td></tr>`;
+            document.getElementById('employeeTable').innerHTML = emps.map(function(e) {
+                return '<tr><td>' + e.id + '</td><td>' + e.name + '</td><td><span class="status-badge ' + (e.shift === '白班' ? 'status-info' : 'status-warning') + '">' + (e.shift || '-') + '</span></td><td>' + (e.position || '-') + '</td><td style="white-space:normal;">' + (e.remark || '').replace(/\n/g, '<br>') + '</td></tr>';
             }).join('') || '<tr><td colspan="5" class="text-center text-gray-500">暂无数据</td></tr>';
-
-            document.getElementById('employeeTable').innerHTML = emps.map(e => `
-                <tr><td>${e.id}</td><td>${e.name}</td><td><span class="status-badge ${e.shift === '白班' ? 'status-info' : 'status-warning'}">${e.shift || '-'}</span></td><td>${e.position || '-'}</td><td style="white-space:normal;">${(e.remark || '').replace(/\\n/g, '<br>')}</td></tr>
-            `).join('') || '<tr><td colspan="5" class="text-center text-gray-500">暂无数据</td></tr>';
         }
 
         function importMachines(input) {
@@ -1028,7 +1070,7 @@
                         // 双列格式：白班在 dayShiftCol~nightShiftCol-1，夜班在 nightShiftCol~
                         // 第1行是子表头（编号、姓名、职位/岗位、备注/负责事项）
                         const dayCols = nightShiftCol - dayShiftCol; // 白班占的列数
-                        const dataStartRow = 1; // 第1行是子表头
+                        const dataStartRow = 2; // 第0行是班次头(白班/夜班)，第1行是列头(编号/姓名/...)，第2行开始才是数据
 
                         // 白班数据
                         for (let i = dataStartRow; i < json.length; i++) {
@@ -1268,26 +1310,57 @@
 
         // ================= 加工录入 =================
         function renderRecordPage() {
-            const today = new Date().toISOString().split('T')[0];
-            let mySchedules = appData.schedules.filter(s => {
+            var today = new Date().toISOString().split('T')[0];
+            var yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            yesterday = yesterday.toISOString().split('T')[0];
+
+            // 填充筛选下拉框
+            var productSelect = document.getElementById('recordFilterProduct');
+            var workshopSelect = document.getElementById('recordFilterWorkshop');
+            var currentProduct = productSelect.value;
+            var currentWorkshop = workshopSelect.value;
+            var products = [...new Set(appData.schedules.map(function(s) { return s.productName; }).filter(Boolean))];
+            var workshops = [...new Set(appData.machines.map(function(m) { return m.workshop; }).filter(Boolean))];
+            productSelect.innerHTML = '<option value="">全部产品</option>' + products.map(function(p) { return '<option value="' + p + '">' + p + '</option>'; }).join('');
+            workshopSelect.innerHTML = '<option value="">全部车间</option>' + workshops.map(function(w) { return '<option value="' + w + '">' + w + '</option>'; }).join('');
+            productSelect.value = currentProduct;
+            workshopSelect.value = currentWorkshop;
+
+            var filterDate = document.getElementById('recordFilterDate').value;
+            var filterProduct = productSelect.value;
+            var filterWorkshop = workshopSelect.value;
+
+            var mySchedules = appData.schedules.filter(function(s) {
+                // 操作工只看自己的，且只看今天和昨天
                 if (currentUser.role === 'operator' && s.operator !== currentUser.username) return false;
-                return s.date <= today;
-            }).sort((a, b) => new Date(b.date) - new Date(a.date));
-            const container = document.getElementById('recordList');
+                if (currentUser.role === 'operator') {
+                    if (s.date !== today && s.date !== yesterday) return false;
+                }
+                // 筛选
+                if (filterDate && s.date !== filterDate) return false;
+                if (filterProduct && s.productName !== filterProduct) return false;
+                if (filterWorkshop) {
+                    var machine = appData.machines.find(function(m) { return m.id === s.machineId; });
+                    if (!machine || machine.workshop !== filterWorkshop) return false;
+                }
+                return true;
+            }).sort(function(a, b) { return new Date(b.date) - new Date(a.date); });
+
+            var container = document.getElementById('recordList');
             if (!mySchedules.length) {
-                container.innerHTML = '<p class="text-gray-500 text-center py-4">暂无您的排产任务</p>';
+                container.innerHTML = '<p class="text-gray-500 text-center py-4">暂无排产任务</p>';
             } else {
-                container.innerHTML = mySchedules.map(s => {
-                    const recs = appData.records.filter(r => r.scheduleId === s.id);
-                    const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
-                    const pct = Math.min(100, Math.round((actual / (s.planQty || 1)) * 100));
-                    // 显示加工区域和测量尺寸
-                    let measureHtml = '';
+                container.innerHTML = mySchedules.map(function(s) {
+                    var recs = appData.records.filter(function(r) { return r.scheduleId === s.id; });
+                    var actual = recs.length > 0 ? (parseFloat(recs[recs.length - 1].qty) || 0) : 0;
+                    var pct = Math.min(100, Math.round((actual / (s.planQty || 1)) * 100));
+                    var measureHtml = '';
                     if (s.area) {
                         measureHtml += '<div class="text-xs text-blue-600 mt-1"><i class="fas fa-map-marker-alt"></i> 加工区域：' + s.area + '</div>';
                     }
                     if (s.measurements && s.measurements.length > 0) {
-                        const validMeasures = s.measurements.filter(m => m.dimension);
+                        var validMeasures = s.measurements.filter(function(m) { return m.dimension; });
                         if (validMeasures.length > 0) {
                             measureHtml += '<div class="measure-card"><div class="text-xs font-semibold text-gray-700 mb-1"><i class="fas fa-ruler"></i> 测量尺寸</div>';
                             validMeasures.forEach(function(m) {
@@ -1298,25 +1371,24 @@
                             measureHtml += '</div>';
                         }
                     }
-                    return `
-                        <div class="border rounded-lg p-3">
-                            <div class="flex justify-between items-start mb-2">
-                                <div>
-                                    <div class="font-semibold text-gray-800">${s.date} · ${s.machineId}</div>
-                                    <div class="text-sm text-gray-600">${s.productName || '-'} ${s.process || ''}</div>
-                                    <div class="text-xs text-gray-500">计划：${s.planQty} 件 · 已完成：${actual} 件</div>
-                                    ${measureHtml}
-                                </div>
-                                <span class="status-badge ${pct >= 100 ? 'status-success' : (pct >= 70 ? 'status-warning' : 'status-danger')}">${pct}%</span>
-                            </div>
-                            <form onsubmit="handleRecordSubmit(event, '${s.id}')" class="flex gap-2 mt-2">
-                                <input type="number" name="qty" class="form-input flex-1" placeholder="本班完成数量" min="0" required>
-                                <input type="text" name="note" class="form-input flex-1 hidden md:block" placeholder="备注">
-                                <button type="submit" class="btn btn-primary whitespace-nowrap"><i class="fas fa-save"></i> 提交</button>
-                            </form>
-                            ${recs.length ? '<div class="mt-2 text-xs text-gray-500">历史记录：' + recs.map(r => r.date + ' +' + r.qty).join('；') + '</div>' : ''}
-                        </div>
-                    `;
+                    var machine = appData.machines.find(function(m) { return m.id === s.machineId; });
+                    var workshop = machine ? (machine.workshop || '') : '';
+                    return '<div class="border rounded-lg p-3">' +
+                        '<div class="flex justify-between items-start mb-2">' +
+                            '<div>' +
+                                '<div class="font-semibold text-gray-800">' + s.date + ' · ' + s.machineId + (workshop ? ' · ' + workshop : '') + '</div>' +
+                                '<div class="text-sm text-gray-600">' + (s.productName || '-') + ' ' + (s.process || '') + '</div>' +
+                                '<div class="text-xs text-gray-500">计划：' + s.planQty + ' 件 · 当前完成：' + actual + ' 件 · ' + s.shift + '</div>' +
+                                measureHtml +
+                            '</div>' +
+                            '<span class="status-badge ' + (pct >= 100 ? 'status-success' : (pct >= 70 ? 'status-warning' : 'status-danger')) + '">' + pct + '%</span>' +
+                        '</div>' +
+                        '<form onsubmit="handleRecordSubmit(event, \'' + s.id + '\')" class="flex gap-2 mt-2">' +
+                            '<input type="number" name="qty" class="form-input flex-1" placeholder="完成数量（覆盖上次）" min="0" required' + (recs.length > 0 ? ' value="' + actual + '"' : '') + '>' +
+                            '<button type="submit" class="btn btn-primary whitespace-nowrap"><i class="fas fa-save"></i> 提交</button>' +
+                        '</form>' +
+                        '<div class="mt-1 text-xs text-gray-400">提交后覆盖之前的数量，不叠加</div>' +
+                    '</div>';
                 }).join('');
             }
             renderMyStats();
@@ -1324,40 +1396,46 @@
 
         function handleRecordSubmit(e, scheduleId) {
             e.preventDefault();
-            const form = e.target;
-            const qty = parseInt(form.qty.value);
-            const note = form.note ? form.note.value : '';
+            var form = e.target;
+            var qty = parseInt(form.qty.value);
+            var today = new Date().toISOString().split('T')[0];
+            // 覆盖模式：删除该排产之前的所有记录，只保留一条最新
+            appData.records = appData.records.filter(function(r) { return r.scheduleId !== scheduleId; });
             appData.records.push({
                 id: 'rec_' + Date.now(),
-                scheduleId,
-                date: new Date().toISOString().split('T')[0],
-                qty,
-                note,
+                scheduleId: scheduleId,
+                date: today,
+                qty: qty,
                 operator: currentUser.username,
                 createdAt: new Date().toISOString()
             });
             saveLocal();
-            form.reset();
             renderRecordPage();
-            showToast('加工数量录入成功', 'success');
+            showToast('加工数量已更新（覆盖模式）', 'success');
+        }
+
+        function clearRecordFilter() {
+            document.getElementById('recordFilterDate').value = '';
+            document.getElementById('recordFilterProduct').value = '';
+            document.getElementById('recordFilterWorkshop').value = '';
+            renderRecordPage();
         }
 
         function renderMyStats() {
-            const records = appData.records.filter(r => r.operator === currentUser.username);
-            const totalQty = records.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
-            const scheduleIds = [...new Set(records.map(r => r.scheduleId))];
-            let totalPlan = 0;
-            scheduleIds.forEach(sid => {
-                const s = appData.schedules.find(s => s.id === sid);
+            var records = appData.records.filter(function(r) { return r.operator === currentUser.username; });
+            var totalQty = records.reduce(function(a, r) { return a + (parseFloat(r.qty) || 0); }, 0);
+            var scheduleIds = [...new Set(records.map(function(r) { return r.scheduleId; }))];
+            var totalPlan = 0;
+            scheduleIds.forEach(function(sid) {
+                var s = appData.schedules.find(function(x) { return x.id === sid; });
                 if (s) totalPlan += s.planQty;
             });
-            document.getElementById('myStats').innerHTML = `
-                <div class="grid grid-cols-3 gap-3">
-                    <div class="stat-card"><div class="stat-value">${records.length}</div><div class="stat-label">提交次数</div></div>
-                    <div class="stat-card"><div class="stat-value">${totalQty}</div><div class="stat-label">累计完成</div></div>
-                    <div class="stat-card"><div class="stat-value">${totalPlan ? Math.round(totalQty / totalPlan * 100) : 0}%</div><div class="stat-label">计划达成</div></div>
-                </div>
-            `;
+            document.getElementById('myStats').innerHTML =
+                '<div class="grid grid-cols-3 gap-3">' +
+                    '<div class="stat-card"><div class="stat-value">' + records.length + '</div><div class="stat-label">录入任务数</div></div>' +
+                    '<div class="stat-card"><div class="stat-value">' + totalQty + '</div><div class="stat-label">累计完成</div></div>' +
+                    '<div class="stat-card"><div class="stat-value">' + (totalPlan ? Math.round(totalQty / totalPlan * 100) : 0) + '%</div><div class="stat-label">计划达成</div></div>' +
+                '</div>';
         }
 
         // ================= 产能报表 =================
