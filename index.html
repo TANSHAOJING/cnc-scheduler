@@ -148,6 +148,31 @@
             overflow-y: auto;
         }
         .hidden { display: none !important; }
+
+        /* 机台看板卡片 */
+        .machine-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+            position: relative;
+            min-height: 160px;
+        }
+        .machine-card:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(37,99,235,0.15); }
+        .machine-card.machine-scheduled { border-color: #86efac; background: #f0fdf4; }
+        .machine-card.machine-scheduled:hover { border-color: #22c55e; box-shadow: 0 4px 12px rgba(34,197,94,0.2); }
+        .machine-card.machine-done { border-color: #a7f3d0; background: #ecfdf5; opacity: 0.85; }
+        .machine-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem; }
+        .machine-id { font-weight: 700; font-size: 1.1rem; color: #1f2937; }
+        .machine-product { font-size: 0.75rem; color: #6b7280; margin-bottom: 0.5rem; line-height: 1.3; }
+        .machine-info-row { font-size: 0.75rem; color: #4b5563; margin-bottom: 0.2rem; display: flex; align-items: center; gap: 0.25rem; }
+        .machine-free-text { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.25rem; padding: 0.5rem 0; color: #d1d5db; }
+        .machine-free-text span { font-size: 0.75rem; }
+        .shift-tab-active { background: white; color: var(--primary); box-shadow: 0 1px 2px rgba(0,0,0,0.1); font-weight: 600; }
+        .workshop-header { font-size: 1rem; font-weight: 700; color: #1f2937; padding: 0.5rem 0; border-bottom: 2px solid #e5e7eb; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .workshop-header .workshop-count { font-size: 0.75rem; color: #9ca3af; font-weight: 400; }
         @media (min-width: 768px) {
             .nav-bottom { display: none; }
             .desktop-sidebar {
@@ -372,57 +397,47 @@
 
                 <!-- 排产管理 -->
                 <div id="page-schedule" class="page">
+                    <!-- 工具栏 -->
                     <div class="card">
-                        <h3 class="font-bold text-gray-800 mb-4">新增排产</h3>
-                        <form onsubmit="handleAddSchedule(event)" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="form-label">排产日期</label>
-                                <input type="date" id="schDate" class="form-input" required onchange="onDateChange()">
+                        <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                            <h3 class="font-bold text-gray-800"><i class="fas fa-th-large text-blue-500"></i> 排产看板</h3>
+                            <input type="date" id="boardDate" class="form-input text-sm py-1 w-auto" onchange="renderBoard()">
+                        </div>
+                        <div class="flex bg-gray-100 rounded-lg p-0.5 mb-3">
+                            <button id="shiftTabDay" onclick="setBoardShift('白班')" class="flex-1 py-1.5 text-sm rounded-md transition shift-tab-active">☀️ 白班</button>
+                            <button id="shiftTabNight" onclick="setBoardShift('夜班')" class="flex-1 py-1.5 text-sm rounded-md transition text-gray-500">🌙 夜班</button>
+                        </div>
+                        <div class="grid grid-cols-4 gap-2 text-center">
+                            <div class="bg-gray-50 rounded-lg p-2">
+                                <div class="font-bold text-lg" id="boardTotal">0</div>
+                                <div class="text-xs text-gray-500">总机台</div>
                             </div>
-                            <div>
-                                <label class="form-label">班次</label>
-                                <select id="schShift" class="form-input" required onchange="onShiftChange()">
-                                    <option value="白班">白班</option>
-                                    <option value="夜班">夜班</option>
-                                </select>
+                            <div class="bg-green-50 rounded-lg p-2">
+                                <div class="font-bold text-lg text-green-600" id="boardScheduled">0</div>
+                                <div class="text-xs text-gray-500">已排产</div>
                             </div>
-                            <div>
-                                <label class="form-label">操作工</label>
-                                <select id="schOperator" class="form-input" required>
-                                    <option value="">请先选择班次</option>
-                                </select>
+                            <div class="bg-orange-50 rounded-lg p-2">
+                                <div class="font-bold text-lg text-orange-500" id="boardUnscheduled">0</div>
+                                <div class="text-xs text-gray-500">未排产</div>
                             </div>
-                            <div>
-                                <label class="form-label">机台</label>
-                                <select id="schMachine" class="form-input" required onchange="onMachineChange()">
-                                    <option value="">请先选择日期</option>
-                                </select>
+                            <div class="bg-blue-50 rounded-lg p-2">
+                                <div class="font-bold text-lg text-blue-600" id="boardPlan">0</div>
+                                <div class="text-xs text-gray-500">计划总数</div>
                             </div>
-                            <div>
-                                <label class="form-label">工作时长(小时)</label>
-                                <input type="number" id="schHours" class="form-input" value="10" min="1" max="24" step="0.5" required oninput="updatePlanQty()">
-                            </div>
-                            <div>
-                                <label class="form-label">计划数量</label>
-                                <input type="number" id="schPlanQty" class="form-input" min="0" required>
-                                <p class="text-xs text-blue-600 mt-1" id="planQtyHint">根据UPH自动计算</p>
-                            </div>
-                            <div class="md:col-span-2">
-                                <label class="form-label">备注</label>
-                                <input type="text" id="schNote" class="form-input" placeholder="可选">
-                            </div>
-                            <div class="md:col-span-2">
-                                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> 添加排产</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
+
+                    <!-- 机台看板 -->
+                    <div id="machineBoard"></div>
+
+                    <!-- 快速复制排产 -->
                     <div class="card">
                         <div class="flex items-center justify-between mb-3">
                             <h3 class="font-bold text-gray-800"><i class="fas fa-copy text-blue-500"></i> 快速复制排产</h3>
                             <button onclick="toggleCopyCard()" class="text-sm text-blue-500 hover:underline">展开/收起</button>
                         </div>
                         <div id="copyCardBody" class="hidden">
-                            <p class="text-sm text-gray-500 mb-3">从已有排产日期复制到新日期，适合每天排产内容大致相同的场景。复制后可在排产列表中逐条微调。</p>
+                            <p class="text-sm text-gray-500 mb-3">从已有排产日期复制到新日期，适合每天排产内容大致相同的场景。复制后可在看板上逐台微调。</p>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
                                 <div>
                                     <label class="form-label">复制源日期</label>
@@ -452,15 +467,20 @@
                             <button onclick="executeCopy()" class="btn btn-primary btn-block"><i class="fas fa-check"></i> 确认复制</button>
                         </div>
                     </div>
+
+                    <!-- 排产列表（可折叠） -->
                     <div class="card">
                         <div class="flex items-center justify-between mb-3">
-                            <h3 class="font-bold text-gray-800">排产列表</h3>
-                            <div class="flex gap-2">
+                            <h3 class="font-bold text-gray-800">排产明细列表</h3>
+                            <button onclick="toggleScheduleList()" class="text-sm text-blue-500 hover:underline" id="toggleListBtn">展开</button>
+                        </div>
+                        <div id="scheduleListContainer" class="hidden">
+                            <div class="flex gap-2 mb-3">
                                 <input type="date" id="scheduleFilterDate" class="form-input text-sm py-1" onchange="renderScheduleList()">
                                 <button onclick="clearScheduleFilter()" class="btn btn-secondary text-sm py-1"><i class="fas fa-times"></i></button>
                             </div>
+                            <div id="scheduleList" class="space-y-3"></div>
                         </div>
-                        <div id="scheduleList" class="space-y-3"></div>
                     </div>
                 </div>
 
@@ -619,7 +639,67 @@
         <nav class="nav-bottom" id="bottomNav"></nav>
     </div>
 
-    <!-- 全局遮罩/加载 -->
+    <!-- 排产编辑弹窗 -->
+    <div id="scheduleModal" class="modal" onclick="closeScheduleModal(event)">
+        <div class="modal-content p-5">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modalMachineTitle" class="font-bold text-lg text-gray-800">排产设置</h3>
+                <button onclick="closeScheduleModal()" class="text-gray-400 hover:text-gray-600"><i class="fas fa-times text-xl"></i></button>
+            </div>
+            <form onsubmit="saveMachineSchedule(event)" class="space-y-3">
+                <input type="hidden" id="modalMachineId">
+                <input type="hidden" id="modalScheduleId">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="form-label">机台</label>
+                        <div id="modalMachineDisplay" class="form-input bg-gray-50 font-semibold"></div>
+                    </div>
+                    <div>
+                        <label class="form-label">车间</label>
+                        <div id="modalWorkshopDisplay" class="form-input bg-gray-50"></div>
+                    </div>
+                </div>
+                <div>
+                    <label class="form-label">产品 / 工序</label>
+                    <div id="modalProductDisplay" class="form-input bg-gray-50"></div>
+                </div>
+                <div>
+                    <label class="form-label">班次</label>
+                    <select id="modalShift" class="form-input" onchange="updateModalOperators()">
+                        <option value="白班">白班</option>
+                        <option value="夜班">夜班</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">操作工</label>
+                    <select id="modalOperator" class="form-input" required></select>
+                </div>
+                <div class="grid grid-cols-3 gap-3">
+                    <div>
+                        <label class="form-label">工作时长</label>
+                        <input type="number" id="modalHours" class="form-input" value="10" min="1" max="24" step="0.5" oninput="updateModalPlanQty()">
+                    </div>
+                    <div>
+                        <label class="form-label">UPH</label>
+                        <div id="modalUph" class="form-input bg-gray-50 text-center font-semibold"></div>
+                    </div>
+                    <div>
+                        <label class="form-label">计划数量</label>
+                        <input type="number" id="modalPlanQty" class="form-input" min="0" required>
+                    </div>
+                </div>
+                <p class="text-xs text-blue-600" id="modalPlanHint"></p>
+                <div>
+                    <label class="form-label">备注</label>
+                    <input type="text" id="modalNote" class="form-input" placeholder="可选">
+                </div>
+                <div class="flex gap-2">
+                    <button type="submit" class="btn btn-primary flex-1"><i class="fas fa-save"></i> 保存排产</button>
+                    <button type="button" onclick="closeScheduleModal()" class="btn btn-secondary">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <div id="loadingOverlay" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-[70]">
         <div class="bg-white rounded-xl p-6 flex flex-col items-center">
             <i class="fas fa-circle-notch fa-spin text-3xl text-blue-600 mb-3"></i>
@@ -678,7 +758,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadData();
             const today = new Date().toISOString().split('T')[0];
-            document.getElementById('schDate').value = today;
+            const boardDateEl = document.getElementById('boardDate');
+            if (boardDateEl) boardDateEl.value = today;
             document.getElementById('scheduleFilterDate').value = today;
             document.getElementById('reportDate').value = today;
         });
@@ -1189,47 +1270,104 @@
         }
 
         // ================= 排产管理 =================
+        let boardShift = '白班';
+
         function renderSchedulePage() {
-            onDateChange();
-            onShiftChange();
-            updatePlanQty();
-            renderScheduleList();
+            if (!document.getElementById('boardDate').value) {
+                document.getElementById('boardDate').value = new Date().toISOString().split('T')[0];
+            }
+            setBoardShift(boardShift);
             renderTargetDateList();
         }
 
-        function onShiftChange() {
-            const shift = document.getElementById('schShift').value;
-            const operatorSelect = document.getElementById('schOperator');
-            let operators;
-            if (appData.employees.length > 0) {
-                operators = appData.employees.filter(e => e.shift === shift);
-            } else {
-                operators = appData.users.filter(u => u.role === 'operator');
-            }
-            operatorSelect.innerHTML = '<option value="">选择操作工</option>' + operators.map(o =>
-                '<option value="' + o.name + '">' + o.name + (o.position ? ' · ' + o.position : '') + '</option>'
-            ).join('');
+        function setBoardShift(shift) {
+            boardShift = shift;
+            document.getElementById('shiftTabDay').className = 'flex-1 py-1.5 text-sm rounded-md transition ' + (shift === '白班' ? 'shift-tab-active' : 'text-gray-500');
+            document.getElementById('shiftTabNight').className = 'flex-1 py-1.5 text-sm rounded-md transition ' + (shift === '夜班' ? 'shift-tab-active' : 'text-gray-500');
+            renderBoard();
         }
 
-        function onDateChange() {
-            const date = document.getElementById('schDate').value;
-            const machineSelect = document.getElementById('schMachine');
-            // 排除当天已排产的机台
-            const scheduledMachineIds = new Set(
-                appData.schedules.filter(s => s.date === date).map(s => s.machineId)
-            );
-            const availableMachines = appData.machines.filter(m => !scheduledMachineIds.has(m.id));
-            machineSelect.innerHTML = '<option value="">选择机台</option>' + availableMachines.map(m =>
-                '<option value="' + m.id + '" data-product="' + (m.productName || '') + '" data-process="' + (m.process || '') + '">' +
-                m.id + ' · ' + (m.workshop || '') + ' · ' + (m.productName || '无产品') + ' · ' + (m.process || '') + '</option>'
-            ).join('');
-            if (availableMachines.length === 0 && appData.machines.length > 0) {
-                machineSelect.innerHTML = '<option value="">该日期所有机台已排产</option>';
+        function renderBoard() {
+            const date = document.getElementById('boardDate').value;
+            const container = document.getElementById('machineBoard');
+            if (appData.machines.length === 0) {
+                container.innerHTML = '<div class="card text-center text-gray-500 py-8"><i class="fas fa-info-circle text-2xl mb-2"></i><p>请先在「基础数据」页面导入机台信息</p></div>';
+                updateBoardStats(0, 0, 0, 0);
+                return;
             }
+
+            // 按车间分组
+            const workshops = {};
+            appData.machines.forEach(m => {
+                const ws = m.workshop || '未分类';
+                if (!workshops[ws]) workshops[ws] = [];
+                workshops[ws].push(m);
+            });
+
+            // 当天该班次的排产
+            const daySchedules = appData.schedules.filter(s => s.date === date && s.shift === boardShift);
+            const scheduledMachineIds = new Set(daySchedules.map(s => s.machineId));
+            const scheduleMap = {};
+            daySchedules.forEach(s => { scheduleMap[s.machineId] = s; });
+
+            let totalPlan = 0;
+            let html = '';
+
+            Object.keys(workshops).sort().forEach(ws => {
+                const machines = workshops[ws];
+                const scheduledInWs = machines.filter(m => scheduledMachineIds.has(m.id)).length;
+                html += '<div class="card">';
+                html += '<div class="workshop-header"><i class="fas fa-industry text-gray-400"></i> ' + ws + ' <span class="workshop-count">(' + scheduledInWs + '/' + machines.length + ' 台已排产)</span></div>';
+                html += '<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">';
+                machines.forEach(m => {
+                    const schedule = scheduleMap[m.id];
+                    const uph = getUph(m.id);
+                    if (schedule) {
+                        const recs = appData.records.filter(r => r.scheduleId === schedule.id);
+                        const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                        const pct = Math.min(100, Math.round((actual / (schedule.planQty || 1)) * 100));
+                        totalPlan += schedule.planQty || 0;
+                        const isDone = pct >= 100;
+                        html += '<div class="machine-card ' + (isDone ? 'machine-done' : 'machine-scheduled') + '" onclick="editMachineSchedule(\'' + m.id + '\')">';
+                        html += '<div class="machine-header"><span class="machine-id">' + m.id + '</span>';
+                        if (isDone) {
+                            html += '<i class="fas fa-check-circle text-green-500"></i>';
+                        } else {
+                            html += '<span class="status-badge status-success" style="font-size:0.65rem;padding:0.1rem 0.4rem;">已排</span>';
+                        }
+                        html += '</div>';
+                        html += '<div class="machine-product">' + (m.productName || '未配置') + ' · ' + (m.process || '') + '</div>';
+                        html += '<div class="machine-info-row"><i class="fas fa-user text-gray-400"></i> ' + (schedule.operator || '-') + '</div>';
+                        html += '<div class="machine-info-row"><i class="fas fa-clock text-gray-400"></i> ' + (schedule.hours || 10) + 'h · UPH ' + uph + '</div>';
+                        html += '<div class="machine-info-row"><i class="fas fa-box text-gray-400"></i> 计划 ' + (schedule.planQty || 0) + ' 件</div>';
+                        if (actual > 0) {
+                            html += '<div class="progress-bar mt-1"><div class="progress-fill ' + (pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500')) + '" style="width:' + pct + '%"></div></div>';
+                            html += '<div class="text-xs text-gray-500 mt-0.5">完成 ' + actual + '/' + (schedule.planQty || 0) + ' (' + pct + '%)</div>';
+                        }
+                        html += '</div>';
+                    } else {
+                        html += '<div class="machine-card" onclick="editMachineSchedule(\'' + m.id + '\')">';
+                        html += '<div class="machine-header"><span class="machine-id">' + m.id + '</span></div>';
+                        html += '<div class="machine-product">' + (m.productName || '未配置') + ' · ' + (m.process || '') + '</div>';
+                        html += '<div class="machine-free-text"><i class="fas fa-plus-circle text-2xl"></i><span>点击排产</span></div>';
+                        if (uph > 0) {
+                            html += '<div class="machine-info-row text-gray-400"><i class="fas fa-tachometer-alt"></i> UPH ' + uph + '</div>';
+                        }
+                        html += '</div>';
+                    }
+                });
+                html += '</div></div>';
+            });
+
+            container.innerHTML = html;
+            updateBoardStats(appData.machines.length, daySchedules.length, appData.machines.length - daySchedules.length, totalPlan);
         }
 
-        function onMachineChange() {
-            updatePlanQty();
+        function updateBoardStats(total, scheduled, unscheduled, plan) {
+            document.getElementById('boardTotal').textContent = total;
+            document.getElementById('boardScheduled').textContent = scheduled;
+            document.getElementById('boardUnscheduled').textContent = unscheduled;
+            document.getElementById('boardPlan').textContent = plan;
         }
 
         function getUph(machineId) {
@@ -1245,55 +1383,151 @@
             return appData.products.find(p => p.name === machine.productName && p.process === machine.process);
         }
 
-        function updatePlanQty() {
-            const machineId = document.getElementById('schMachine').value;
-            const hours = parseFloat(document.getElementById('schHours').value) || 0;
+        // ===== 排产编辑弹窗 =====
+        function editMachineSchedule(machineId) {
+            const machine = appData.machines.find(m => m.id === machineId);
+            if (!machine) { showToast('机台不存在', 'error'); return; }
+            const date = document.getElementById('boardDate').value;
             const uph = getUph(machineId);
-            const planInput = document.getElementById('schPlanQty');
-            const hint = document.getElementById('planQtyHint');
+            const productInfo = getProductInfo(machineId);
+
+            // 查找当天该班次该机台已有的排产
+            let schedule = appData.schedules.find(s =>
+                s.date === date && s.machineId === machineId && s.shift === boardShift
+            );
+
+            document.getElementById('modalMachineId').value = machineId;
+            document.getElementById('modalScheduleId').value = schedule ? schedule.id : '';
+            document.getElementById('modalMachineDisplay').textContent = machineId;
+            document.getElementById('modalWorkshopDisplay').textContent = machine.workshop || '-';
+            document.getElementById('modalProductDisplay').textContent = (machine.productName || '未配置') + ' / ' + (machine.process || '-');
+            document.getElementById('modalUph').textContent = uph || '-';
+            document.getElementById('modalShift').value = boardShift;
+
+            if (schedule) {
+                document.getElementById('modalOperator').value = schedule.operator;
+                document.getElementById('modalHours').value = schedule.hours || 10;
+                document.getElementById('modalPlanQty').value = schedule.planQty || '';
+                document.getElementById('modalNote').value = schedule.note || '';
+                document.getElementById('modalMachineTitle').innerHTML = '<i class="fas fa-edit text-blue-500"></i> 编辑排产 · ' + machineId;
+            } else {
+                document.getElementById('modalHours').value = 10;
+                document.getElementById('modalNote').value = '';
+                document.getElementById('modalMachineTitle').innerHTML = '<i class="fas fa-plus-circle text-green-500"></i> 新增排产 · ' + machineId;
+                // 自动计算计划数量
+                if (uph > 0) {
+                    document.getElementById('modalPlanQty').value = Math.round(uph * 10);
+                    document.getElementById('modalPlanHint').textContent = 'UPH ' + uph + ' × 10小时 = ' + Math.round(uph * 10) + ' 件';
+                } else {
+                    document.getElementById('modalPlanQty').value = '';
+                    document.getElementById('modalPlanHint').textContent = '该机台未配置UPH，请手动输入';
+                }
+            }
+
+            updateModalOperators();
+            if (schedule) {
+                document.getElementById('modalOperator').value = schedule.operator;
+            }
+            updateModalPlanQty();
+
+            document.getElementById('scheduleModal').classList.add('active');
+        }
+
+        function updateModalOperators() {
+            const shift = document.getElementById('modalShift').value;
+            const select = document.getElementById('modalOperator');
+            let operators;
+            if (appData.employees.length > 0) {
+                operators = appData.employees.filter(e => e.shift === shift);
+            } else {
+                operators = appData.users.filter(u => u.role === 'operator');
+            }
+            select.innerHTML = '<option value="">选择操作工</option>' + operators.map(o =>
+                '<option value="' + (o.name || o.username) + '">' + (o.name || o.username) + (o.position ? ' · ' + o.position : '') + '</option>'
+            ).join('');
+        }
+
+        function updateModalPlanQty() {
+            const machineId = document.getElementById('modalMachineId').value;
+            const hours = parseFloat(document.getElementById('modalHours').value) || 0;
+            const uph = getUph(machineId);
+            const planInput = document.getElementById('modalPlanQty');
+            const hint = document.getElementById('modalPlanHint');
             if (uph > 0 && hours > 0) {
                 const suggested = Math.round(uph * hours);
                 planInput.value = suggested;
                 hint.textContent = 'UPH ' + uph + ' × ' + hours + '小时 = ' + suggested + ' 件';
             } else {
-                planInput.value = '';
-                hint.textContent = uph ? '请输入工作时长' : '该机台未配置产品工序UPH';
+                hint.textContent = uph ? '请输入工作时长' : '该机台未配置UPH，请手动输入';
             }
         }
 
-        function handleAddSchedule(e) {
+        function saveMachineSchedule(e) {
             e.preventDefault();
-            const machineId = document.getElementById('schMachine').value;
+            const machineId = document.getElementById('modalMachineId').value;
+            const scheduleId = document.getElementById('modalScheduleId').value;
             const machine = appData.machines.find(m => m.id === machineId);
             const productInfo = getProductInfo(machineId);
-            const schedule = {
-                id: 'sch_' + Date.now(),
-                date: document.getElementById('schDate').value,
+            const date = document.getElementById('boardDate').value;
+            const shift = document.getElementById('modalShift').value;
+            const operator = document.getElementById('modalOperator').value;
+            if (!operator) { showToast('请选择操作工', 'error'); return; }
+
+            const scheduleData = {
                 machineId,
                 productName: machine ? (machine.productName || '') : '',
                 process: machine ? (machine.process || '') : '',
                 area: productInfo ? (productInfo.area || '') : '',
                 measurements: productInfo ? (productInfo.measurements || []) : [],
-                operator: document.getElementById('schOperator').value,
-                shift: document.getElementById('schShift').value,
-                hours: parseFloat(document.getElementById('schHours').value),
-                planQty: parseInt(document.getElementById('schPlanQty').value),
-                note: document.getElementById('schNote').value,
-                createdAt: new Date().toISOString(),
-                createdBy: currentUser.username
+                operator,
+                shift,
+                hours: parseFloat(document.getElementById('modalHours').value),
+                planQty: parseInt(document.getElementById('modalPlanQty').value),
+                note: document.getElementById('modalNote').value
             };
-            appData.schedules.push(schedule);
+
+            if (scheduleId) {
+                // 更新已有排产
+                const idx = appData.schedules.findIndex(s => s.id === scheduleId);
+                if (idx >= 0) {
+                    appData.schedules[idx] = { ...appData.schedules[idx], ...scheduleData };
+                }
+                showToast('排产已更新', 'success');
+            } else {
+                // 新增排产
+                appData.schedules.push({
+                    id: 'sch_' + Date.now(),
+                    date,
+                    ...scheduleData,
+                    createdAt: new Date().toISOString(),
+                    createdBy: currentUser.username
+                });
+                showToast('排产添加成功', 'success');
+            }
+
             saveLocal();
-            e.target.reset();
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('schDate').value = today;
-            document.getElementById('schHours').value = 10;
-            document.getElementById('schShift').value = '白班';
-            onDateChange();
-            onShiftChange();
-            updatePlanQty();
+            closeScheduleModal();
+            renderBoard();
             renderScheduleList();
-            showToast('排产添加成功', 'success');
+        }
+
+        function closeScheduleModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('scheduleModal').classList.remove('active');
+        }
+
+        // ===== 排产明细列表 =====
+        function toggleScheduleList() {
+            const container = document.getElementById('scheduleListContainer');
+            const btn = document.getElementById('toggleListBtn');
+            if (container.classList.contains('hidden')) {
+                container.classList.remove('hidden');
+                btn.textContent = '收起';
+                renderScheduleList();
+            } else {
+                container.classList.add('hidden');
+                btn.textContent = '展开';
+            }
         }
 
         function renderScheduleList() {
@@ -1310,24 +1544,22 @@
                 const recs = appData.records.filter(r => r.scheduleId === s.id);
                 const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
                 const pct = Math.min(100, Math.round((actual / (s.planQty || 1)) * 100));
-                return `
-                    <div class="border rounded-lg p-3">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <div class="font-semibold text-gray-800">${s.date} · ${s.machineId}</div>
-                                <div class="text-sm text-gray-600">${s.productName || '-'} ${s.process || ''}</div>
-                                <div class="text-xs text-gray-500 mt-1">操作工：${s.operator} · ${s.shift} · ${s.hours}小时</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="font-bold text-lg">${actual}/${s.planQty}</div>
-                                <div class="text-xs text-gray-500">完成 ${pct}%</div>
-                            </div>
-                        </div>
-                        <div class="progress-bar mt-2"><div class="progress-fill ${pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500')}" style="width:${pct}%"></div></div>
-                        ${s.note ? '<div class="text-xs text-gray-500 mt-2">备注：' + s.note + '</div>' : ''}
-                        ${currentUser.role !== 'operator' ? '<button onclick="deleteSchedule(\'' + s.id + '\')" class="text-xs text-red-500 mt-2 hover:underline">删除排产</button>' : ''}
-                    </div>
-                `;
+                return '<div class="border rounded-lg p-3">' +
+                    '<div class="flex justify-between items-start">' +
+                        '<div>' +
+                            '<div class="font-semibold text-gray-800">' + s.date + ' · ' + s.machineId + '</div>' +
+                            '<div class="text-sm text-gray-600">' + (s.productName || '-') + ' ' + (s.process || '') + '</div>' +
+                            '<div class="text-xs text-gray-500 mt-1">操作工：' + s.operator + ' · ' + s.shift + ' · ' + s.hours + '小时</div>' +
+                        '</div>' +
+                        '<div class="text-right">' +
+                            '<div class="font-bold text-lg">' + actual + '/' + s.planQty + '</div>' +
+                            '<div class="text-xs text-gray-500">完成 ' + pct + '%</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="progress-bar mt-2"><div class="progress-fill ' + (pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500')) + '" style="width:' + pct + '%"></div></div>' +
+                    (s.note ? '<div class="text-xs text-gray-500 mt-2">备注：' + s.note + '</div>' : '') +
+                    (currentUser.role !== 'operator' ? '<button onclick="deleteSchedule(\'' + s.id + '\')" class="text-xs text-red-500 mt-2 hover:underline">删除排产</button>' : '') +
+                '</div>';
             }).join('');
         }
 
@@ -1336,6 +1568,7 @@
             appData.schedules = appData.schedules.filter(s => s.id !== id);
             appData.records = appData.records.filter(r => r.scheduleId !== id);
             saveLocal();
+            renderBoard();
             renderScheduleList();
             showToast('排产已删除', 'success');
         }
@@ -1513,6 +1746,7 @@
             });
 
             saveLocal();
+            renderBoard();
             renderScheduleList();
             showToast('复制完成！成功 ' + totalCopied + ' 条' + (totalSkipped > 0 ? '，跳过冲突 ' + totalSkipped + ' 条' : ''), 'success');
 
