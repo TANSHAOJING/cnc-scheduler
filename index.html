@@ -418,6 +418,42 @@
                     </div>
                     <div class="card">
                         <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-bold text-gray-800"><i class="fas fa-copy text-blue-500"></i> 快速复制排产</h3>
+                            <button onclick="toggleCopyCard()" class="text-sm text-blue-500 hover:underline">展开/收起</button>
+                        </div>
+                        <div id="copyCardBody" class="hidden">
+                            <p class="text-sm text-gray-500 mb-3">从已有排产日期复制到新日期，适合每天排产内容大致相同的场景。复制后可在排产列表中逐条微调。</p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+                                <div>
+                                    <label class="form-label">复制源日期</label>
+                                    <input type="date" id="copySrcDate" class="form-input" onchange="previewCopy()">
+                                </div>
+                                <div>
+                                    <label class="form-label">目标日期（可多选）</label>
+                                    <input type="date" id="copyTargetDate" class="form-input" onchange="previewCopy()">
+                                </div>
+                                <div>
+                                    <label class="form-label">班次过滤</label>
+                                    <select id="copyShiftFilter" class="form-input" onchange="previewCopy()">
+                                        <option value="">全部班次</option>
+                                        <option value="白班">仅白班</option>
+                                        <option value="夜班">仅夜班</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <button onclick="addToTargetList()" class="btn btn-secondary text-sm py-1"><i class="fas fa-plus"></i> 添加目标日期</button>
+                                <button onclick="copyToNextDays(1)" class="btn btn-secondary text-sm py-1"><i class="fas fa-forward"></i> 复制到明天</button>
+                                <button onclick="copyToNextDays(7)" class="btn btn-secondary text-sm py-1"><i class="fas fa-calendar-week"></i> 批量复制7天</button>
+                                <button onclick="clearTargetList()" class="btn btn-secondary text-sm py-1"><i class="fas fa-trash"></i> 清空列表</button>
+                            </div>
+                            <div id="targetDateList" class="flex flex-wrap gap-2 mb-3"></div>
+                            <div id="copyPreview" class="mb-3"></div>
+                            <button onclick="executeCopy()" class="btn btn-primary btn-block"><i class="fas fa-check"></i> 确认复制</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-3">
                             <h3 class="font-bold text-gray-800">排产列表</h3>
                             <div class="flex gap-2">
                                 <input type="date" id="scheduleFilterDate" class="form-input text-sm py-1" onchange="renderScheduleList()">
@@ -1158,6 +1194,7 @@
             onShiftChange();
             updatePlanQty();
             renderScheduleList();
+            renderTargetDateList();
         }
 
         function onShiftChange() {
@@ -1306,6 +1343,183 @@
         function clearScheduleFilter() {
             document.getElementById('scheduleFilterDate').value = '';
             renderScheduleList();
+        }
+
+        // ================= 快速复制排产 =================
+        let copyTargetDates = [];
+
+        function toggleCopyCard() {
+            const body = document.getElementById('copyCardBody');
+            if (body.classList.contains('hidden')) {
+                body.classList.remove('hidden');
+                // 初始化默认日期
+                if (!document.getElementById('copySrcDate').value) {
+                    const yesterday = new Date();
+                    yesterday.setDate(yesterday.getDate() - 1);
+                    document.getElementById('copySrcDate').value = yesterday.toISOString().split('T')[0];
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById('copyTargetDate').value = today;
+                    previewCopy();
+                }
+            } else {
+                body.classList.add('hidden');
+            }
+        }
+
+        function addToTargetList() {
+            const date = document.getElementById('copyTargetDate').value;
+            if (!date) { showToast('请先选择目标日期', 'error'); return; }
+            if (copyTargetDates.includes(date)) { showToast('该日期已在列表中', 'error'); return; }
+            copyTargetDates.push(date);
+            copyTargetDates.sort();
+            renderTargetDateList();
+            previewCopy();
+        }
+
+        function copyToNextDays(days) {
+            const srcDate = document.getElementById('copySrcDate').value;
+            if (!srcDate) { showToast('请先选择源日期', 'error'); return; }
+            const base = new Date(srcDate);
+            for (let i = 1; i <= days; i++) {
+                const d = new Date(base);
+                d.setDate(d.getDate() + i);
+                const dateStr = d.toISOString().split('T')[0];
+                if (!copyTargetDates.includes(dateStr)) {
+                    copyTargetDates.push(dateStr);
+                }
+            }
+            copyTargetDates.sort();
+            renderTargetDateList();
+            previewCopy();
+            showToast('已添加' + days + '个目标日期', 'success');
+        }
+
+        function removeFromTargetList(date) {
+            copyTargetDates = copyTargetDates.filter(d => d !== date);
+            renderTargetDateList();
+            previewCopy();
+        }
+
+        function clearTargetList() {
+            copyTargetDates = [];
+            renderTargetDateList();
+            previewCopy();
+        }
+
+        function renderTargetDateList() {
+            const container = document.getElementById('targetDateList');
+            if (copyTargetDates.length === 0) {
+                container.innerHTML = '<span class="text-xs text-gray-400">未添加目标日期</span>';
+                return;
+            }
+            container.innerHTML = copyTargetDates.map(d =>
+                '<span class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-full">' + d +
+                ' <button onclick="removeFromTargetList(\'' + d + '\')" class="text-blue-400 hover:text-red-500"><i class="fas fa-times"></i></button></span>'
+            ).join('');
+        }
+
+        function previewCopy() {
+            const srcDate = document.getElementById('copySrcDate').value;
+            const shiftFilter = document.getElementById('copyShiftFilter').value;
+            const container = document.getElementById('copyPreview');
+            if (!srcDate) { container.innerHTML = ''; return; }
+
+            let srcSchedules = appData.schedules.filter(s => s.date === srcDate);
+            if (shiftFilter) srcSchedules = srcSchedules.filter(s => s.shift === shiftFilter);
+
+            if (srcSchedules.length === 0) {
+                container.innerHTML = '<div class="text-sm text-gray-500 bg-gray-50 rounded p-3">源日期 <b>' + srcDate + '</b> 没有排产记录' + (shiftFilter ? '（' + shiftFilter + '）' : '') + '</div>';
+                return;
+            }
+
+            // 按班次分组
+            const dayShift = srcSchedules.filter(s => s.shift === '白班');
+            const nightShift = srcSchedules.filter(s => s.shift === '夜班');
+            let html = '<div class="bg-blue-50 rounded p-3 text-sm"><div class="font-semibold text-blue-800 mb-2">预览：从 ' + srcDate + ' 复制 ' + srcSchedules.length + ' 条排产</div>';
+
+            if (dayShift.length > 0) {
+                html += '<div class="mb-2"><span class="text-yellow-700 font-medium">白班 (' + dayShift.length + '条)：</span>';
+                html += dayShift.map(s => s.machineId + '·' + (s.productName || '-') + '·' + s.operator).join('，') + '</div>';
+            }
+            if (nightShift.length > 0) {
+                html += '<div><span class="text-indigo-700 font-medium">夜班 (' + nightShift.length + '条)：</span>';
+                html += nightShift.map(s => s.machineId + '·' + (s.productName || '-') + '·' + s.operator).join('，') + '</div>';
+            }
+
+            if (copyTargetDates.length > 0) {
+                html += '<div class="mt-2 pt-2 border-t border-blue-200 text-blue-600">将复制到：' + copyTargetDates.join('、') + '</div>';
+            } else {
+                const targetDate = document.getElementById('copyTargetDate').value;
+                if (targetDate) {
+                    html += '<div class="mt-2 pt-2 border-t border-blue-200 text-blue-600">将复制到：' + targetDate + '（点击"添加目标日期"或"批量复制"可添加更多）</div>';
+                } else {
+                    html += '<div class="mt-2 pt-2 border-t border-blue-200 text-orange-500">请添加至少一个目标日期</div>';
+                }
+            }
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        function executeCopy() {
+            const srcDate = document.getElementById('copySrcDate').value;
+            if (!srcDate) { showToast('请选择源日期', 'error'); return; }
+            const shiftFilter = document.getElementById('copyShiftFilter').value;
+
+            let srcSchedules = appData.schedules.filter(s => s.date === srcDate);
+            if (shiftFilter) srcSchedules = srcSchedules.filter(s => s.shift === shiftFilter);
+
+            if (srcSchedules.length === 0) { showToast('源日期没有排产记录', 'error'); return; }
+
+            // 确定目标日期
+            const targetDate = document.getElementById('copyTargetDate').value;
+            let targets = [...copyTargetDates];
+            if (targets.length === 0 && targetDate) {
+                targets = [targetDate];
+            }
+            if (targets.length === 0) { showToast('请添加至少一个目标日期', 'error'); return; }
+
+            let totalCopied = 0;
+            let totalSkipped = 0;
+
+            targets.forEach(tDate => {
+                // 获取该目标日期已排产的机台
+                const existingMachines = new Set(
+                    appData.schedules.filter(s => s.date === tDate && (!shiftFilter || s.shift === shiftFilter)).map(s => s.machineId)
+                );
+
+                srcSchedules.forEach(src => {
+                    // 如果该机台+班次在目标日期已排产，跳过
+                    const conflictKey = src.machineId + '|' + src.shift;
+                    const existingKey = [...existingMachines].join(',');
+                    if (existingMachines.has(src.machineId)) {
+                        // 检查同一机台同一班次是否冲突
+                        const hasConflict = appData.schedules.some(s =>
+                            s.date === tDate && s.machineId === src.machineId && s.shift === src.shift
+                        );
+                        if (hasConflict) { totalSkipped++; return; }
+                    }
+
+                    const newSchedule = {
+                        ...src,
+                        id: 'sch_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+                        date: tDate,
+                        createdAt: new Date().toISOString(),
+                        createdBy: currentUser.username
+                    };
+                    delete newSchedule.note; // 不复制备注
+                    appData.schedules.push(newSchedule);
+                    totalCopied++;
+                });
+            });
+
+            saveLocal();
+            renderScheduleList();
+            showToast('复制完成！成功 ' + totalCopied + ' 条' + (totalSkipped > 0 ? '，跳过冲突 ' + totalSkipped + ' 条' : ''), 'success');
+
+            // 复制后清空列表
+            clearTargetList();
+            // 刷新预览
+            previewCopy();
         }
 
         // ================= 加工录入 =================
