@@ -23,8 +23,8 @@
             background: var(--bg);
             min-height: 100vh;
         }
-        .page { display: none !important; }
-        .page.active { display: block !important; }
+        .page { display: none; }
+        .page.active { display: block; }
         .card {
             background: white;
             border-radius: 1rem;
@@ -173,7 +173,7 @@
 </head>
 <body>
     <!-- 登录页 -->
-    <div id="loginPage" class="page active">
+    <div id="loginPage" class="page active" style="display:block;">
         <div class="min-h-screen flex items-center justify-center p-4">
             <div class="w-full max-w-md">
                 <div class="card text-center mb-6">
@@ -220,7 +220,7 @@
 </div>
 
     <!-- 主应用 -->
-    <div id="appPage" class="page">
+    <div id="appPage" class="page" style="display:none;">
         <!-- 桌面侧边栏 -->
         <div class="desktop-sidebar">
             <div class="flex items-center gap-3 mb-8">
@@ -303,9 +303,15 @@
                                 <input type="file" id="productFile" accept=".xlsx,.xls" class="form-input" onchange="importProducts(this)">
                                 <p class="text-xs text-gray-500 mt-1">需包含列：产品名称、工序、加工区域、UPH</p>
                             </div>
-                            <div class="flex gap-2">
+                            <div>
+                                <label class="form-label">3. 导入员工信息表 (员工信息.xlsx)</label>
+                                <input type="file" id="employeeFile" accept=".xlsx,.xls" class="form-input" onchange="importEmployees(this)">
+                                <p class="text-xs text-gray-500 mt-1">需包含列：编号、姓名、职位/岗位、备注/负责事项</p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
                                 <button onclick="downloadTemplate('machine')" class="btn btn-secondary flex-1"><i class="fas fa-download"></i> 机台表模板</button>
                                 <button onclick="downloadTemplate('product')" class="btn btn-secondary flex-1"><i class="fas fa-download"></i> 工时表模板</button>
+                                <button onclick="downloadTemplate('employee')" class="btn btn-secondary flex-1"><i class="fas fa-download"></i> 员工表模板</button>
                             </div>
                         </div>
                     </div>
@@ -330,6 +336,18 @@
                             <table>
                                 <thead><tr><th>产品</th><th>工序</th><th>加工区域</th><th>UPH</th></tr></thead>
                                 <tbody id="productTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-bold text-gray-800">员工信息</h3>
+                            <span class="text-sm text-gray-500" id="employeeCount">0 人</span>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead><tr><th>编号</th><th>姓名</th><th>职位/岗位</th><th>备注</th></tr></thead>
+                                <tbody id="employeeTable"></tbody>
                             </table>
                         </div>
                     </div>
@@ -507,6 +525,7 @@
             users: [defaultAdmin],
             machines: [],
             products: [],
+            employees: [],
             schedules: [],
             records: [],
             githubConfig: {
@@ -651,6 +670,8 @@
 
         function logout() {
             currentUser = null;
+            document.getElementById('appPage').style.display = 'none';
+            document.getElementById('loginPage').style.display = 'block';
             document.getElementById('appPage').classList.remove('active');
             document.getElementById('loginPage').classList.add('active');
             document.getElementById('loginUsername').value = '';
@@ -660,6 +681,8 @@
         }
 
         function enterApp() {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('appPage').style.display = 'block';
             document.getElementById('loginPage').classList.remove('active');
             document.getElementById('appPage').classList.add('active');
             document.getElementById('sidebarUser').textContent = `${currentUser.username} · ${roleText(currentUser.role)}`;
@@ -783,11 +806,15 @@
         function renderData() {
             document.getElementById('machineCount').textContent = `${appData.machines.length} 台`;
             document.getElementById('productCount').textContent = `${appData.products.length} 条`;
+            document.getElementById('employeeCount').textContent = `${appData.employees.length} 人`;
             document.getElementById('machineTable').innerHTML = appData.machines.map(m => `
                 <tr><td>${m.id}</td><td>${m.workshop}</td><td>${m.productName || '-'}</td><td>${m.process || '-'}</td></tr>
             `).join('') || '<tr><td colspan="4" class="text-center text-gray-500">暂无数据</td></tr>';
             document.getElementById('productTable').innerHTML = appData.products.map(p => `
                 <tr><td>${p.name}</td><td>${p.process}</td><td>${p.area}</td><td>${p.uph}</td></tr>
+            `).join('') || '<tr><td colspan="4" class="text-center text-gray-500">暂无数据</td></tr>';
+            document.getElementById('employeeTable').innerHTML = appData.employees.map(e => `
+                <tr><td>${e.id}</td><td>${e.name}</td><td>${e.position}</td><td>${(e.remark || '').replace(/\\n/g, '<br>')}</td></tr>
             `).join('') || '<tr><td colspan="4" class="text-center text-gray-500">暂无数据</td></tr>';
         }
 
@@ -879,14 +906,61 @@
             input.value = '';
         }
 
+        function importEmployees(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+                    const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+                    if (json.length < 2) { showToast('文件数据为空', 'error'); return; }
+                    const headers = json[0].map(h => String(h).trim());
+                    const idx = {
+                        id: headers.indexOf('编号'),
+                        name: headers.indexOf('姓名'),
+                        position: headers.indexOf('职位/岗位'),
+                        remark: headers.indexOf('备注/负责事项')
+                    };
+                    if (idx.name === -1) {
+                        showToast('缺少必要列：姓名', 'error');
+                        return;
+                    }
+                    appData.employees = [];
+                    for (let i = 1; i < json.length; i++) {
+                        const row = json[i];
+                        if (!row[idx.name]) continue;
+                        appData.employees.push({
+                            id: row[idx.id] != null ? String(row[idx.id]).trim() : String(i),
+                            name: String(row[idx.name]).trim(),
+                            position: idx.position !== -1 && row[idx.position] != null ? String(row[idx.position]).trim() : '',
+                            remark: idx.remark !== -1 && row[idx.remark] != null ? String(row[idx.remark]).trim() : ''
+                        });
+                    }
+                    saveLocal();
+                    renderData();
+                    showToast(`成功导入 ${appData.employees.length} 条员工信息`, 'success');
+                } catch (err) {
+                    showToast('导入失败：' + err.message, 'error');
+                }
+            };
+            reader.readAsArrayBuffer(file);
+            input.value = '';
+        }
+
         function downloadTemplate(type) {
             let ws, wb, filename;
             if (type === 'machine') {
                 ws = XLSX.utils.aoa_to_sheet([['机台号', '所属车间', '产品名称', '工序'], ['CNC1', '粗加车间', '示例产品', '一序']]);
                 filename = '机台工序表模板.xlsx';
-            } else {
+            } else if (type === 'product') {
                 ws = XLSX.utils.aoa_to_sheet([['产品名称', '工序', '加工区域', 'UPH'], ['示例产品', '一序', '正面', '10']]);
                 filename = '产品工时表模板.xlsx';
+            } else {
+                ws = XLSX.utils.aoa_to_sheet([['编号', '姓名', '职位/岗位', '备注/负责事项'], [1, '张三', 'CNC设备操作员', '']]);
+                filename = '员工信息表模板.xlsx';
             }
             wb = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
@@ -898,7 +972,13 @@
             const machineSelect = document.getElementById('schMachine');
             const operatorSelect = document.getElementById('schOperator');
             machineSelect.innerHTML = '<option value="">选择机台</option>' + appData.machines.map(m => `<option value="${m.id}" data-product="${m.productName || ''}" data-process="${m.process || ''}">${m.id} · ${m.workshop} · ${m.productName || '无产品'}</option>`).join('');
-            operatorSelect.innerHTML = '<option value="">选择操作工</option>' + appData.users.filter(u => u.role === 'operator').map(u => `<option value="${u.username}">${u.username}</option>`).join('');
+            let operatorOptions;
+            if (appData.employees.length > 0) {
+                operatorOptions = appData.employees.map(e => `<option value="${e.name}">${e.name}${e.position ? ' · ' + e.position : ''}</option>`).join('');
+            } else {
+                operatorOptions = appData.users.filter(u => u.role === 'operator').map(u => `<option value="${u.username}">${u.username}</option>`).join('');
+            }
+            operatorSelect.innerHTML = '<option value="">选择操作工</option>' + operatorOptions;
             renderScheduleList();
         }
 
