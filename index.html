@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="CNC加工生产排产管理系统">
+    <meta name="description" content="CNC加工生产排产管理系统，支持排产看板、加工录入、产能报表、停机统计、瓶颈分析">
+    <!-- Open Graph / 微信分享卡片 -->
+    <meta property="og:title" content="CNC排产管理系统">
+    <meta property="og:description" content="CNC加工生产排产管理系统，支持排产看板、加工录入、产能报表、停机统计、瓶颈分析">
+    <meta property="og:image" content="https://tanshaojing.github.io/cnc-scheduler/logo.png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+    <meta property="og:url" content="https://tanshaojing.github.io/cnc-scheduler/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CNC排产管理系统">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CNC排产管理系统">
+    <meta name="twitter:description" content="CNC加工生产排产管理系统">
+    <meta name="twitter:image" content="https://tanshaojing.github.io/cnc-scheduler/logo.png">
     <title>CNC排产管理系统</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -130,22 +144,32 @@
         }
         .modal {
             position: fixed;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0,0,0,0.5);
             display: none;
             align-items: center;
             justify-content: center;
             z-index: 60;
-            padding: 1rem;
+            padding: 0.5rem;
+            overflow-y: auto;
+            margin: 0;
         }
-        .modal.active { display: flex; }
+        .modal.active { display: flex !important; }
         .modal-content {
             background: white;
             border-radius: 1rem;
             width: 100%;
             max-width: 500px;
-            max-height: 90vh;
+            max-height: calc(100vh - 1rem);
             overflow-y: auto;
+            margin: auto;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
         }
         .hidden { display: none !important; }
 
@@ -195,6 +219,8 @@
         .stat-card { text-align: center; }
         .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
         .stat-label { font-size: 0.75rem; color: #6b7280; }
+        .external-link { color: #2563eb; background: #eff6ff; transition: all 0.15s; }
+        .external-link:hover { background: #dbeafe; color: #1d4ed8; }
         .chart-container { position: relative; height: 300px; width: 100%; }
         .measure-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 0.75rem; margin-top: 0.5rem; }
         .measure-row { display: flex; gap: 0.5rem; align-items: flex-start; padding: 0.25rem 0; font-size: 0.8rem; }
@@ -202,6 +228,32 @@
         .measure-inst { color: #6366f1; white-space: nowrap; }
         .tab-btn { padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; cursor: pointer; border: 1px solid #e5e7eb; background: white; color: #6b7280; }
         .tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        /* 排产看板吸顶 */
+        .board-toolbar {
+            position: sticky;
+            top: 48px;
+            z-index: 20;
+            background: var(--bg);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .board-toolbar > .card { margin-bottom: 0; }
+        /* 日产量目标面板 */
+        .target-panel { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 0.75rem; padding: 0.75rem; margin-bottom: 0.75rem; }
+        .target-row { display: flex; align-items: center; justify-content: space-between; padding: 0.25rem 0; font-size: 0.8rem; }
+        .target-progress { height: 0.375rem; background: #e0f2fe; border-radius: 9999px; overflow: hidden; margin-top: 0.25rem; }
+        .target-progress-fill { height: 100%; border-radius: 9999px; transition: width 0.3s; }
+        .filter-highlight { border-color: #fbbf24 !important; box-shadow: 0 0 0 2px rgba(251,191,36,0.3); }
+        /* 不良品管理子系统样式 */
+        #page-defect .ds-tab { transition: all 0.15s; cursor: pointer; }
+        #page-defect .ds-tab.active { background: #2563eb; color: white; }
+        #page-defect .ds-section { display: none; }
+        #page-defect .ds-section.active { display: block; animation: dsFadeIn 0.25s ease; }
+        @keyframes dsFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .rate-low { color: #10b981; }
+        .rate-medium { color: #f59e0b; }
+        .rate-high { color: #ef4444; }
     </style>
 </head>
 <body>
@@ -266,6 +318,15 @@
                 </div>
             </div>
             <nav class="space-y-1" id="desktopNav"></nav>
+            <!-- 底部外部系统跳转 -->
+            <div class="absolute bottom-6 left-6 right-6 border-t border-gray-200 pt-3">
+                <div class="text-xs text-gray-400 mb-2 px-3">外部系统</div>
+                <a href="https://tanshaojing.github.io/defect-dashboard/?v=1" target="_blank" rel="noopener" class="external-link flex items-center gap-3 px-3 py-2 rounded-lg">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>不良品管理系统</span>
+                    <i class="fas fa-external-link-alt text-xs ml-auto text-gray-400"></i>
+                </a>
+            </div>
         </div>
 
         <!-- 主内容区 -->
@@ -323,7 +384,7 @@
                     </div>
                     <div class="card">
                         <h3 class="font-bold text-gray-800 mb-3">快捷入口</h3>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="quickActions"></div>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3" id="quickActions"></div>
                     </div>
                     <div class="card">
                         <h3 class="font-bold text-gray-800 mb-3">今日产能概览</h3>
@@ -332,6 +393,10 @@
                     <div class="card">
                         <h3 class="font-bold text-gray-800 mb-3">今日班次产能对比</h3>
                         <div class="chart-container"><canvas id="homeShiftChart"></canvas></div>
+                    </div>
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-3">各产品预计产量 vs 实际产量</h3>
+                        <div class="chart-container" id="homeProductChartWrap"><canvas id="homeProductChart"></canvas></div>
                     </div>
                 </div>
 
@@ -397,35 +462,47 @@
 
                 <!-- 排产管理 -->
                 <div id="page-schedule" class="page">
-                    <!-- 工具栏 -->
-                    <div class="card">
-                        <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
-                            <h3 class="font-bold text-gray-800"><i class="fas fa-th-large text-blue-500"></i> 排产看板</h3>
-                            <input type="date" id="boardDate" class="form-input text-sm py-1 w-auto" onchange="renderBoard()">
-                        </div>
-                        <div class="flex bg-gray-100 rounded-lg p-0.5 mb-3">
-                            <button id="shiftTabDay" onclick="setBoardShift('白班')" class="flex-1 py-1.5 text-sm rounded-md transition shift-tab-active">☀️ 白班</button>
-                            <button id="shiftTabNight" onclick="setBoardShift('夜班')" class="flex-1 py-1.5 text-sm rounded-md transition text-gray-500">🌙 夜班</button>
-                        </div>
-                        <div class="grid grid-cols-4 gap-2 text-center">
-                            <div class="bg-gray-50 rounded-lg p-2">
-                                <div class="font-bold text-lg" id="boardTotal">0</div>
-                                <div class="text-xs text-gray-500">总机台</div>
+                    <!-- 吸顶工具栏 -->
+                    <div class="board-toolbar">
+                        <div class="card">
+                            <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                                <h3 class="font-bold text-gray-800"><i class="fas fa-th-large text-blue-500"></i> 排产看板</h3>
+                                <input type="date" id="boardDate" class="form-input text-sm py-1 w-auto" onchange="renderBoard()">
                             </div>
-                            <div class="bg-green-50 rounded-lg p-2">
-                                <div class="font-bold text-lg text-green-600" id="boardScheduled">0</div>
-                                <div class="text-xs text-gray-500">已排产</div>
+                            <div class="flex bg-gray-100 rounded-lg p-0.5 mb-3">
+                                <button id="shiftTabDay" onclick="setBoardShift('白班')" class="flex-1 py-1.5 text-sm rounded-md transition shift-tab-active">☀️ 白班</button>
+                                <button id="shiftTabNight" onclick="setBoardShift('夜班')" class="flex-1 py-1.5 text-sm rounded-md transition text-gray-500">🌙 夜班</button>
                             </div>
-                            <div class="bg-orange-50 rounded-lg p-2">
-                                <div class="font-bold text-lg text-orange-500" id="boardUnscheduled">0</div>
-                                <div class="text-xs text-gray-500">未排产</div>
+                            <!-- 筛选搜索 -->
+                            <div class="flex gap-2 mb-2">
+                                <input type="text" id="boardFilter" class="form-input text-sm py-1.5" placeholder="搜索产品名称或工序..." oninput="renderBoard()">
+                                <select id="boardFilterWorkshop" class="form-input text-sm py-1.5 w-auto" onchange="renderBoard()">
+                                    <option value="">全部车间</option>
+                                </select>
                             </div>
-                            <div class="bg-blue-50 rounded-lg p-2">
-                                <div class="font-bold text-lg text-blue-600" id="boardPlan">0</div>
-                                <div class="text-xs text-gray-500">计划总数</div>
+                            <div class="grid grid-cols-4 gap-2 text-center">
+                                <div class="bg-gray-50 rounded-lg p-2">
+                                    <div class="font-bold text-lg" id="boardTotal">0</div>
+                                    <div class="text-xs text-gray-500">总机台</div>
+                                </div>
+                                <div class="bg-green-50 rounded-lg p-2">
+                                    <div class="font-bold text-lg text-green-600" id="boardScheduled">0</div>
+                                    <div class="text-xs text-gray-500">已排产</div>
+                                </div>
+                                <div class="bg-orange-50 rounded-lg p-2">
+                                    <div class="font-bold text-lg text-orange-500" id="boardUnscheduled">0</div>
+                                    <div class="text-xs text-gray-500">未排产</div>
+                                </div>
+                                <div class="bg-blue-50 rounded-lg p-2">
+                                    <div class="font-bold text-lg text-blue-600" id="boardPlan">0</div>
+                                    <div class="text-xs text-gray-500">计划总数</div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- 日产量目标面板 -->
+                    <div id="dailyTargetPanel"></div>
 
                     <!-- 机台看板 -->
                     <div id="machineBoard"></div>
@@ -522,23 +599,14 @@
 
                 <!-- 产能报表 -->
                 <div id="page-report" class="page">
+                    <!-- 产能图表分析（放最上） -->
                     <div class="card">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="font-bold text-gray-800">产能达标报表</h3>
+                        <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                            <h3 class="font-bold text-gray-800">产能图表分析</h3>
                             <div class="flex gap-2">
                                 <input type="date" id="reportDate" class="form-input text-sm py-1" onchange="renderReport()">
-                                <select id="reportShift" class="form-input text-sm py-1" onchange="renderReport()">
-                                    <option value="">全部班次</option>
-                                    <option value="白班">白班</option>
-                                    <option value="夜班">夜班</option>
-                                </select>
                             </div>
                         </div>
-                        <div id="reportList" class="space-y-3"></div>
-                    </div>
-
-                    <div class="card">
-                        <h3 class="font-bold text-gray-800 mb-3">产能图表分析</h3>
                         <div class="flex gap-2 mb-4 flex-wrap">
                             <button class="tab-btn active" onclick="switchChartTab('product', this)">按产品工序</button>
                             <button class="tab-btn" onclick="switchChartTab('operator', this)">按人员</button>
@@ -559,13 +627,75 @@
                     </div>
 
                     <div class="card">
-                        <h3 class="font-bold text-gray-800 mb-3">人员绩效排行</h3>
+                        <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                            <h3 class="font-bold text-gray-800">人员绩效排行</h3>
+                            <div class="flex gap-2">
+                                <select id="reportShift" class="form-input text-sm py-1 w-20" onchange="renderReport()">
+                                    <option value="">全部班次</option>
+                                    <option value="白班">白班</option>
+                                    <option value="夜班">夜班</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="table-container">
                             <table>
                                 <thead><tr><th>排名</th><th>操作工</th><th>计划数量</th><th>实际完成</th><th>达标产量</th><th>达成率</th><th>状态</th></tr></thead>
                                 <tbody id="operatorRankTable"></tbody>
                             </table>
                         </div>
+                    </div>
+
+                    <!-- 产能达标看板（卡片式，放最下面） -->
+                    <div class="card">
+                        <h3 class="font-bold text-gray-800 mb-3">产能达标看板</h3>
+                        <div id="reportList" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"></div>
+                    </div>
+                </div>
+
+                <!-- 异常停机统计 -->
+                <div id="page-downtime" class="page">
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                            <h3 class="font-bold text-gray-800"><i class="fas fa-exclamation-triangle text-orange-500"></i> 异常停机统计</h3>
+                            <div class="flex gap-2">
+                                <input type="date" id="downtimeFilterDate" class="form-input text-sm py-1" onchange="renderDowntimePage()">
+                                <select id="downtimeFilterShift" class="form-input text-sm py-1" onchange="renderDowntimePage()">
+                                    <option value="">全部班次</option>
+                                    <option value="白班">白班</option>
+                                    <option value="夜班">夜班</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- 统计汇总 -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center mb-3" id="downtimeSummary"></div>
+                        <!-- 按原因分布饼图 -->
+                        <div class="chart-container mb-3" id="downtimeReasonChartContainer" style="height:250px"><canvas id="downtimeReasonChart"></canvas></div>
+                        <!-- 按机台分布 -->
+                        <div class="chart-container" id="downtimeMachineChartContainer" style="height:250px"><canvas id="downtimeMachineChart"></canvas></div>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+                            <h3 class="font-bold text-gray-800">停机明细</h3>
+                            <button onclick="clearDowntimeFilter()" class="btn btn-secondary text-sm py-1"><i class="fas fa-times"></i> 清除筛选</button>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 mb-3">
+                            <select id="downtimeFilterOperator" class="form-input text-sm py-1" onchange="renderDowntimePage()">
+                                <option value="">全部操作员</option>
+                            </select>
+                            <select id="downtimeFilterProduct" class="form-input text-sm py-1" onchange="renderDowntimePage()">
+                                <option value="">全部产品</option>
+                            </select>
+                            <select id="downtimeFilterProcess" class="form-input text-sm py-1" onchange="renderDowntimePage()">
+                                <option value="">全部工序</option>
+                            </select>
+                            <select id="downtimeFilterWorkshop" class="form-input text-sm py-1" onchange="renderDowntimePage()">
+                                <option value="">全部车间</option>
+                            </select>
+                            <select id="downtimeFilterNote" class="form-input text-sm py-1" onchange="renderDowntimePage()">
+                                <option value="">全部备注</option>
+                            </select>
+                        </div>
+                        <div id="downtimeDetailList" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"></div>
                     </div>
                 </div>
 
@@ -632,6 +762,489 @@
                         </ul>
                     </div>
                 </div>
+
+                <!-- 不良品管理 -->
+                <div id="page-defect" class="page">
+                    <div class="bg-white rounded-lg border border-gray-200 p-1 mb-4 flex flex-wrap gap-1" style="position:sticky;top:48px;z-index:20;">
+                        <button onclick="DefectTabs.navigate('dashboard')" class="ds-tab active px-3 py-1.5 rounded text-sm font-medium" data-ds="dashboard">数据看板</button>
+                        <button onclick="DefectTabs.navigate('register')" class="ds-tab px-3 py-1.5 rounded text-sm font-medium text-gray-600" data-ds="register">不良登记</button>
+                        <button onclick="DefectTabs.navigate('production')" class="ds-tab px-3 py-1.5 rounded text-sm font-medium text-gray-600" data-ds="production">产量录入</button>
+                        <button onclick="DefectTabs.navigate('report')" class="ds-tab px-3 py-1.5 rounded text-sm font-medium text-gray-600" data-ds="report">统计报表</button>
+                        <button onclick="DefectTabs.navigate('products')" class="ds-tab px-3 py-1.5 rounded text-sm font-medium text-gray-600" data-ds="products">产品管理</button>
+                        <button onclick="DefectTabs.navigate('data')" class="ds-tab px-3 py-1.5 rounded text-sm font-medium text-gray-600" data-ds="data">数据管理</button>
+                    </div>
+                    <div id="defect-sections">
+<section class="ds-section active" class="page-section">
+      <div class="mb-6 flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-800">📊 数据看板</h2>
+          <p class="text-gray-500 mt-1">实时掌握生产质量状况</p>
+        </div>
+        <div class="flex items-center space-x-2">
+          <label class="text-sm text-gray-600 font-medium">查看日期：</label>
+          <input type="date" id="dash-date-picker" class="form-input px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500" onchange="Dashboard.onDateChange()">
+          <button onclick="Dashboard.goToday()" class="btn px-3 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 text-sm">
+            今天
+          </button>
+        </div>
+      </div>
+      
+      <!-- 今日概览卡片 -->
+      <div class="mb-4">
+        <h3 class="text-md font-semibold text-gray-700 mb-3 flex items-center">
+          <span class="w-2 h-5 bg-blue-500 rounded mr-2"></span><span id="dash-day-label">今日</span>
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">今日总产量</p>
+                <p class="text-3xl font-bold text-gray-800 mt-1" id="dash-day-production">0</p>
+              </div>
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">今日总报废</p>
+                <p class="text-3xl font-bold text-red-600 mt-1" id="dash-day-defects">0</p>
+              </div>
+              <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">今日不良率</p>
+                <p class="text-3xl font-bold text-orange-600 mt-1" id="dash-day-rate">0.00%</p>
+              </div>
+              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">今日有数据产品</p>
+                <p class="text-3xl font-bold text-green-600 mt-1" id="dash-day-product-count">0</p>
+              </div>
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 本周概览卡片 -->
+      <div class="mb-4">
+        <h3 class="text-md font-semibold text-gray-700 mb-3 flex items-center">
+          <span class="w-2 h-5 bg-purple-500 rounded mr-2"></span>本周（周一~周日）
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">本周总产量</p>
+                <p class="text-3xl font-bold text-gray-800 mt-1" id="dash-week-production">0</p>
+              </div>
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">本周总报废</p>
+                <p class="text-3xl font-bold text-red-600 mt-1" id="dash-week-defects">0</p>
+              </div>
+              <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">本周不良率</p>
+                <p class="text-3xl font-bold text-orange-600 mt-1" id="dash-week-rate">0.00%</p>
+              </div>
+              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">本周有数据产品</p>
+                <p class="text-3xl font-bold text-green-600 mt-1" id="dash-week-product-count">0</p>
+              </div>
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 本月概览卡片 -->
+      <div class="mb-6">
+        <h3 class="text-md font-semibold text-gray-700 mb-3 flex items-center">
+          <span class="w-2 h-5 bg-indigo-500 rounded mr-2"></span>本月
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">本月总产量</p>
+                <p class="text-3xl font-bold text-gray-800 mt-1" id="dash-month-production">0</p>
+              </div>
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">本月总报废</p>
+                <p class="text-3xl font-bold text-red-600 mt-1" id="dash-month-defects">0</p>
+              </div>
+              <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">本月不良率</p>
+                <p class="text-3xl font-bold text-orange-600 mt-1" id="dash-month-rate">0.00%</p>
+              </div>
+              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="stat-card bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-500">本月有数据产品</p>
+                <p class="text-3xl font-bold text-green-600 mt-1" id="dash-month-product-count">0</p>
+              </div>
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 图表区域 -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">近7天不良率趋势</h3>
+          <div class="chart-container">
+            <canvas id="ds-chart-trend"></canvas>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">本周不良类型占比</h3>
+          <div class="chart-container">
+            <canvas id="ds-chart-type"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">各产品当日报废数</h3>
+          <div class="chart-container">
+            <canvas id="ds-chart-product"></canvas>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">本周产品不良率排名</h3>
+          <div class="chart-container">
+            <canvas id="ds-chart-ranking"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- 当日报废明细 -->
+      <div class="mt-6 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold text-gray-800">📋 当日报废明细</h3>
+          <span class="text-sm text-gray-500" id="dash-defect-detail-date">--</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>产品</th>
+                <th>不良类别</th>
+                <th>不良描述</th>
+                <th>数量</th>
+              </tr>
+            </thead>
+            <tbody id="dash-defect-detail">
+              <tr><td colspan="4" class="text-center text-gray-500 py-8">暂无数据</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 不良描述 TOP10 -->
+      <div class="mt-6 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">🔥 本周不良描述 TOP10</h3>
+        <div class="overflow-x-auto">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>排名</th>
+                <th>不良描述</th>
+                <th>所属类别</th>
+                <th>数量</th>
+                <th>占比</th>
+              </tr>
+            </thead>
+            <tbody id="dash-defect-top10">
+              <tr><td colspan="5" class="text-center text-gray-500 py-8">暂无数据</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+<section class="ds-section hidden" class="page-section hidden">
+      <div class="mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">📈 统计报表</h2>
+        <p class="text-gray-500 mt-1">查看详细的报废率统计</p>
+      </div>
+
+      <!-- 筛选条件 -->
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-6">
+        <div class="flex flex-wrap items-end gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">报表类型</label>
+            <select id="report-type" class="form-input px-4 py-2 border border-gray-300 rounded-lg">
+              <option value="daily">日报表</option>
+              <option value="weekly">周报表</option>
+              <option value="monthly">月报表</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">开始日期</label>
+            <input type="date" id="report-start" class="form-input px-4 py-2 border border-gray-300 rounded-lg">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">结束日期</label>
+            <input type="date" id="report-end" class="form-input px-4 py-2 border border-gray-300 rounded-lg">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">产品筛选</label>
+            <select id="report-product" class="form-input px-4 py-2 border border-gray-300 rounded-lg">
+              <option value="">全部产品</option>
+            </select>
+          </div>
+          <button onclick="Report.generate()" class="btn px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
+            生成报表
+          </button>
+          <button onclick="Report.exportExcel()" class="btn px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-medium">
+            导出Excel
+          </button>
+        </div>
+      </div>
+
+      <!-- 报表结果 -->
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">报表结果</h3>
+        <div class="overflow-x-auto">
+          <table class="data-table" id="report-table">
+            <thead>
+              <tr>
+                <th>日期/周期</th>
+                <th>产品</th>
+                <th>产量</th>
+                <th>报废数</th>
+                <th>不良率</th>
+                <th>等级</th>
+              </tr>
+            </thead>
+            <tbody id="report-body">
+              <tr>
+                <td colspan="6" class="text-center text-gray-500 py-8">请选择条件生成报表</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+<section class="ds-section hidden" class="page-section hidden">
+      <div class="mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">📝 不良品登记</h2>
+        <p class="text-gray-500 mt-1">记录每天的不良品信息</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-1">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">新增登记</h3>
+            <form id="defect-form" class="space-y-4">
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">日期</label><input type="date" id="defect-date" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg"></div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">产品</label><select id="defect-product" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg"><option value="">请选择产品</option></select></div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">不良类别</label><select id="defect-type" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" disabled><option value="">请先选择产品</option></select></div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">不良描述</label><select id="defect-desc" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" disabled><option value="">请先选择类别</option></select></div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">数量</label><input type="number" id="defect-quantity" min="1" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="输入不良数量"></div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">备注（可选）</label><input type="text" id="defect-note" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="输入备注"></div>
+              <button type="submit" class="btn w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 font-medium">保存登记</button>
+            </form>
+          </div>
+        </div>
+        <div class="lg:col-span-2">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-lg font-semibold text-gray-800">登记记录</h3>
+              <div class="flex items-center space-x-2">
+                <input type="date" id="register-filter-date" class="form-input px-3 py-1 border border-gray-300 rounded-lg text-sm">
+                <button onclick="Register.loadRecords()" class="btn px-3 py-1 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 text-sm">刷新</button>
+              </div>
+            </div>
+            <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>日期</th><th>产品</th><th>不良类别</th><th>不良描述</th><th>数量</th><th>备注</th><th>操作</th></tr></thead><tbody id="register-records"><tr><td colspan="7" class="text-center text-gray-500 py-8">暂无记录</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="ds-section hidden" class="page-section hidden">
+      <div class="mb-6"><h2 class="text-2xl font-bold text-gray-800">📦 产量录入</h2><p class="text-gray-500 mt-1">记录每天各产品的生产数量</p></div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-1">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">新增产量</h3>
+            <form id="production-form" class="space-y-4">
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">日期</label><input type="date" id="production-date" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg"></div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">产品</label><select id="production-product" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg"><option value="">请选择产品</option></select></div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">日产量</label><input type="number" id="production-quantity" min="0" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="输入生产数量"></div>
+              <button type="submit" class="btn w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 font-medium">保存产量</button>
+            </form>
+          </div>
+        </div>
+        <div class="lg:col-span-2">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-lg font-semibold text-gray-800">产量记录</h3>
+              <div class="flex items-center space-x-2">
+                <input type="date" id="production-filter-date" class="form-input px-3 py-1 border border-gray-300 rounded-lg text-sm">
+                <button onclick="Production.loadRecords()" class="btn px-3 py-1 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 text-sm">刷新</button>
+              </div>
+            </div>
+            <div class="overflow-x-auto"><table class="data-table"><thead><tr><th>日期</th><th>产品</th><th>日产量</th><th>操作</th></tr></thead><tbody id="production-records"><tr><td colspan="4" class="text-center text-gray-500 py-8">暂无记录</td></tr></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="ds-section hidden" class="page-section hidden">
+      <div class="mb-6"><h2 class="text-2xl font-bold text-gray-800">⚙️ 产品管理</h2><p class="text-gray-500 mt-1">管理产品和不良类型配置</p></div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-1">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-lg font-semibold text-gray-800">产品列表</h3>
+              <button onclick="Products.showAddForm()" class="btn px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm">+ 新增</button>
+            </div>
+            <div id="product-list" class="space-y-2"></div>
+          </div>
+        </div>
+        <div class="lg:col-span-2">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" id="product-detail-title">选择产品查看详情</h3>
+            <div id="product-detail"><p class="text-gray-500 text-center py-8">请从左侧选择一个产品</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="ds-section hidden" class="page-section hidden">
+      <div class="mb-6"><h2 class="text-2xl font-bold text-gray-800">💾 数据管理</h2><p class="text-gray-500 mt-1">备份、恢复、同步数据</p></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">☁️ GitHub 数据同步</h3>
+          <div class="space-y-3">
+            <div id="sync-status" class="p-3 rounded-lg text-sm"><span class="text-yellow-600">⚠️ 未配置同步密钥</span></div>
+            <div><label class="block text-sm font-medium text-gray-700 mb-1">同步密钥 (GitHub Token)</label><input type="password" id="sync-token-input" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg text-sm" placeholder="输入 GitHub Token"></div>
+            <button onclick="DataManager.saveSyncToken()" class="btn w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 font-medium">💾 保存并启用同步</button>
+            <button onclick="DataManager.syncNow()" class="btn w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 font-medium">🔄 立即同步</button>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">📂 Excel 导入</h3>
+          <input type="file" id="import-excel-file" accept=".xlsx,.xls" class="hidden" onchange="DataManager.importExcel(this)">
+          <button onclick="document.getElementById('import-excel-file').click()" class="btn w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 font-medium mb-3">📂 上传 Excel 文件</button>
+          <details class="mt-2"><summary class="text-sm text-blue-600 cursor-pointer">粘贴导入</summary>
+            <textarea id="paste-excel-data" rows="4" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm mt-2" placeholder="粘贴 Excel 数据..."></textarea>
+            <button onclick="DataManager.importFromPaste()" class="btn mt-2 px-4 py-2 bg-yellow-600 text-white rounded-lg text-sm">从粘贴导入</button>
+          </details>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">📤 导出 CSV</h3>
+          <button onclick="DataManager.exportCSV('production')" class="btn w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 mb-2">导出产量记录</button>
+          <button onclick="DataManager.exportCSV('defects')" class="btn w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 mb-2">导出不良记录</button>
+          <button onclick="DataManager.exportCSV('all')" class="btn w-full bg-gray-600 text-white py-2 rounded-lg hover:bg-gray-700">导出全部数据</button>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">📥 导入 CSV</h3>
+          <select id="import-csv-type" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg mb-2"><option value="production">产量记录</option><option value="defects">不良记录</option></select>
+          <input type="file" id="import-csv-file" accept=".csv,.txt" class="hidden" onchange="DataManager.importCSV(this)">
+          <button onclick="document.getElementById('import-csv-file').click()" class="btn w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">选择 CSV 文件导入</button>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">⚠️ 重置</h3>
+          <button onclick="DataManager.resetData()" class="btn w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700">重置所有数据</button>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">数据统计</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-gray-50 rounded-lg p-4"><p class="text-sm text-gray-500">产品数量</p><p class="text-2xl font-bold text-gray-800" id="data-product-count">0</p></div>
+          <div class="bg-gray-50 rounded-lg p-4"><p class="text-sm text-gray-500">产量记录</p><p class="text-2xl font-bold text-gray-800" id="data-production-count">0</p></div>
+          <div class="bg-gray-50 rounded-lg p-4"><p class="text-sm text-gray-500">不良记录</p><p class="text-2xl font-bold text-gray-800" id="data-defect-count">0</p></div>
+        </div>
+      </div>
+    </section>
+                    </div>
+                </div>
+
             </main>
         </div>
 
@@ -689,6 +1302,13 @@
                     </div>
                 </div>
                 <p class="text-xs text-blue-600" id="modalPlanHint"></p>
+                <div id="modalDailyTargetSection" class="bg-blue-50 rounded-lg p-3 hidden">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-semibold text-blue-800"><i class="fas fa-bullseye"></i> 产品日产量目标</span>
+                        <span id="modalDailyTargetValue" class="text-sm font-bold text-blue-600"></span>
+                    </div>
+                    <div id="modalDailyTargetProgress" class="space-y-2"></div>
+                </div>
                 <div>
                     <label class="form-label">备注</label>
                     <input type="text" id="modalNote" class="form-input" placeholder="可选">
@@ -718,14 +1338,16 @@
             employees: [],
             schedules: [],
             records: [],
+            downtimes: [],
+            dailyTargets: [],
             githubConfig: {
                 owner: 'TANSHAOJING',
                 repo: 'cnc-scheduler',
                 branch: 'main',
                 path: 'data.json',
-                autoSync: false
+                autoSync: true
             },
-            version: 2
+            version: 3
         };
         const GH_TOKEN_KEY = 'cnc_scheduler_gh_token';
         let reportCharts = {};
@@ -736,21 +1358,24 @@
                 { id: 'data', label: '基础数据', icon: 'fa-database' },
                 { id: 'schedule', label: '排产管理', icon: 'fa-calendar-alt' },
                 { id: 'record', label: '加工录入', icon: 'fa-edit' },
+                { id: 'downtime', label: '异常停机', icon: 'fa-exclamation-triangle' },
                 { id: 'report', label: '产能报表', icon: 'fa-chart-bar' },
                 { id: 'users', label: '账号管理', icon: 'fa-users' },
-                { id: 'sync', label: '数据同步', icon: 'fa-cloud' }
+                { id: 'sync', label: '数据同步', icon: 'fa-cloud' },
+                { id: 'defect', label: '不良品管理', icon: 'fa-chart-pie' }
             ],
             manager: [
                 { id: 'home', label: '首页', icon: 'fa-home' },
                 { id: 'schedule', label: '排产管理', icon: 'fa-calendar-alt' },
+                { id: 'downtime', label: '异常停机', icon: 'fa-exclamation-triangle' },
                 { id: 'report', label: '产能报表', icon: 'fa-chart-bar' },
-                { id: 'sync', label: '数据同步', icon: 'fa-cloud' }
+                { id: 'defect', label: '不良品管理', icon: 'fa-chart-pie' }
             ],
             operator: [
                 { id: 'home', label: '首页', icon: 'fa-home' },
                 { id: 'record', label: '加工录入', icon: 'fa-edit' },
                 { id: 'report', label: '我的报表', icon: 'fa-chart-bar' },
-                { id: 'sync', label: '数据同步', icon: 'fa-cloud' }
+                { id: 'defect', label: '不良品管理', icon: 'fa-chart-pie' }
             ]
         };
 
@@ -816,18 +1441,51 @@
             }
         }
 
-        function handleLogin(e) {
+        async function handleLogin(e) {
             e.preventDefault();
             const username = document.getElementById('loginUsername').value.trim();
             const password = document.getElementById('loginPassword').value;
             const user = appData.users.find(u => u.username === username && u.password === password);
-            if (user) {
-                currentUser = user;
-                enterApp();
-                showToast('登录成功', 'success');
-            } else {
+            if (!user) {
                 showToast('账号或密码错误', 'error');
+                return;
             }
+            currentUser = user;
+
+            // 尝试从GitHub拉取最新数据
+            const token = localStorage.getItem(GH_TOKEN_KEY);
+            const c = appData.githubConfig;
+            if (token && c && c.owner && c.repo) {
+                showLoading('正在同步GitHub数据...');
+                try {
+                    const res = await fetch('https://api.github.com/repos/' + c.owner + '/' + c.repo + '/contents/' + (c.path || 'data.json') + '?ref=' + (c.branch || 'main'), {
+                        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+                    });
+                    if (res.ok) {
+                        const data = await res.json();
+                        const content = decodeURIComponent(escape(atob(data.content)));
+                        const parsed = JSON.parse(content);
+                        appData = { ...appData, ...parsed };
+                        if (!appData.users.find(u => u.username === '谭绍景')) {
+                            appData.users.unshift(defaultAdmin);
+                        }
+                        // 重新验证用户（数据刷新后可能变化）
+                        const refreshedUser = appData.users.find(u => u.username === username && u.password === password);
+                        if (refreshedUser) currentUser = refreshedUser;
+                        if (!appData.dailyTargets) appData.dailyTargets = [];
+                        saveLocal();
+                        showToast('数据同步成功', 'success');
+                    } else {
+                        showToast('GitHub暂无数据，使用本地', 'info');
+                    }
+                } catch (err) {
+                    showToast('同步失败，使用本地数据', 'info');
+                } finally {
+                    hideLoading();
+                }
+            }
+
+            enterApp();
         }
 
         function handleRegister(e) {
@@ -904,18 +1562,26 @@
         }
 
         function showPage(pageId) {
-            document.querySelectorAll('#appPage .page').forEach(p => p.classList.remove('active'));
-            document.getElementById('page-' + pageId)?.classList.add('active');
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.page === pageId));
-            const titles = { home: '首页', data: '基础数据', schedule: '排产管理', record: '加工录入', report: '产能报表', users: '账号管理', sync: 'GitHub同步' };
-            document.getElementById('pageTitle').textContent = titles[pageId] || pageId;
-            if (pageId === 'home') renderHome();
-            if (pageId === 'data') renderData();
-            if (pageId === 'schedule') renderSchedulePage();
+            try {
+                document.querySelectorAll('#appPage .page').forEach(p => p.classList.remove('active'));
+                const target = document.getElementById('page-' + pageId);
+                if (target) target.classList.add('active');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.page === pageId));
+                const titles = { home: '首页', data: '基础数据', schedule: '排产管理', record: '加工录入', downtime: '异常停机', report: '产能报表', users: '账号管理', sync: 'GitHub同步', defect: '不良品管理' };
+                document.getElementById('pageTitle').textContent = titles[pageId] || pageId;
+                if (pageId === 'home') renderHome();
+                if (pageId === 'data') renderData();
+                if (pageId === 'schedule') renderSchedulePage();
             if (pageId === 'record') renderRecordPage();
+            if (pageId === 'downtime') renderDowntimePage();
             if (pageId === 'report') renderReport();
-            if (pageId === 'users') renderUsers();
-            if (pageId === 'sync') syncGhConfigToUI();
+                if (pageId === 'users') renderUsers();
+                if (pageId === 'sync') syncGhConfigToUI();
+                if (pageId === 'defect') DefectTabs.init();
+            } catch (err) {
+                console.error('页面切换错误:', err);
+                showToast('页面加载出错: ' + err.message, 'error');
+            }
             window.scrollTo(0, 0);
         }
 
@@ -947,7 +1613,8 @@
                     { label: '导入基础数据', icon: 'fa-file-import', page: 'data' },
                     { label: '新增排产', icon: 'fa-calendar-plus', page: 'schedule' },
                     { label: '查看报表', icon: 'fa-chart-pie', page: 'report' },
-                    { label: '账号管理', icon: 'fa-users', page: 'users' }
+                    { label: '账号管理', icon: 'fa-users', page: 'users' },
+                    { label: '不良品管理', icon: 'fa-chart-pie', page: 'defect' }
                 ];
             } else if (role === 'manager') {
                 actions = [
@@ -962,12 +1629,20 @@
                     { label: '数据同步', icon: 'fa-cloud', page: 'sync' }
                 ];
             }
-            quickActions.innerHTML = actions.map(a => `
-                <button onclick="showPage('${a.page}')" class="btn btn-secondary btn-block flex-col py-4">
+            // 追加：所有角色都可跳转到外部不良品管理系统
+            actions.push({ label: '不良品管理', icon: 'fa-chart-pie', external: 'https://tanshaojing.github.io/defect-dashboard/?v=1' });
+            quickActions.innerHTML = actions.map(a => {
+                if (a.external) {
+                    return `<a href="${a.external}" target="_blank" rel="noopener" class="btn btn-secondary btn-block flex-col py-4">
+                        <i class="fas ${a.icon} text-xl mb-1 text-blue-600"></i>
+                        <span class="text-xs">${a.label}</span>
+                    </a>`;
+                }
+                return `<button onclick="showPage('${a.page}')" class="btn btn-secondary btn-block flex-col py-4">
                     <i class="fas ${a.icon} text-xl mb-1 text-blue-600"></i>
                     <span class="text-xs">${a.label}</span>
-                </button>
-            `).join('');
+                </button>`;
+            }).join('');
 
             const overview = document.getElementById('todayOverview');
             if (!todaySchedules.length) {
@@ -995,6 +1670,8 @@
 
             // 班次对比图
             renderHomeShiftChart(todaySchedules);
+            // 产品预计vs实际产量图
+            renderHomeProductChart(todaySchedules);
         }
 
         function renderHomeShiftChart(todaySchedules) {
@@ -1023,6 +1700,54 @@
                     ]
                 },
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' } } }
+            });
+        }
+
+        function renderHomeProductChart(todaySchedules) {
+            const wrap = document.getElementById('homeProductChartWrap');
+            if (!wrap) return;
+            // 按产品工序统计
+            const productMap = {};
+            todaySchedules.forEach(s => {
+                const key = (s.productName || '未知') + ' ' + (s.process || '');
+                if (!productMap[key]) productMap[key] = { plan: 0, actual: 0, target: 0 };
+                productMap[key].plan += s.planQty || 0;
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                productMap[key].actual += recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                productMap[key].target += getDailyTarget(s.productName, s.process);
+            });
+            // 也加上有目标但当天没排产的产品
+            getDailyTargets().forEach(t => {
+                const key = t.productName + ' ' + t.process;
+                if (!productMap[key]) {
+                    productMap[key] = { plan: 0, actual: 0, target: t.qty };
+                }
+            });
+            const labels = Object.keys(productMap);
+            if (labels.length === 0) {
+                if (reportCharts.homeProduct) { reportCharts.homeProduct.destroy(); reportCharts.homeProduct = null; }
+                wrap.innerHTML = '<p class="text-gray-500 text-center py-8">暂无排产数据，请在排产管理中设置日产量目标</p>';
+                return;
+            }
+            // 确保容器内是canvas
+            wrap.innerHTML = '<canvas id="homeProductChart"></canvas>';
+            const canvas = document.getElementById('homeProductChart');
+            if (reportCharts.homeProduct) reportCharts.homeProduct.destroy();
+            reportCharts.homeProduct = new Chart(canvas, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        { label: '预计日产量', data: labels.map(k => productMap[k].target), backgroundColor: 'rgba(217,119,6,0.6)' },
+                        { label: '计划数量', data: labels.map(k => productMap[k].plan), backgroundColor: 'rgba(37,99,235,0.6)' },
+                        { label: '实际完成', data: labels.map(k => productMap[k].actual), backgroundColor: 'rgba(22,163,74,0.6)' }
+                    ]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'top' } },
+                    scales: { y: { beginAtZero: true } }
+                }
             });
         }
 
@@ -1272,12 +1997,39 @@
         // ================= 排产管理 =================
         let boardShift = '白班';
 
+        // 机台卡片点击事件委托（一次性绑定到容器）
+        function bindMachineCardClick() {
+            const container = document.getElementById('machineBoard');
+            if (!container || container._clickBound) return;
+            container._clickBound = true;
+            container.addEventListener('click', function(e) {
+                const card = e.target.closest('.machine-card');
+                if (!card) return;
+                const machineId = card.getAttribute('data-machine-id');
+                if (machineId && typeof editMachineSchedule === 'function') {
+                    editMachineSchedule(machineId, e);
+                }
+            });
+        }
+
         function renderSchedulePage() {
-            if (!document.getElementById('boardDate').value) {
-                document.getElementById('boardDate').value = new Date().toISOString().split('T')[0];
+            try {
+                if (!document.getElementById('boardDate').value) {
+                    document.getElementById('boardDate').value = new Date().toISOString().split('T')[0];
+                }
+                // 初始化车间筛选下拉
+                const wsSelect = document.getElementById('boardFilterWorkshop');
+                const currentWs = wsSelect.value;
+                const workshops = [...new Set(appData.machines.map(m => m.workshop || '未分类'))].sort();
+                wsSelect.innerHTML = '<option value="">全部车间</option>' + workshops.map(ws => '<option value="' + ws + '">' + ws + '</option>').join('');
+                wsSelect.value = currentWs;
+                setBoardShift(boardShift);
+                renderTargetDateList();
+                renderDailyTargetPanel();
+            } catch (err) {
+                console.error('排产页面渲染错误:', err);
+                showToast('排产页面加载出错: ' + err.message, 'error');
             }
-            setBoardShift(boardShift);
-            renderTargetDateList();
         }
 
         function setBoardShift(shift) {
@@ -1288,8 +2040,11 @@
         }
 
         function renderBoard() {
+            try {
             const date = document.getElementById('boardDate').value;
             const container = document.getElementById('machineBoard');
+            const filterText = (document.getElementById('boardFilter') || {}).value || '';
+            const filterWs = (document.getElementById('boardFilterWorkshop') || {}).value || '';
             if (appData.machines.length === 0) {
                 container.innerHTML = '<div class="card text-center text-gray-500 py-8"><i class="fas fa-info-circle text-2xl mb-2"></i><p>请先在「基础数据」页面导入机台信息</p></div>';
                 updateBoardStats(0, 0, 0, 0);
@@ -1300,6 +2055,7 @@
             const workshops = {};
             appData.machines.forEach(m => {
                 const ws = m.workshop || '未分类';
+                if (filterWs && ws !== filterWs) return;
                 if (!workshops[ws]) workshops[ws] = [];
                 workshops[ws].push(m);
             });
@@ -1312,14 +2068,27 @@
 
             let totalPlan = 0;
             let html = '';
+            let filteredTotal = 0;
+            let filteredScheduled = 0;
 
             Object.keys(workshops).sort().forEach(ws => {
                 const machines = workshops[ws];
-                const scheduledInWs = machines.filter(m => scheduledMachineIds.has(m.id)).length;
+                // 筛选机台
+                const filteredMachines = filterText ? machines.filter(m => {
+                    const pn = (m.productName || '').toLowerCase();
+                    const pc = (m.process || '').toLowerCase();
+                    const ft = filterText.toLowerCase();
+                    return pn.includes(ft) || pc.includes(ft);
+                }) : machines;
+                if (filteredMachines.length === 0) return;
+
+                const scheduledInWs = filteredMachines.filter(m => scheduledMachineIds.has(m.id)).length;
+                filteredTotal += filteredMachines.length;
+                filteredScheduled += scheduledInWs;
                 html += '<div class="card">';
-                html += '<div class="workshop-header"><i class="fas fa-industry text-gray-400"></i> ' + ws + ' <span class="workshop-count">(' + scheduledInWs + '/' + machines.length + ' 台已排产)</span></div>';
+                html += '<div class="workshop-header"><i class="fas fa-industry text-gray-400"></i> ' + ws + ' <span class="workshop-count">(' + scheduledInWs + '/' + filteredMachines.length + ' 台已排产)</span></div>';
                 html += '<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">';
-                machines.forEach(m => {
+                filteredMachines.forEach(m => {
                     const schedule = scheduleMap[m.id];
                     const uph = getUph(m.id);
                     if (schedule) {
@@ -1328,7 +2097,7 @@
                         const pct = Math.min(100, Math.round((actual / (schedule.planQty || 1)) * 100));
                         totalPlan += schedule.planQty || 0;
                         const isDone = pct >= 100;
-                        html += '<div class="machine-card ' + (isDone ? 'machine-done' : 'machine-scheduled') + '" onclick="editMachineSchedule(\'' + m.id + '\')">';
+                        html += '<div class="machine-card ' + (isDone ? 'machine-done' : 'machine-scheduled') + '" data-machine-id="' + m.id + '">';
                         html += '<div class="machine-header"><span class="machine-id">' + m.id + '</span>';
                         if (isDone) {
                             html += '<i class="fas fa-check-circle text-green-500"></i>';
@@ -1346,7 +2115,8 @@
                         }
                         html += '</div>';
                     } else {
-                        html += '<div class="machine-card" onclick="editMachineSchedule(\'' + m.id + '\')">';
+                        const highlight = filterText ? ' filter-highlight' : '';
+                        html += '<div class="machine-card' + highlight + '" data-machine-id="' + m.id + '">';
                         html += '<div class="machine-header"><span class="machine-id">' + m.id + '</span></div>';
                         html += '<div class="machine-product">' + (m.productName || '未配置') + ' · ' + (m.process || '') + '</div>';
                         html += '<div class="machine-free-text"><i class="fas fa-plus-circle text-2xl"></i><span>点击排产</span></div>';
@@ -1359,8 +2129,19 @@
                 html += '</div></div>';
             });
 
+            if (filteredTotal === 0 && filterText) {
+                html = '<div class="card text-center text-gray-500 py-8"><i class="fas fa-search text-2xl mb-2"></i><p>没有找到匹配「' + filterText + '」的机台</p></div>';
+            }
+
             container.innerHTML = html;
-            updateBoardStats(appData.machines.length, daySchedules.length, appData.machines.length - daySchedules.length, totalPlan);
+            updateBoardStats(filteredTotal, filteredScheduled, filteredTotal - filteredScheduled, totalPlan);
+            renderDailyTargetPanel();
+            // 重新绑定机台卡片点击事件（事件委托）
+            bindMachineCardClick();
+            } catch (err) {
+                console.error('看板渲染错误:', err);
+                showToast('看板渲染出错: ' + err.message, 'error');
+            }
         }
 
         function updateBoardStats(total, scheduled, unscheduled, plan) {
@@ -1383,13 +2164,151 @@
             return appData.products.find(p => p.name === machine.productName && p.process === machine.process);
         }
 
+        // ===== 日产量目标管理 =====
+        function getDailyTargets() {
+            if (!appData.dailyTargets) appData.dailyTargets = [];
+            return appData.dailyTargets;
+        }
+
+        function setDailyTarget(productName, process, qty) {
+            const targets = getDailyTargets();
+            let t = targets.find(t => t.productName === productName && t.process === process);
+            if (t) {
+                t.qty = qty;
+            } else {
+                targets.push({ productName, process, qty });
+            }
+            saveLocal();
+        }
+
+        function getDailyTarget(productName, process) {
+            const targets = getDailyTargets();
+            const t = targets.find(t => t.productName === productName && t.process === process);
+            return t ? t.qty : 0;
+        }
+
+        function renderDailyTargetPanel() {
+            const container = document.getElementById('dailyTargetPanel');
+            if (!container) return;
+            const date = document.getElementById('boardDate').value;
+
+            // 统计每种产品工序的排产计划数和实际完成数
+            const daySchedules = appData.schedules.filter(s => s.date === date && s.shift === boardShift);
+            const productStats = {};
+            daySchedules.forEach(s => {
+                const key = (s.productName || '未知') + '||' + (s.process || '');
+                if (!productStats[key]) productStats[key] = { productName: s.productName || '未知', process: s.process || '', plan: 0, actual: 0, machines: [] };
+                productStats[key].plan += s.planQty || 0;
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                productStats[key].actual += recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                productStats[key].machines.push(s.machineId);
+            });
+
+            // 也加上有日产量目标但当天没排产的产品
+            getDailyTargets().forEach(t => {
+                const key = t.productName + '||' + t.process;
+                if (!productStats[key]) {
+                    productStats[key] = { productName: t.productName, process: t.process, plan: 0, actual: 0, machines: [] };
+                }
+            });
+
+            const keys = Object.keys(productStats);
+            if (keys.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+
+            let html = '<div class="card">';
+            html += '<div class="flex items-center justify-between mb-3">';
+            html += '<h3 class="font-bold text-gray-800"><i class="fas fa-bullseye text-orange-500"></i> 产品日产量目标</h3>';
+            html += '<button onclick="toggleDailyTargetEditor()" class="text-sm text-blue-500 hover:underline">设置目标</button>';
+            html += '</div>';
+            html += '<div id="dailyTargetList">';
+
+            keys.forEach(key => {
+                const s = productStats[key];
+                const target = getDailyTarget(s.productName, s.process);
+                if (target > 0) {
+                    const pct = Math.min(100, Math.round((s.actual / target) * 100));
+                    const remaining = Math.max(0, target - s.actual);
+                    const color = pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500');
+                    html += '<div class="target-panel">';
+                    html += '<div class="target-row">';
+                    html += '<div><span class="font-semibold text-gray-800">' + s.productName + '</span> <span class="text-gray-500 text-xs">' + s.process + '</span></div>';
+                    html += '<div class="text-right"><span class="font-bold ' + (pct >= 100 ? 'text-green-600' : 'text-orange-600') + '">' + s.actual + '</span><span class="text-gray-400">/' + target + '</span></div>';
+                    html += '</div>';
+                    html += '<div class="target-progress"><div class="target-progress-fill ' + color + '" style="width:' + pct + '%"></div></div>';
+                    html += '<div class="text-xs text-gray-500 mt-1">计划 ' + s.plan + ' 件 · 目标 ' + target + ' 件 · ' + (remaining > 0 ? '还差 ' + remaining + ' 件' : '已完成') + ' · ' + s.machines.length + ' 台机</div>';
+                    html += '</div>';
+                } else {
+                    // 没设目标的，显示提示
+                    if (s.plan > 0) {
+                        html += '<div class="target-panel" style="background:#fffbeb;border-color:#fde68a;">';
+                        html += '<div class="target-row">';
+                        html += '<div><span class="font-semibold text-gray-800">' + s.productName + '</span> <span class="text-gray-500 text-xs">' + s.process + '</span></div>';
+                        html += '<div class="text-right text-gray-500">计划 ' + s.plan + ' 件</div>';
+                        html += '</div>';
+                        html += '<div class="text-xs text-orange-600 mt-1"><i class="fas fa-exclamation-triangle"></i> 未设置日产量目标，点击"设置目标"添加</div>';
+                        html += '</div>';
+                    }
+                }
+            });
+
+            html += '</div>';
+            html += '<div id="dailyTargetEditor" class="hidden mt-3 pt-3 border-t border-gray-200"></div>';
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        function toggleDailyTargetEditor() {
+            const editor = document.getElementById('dailyTargetEditor');
+            if (editor.classList.contains('hidden')) {
+                editor.classList.remove('hidden');
+                // 获取所有产品工序列表
+                const productKeys = {};
+                appData.products.forEach(p => {
+                    const key = p.name + '||' + p.process;
+                    productKeys[key] = { name: p.name, process: p.process, uph: p.uph };
+                });
+                // 也加上排产中用到的产品
+                appData.schedules.forEach(s => {
+                    const key = (s.productName || '') + '||' + (s.process || '');
+                    if (s.productName && !productKeys[key]) {
+                        productKeys[key] = { name: s.productName, process: s.process, uph: 0 };
+                    }
+                });
+                let html = '<p class="text-sm text-gray-500 mb-2">设置每款产品每天的预计产量目标：</p>';
+                html += '<div class="space-y-2 max-h-60 overflow-y-auto">';
+                Object.keys(productKeys).sort().forEach(key => {
+                    const p = productKeys[key];
+                    const current = getDailyTarget(p.name, p.process);
+                    html += '<div class="flex items-center gap-2">';
+                    html += '<div class="flex-1 text-sm"><span class="font-medium">' + p.name + '</span> <span class="text-gray-400 text-xs">' + p.process + '</span>' + (p.uph ? ' <span class="text-gray-400 text-xs">(UPH ' + p.uph + ')</span>' : '') + '</div>';
+                    html += '<input type="number" class="form-input text-sm py-1 w-24" placeholder="目标" value="' + (current || '') + '" onchange="updateDailyTarget(this, \'' + p.name.replace(/'/g, "\\'") + '\', \'' + p.process.replace(/'/g, "\\'") + '\')">';
+                    html += '</div>';
+                });
+                html += '</div>';
+                editor.innerHTML = html;
+            } else {
+                editor.classList.add('hidden');
+                // 关闭编辑器后刷新面板，显示最新目标
+                renderDailyTargetPanel();
+            }
+        }
+
+        function updateDailyTarget(input, productName, process) {
+            const qty = parseInt(input.value) || 0;
+            setDailyTarget(productName, process, qty);
+            // 不立即刷新面板，避免输入中断。关闭编辑器时会自动刷新
+        }
+
         // ===== 排产编辑弹窗 =====
-        function editMachineSchedule(machineId) {
+        function editMachineSchedule(machineId, evt) {
+            try {
             const machine = appData.machines.find(m => m.id === machineId);
             if (!machine) { showToast('机台不存在', 'error'); return; }
             const date = document.getElementById('boardDate').value;
             const uph = getUph(machineId);
-            const productInfo = getProductInfo(machineId);
 
             // 查找当天该班次该机台已有的排产
             let schedule = appData.schedules.find(s =>
@@ -1414,7 +2333,6 @@
                 document.getElementById('modalHours').value = 10;
                 document.getElementById('modalNote').value = '';
                 document.getElementById('modalMachineTitle').innerHTML = '<i class="fas fa-plus-circle text-green-500"></i> 新增排产 · ' + machineId;
-                // 自动计算计划数量
                 if (uph > 0) {
                     document.getElementById('modalPlanQty').value = Math.round(uph * 10);
                     document.getElementById('modalPlanHint').textContent = 'UPH ' + uph + ' × 10小时 = ' + Math.round(uph * 10) + ' 件';
@@ -1429,8 +2347,65 @@
                 document.getElementById('modalOperator').value = schedule.operator;
             }
             updateModalPlanQty();
+            updateModalDailyTarget(machineId);
 
-            document.getElementById('scheduleModal').classList.add('active');
+            // 弹窗直接居中显示（简单可靠，避免复杂定位导致弹窗跑出屏幕）
+            const modal = document.getElementById('scheduleModal');
+            if (modal) {
+                modal.style.alignItems = 'center';
+                const modalContent = modal.querySelector('.modal-content');
+                if (modalContent) modalContent.style.marginTop = '0';
+                modal.classList.add('active');
+                // 滚动到顶部，避免之前定位残留导致看不到
+                if (modalContent) modalContent.scrollTop = 0;
+            }
+            } catch (err) {
+                showToast('弹窗加载出错: ' + err.message, 'error');
+                console.error(err);
+            }
+        }
+
+        function updateModalDailyTarget(machineId) {
+            const machine = appData.machines.find(m => m.id === machineId);
+            const section = document.getElementById('modalDailyTargetSection');
+            if (!machine || !machine.productName || !machine.process) {
+                section.classList.add('hidden');
+                return;
+            }
+            const target = getDailyTarget(machine.productName, machine.process);
+            if (target <= 0) {
+                section.classList.add('hidden');
+                return;
+            }
+            section.classList.remove('hidden');
+            document.getElementById('modalDailyTargetValue').textContent = target + ' 件/天';
+
+            // 统计当天该产品工序所有机台的排产和完成情况
+            const date = document.getElementById('boardDate').value;
+            const daySchedules = appData.schedules.filter(s =>
+                s.date === date && s.shift === boardShift &&
+                s.productName === machine.productName && s.process === machine.process
+            );
+            const totalPlan = daySchedules.reduce((a, s) => a + (s.planQty || 0), 0);
+            const totalActual = daySchedules.reduce((a, s) => {
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                return a + recs.reduce((b, r) => b + (parseFloat(r.qty) || 0), 0);
+            }, 0);
+            const remaining = Math.max(0, target - totalActual);
+            const pct = Math.min(100, Math.round((totalActual / target) * 100));
+            const color = pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500');
+
+            let html = '';
+            html += '<div class="text-xs text-blue-700 mb-1">当天 ' + machine.productName + ' ' + machine.process + '：</div>';
+            html += '<div class="flex gap-3 text-xs mb-2">';
+            html += '<span>计划 <b>' + totalPlan + '</b></span>';
+            html += '<span>完成 <b class="text-green-600">' + totalActual + '</b></span>';
+            html += '<span>目标 <b class="text-blue-600">' + target + '</b></span>';
+            html += '<span>' + (remaining > 0 ? '还差 <b class="text-orange-600">' + remaining + '</b>' : '已达标') + '</span>';
+            html += '</div>';
+            html += '<div class="target-progress"><div class="target-progress-fill ' + color + '" style="width:' + pct + '%"></div></div>';
+            html += '<div class="text-xs text-gray-500 mt-1">' + daySchedules.length + ' 台机台已排产</div>';
+            document.getElementById('modalDailyTargetProgress').innerHTML = html;
         }
 
         function updateModalOperators() {
@@ -1513,7 +2488,11 @@
 
         function closeScheduleModal(event) {
             if (event && event.target !== event.currentTarget) return;
-            document.getElementById('scheduleModal').classList.remove('active');
+            const modal = document.getElementById('scheduleModal');
+            modal.classList.remove('active');
+            modal.style.alignItems = '';
+            const content = modal.querySelector('.modal-content');
+            if (content) content.style.marginTop = '';
         }
 
         // ===== 排产明细列表 =====
@@ -1821,6 +2800,11 @@
                     }
                     var machine = appData.machines.find(function(m) { return m.id === s.machineId; });
                     var workshop = machine ? (machine.workshop || '') : '';
+                    // 该排产对应排班日期已有的停机记录
+                    var existingDt = appData.downtimes.filter(function(d) { return d.scheduleId === s.id && d.date === s.date; });
+                    var dtReason = existingDt.length > 0 ? existingDt[existingDt.length - 1].reason : '';
+                    var dtMinutes = existingDt.length > 0 ? existingDt[existingDt.length - 1].minutes : '';
+                    var dtNote = existingDt.length > 0 ? existingDt[existingDt.length - 1].customNote : '';
                     return '<div class="border rounded-lg p-3">' +
                         '<div class="flex justify-between items-start mb-2">' +
                             '<div>' +
@@ -1831,9 +2815,27 @@
                             '</div>' +
                             '<span class="status-badge ' + (pct >= 100 ? 'status-success' : (pct >= 70 ? 'status-warning' : 'status-danger')) + '">' + pct + '%</span>' +
                         '</div>' +
-                        '<form onsubmit="handleRecordSubmit(event, \'' + s.id + '\')" class="flex gap-2 mt-2">' +
-                            '<input type="number" name="qty" class="form-input flex-1" placeholder="完成数量（覆盖上次）" min="0" required' + (recs.length > 0 ? ' value="' + actual + '"' : '') + '>' +
-                            '<button type="submit" class="btn btn-primary whitespace-nowrap"><i class="fas fa-save"></i> 提交</button>' +
+                        '<form onsubmit="handleRecordSubmit(event, \'' + s.id + '\')" class="flex flex-col gap-2 mt-2">' +
+                            '<div class="flex gap-2">' +
+                                '<input type="number" name="qty" class="form-input flex-1" placeholder="完成数量（覆盖上次）" min="0" required' + (recs.length > 0 ? ' value="' + actual + '"' : '') + '>' +
+                                '<button type="submit" class="btn btn-primary whitespace-nowrap"><i class="fas fa-save"></i> 提交</button>' +
+                            '</div>' +
+                            '<div class="flex gap-2">' +
+                                '<select name="dtReason" class="form-input text-sm py-1 flex-1" onchange="toggleDtCustom(this)">' +
+                                    '<option value="">无异常停机</option>' +
+                                    '<option value="刀具达到寿命换刀"' + (dtReason === '刀具达到寿命换刀' ? ' selected' : '') + '>刀具达到寿命换刀</option>' +
+                                    '<option value="因断刀换刀"' + (dtReason === '因断刀换刀' ? ' selected' : '') + '>因断刀换刀</option>' +
+                                    '<option value="撞机"' + (dtReason === '撞机' ? ' selected' : '') + '>撞机</option>' +
+                                    '<option value="修夹具"' + (dtReason === '修夹具' ? ' selected' : '') + '>修夹具</option>' +
+                                    '<option value="机器故障"' + (dtReason === '机器故障' ? ' selected' : '') + '>机器故障</option>' +
+                                    '<option value="调尺寸送��停机等待"' + (dtReason === '调尺寸送检停机等待' ? ' selected' : '') + '>调尺寸送检停机等待</option>' +
+                                    '<option value="其他"' + (dtReason === '其他' ? ' selected' : '') + '>其他（自己填原因）</option>' +
+                                '</select>' +
+                                '<input type="number" name="dtMinutes" class="form-input text-sm py-1 w-24" placeholder="分钟" min="0" value="' + dtMinutes + '">' +
+                            '</div>' +
+                            '<div class="dt-custom-row' + (dtReason === '其他' ? '' : ' hidden') + '">' +
+                                '<input type="text" name="dtCustomNote" class="form-input text-sm py-1" placeholder="请输入具体原因" value="' + (dtNote || '') + '">' +
+                            '</div>' +
                         '</form>' +
                         '<div class="mt-1 text-xs text-gray-400">提交后覆盖之前的数量，不叠加</div>' +
                     '</div>';
@@ -1846,20 +2848,47 @@
             e.preventDefault();
             var form = e.target;
             var qty = parseInt(form.qty.value);
-            var today = new Date().toISOString().split('T')[0];
+            var s = appData.schedules.find(function(x) { return x.id === scheduleId; });
+            var recordDate = s ? s.date : new Date().toISOString().split('T')[0];
             // 覆盖模式：删除该排产之前的所有记录，只保留一条最新
             appData.records = appData.records.filter(function(r) { return r.scheduleId !== scheduleId; });
             appData.records.push({
                 id: 'rec_' + Date.now(),
                 scheduleId: scheduleId,
-                date: today,
+                date: recordDate,
                 qty: qty,
                 operator: currentUser.username,
                 createdAt: new Date().toISOString()
             });
+            // 保存停机记录
+            var dtReason = form.dtReason ? form.dtReason.value : '';
+            var dtMinutes = form.dtMinutes ? parseInt(form.dtMinutes.value) || 0 : 0;
+            if (dtReason && dtMinutes > 0) {
+                // 覆盖该排产对应排班日期的停机记录
+                appData.downtimes = appData.downtimes.filter(function(d) { return !(d.scheduleId === scheduleId && d.date === recordDate); });
+                appData.downtimes.push({
+                    id: 'dt_' + Date.now(),
+                    scheduleId: scheduleId,
+                    date: recordDate,
+                    reason: dtReason,
+                    customNote: dtReason === '其他' && form.dtCustomNote ? form.dtCustomNote.value : '',
+                    minutes: dtMinutes,
+                    operator: currentUser.username,
+                    createdAt: new Date().toISOString()
+                });
+            }
             saveLocal();
             renderRecordPage();
             showToast('加工数量已更新（覆盖模式）', 'success');
+        }
+
+        function toggleDtCustom(select) {
+            var row = select.closest('form').querySelector('.dt-custom-row');
+            if (select.value === '其他') {
+                row.classList.remove('hidden');
+            } else {
+                row.classList.add('hidden');
+            }
         }
 
         function clearRecordFilter() {
@@ -1886,41 +2915,291 @@
                 '</div>';
         }
 
+        // ================= 异常停机统计 =================
+        let downtimeCharts = {};
+
+        function ensureCanvas(id, containerId) {
+            var canvas = document.getElementById(id);
+            if (!canvas) {
+                var container = document.getElementById(containerId);
+                if (!container) return null;
+                container.innerHTML = '<canvas id="' + id + '"></canvas>';
+                canvas = document.getElementById(id);
+            }
+            return canvas;
+        }
+
+        function showChartEmpty(containerId, show) {
+            var container = document.getElementById(containerId);
+            if (!container) return;
+            var msg = container.querySelector('.chart-empty-msg');
+            if (show) {
+                if (!msg) {
+                    msg = document.createElement('p');
+                    msg.className = 'text-gray-500 text-center py-8 chart-empty-msg';
+                    msg.style.position = 'absolute';
+                    msg.style.top = '0'; msg.style.left = '0'; msg.style.right = '0'; msg.style.bottom = '0';
+                    msg.style.display = 'flex'; msg.style.alignItems = 'center'; msg.style.justifyContent = 'center';
+                    msg.textContent = '暂无停机数据';
+                    container.style.position = 'relative';
+                    container.appendChild(msg);
+                }
+                msg.style.display = 'flex';
+            } else if (msg) {
+                msg.style.display = 'none';
+            }
+        }
+
+        function renderMiniDonut(plan, actual, lossQty) {
+            plan = plan || 1;
+            var actualPct = Math.min(100, Math.round((actual || 0) / plan * 100));
+            var lossPct = Math.min(100 - actualPct, Math.round((lossQty || 0) / plan * 100));
+            var r = 16;
+            var c = 2 * Math.PI * r;
+            var actualDash = (c * actualPct / 100) + ' ' + c;
+            var lossDash = (c * lossPct / 100) + ' ' + c;
+            var lossOffset = -(c * actualPct / 100);
+            return '<svg viewBox="0 0 44 44" width="44" height="44" style="margin:0 auto;display:block">' +
+                '<circle cx="22" cy="22" r="' + r + '" fill="none" stroke="#e5e7eb" stroke-width="6"/>' +
+                '<circle cx="22" cy="22" r="' + r + '" fill="none" stroke="#22c55e" stroke-width="6" stroke-dasharray="' + actualDash + '" stroke-dashoffset="0" transform="rotate(-90 22 22)" stroke-linecap="round"/>' +
+                '<circle cx="22" cy="22" r="' + r + '" fill="none" stroke="#ef4444" stroke-width="6" stroke-dasharray="' + lossDash + '" stroke-dashoffset="' + lossOffset + '" transform="rotate(-90 22 22)" stroke-linecap="round"/>' +
+                '<text x="22" y="21" text-anchor="middle" dominant-baseline="middle" font-size="9" font-weight="bold" fill="#374151">' + actualPct + '%</text>' +
+                '<text x="22" y="28" text-anchor="middle" dominant-baseline="middle" font-size="6" fill="#6b7280">达成</text>' +
+            '</svg>';
+        }
+
+        function renderDowntimePage() {
+            var filterDate = document.getElementById('downtimeFilterDate').value;
+            var filterShift = document.getElementById('downtimeFilterShift').value;
+            if (!document.getElementById('downtimeFilterDate').value) {
+                document.getElementById('downtimeFilterDate').value = new Date().toISOString().split('T')[0];
+                filterDate = document.getElementById('downtimeFilterDate').value;
+            }
+
+            // 先按日期/班次过滤，用于汇总和图表
+            var baseDowntimes = appData.downtimes.filter(function(d) {
+                if (filterDate && d.date !== filterDate) return false;
+                if (filterShift) {
+                    var s = appData.schedules.find(function(x) { return x.id === d.scheduleId; });
+                    if (!s || s.shift !== filterShift) return false;
+                }
+                return true;
+            });
+
+            // 填充筛选下拉框（基于baseDowntimes关联的排产）
+            var opSelect = document.getElementById('downtimeFilterOperator');
+            var prodSelect = document.getElementById('downtimeFilterProduct');
+            var procSelect = document.getElementById('downtimeFilterProcess');
+            var wsSelect = document.getElementById('downtimeFilterWorkshop');
+            var noteSelect = document.getElementById('downtimeFilterNote');
+            var opVal = opSelect.value, prodVal = prodSelect.value, procVal = procSelect.value, wsVal = wsSelect.value, noteVal = noteSelect.value;
+
+            var opSet = new Set(), prodSet = new Set(), procSet = new Set(), wsSet = new Set(), noteSet = new Set();
+            baseDowntimes.forEach(function(d) {
+                var s = appData.schedules.find(function(x) { return x.id === d.scheduleId; });
+                if (s) {
+                    if (s.operator) opSet.add(s.operator);
+                    if (s.productName) prodSet.add(s.productName);
+                    if (s.process) procSet.add(s.process);
+                    var m = appData.machines.find(function(x) { return x.id === s.machineId; });
+                    if (m && m.workshop) wsSet.add(m.workshop);
+                }
+                var noteText = d.reason === '其他' ? (d.customNote || '其他') : d.reason;
+                if (noteText) noteSet.add(noteText);
+            });
+
+            function fillSelect(el, values, label) {
+                el.innerHTML = '<option value="">' + label + '</option>' + Array.from(values).sort().map(function(v) { return '<option value="' + v + '">' + v + '</option>'; }).join('');
+            }
+            fillSelect(opSelect, opSet, '全部操作员');
+            fillSelect(prodSelect, prodSet, '全部产品');
+            fillSelect(procSelect, procSet, '全部工序');
+            fillSelect(wsSelect, wsSet, '全部车间');
+            fillSelect(noteSelect, noteSet, '全部备注');
+            opSelect.value = opVal; prodSelect.value = prodVal; procSelect.value = procVal; wsSelect.value = wsVal; noteSelect.value = noteVal;
+
+            // 明细再按操作员/产品/工序/车间/备注过滤
+            var filterOperator = opSelect.value;
+            var filterProduct = prodSelect.value;
+            var filterProcess = procSelect.value;
+            var filterWorkshop = wsSelect.value;
+            var filterNote = noteSelect.value;
+
+            var downtimes = baseDowntimes.filter(function(d) {
+                var s = appData.schedules.find(function(x) { return x.id === d.scheduleId; });
+                if (filterOperator && (!s || s.operator !== filterOperator)) return false;
+                if (filterProduct && (!s || s.productName !== filterProduct)) return false;
+                if (filterProcess && (!s || s.process !== filterProcess)) return false;
+                if (filterWorkshop) {
+                    var m = s ? appData.machines.find(function(x) { return x.id === s.machineId; }) : null;
+                    if (!m || m.workshop !== filterWorkshop) return false;
+                }
+                if (filterNote) {
+                    var noteText = d.reason === '其他' ? (d.customNote || '其他') : d.reason;
+                    if (noteText !== filterNote) return false;
+                }
+                return true;
+            });
+
+            // 统计汇总
+            var totalMinutes = downtimes.reduce(function(a, d) { return a + d.minutes; }, 0);
+            var totalCount = downtimes.length;
+            var totalMachines = [...new Set(downtimes.map(function(d) {
+                var s = appData.schedules.find(function(x) { return x.id === d.scheduleId; });
+                return s ? s.machineId : '';
+            }).filter(Boolean))];
+            // 按原因统计
+            var reasonMap = {};
+            downtimes.forEach(function(d) {
+                if (!reasonMap[d.reason]) reasonMap[d.reason] = { count: 0, minutes: 0 };
+                reasonMap[d.reason].count++;
+                reasonMap[d.reason].minutes += d.minutes;
+            });
+
+            document.getElementById('downtimeSummary').innerHTML =
+                '<div class="bg-red-50 rounded-lg p-2"><div class="font-bold text-lg text-red-600">' + totalCount + '</div><div class="text-xs text-gray-500">停机次数</div></div>' +
+                '<div class="bg-orange-50 rounded-lg p-2"><div class="font-bold text-lg text-orange-600">' + totalMinutes + '分</div><div class="text-xs text-gray-500">总耽误时间</div></div>' +
+                '<div class="bg-blue-50 rounded-lg p-2"><div class="font-bold text-lg text-blue-600">' + (totalCount > 0 ? Math.round(totalMinutes / totalCount) : 0) + '分</div><div class="text-xs text-gray-500">平均每次</div></div>' +
+                '<div class="bg-purple-50 rounded-lg p-2"><div class="font-bold text-lg text-purple-600">' + totalMachines.length + '</div><div class="text-xs text-gray-500">受影响机台</div></div>';
+
+            // 按原因饼图
+            var reasonCtx = ensureCanvas('downtimeReasonChart', 'downtimeReasonChartContainer');
+            if (reasonCtx) {
+                if (downtimeCharts.reason) downtimeCharts.reason.destroy();
+                var reasonLabels = Object.keys(reasonMap);
+                if (reasonLabels.length > 0) {
+                    reasonCtx.style.display = '';
+                    showChartEmpty('downtimeReasonChartContainer', false);
+                    downtimeCharts.reason = new Chart(reasonCtx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: reasonLabels,
+                            datasets: [{
+                                data: reasonLabels.map(function(k) { return reasonMap[k].minutes; }),
+                                backgroundColor: ['#ef4444','#f97316','#eab308','#22c55e','#3b82f6','#8b5cf6','#ec4899','#64748b']
+                            }]
+                        },
+                        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { font: { size: 11 } } } } }
+                    });
+                } else {
+                    reasonCtx.style.display = 'none';
+                    showChartEmpty('downtimeReasonChartContainer', true);
+                }
+            }
+
+            // 按机台分布柱状图
+            var machineCtx = ensureCanvas('downtimeMachineChart', 'downtimeMachineChartContainer');
+            if (machineCtx) {
+                if (downtimeCharts.machine) downtimeCharts.machine.destroy();
+                var machineMap = {};
+                downtimes.forEach(function(d) {
+                    var s = appData.schedules.find(function(x) { return x.id === d.scheduleId; });
+                    var mid = s ? s.machineId : '未知';
+                    if (!machineMap[mid]) machineMap[mid] = 0;
+                    machineMap[mid] += d.minutes;
+                });
+                var machineLabels = Object.keys(machineMap).sort();
+                if (machineLabels.length > 0) {
+                    machineCtx.style.display = '';
+                    showChartEmpty('downtimeMachineChartContainer', false);
+                    downtimeCharts.machine = new Chart(machineCtx, {
+                        type: 'bar',
+                        data: {
+                            labels: machineLabels,
+                            datasets: [{ label: '停机分钟', data: machineLabels.map(function(k) { return machineMap[k]; }), backgroundColor: 'rgba(239,68,68,0.6)' }]
+                        },
+                        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, title: { display: true, text: '分钟' } } } }
+                    });
+                } else {
+                    machineCtx.style.display = 'none';
+                    showChartEmpty('downtimeMachineChartContainer', true);
+                }
+            }
+
+            // 停机明细卡片
+            var detailList = document.getElementById('downtimeDetailList');
+            if (downtimes.length === 0) {
+                detailList.innerHTML = '<p class="text-gray-500 text-center py-4 col-span-full">暂无停机记录</p>';
+            } else {
+                detailList.innerHTML = downtimes.sort(function(a, b) { return new Date(b.createdAt) - new Date(a.createdAt); }).map(function(d) {
+                    var s = appData.schedules.find(function(x) { return x.id === d.scheduleId; });
+                    var machineId = s ? s.machineId : '-';
+                    var productName = s ? (s.productName || '-') : '-';
+                    var process = s ? (s.process || '') : '';
+                    var operator = s ? s.operator : (d.operator || '-');
+                    var planQty = s ? (s.planQty || 0) : 0;
+                    var recs = s ? appData.records.filter(function(r) { return r.scheduleId === s.id; }) : [];
+                    var actual = recs.reduce(function(a, r) { return a + (parseFloat(r.qty) || 0); }, 0);
+                    var reasonText = d.reason === '其他' ? (d.customNote || '其他') : d.reason;
+                    // 停机损失产能 = 停机分钟 / 60 * UPH
+                    var uph = s ? getUph(s.machineId) : 0;
+                    var lossQty = uph > 0 ? Math.round(d.minutes / 60 * uph) : 0;
+                    var donut = renderMiniDonut(planQty, actual, lossQty);
+                    var statusClass = d.minutes >= 60 ? 'status-danger' : (d.minutes >= 30 ? 'status-warning' : 'status-info');
+                    return '<div class="machine-card" style="min-height:auto;padding:0.75rem">' +
+                        '<div class="machine-header"><span class="machine-id" style="font-size:1rem">' + machineId + '</span><span class="status-badge ' + statusClass + '" style="font-size:0.6rem;padding:0.1rem 0.3rem">' + d.minutes + '分</span></div>' +
+                        '<div class="machine-product">' + productName + (process ? ' · ' + process : '') + '</div>' +
+                        '<div class="machine-info-row"><i class="fas fa-user text-gray-400"></i> ' + operator + '</div>' +
+                        '<div class="machine-info-row"><i class="fas fa-exclamation-circle text-red-500"></i> <span class="text-red-600">' + reasonText + '</span></div>' +
+                        '<div class="mt-2">' + donut + '</div>' +
+                        '<div class="text-xs text-center text-gray-500 mt-1">损失产能 ' + lossQty + ' 件</div>' +
+                    '</div>';
+                }).join('');
+            }
+        }
+
+        function clearDowntimeFilter() {
+            document.getElementById('downtimeFilterDate').value = new Date().toISOString().split('T')[0];
+            document.getElementById('downtimeFilterShift').value = '';
+            document.getElementById('downtimeFilterOperator').value = '';
+            document.getElementById('downtimeFilterProduct').value = '';
+            document.getElementById('downtimeFilterProcess').value = '';
+            document.getElementById('downtimeFilterWorkshop').value = '';
+            document.getElementById('downtimeFilterNote').value = '';
+            renderDowntimePage();
+        }
+
         // ================= 产能报表 =================
         function renderReport() {
             const date = document.getElementById('reportDate').value;
             const shift = document.getElementById('reportShift').value;
-            let list = appData.schedules.filter(s => s.date === date);
+            let list = appData.schedules.filter(s => s.date === date || !date);
             if (shift) list = list.filter(s => s.shift === shift);
             const container = document.getElementById('reportList');
             if (!list.length) {
-                container.innerHTML = '<p class="text-gray-500 text-center py-4">该日期暂无排产</p>';
+                container.innerHTML = '<p class="text-gray-500 text-center py-4 col-span-full">该日期暂无排产</p>';
             } else {
-                container.innerHTML = list.map(s => {
-                    const recs = appData.records.filter(r => r.scheduleId === s.id);
-                    const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
-                    const pct = Math.round((actual / (s.planQty || 1)) * 100);
-                    const standardQty = Math.round((s.hours || 0) * getUph(s.machineId));
-                    const reachStandard = standardQty > 0 && actual >= standardQty;
-                    return `
-                        <div class="border rounded-lg p-3">
-                            <div class="flex justify-between items-start mb-2">
-                                <div>
-                                    <div class="font-semibold text-gray-800">${s.machineId} · ${s.operator}</div>
-                                    <div class="text-sm text-gray-600">${s.productName || '-'} ${s.process || ''} · ${s.shift}</div>
-                                </div>
-                                <span class="status-badge ${reachStandard ? 'status-success' : (pct >= 100 ? 'status-info' : 'status-warning')}">${reachStandard ? '产能达标' : (pct >= 100 ? '计划完成' : '未达标')}</span>
-                            </div>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm mt-3">
-                                <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">计划数量</div><div class="font-semibold">${s.planQty}</div></div>
-                                <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">实际完成</div><div class="font-semibold">${actual}</div></div>
-                                <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">标准产量</div><div class="font-semibold">${standardQty || '-'}</div></div>
-                                <div class="bg-gray-50 rounded p-2"><div class="text-gray-500 text-xs">完成率</div><div class="font-semibold">${pct}%</div></div>
-                            </div>
-                            <div class="progress-bar mt-2"><div class="progress-fill ${pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500')}" style="width:${Math.min(100, pct)}%"></div></div>
-                        </div>
-                    `;
-                }).join('');
+                // 卡片式看板
+                const workshops = {};
+                list.forEach(s => {
+                    const machine = appData.machines.find(m => m.id === s.machineId);
+                    const ws = machine ? (machine.workshop || '未分类') : '未分类';
+                    if (!workshops[ws]) workshops[ws] = [];
+                    workshops[ws].push(s);
+                });
+                let cardsHtml = '';
+                Object.keys(workshops).sort().forEach(ws => {
+                    cardsHtml += '<div class="col-span-full"><div class="workshop-header">' + ws + '</div></div>';
+                    workshops[ws].forEach(s => {
+                        const recs = appData.records.filter(r => r.scheduleId === s.id);
+                        const actual = recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+                        const pct = Math.round((actual / (s.planQty || 1)) * 100);
+                        const standardQty = Math.round((s.hours || 0) * getUph(s.machineId));
+                        const reachStandard = standardQty > 0 && actual >= standardQty;
+                        const isDone = pct >= 100;
+                        cardsHtml += '<div class="machine-card' + (isDone ? ' machine-done' : (s ? ' machine-scheduled' : '')) + '">' +
+                            '<div class="machine-header"><span class="machine-id">' + s.machineId + '</span>' +
+                            '<span class="status-badge ' + (reachStandard ? 'status-success' : (isDone ? 'status-info' : 'status-warning')) + '" style="font-size:0.65rem;padding:0.1rem 0.4rem;">' + (reachStandard ? '达标' : (isDone ? '完成' : '未达标')) + '</span>' +
+                            '</div>' +
+                            '<div class="machine-product">' + (s.productName || '-') + ' · ' + (s.process || '') + '</div>' +
+                            '<div class="machine-info-row"><i class="fas fa-user text-gray-400"></i> ' + s.operator + ' · ' + s.shift + '</div>' +
+                            '<div class="machine-info-row"><i class="fas fa-box text-gray-400"></i> 计划' + s.planQty + ' / 完成' + actual + '</div>' +
+                            '<div class="machine-info-row"><i class="fas fa-tachometer-alt text-gray-400"></i> 标准' + (standardQty || '-') + ' · ' + pct + '%</div>' +
+                            '<div class="progress-bar mt-1"><div class="progress-fill ' + (pct >= 100 ? 'bg-green-500' : (pct >= 70 ? 'bg-yellow-500' : 'bg-red-500')) + '" style="width:' + Math.min(100, pct) + '%"></div></div>' +
+                        '</div>';
+                    });
+                });
+                container.innerHTML = cardsHtml;
             }
             renderReportCharts(list);
             renderBottleneckAnalysis(date, shift);
@@ -2029,8 +3308,11 @@
         function renderShiftChart(list) {
             const ctx = document.getElementById('chartShift');
             if (!ctx) return;
-            const dayList = list.filter(s => s.shift === '白班');
-            const nightList = list.filter(s => s.shift === '夜班');
+            // 班次对比始终基于当前日期的全部班次，不受班次筛选影响
+            const date = document.getElementById('reportDate').value;
+            const allList = appData.schedules.filter(s => s.date === date || !date);
+            const dayList = allList.filter(s => s.shift === '白班');
+            const nightList = allList.filter(s => s.shift === '夜班');
             const dayPlan = dayList.reduce((a, s) => a + (s.planQty || 0), 0);
             const dayActual = dayList.reduce((a, s) => {
                 const recs = appData.records.filter(r => r.scheduleId === s.id);
@@ -2091,43 +3373,89 @@
             });
         }
 
+        function getProcessOrder(processName) {
+            if (!processName) return 999;
+            const cnNums = { '一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9, '十': 10 };
+            for (let i = 0; i < processName.length; i++) {
+                const ch = processName[i];
+                if (cnNums[ch] !== undefined) return cnNums[ch];
+            }
+            const m = processName.match(/\d+/);
+            return m ? parseInt(m[0]) : 999;
+        }
+
         function renderBottleneckAnalysis(date, shift) {
             const container = document.getElementById('bottleneckAnalysis');
             let list = appData.schedules.filter(s => s.date === date);
             if (shift) list = list.filter(s => s.shift === shift);
-            const productMap = {};
-            list.forEach(s => {
-                const key = (s.productName || '未知') + ' - ' + (s.process || '');
-                if (!productMap[key]) productMap[key] = { plan: 0, actual: 0, count: 0 };
-                productMap[key].plan += s.planQty || 0;
-                const recs = appData.records.filter(r => r.scheduleId === s.id);
-                productMap[key].actual += recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
-                productMap[key].count++;
-            });
-            const entries = Object.entries(productMap).map(([key, v]) => ({
-                product: key, plan: v.plan, actual: v.actual,
-                rate: v.plan ? Math.round(v.actual / v.plan * 100) : 0
-            })).sort((a, b) => a.rate - b.rate);
-            if (!entries.length) {
+            if (!list.length) {
                 container.innerHTML = '<p class="text-gray-500 text-center py-4">暂无数据</p>';
                 return;
             }
-            container.innerHTML = entries.map((e, i) => {
-                const isBottleneck = e.rate < 70;
-                const color = e.rate >= 100 ? 'text-green-600' : (e.rate >= 70 ? 'text-yellow-600' : 'text-red-600');
+            // 按产品分组，再按工序分组
+            const productMap = {};
+            list.forEach(s => {
+                const pName = s.productName || '未知产品';
+                if (!productMap[pName]) productMap[pName] = {};
+                const proc = s.process || '未分工序';
+                if (!productMap[pName][proc]) productMap[pName][proc] = { plan: 0, actual: 0, order: getProcessOrder(proc) };
+                productMap[pName][proc].plan += s.planQty || 0;
+                const recs = appData.records.filter(r => r.scheduleId === s.id);
+                productMap[pName][proc].actual += recs.reduce((a, r) => a + (parseFloat(r.qty) || 0), 0);
+            });
+
+            const cards = Object.keys(productMap).sort().map(pName => {
+                const procMap = productMap[pName];
+                const procs = Object.keys(procMap).sort((a, b) => procMap[a].order - procMap[b].order);
+                // 找出实际完成最低的工序作为瓶颈（只考虑有计划的工序）
+                let bottleneck = null;
+                let bottleneckRate = 999;
+                procs.forEach(proc => {
+                    const v = procMap[proc];
+                    const rate = v.plan ? Math.round(v.actual / v.plan * 100) : 0;
+                    if (rate < bottleneckRate) {
+                        bottleneckRate = rate;
+                        bottleneck = proc;
+                    }
+                });
+                const allDone = bottleneckRate >= 100;
+                const bottleneckWarning = bottleneckRate < 100;
+
+                const procRows = procs.map(proc => {
+                    const v = procMap[proc];
+                    const rate = v.plan ? Math.round(v.actual / v.plan * 100) : 0;
+                    const isBottleneck = proc === bottleneck && bottleneckWarning;
+                    const barColor = rate >= 100 ? 'bg-green-500' : (rate >= 70 ? 'bg-yellow-500' : 'bg-red-500');
+                    return `
+                        <div class="py-2 border-b last:border-0 ${isBottleneck ? 'bg-red-50 rounded px-2 -mx-2' : ''}">
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center gap-2">
+                                    ${isBottleneck ? '<i class="fas fa-exclamation-triangle text-red-500 text-xs"></i>' : '<i class="fas fa-circle text-gray-300 text-xs"></i>'}
+                                    <span class="text-sm font-medium">${proc}</span>
+                                </div>
+                                <span class="text-xs font-bold ${rate >= 100 ? 'text-green-600' : (rate >= 70 ? 'text-yellow-600' : 'text-red-600')}">${rate}%</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs text-gray-500 mb-1">
+                                <span>实际 ${v.actual} / 计划 ${v.plan}</span>
+                                ${isBottleneck ? '<span class="text-red-600">瓶颈工序</span>' : ''}
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill ${barColor}" style="width:${Math.min(100, rate)}%"></div></div>
+                        </div>
+                    `;
+                }).join('');
+
                 return `
-                    <div class="flex items-center justify-between py-2 border-b last:border-0">
-                        <div class="flex items-center gap-2">
-                            ${isBottleneck ? '<i class="fas fa-exclamation-triangle text-red-500"></i>' : '<i class="fas fa-check-circle text-green-500"></i>'}
-                            <span class="text-sm font-medium">${e.product}</span>
+                    <div class="border rounded-lg p-3 bg-white">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-gray-800">${pName}</span>
+                            ${allDone ? '<span class="status-badge status-success text-xs">全部达标</span>' : `<span class="status-badge status-danger text-xs">${bottleneck} 瓶颈</span>`}
                         </div>
-                        <div class="flex items-center gap-3">
-                            <span class="text-xs text-gray-500">${e.actual}/${e.plan}</span>
-                            <span class="font-bold ${color}">${e.rate}%</span>
-                        </div>
+                        <div class="space-y-1">${procRows}</div>
                     </div>
                 `;
             }).join('');
+
+            container.innerHTML = `<div class="grid grid-cols-1 md:grid-cols-2 gap-3">${cards}</div>`;
         }
 
         function renderOperatorRank(date, shift) {
@@ -2361,6 +3689,2449 @@
             document.getElementById('loadingOverlay').classList.add('hidden');
             document.getElementById('loadingOverlay').classList.remove('flex');
         }
+
+        // 全局JS错误捕获
+        window.onerror = function(msg, file, line, col, error) {
+            const errMsg = error ? error.message : msg;
+            console.error('全局错误:', errMsg, file, line);
+            showToast('脚本错误: ' + errMsg.substring(0, 60), 'error');
+            return false;
+        };
+
+        // ===== 不良品管理子导航 =====
+        const DefectTabs = {
+            current: 'dashboard',
+            navigate: function(page) {
+                this.current = page;
+                // Update tabs
+                document.querySelectorAll('#page-defect .ds-tab').forEach(function(t) {
+                    t.classList.toggle('active', t.dataset.ds === page);
+                });
+                // Refresh page
+                switch(page) {
+                    case 'dashboard': Dashboard.refresh(); break;
+                    case 'register': Register.loadRecords(); break;
+                    case 'production': Production.loadRecords(); break;
+                    case 'report': Report.init(); break;
+                    case 'products': Products.loadList(); break;
+                    case 'data': DataManager.refresh(); break;
+                }
+            },
+            init: function() {
+                // Init data
+                if (!localStorage.getItem('ds_products')) { localStorage.setItem('ds_products', JSON.stringify(DEFAULT_PRODUCTS)); }
+                if (!localStorage.getItem('ds_production')) { localStorage.setItem('ds_production', JSON.stringify([])); }
+                if (!localStorage.getItem('ds_defects')) { localStorage.setItem('ds_defects', JSON.stringify([])); }
+                // Set dates
+                var today = Utils.getToday();
+                var el;
+                el = document.getElementById('defect-date'); if (el) el.value = today;
+                el = document.getElementById('production-date'); if (el) el.value = today;
+                el = document.getElementById('register-filter-date'); if (el) el.value = today;
+                el = document.getElementById('production-filter-date'); if (el) el.value = today;
+                el = document.getElementById('report-start'); if (el) el.value = Utils.getWeekStart(today);
+                el = document.getElementById('report-end'); if (el) el.value = Utils.getWeekEnd(today);
+                el = document.getElementById('dash-date-picker'); if (el && !el.value) el.value = today;
+                // Init modules
+                Dashboard.init();
+                Register.init();
+                Production.init();
+                Report.init();
+                Products.init();
+                DataManager.init();
+                // Cloud sync
+                try { CloudSync.init(); CloudSync.checkOnline().then(function(online) {
+                    if (online) { CloudSync.initLoad().then(function(loaded) {
+                        CloudSync.startAutoSync();
+                        if (loaded) { Dashboard.refresh(); Register.loadProducts(); Production.loadProducts(); Report.loadProducts(); }
+                    }); }
+                }); } catch(e) {}
+                // Show dashboard
+                this.navigate('dashboard');
+            }
+        };
+
+
+/**
+ * ¹¤¾ßº¯Êý
+ */
+
+const Utils = {
+  // ¸ñÊ½»¯ÈÕÆÚÎª YYYY-MM-DD
+  formatDate(date) {
+    const d = new Date(date);
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  },
+
+  // »ñÈ¡½ñÌìµÄÈÕÆÚ×Ö·û´®
+  getToday() {
+    return this.formatDate(new Date());
+  },
+
+  // »ñÈ¡±¾ÖÜÒ»ÈÕÆÚ
+  getWeekStart(date) {
+    const d = new Date(date);
+    const day = d.getDay();
+    const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+    return this.formatDate(new Date(d.setDate(diff)));
+  },
+
+  // »ñÈ¡±¾ÖÜÈÕÈÕÆÚ
+  getWeekEnd(date) {
+    const start = new Date(this.getWeekStart(date));
+    start.setDate(start.getDate() + 6);
+    return this.formatDate(start);
+  },
+
+  // »ñÈ¡ÈÕÆÚ·¶Î§ÄÚµÄËùÓÐÈÕÆÚ
+  getDateRange(startDate, endDate) {
+    const dates = [];
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    
+    for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+      dates.push(this.formatDate(d));
+    }
+    return dates;
+  },
+
+  // »ñÈ¡±¾ÖÜµÄËùÓÐÈÕÆÚ
+  getWeekDates(date) {
+    const start = this.getWeekStart(date);
+    const end = this.getWeekEnd(date);
+    return this.getDateRange(start, end);
+  },
+
+  // »ñÈ¡½üNÌìµÄÈÕÆÚ
+  getRecentDays(n) {
+    const dates = [];
+    const today = new Date();
+    for (let i = n - 1; i >= 0; i--) {
+      const d = new Date(today);
+      d.setDate(d.getDate() - i);
+      dates.push(this.formatDate(d));
+    }
+    return dates;
+  },
+
+  // ¸ñÊ½»¯Êý×Ö£¨±£Áô2Î»Ð¡Êý£©
+  formatNumber(num) {
+    if (num === 0 || num === null || num === undefined) return '0.00';
+    return num.toFixed(2);
+  },
+
+  // ¸ñÊ½»¯°Ù·Ö±È
+  formatPercent(num) {
+    if (num === 0 || num === null || num === undefined) return '0.00%';
+    return num.toFixed(2) + '%';
+  },
+
+  // ¼ÆËã²»Á¼ÂÊ
+  calcDefectRate(defects, production) {
+    if (!production || production === 0) return 0;
+    return (defects / production) * 100;
+  },
+
+  // Éú³ÉÎ¨Ò»ID
+  generateId(prefix = 'id') {
+    return prefix + '_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+  },
+
+  // Éî¿½±´
+  deepClone(obj) {
+    return JSON.parse(JSON.stringify(obj));
+  },
+
+  // °´ÈÕÆÚÅÅÐò£¨½µÐò£©
+  sortByDateDesc(records) {
+    return [...records].sort((a, b) => new Date(b.date) - new Date(a.date));
+  },
+
+  // °´ÈÕÆÚÅÅÐò£¨ÉýÐò£©
+  sortByDateAsc(records) {
+    return [...records].sort((a, b) => new Date(a.date) - new Date(b.date));
+  },
+
+  // ==================== CSV µ¼³ö ====================
+
+  // µ¼³öÎª CSV ÎÄ¼þ£¨Excel ¿ÉÖ±½Ó´ò¿ª£©
+  exportToCSV(data, filename) {
+    const csvContent = this.convertToCSV(data);
+    const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    link.click();
+  },
+
+  // ×ª»»Îª CSV ¸ñÊ½
+  convertToCSV(data) {
+    if (!data || data.length === 0) return '';
+    const headers = Object.keys(data[0]);
+    const rows = data.map(row => 
+      headers.map(header => {
+        const value = row[header];
+        if (typeof value === 'string' && (value.includes(',') || value.includes('\n'))) {
+          return `"${value.replace(/"/g, '""')}"`;
+        }
+        return value;
+      }).join(',')
+    );
+    return [headers.join(','), ...rows].join('\n');
+  },
+
+  // ==================== CSV µ¼Èë£¨´Ó Excel/CSV ÎÄ¼þ¶ÁÈ¡£© ====================
+
+  // ½âÎö CSV ÎÄ±¾ÎªÊý×é
+  parseCSV(text) {
+    const rows = [];
+    let currentRow = [];
+    let currentField = '';
+    let inQuotes = false;
+
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      
+      if (inQuotes) {
+        if (ch === '"') {
+          if (i + 1 < text.length && text[i + 1] === '"') {
+            currentField += '"';
+            i++;
+          } else {
+            inQuotes = false;
+          }
+        } else {
+          currentField += ch;
+        }
+      } else {
+        if (ch === '"') {
+          inQuotes = true;
+        } else if (ch === ',') {
+          currentRow.push(currentField.trim());
+          currentField = '';
+        } else if (ch === '\n' || (ch === '\r' && text[i + 1] === '\n')) {
+          currentRow.push(currentField.trim());
+          if (currentRow.some(f => f !== '')) {
+            rows.push(currentRow);
+          }
+          currentRow = [];
+          currentField = '';
+          if (ch === '\r') i++;
+        } else if (ch === '\r') {
+          currentRow.push(currentField.trim());
+          if (currentRow.some(f => f !== '')) {
+            rows.push(currentRow);
+          }
+          currentRow = [];
+          currentField = '';
+        } else {
+          currentField += ch;
+        }
+      }
+    }
+    // ´¦Àí×îºóÒ»ÐÐ
+    currentRow.push(currentField.trim());
+    if (currentRow.some(f => f !== '')) {
+      rows.push(currentRow);
+    }
+
+    // Ìø¹ý¿ÕÐÐ£¬´¦Àí BOM
+    if (rows.length > 0) {
+      rows[0][0] = rows[0][0].replace(/^\uFEFF/, '');
+    }
+
+    return rows;
+  },
+
+  // ¶ÁÈ¡ÉÏ´«ÎÄ¼þÎªÎÄ±¾
+  readFileAsText(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve(e.target.result);
+      reader.onerror = () => reject(new Error('¶ÁÈ¡ÎÄ¼þÊ§°Ü'));
+      reader.readAsText(file);
+    });
+  },
+
+  // ÏÂÔØ JSON ÎÄ¼þ
+  downloadJSON(data, filename) {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    link.click();
+  },
+
+  // ¶ÁÈ¡ÉÏ´«µÄ JSON ÎÄ¼þ
+  readJSONFile(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          resolve(JSON.parse(e.target.result));
+        } catch (err) {
+          reject(new Error('ÎÄ¼þ¸ñÊ½´íÎó£¬ÇëÉÏ´«ÓÐÐ§µÄ JSON ÎÄ¼þ'));
+        }
+      };
+      reader.onerror = () => reject(new Error('¶ÁÈ¡ÎÄ¼þÊ§°Ü'));
+      reader.readAsText(file);
+    });
+  },
+
+  // È·ÈÏ¶Ô»°¿ò
+  confirm(message) {
+    return window.confirm(message);
+  },
+
+  // ÏÔÊ¾ÌáÊ¾ÏûÏ¢
+  showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    const bgColor = type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500';
+    toast.className = `fixed top-4 right-4 ${bgColor} text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-opacity duration-300`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  }
+};
+
+
+
+/**
+ * 数据层 - 负责所有数据的存储、读取和管理
+ * 使用 localStorage 持久化
+ */
+
+const STORAGE_KEYS = {
+  PRODUCTS: 'ds_products',
+  PRODUCTION: 'ds_production',
+  DEFECTS: 'ds_defects',
+  SETTINGS: 'ds_settings'
+};
+
+// ==================== 预设产品数据 ====================
+const DEFAULT_PRODUCTS = [
+  {
+    id: 'p_em34',
+    name: 'EM34静盘',
+    defectTypes: [
+      {
+        type: '尺寸超差',
+        descriptions: ['型线超差', '密封槽尺寸超差', '尺寸超差', '板厚超差']
+      },
+      {
+        type: '人为操作',
+        descriptions: ['调机件', '一夹装偏', '二夹装偏', '三夹装偏', '撞机', '断刀']
+      },
+      {
+        type: '外观不良',
+        descriptions: ['孔内有台阶', '有台阶', '来料不良', '变形', '漏坏', '碰伤', '压伤', '倒角小', '氧化', '有毛刺']
+      },
+      {
+        type: '设备原因',
+        descriptions: ['气密报警', '机器故障、异常']
+      }
+    ]
+  },
+  {
+    id: 'p_esea',
+    name: 'ESEA静盘',
+    defectTypes: [
+      {
+        type: '尺寸超差',
+        descriptions: ['轴承孔超差', '位置度超差', '型线面键槽超差', '板厚超差', '型线面5毫米孔超差', '同心度超差', '圆柱度超差']
+      },
+      {
+        type: '人为操作',
+        descriptions: ['一夹装偏', '二夹装偏', '三夹装偏', '调机件', '打码不良', '断刀']
+      },
+      {
+        type: '外观不良',
+        descriptions: ['氧化', '型线面漏坏', '背面漏坏', '型线有刀纹', '碰伤', '来料不良', '有台阶', '基准孔倒角偏', '打滑']
+      },
+      {
+        type: '设备原因',
+        descriptions: ['尺寸跳动', '主轴进渣']
+      }
+    ]
+  },
+  {
+    id: 'p_ha',
+    name: 'HA动盘',
+    defectTypes: [
+      {
+        type: '尺寸超差',
+        descriptions: ['6毫米孔位置度超差', '尺寸超差', '轴承孔超差', '外圆超差', '型线超差', '密封槽尺寸超差']
+      },
+      {
+        type: '人为操作',
+        descriptions: ['调机件', '断刀', '一夹装偏', '二夹装偏', '三夹装偏', '环孔位置度超差', '打码不良', '混料', '二次装夹']
+      },
+      {
+        type: '外观不良',
+        descriptions: ['外观不良', '型线过切', '型线有台阶', '型线没倒角', '背面有台阶', '环孔有台阶', '对错刀', '环孔底部粗糙', '环孔漏坏', '夹伤', '机械手划伤', '碰伤', '漏坏', '来料不良', '氧化']
+      },
+      {
+        type: '设备原因',
+        descriptions: ['机器故障', '主轴进渣', '机械手夹歪', '刀具变动', '打滑']
+      }
+    ]
+  },
+  {
+    id: 'p_st',
+    name: 'ST动盘',
+    defectTypes: [
+      {
+        type: '尺寸超差',
+        descriptions: ['6毫米孔位置度超差', '有台阶', '尺寸超差', '轴承孔超差', '外圆超差', '型线超差', '密封槽尺寸超差']
+      },
+      {
+        type: '人为操作',
+        descriptions: ['调机件', '断刀', '一夹装偏', '二夹装偏', '三夹装偏', '打码不良', '混料']
+      },
+      {
+        type: '外观不良',
+        descriptions: ['外观不良', '有台阶', '环孔有台阶', '刀具碰伤', '对错刀', '型线没倒角', '机械手划伤', '环孔底部粗糙', '环孔漏坏', '型线漏坏', '夹伤', '碰伤', '漏坏', '来料不良']
+      },
+      {
+        type: '设备原因',
+        descriptions: ['主轴进渣']
+      }
+    ]
+  },
+  {
+    id: 'p_t45j',
+    name: 'T45静盘',
+    defectTypes: [
+      {
+        type: '尺寸超差',
+        descriptions: ['密封槽尺寸超差', '6.3孔偏', '尺寸不良', '板厚不良', '位置度超差']
+      },
+      {
+        type: '人为操作',
+        descriptions: ['断刀', '撞机', '一/二夹装偏', '三夹装偏', '刀撞错了', '调机件']
+      },
+      {
+        type: '外观不良',
+        descriptions: ['来料不良', '有台阶', '漏坏', '碰伤']
+      },
+      {
+        type: '设备原因',
+        descriptions: ['主轴进渣', '电源跳闸', '夹具偏移']
+      }
+    ]
+  },
+  {
+    id: 'p_hthd',
+    name: 'HTHB静盘',
+    defectTypes: [
+      {
+        type: '尺寸超差',
+        descriptions: ['6.3孔偏', '板厚不良', '位置度超差', '孔大', '密封槽尺寸超差']
+      },
+      {
+        type: '人为操作',
+        descriptions: ['刀损', '撞机', '调机件', '换刀后未对刀', '返修报废', '断刀', '一、二夹装偏', '三夹装偏']
+      },
+      {
+        type: '外观不良',
+        descriptions: ['来料不良', '型线没倒角', '有台阶', '漏坯', '碰伤']
+      },
+      {
+        type: '设备原因',
+        descriptions: ['夹具不良', '主轴进渣', '掉刀', '机器故障']
+      }
+    ]
+  },
+  {
+    id: 'p_wx',
+    name: 'WX静盘',
+    defectTypes: [
+      {
+        type: '尺寸超差',
+        descriptions: ['6.3孔偏', '板厚不良', '位置度超差', '孔大', '密封槽尺寸超差']
+      },
+      {
+        type: '人为操作',
+        descriptions: ['刀损', '撞机', '调机件', '返修报废', '断刀', '一、二夹装偏', '三夹装偏']
+      },
+      {
+        type: '外观不良',
+        descriptions: ['来料不良', '型线没倒角', '有台阶', '漏坯', '碰伤']
+      },
+      {
+        type: '设备原因',
+        descriptions: ['夹具不良', '主轴进渣', '机器故障']
+      }
+    ]
+  },
+  {
+    id: 'p_pzk',
+    name: '配重块',
+    defectTypes: [
+      {
+        type: '尺寸超差',
+        descriptions: ['板厚超差', '尺寸超差']
+      },
+      {
+        type: '人为操作',
+        descriptions: ['装夹不良', '调机件']
+      },
+      {
+        type: '外观不良',
+        descriptions: ['来料不良', '有台阶', '氧化', '夹伤', '碰伤', '漏坏']
+      },
+      {
+        type: '设备原因',
+        descriptions: ['工装偏了']
+      }
+    ]
+  },
+  {
+    id: 'p_t45d',
+    name: 'T45动盘',
+    defectTypes: [
+      {
+        type: '尺寸超差',
+        descriptions: ['轴承孔大', '键槽超差', '环孔超差', '尺寸超差', '型线密封槽超差']
+      },
+      {
+        type: '人为操作',
+        descriptions: ['调机件', '型线超差', '断刀', '一夹装偏', '二夹装偏', '三夹装偏']
+      },
+      {
+        type: '外观不良',
+        descriptions: ['来料不良', '漏坏', '碰伤']
+      },
+      {
+        type: '设备原因',
+        descriptions: ['机器故障']
+      }
+    ]
+  }
+];
+
+// ==================== 数据操作 API ====================
+
+const DataStore = {
+  // 初始化：如果本地没有数据，导入预设数据
+  init() {
+    if (!localStorage.getItem(STORAGE_KEYS.PRODUCTS)) {
+      localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(DEFAULT_PRODUCTS));
+    }
+    if (!localStorage.getItem(STORAGE_KEYS.PRODUCTION)) {
+      localStorage.setItem(STORAGE_KEYS.PRODUCTION, JSON.stringify([]));
+    }
+    if (!localStorage.getItem(STORAGE_KEYS.DEFECTS)) {
+      localStorage.setItem(STORAGE_KEYS.DEFECTS, JSON.stringify([]));
+    }
+  },
+
+  // 重置为默认数据
+  resetToDefault() {
+    localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(DEFAULT_PRODUCTS));
+    localStorage.setItem(STORAGE_KEYS.PRODUCTION, JSON.stringify([]));
+    localStorage.setItem(STORAGE_KEYS.DEFECTS, JSON.stringify([]));
+  },
+
+  // 产品管理
+  getProducts() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEYS.PRODUCTS) || '[]');
+  },
+
+  saveProducts(products) {
+    localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(products));
+  },
+
+  addProduct(product) {
+    const products = this.getProducts();
+    product.id = 'p_' + Date.now();
+    products.push(product);
+    this.saveProducts(products);
+    return product;
+  },
+
+  updateProduct(product) {
+    const products = this.getProducts();
+    const index = products.findIndex(p => p.id === product.id);
+    if (index !== -1) {
+      products[index] = product;
+      this.saveProducts(products);
+    }
+  },
+
+  deleteProduct(productId) {
+    const products = this.getProducts();
+    const filtered = products.filter(p => p.id !== productId);
+    this.saveProducts(filtered);
+    // 同时删除相关的产量和不良记录
+    const production = this.getProductionRecords().filter(r => r.productId !== productId);
+    const defects = this.getDefectRecords().filter(r => r.productId !== productId);
+    this.saveProductionRecords(production);
+    this.saveDefectRecords(defects);
+  },
+
+  getProductById(productId) {
+    return this.getProducts().find(p => p.id === productId);
+  },
+
+  // 产量记录
+  getProductionRecords() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEYS.PRODUCTION) || '[]');
+  },
+
+  saveProductionRecords(records) {
+    localStorage.setItem(STORAGE_KEYS.PRODUCTION, JSON.stringify(records));
+  },
+
+  addProductionRecord(record) {
+    const records = this.getProductionRecords();
+    // 检查是否已有同日期同产品的记录
+    const existingIndex = records.findIndex(
+      r => r.date === record.date && r.productId === record.productId
+    );
+    if (existingIndex !== -1) {
+      records[existingIndex] = record;
+    } else {
+      record.id = 'prod_' + Date.now();
+      records.push(record);
+    }
+    this.saveProductionRecords(records);
+  },
+
+  deleteProductionRecord(recordId) {
+    const records = this.getProductionRecords().filter(r => r.id !== recordId);
+    this.saveProductionRecords(records);
+  },
+
+  getProductionByDate(date, productId) {
+    const records = this.getProductionRecords();
+    const record = records.find(r => r.date === date && r.productId === productId);
+    return record ? record.quantity : 0;
+  },
+
+  // 不良记录
+  getDefectRecords() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEYS.DEFECTS) || '[]');
+  },
+
+  saveDefectRecords(records) {
+    localStorage.setItem(STORAGE_KEYS.DEFECTS, JSON.stringify(records));
+  },
+
+  addDefectRecord(record) {
+    const records = this.getDefectRecords();
+    record.id = 'defect_' + Date.now();
+    records.push(record);
+    this.saveDefectRecords(records);
+    return record;
+  },
+
+  updateDefectRecord(record) {
+    const records = this.getDefectRecords();
+    const index = records.findIndex(r => r.id === record.id);
+    if (index !== -1) {
+      records[index] = record;
+      this.saveDefectRecords(records);
+    }
+  },
+
+  deleteDefectRecord(recordId) {
+    const records = this.getDefectRecords().filter(r => r.id !== recordId);
+    this.saveDefectRecords(records);
+  },
+
+  // 统计数据
+  getDefectsByDate(date, productId) {
+    const records = this.getDefectRecords();
+    return records.filter(r => r.date === date && r.productId === productId);
+  },
+
+  getDailyDefectTotal(date, productId) {
+    const defects = this.getDefectsByDate(date, productId);
+    return defects.reduce((sum, d) => sum + d.quantity, 0);
+  },
+
+  // 导出全部数据
+  exportAll() {
+    return {
+      products: this.getProducts(),
+      production: this.getProductionRecords(),
+      defects: this.getDefectRecords(),
+      exportTime: new Date().toISOString(),
+      version: '1.0'
+    };
+  },
+
+  // 导入数据
+  importAll(data) {
+    if (data.products) {
+      this.saveProducts(data.products);
+    }
+    if (data.production) {
+      this.saveProductionRecords(data.production);
+    }
+    if (data.defects) {
+      this.saveDefectRecords(data.defects);
+    }
+  },
+
+  // 清空所有数据
+  clearAll() {
+    localStorage.removeItem(STORAGE_KEYS.PRODUCTS);
+    localStorage.removeItem(STORAGE_KEYS.PRODUCTION);
+    localStorage.removeItem(STORAGE_KEYS.DEFECTS);
+  }
+};
+
+// ==================== GitHub 云端数据同步 ====================
+
+const CloudSync = {
+  // GitHub 配置
+  GITHUB_OWNER: 'TANSHAOJING',
+  GITHUB_REPO: 'defect-dashboard',
+  GITHUB_FILE: 'data.json',
+  GITHUB_TOKEN: '',
+  
+  syncTimer: null,
+  isOnline: false,
+  dataVersion: 0,
+  isConfigured: false,
+
+  // 初始化
+  init() {
+    // 优先从 localStorage 读取，否则用内置 token
+    const savedToken = localStorage.getItem('ds_github_token');
+    if (savedToken) {
+      this.GITHUB_TOKEN = savedToken;
+    }
+    this.isConfigured = true;  // 始终尝试连接
+  },
+
+  // 设置 Token
+  setToken(token) {
+    this.GITHUB_TOKEN = token;
+    this.isConfigured = true;
+    localStorage.setItem('ds_github_token', token);
+  },
+
+  // 检查是否配置
+  checkOnline() {
+    this.isOnline = this.isConfigured && !!this.GITHUB_TOKEN;
+    return Promise.resolve(this.isOnline);
+  },
+
+  // GitHub API 请求
+  async githubAPI(path, options = {}) {
+    const url = `https://api.github.com/repos/${this.GITHUB_OWNER}/${this.GITHUB_REPO}/contents/${this.GITHUB_FILE}`;
+    const resp = await fetch(url, {
+      ...options,
+      headers: {
+        'Authorization': `token ${this.GITHUB_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github.v3+json',
+        ...(options.headers || {})
+      }
+    });
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({}));
+      throw new Error(err.message || 'API error');
+    }
+    return resp.json();
+  },
+
+  // 从 GitHub 加载数据
+  async loadFromServer() {
+    try {
+      const fileData = await this.githubAPI();
+      const content = atob(fileData.content.replace(/\n/g, ''));
+      const data = JSON.parse(content);
+      return data;
+    } catch (err) {
+      console.log('加载云端数据失败:', err.message);
+      return null;
+    }
+  },
+
+  // 保存数据到 GitHub
+  async saveToServer(data) {
+    try {
+      // 先获取当前文件（为了得到 sha）
+      let sha = '';
+      try {
+        const existing = await this.githubAPI();
+        sha = existing.sha;
+      } catch (e) {
+        // 文件不存在，首次创建
+      }
+
+      const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+      const body = {
+        message: `数据同步 - ${new Date().toLocaleString('zh-CN')}`,
+        content: content,
+        ...(sha ? { sha } : {})
+      };
+
+      await this.githubAPI('', {
+        method: 'PUT',
+        body: JSON.stringify(body)
+      });
+      return true;
+    } catch (err) {
+      console.log('保存到云端失败:', err.message);
+      return false;
+    }
+  },
+
+  // 启动时加载
+  async initLoad() {
+    if (!this.isConfigured) return false;
+
+    const serverData = await this.loadFromServer();
+    if (!serverData) return false;
+
+    if (serverData.products || serverData.production || serverData.defects) {
+      if (serverData.products) DataStore.saveProducts(serverData.products);
+      if (serverData.production) DataStore.saveProductionRecords(serverData.production);
+      if (serverData.defects) DataStore.saveDefectRecords(serverData.defects);
+      return true;
+    }
+    return false;
+  },
+
+  // 自动同步
+  async autoSave() {
+    if (!this.isConfigured) return;
+    const data = {
+      products: DataStore.getProducts(),
+      production: DataStore.getProductionRecords(),
+      defects: DataStore.getDefectRecords(),
+      lastSync: new Date().toISOString(),
+      version: (this.dataVersion++)
+    };
+    await this.saveToServer(data);
+  },
+
+  startAutoSync() {
+    this.stopAutoSync();
+    this.syncTimer = setInterval(() => this.autoSave(), 30000);
+  },
+
+  stopAutoSync() {
+    if (this.syncTimer) {
+      clearInterval(this.syncTimer);
+      this.syncTimer = null;
+    }
+  },
+
+  // 手动立即同步
+  async syncNow() {
+    const data = {
+      products: DataStore.getProducts(),
+      production: DataStore.getProductionRecords(),
+      defects: DataStore.getDefectRecords(),
+      lastSync: new Date().toISOString()
+    };
+    const ok = await this.saveToServer(data);
+    return ok;
+  }
+};
+
+// 初始化
+CloudSync.init();
+
+// ==================== 初始化 ====================
+
+// 初始化本地数据
+DataStore.init();
+
+// 导出给 app.js 使用
+
+// ==================== 报废率等级判定 ====================
+
+const DefectLevels = {
+  // 判定标准（从 Excel 中提取）
+  getLevel(rate) {
+    if (rate <= 0.5) return { level: '正常', color: 'text-green-600', bg: 'bg-green-50' };
+    if (rate <= 1) return { level: '轻度', color: 'text-lime-600', bg: 'bg-lime-50' };
+    if (rate <= 1.5) return { level: '一般', color: 'text-yellow-600', bg: 'bg-yellow-50' };
+    if (rate <= 2) return { level: '中度', color: 'text-orange-500', bg: 'bg-orange-50' };
+    if (rate <= 3) return { level: '较重', color: 'text-orange-600', bg: 'bg-orange-100' };
+    if (rate <= 4) return { level: '重度', color: 'text-red-500', bg: 'bg-red-50' };
+    return { level: '极危', color: 'text-red-700', bg: 'bg-red-100' };
+  }
+};
+
+// ==================== Excel 导入解析 ====================
+
+const ExcelImporter = {
+  parseProductsFromExcel(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, { type: 'array', cellDates: false, cellText: true });
+          const sheetName = workbook.SheetNames[0];
+          const firstSheet = workbook.Sheets[sheetName];
+          const rows = XLSX.utils.sheet_to_json(firstSheet, { header: 1, defval: '', blankrows: false });
+          
+          const result = this.parseProductRows(rows);
+          resolve(result);
+        } catch (err) {
+          reject(new Error('解析 Excel 文件失败：' + err.message));
+        }
+      };
+      reader.onerror = () => reject(new Error('读取文件失败'));
+      reader.readAsArrayBuffer(file);
+    });
+  },
+
+  parseProductRows(rows) {
+    const products = [];
+    const defectRecords = [];
+    const productionRecords = [];  // 新增：产量记录
+    const DEFECT_TYPES = ['尺寸超差', '人为操作', '外观不良', '设备原因'];
+    let currentProduct = null;
+    let currentType = null;
+    let excelDate = null;
+    let productionColTitle = null;  // 产量列标题（如 "7月24日产量"）
+
+    // 尝试从第一行解析日期和产量
+    if (rows.length > 0) {
+      // D列日期
+      if (rows[0].length > 3) {
+        const rawDate = rows[0][3];
+        if (rawDate && !isNaN(rawDate)) {
+          const d = new Date((rawDate - 25569) * 86400 * 1000);
+          excelDate = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+        }
+      }
+      // E列产量标题
+      if (rows[0].length > 4) {
+        productionColTitle = String(rows[0][4] || '').trim();
+      }
+    }
+
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      
+      const col0 = (typeof row[0] === 'string' ? row[0] : String(row[0] || '')).trim();
+      const col1 = (typeof row[1] === 'string' ? row[1] : String(row[1] || '')).trim();
+      const col2 = (typeof row[2] === 'string' ? row[2] : String(row[2] || '')).trim();
+      const col3 = row[3];  // 报废数量
+
+      // 跳过空行和表头
+      if (!col0 && !col1 && !col2 && !col3) continue;
+      if (col0 === '产品名称') continue;
+
+      // 检测新产品名
+      const isDefectType = DEFECT_TYPES.includes(col0);
+      
+      if (col0 && !isDefectType && col0.length > 1) {
+        const cleanName = col0.replace(/\n/g, '').trim();
+        if (currentProduct) {
+          currentProduct.defectTypes = currentProduct.defectTypes.filter(dt => dt.descriptions.length > 0);
+          products.push(currentProduct);
+        }
+        currentProduct = {
+          name: cleanName,
+          defectTypes: DEFECT_TYPES.map(t => ({ type: t, descriptions: [] }))
+        };
+        currentType = null;
+        
+        // 读取该产品行的产量（E列，第5列，即 row[4]）
+        const col4 = row[4];
+        if (col4 && !isNaN(col4) && excelDate) {
+          productionRecords.push({
+            productName: cleanName,
+            date: excelDate,
+            quantity: parseInt(col4)
+          });
+        }
+      }
+
+      if (!currentProduct) continue;
+
+      // 检测不良类别
+      if (col1 && DEFECT_TYPES.includes(col1)) {
+        currentType = col1;
+        // 如果类别行有描述（如人为操作+调机件在同一行），继续处理
+        if (col2 && !DEFECT_TYPES.includes(col2)) {
+          const typeObj = currentProduct.defectTypes.find(t => t.type === currentType);
+          if (typeObj && !typeObj.descriptions.includes(col2)) {
+            typeObj.descriptions.push(col2);
+          }
+          // 如果有报废数量
+          if (col3 && !isNaN(col3) && excelDate) {
+            defectRecords.push({
+              productName: currentProduct.name,
+              date: excelDate,
+              defectType: currentType,
+              defectDesc: col2,
+              quantity: parseInt(col3)
+            });
+          }
+        }
+        continue;
+      }
+
+      // 添加不良描述
+      if (currentType && col2 && !DEFECT_TYPES.includes(col2)) {
+        const typeObj = currentProduct.defectTypes.find(t => t.type === currentType);
+        if (typeObj && !typeObj.descriptions.includes(col2)) {
+          typeObj.descriptions.push(col2);
+        }
+        // 如果有报废数量
+        if (col3 && !isNaN(col3) && excelDate) {
+          defectRecords.push({
+            productName: currentProduct.name,
+            date: excelDate,
+            defectType: currentType,
+            defectDesc: col2,
+            quantity: parseInt(col3)
+          });
+        }
+      }
+    }
+
+    // 保存最后一个产品
+    if (currentProduct) {
+      currentProduct.defectTypes = currentProduct.defectTypes.filter(dt => dt.descriptions.length > 0);
+      products.push(currentProduct);
+    }
+
+    return { products, defectRecords, productionRecords, excelDate };
+  }
+};
+
+
+
+/**
+ * 主应用逻辑 - SPA 路由和页面管理
+ */
+
+const App = {
+  currentPage: 'dashboard',
+  charts: {},
+
+  init() {
+    // 初始化数据
+    DataStore.init();
+    
+    // 设置默认日期
+    const today = Utils.getToday();
+    document.getElementById('defect-date').value = today;
+    document.getElementById('production-date').value = today;
+    document.getElementById('register-filter-date').value = today;
+    document.getElementById('production-filter-date').value = today;
+    
+    // 设置报表默认日期范围（本周）
+    document.getElementById('report-start').value = Utils.getWeekStart(today);
+    document.getElementById('report-end').value = Utils.getWeekEnd(today);
+
+    // 初始化各模块
+    this.initEventListeners();
+    Dashboard.init();
+    Register.init();
+    Production.init();
+    Report.init();
+    Products.init();
+    DataManager.init();
+
+    // 加载默认页面
+    this.navigate('dashboard');
+
+    // 启动 GitHub 云端同步
+    CloudSync.checkOnline().then(online => {
+      if (online) {
+        CloudSync.initLoad().then(loaded => {
+          CloudSync.startAutoSync();
+          if (loaded) {
+            Dashboard.refresh();
+            Register.loadProducts();
+            Production.loadProducts();
+            Report.loadProducts();
+          }
+        });
+      }
+    });
+  },
+
+  initEventListeners() {
+    // 不良品登记表单
+    document.getElementById('defect-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      Register.saveDefect();
+    });
+
+    // 产量录入表单
+    document.getElementById('production-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      Production.saveProduction();
+    });
+
+    // 产品选择联动
+    document.getElementById('defect-product').addEventListener('change', (e) => {
+      Register.loadDefectTypes(e.target.value);
+    });
+
+    document.getElementById('defect-type').addEventListener('change', (e) => {
+      Register.loadDefectDescriptions(e.target.value);
+    });
+  },
+
+  navigate(page) {
+    // 隐藏所有页面
+    document.querySelectorAll('.page-section').forEach(section => {
+      section.classList.add('hidden');
+    });
+
+    // 显示目标页面
+    const targetSection = document.getElementById(`page-${page}`);
+    if (targetSection) {
+      targetSection.classList.remove('hidden');
+    }
+
+    // 更新导航状态
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.classList.remove('active');
+      if (item.dataset.page === page) {
+        item.classList.add('active');
+      }
+    });
+
+    this.currentPage = page;
+
+    // 页面特定初始化
+    switch (page) {
+      case 'dashboard':
+        Dashboard.refresh();
+        break;
+      case 'register':
+        Register.loadRecords();
+        break;
+      case 'production':
+        Production.loadRecords();
+        break;
+      case 'report':
+        Report.init();
+        break;
+      case 'products':
+        Products.loadList();
+        break;
+      case 'data':
+        DataManager.refresh();
+        break;
+    }
+  }
+};
+
+// ==================== 数据看板模块 ====================
+
+const Dashboard = {
+  charts: {},
+  selectedDate: null,  // 用户选择的日期，null 表示今天
+
+  init() {
+    this.initCharts();
+    // 初始化日期选择器
+    const picker = document.getElementById('dash-date-picker');
+    picker.value = Utils.getToday();
+    this.selectedDate = Utils.getToday();
+  },
+
+  onDateChange() {
+    const picker = document.getElementById('dash-date-picker');
+    this.selectedDate = picker.value;
+    this.refresh();
+  },
+
+  goToday() {
+    const today = Utils.getToday();
+    this.selectedDate = today;
+    document.getElementById('dash-date-picker').value = today;
+    this.refresh();
+  },
+
+  initCharts() {
+    // 近7天不良率趋势
+    const trendCtx = document.getElementById('ds-chart-trend');
+    if (trendCtx) {
+      this.charts.trend = new Chart(trendCtx, {
+        type: 'line',
+        data: { labels: [], datasets: [] },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, ticks: { callback: v => v + '%' } }
+          }
+        }
+      });
+    }
+
+    // 不良类型占比
+    const typeCtx = document.getElementById('ds-chart-type');
+    if (typeCtx) {
+      this.charts.type = new Chart(typeCtx, {
+        type: 'doughnut',
+        data: { labels: [], datasets: [] },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'right' } }
+        }
+      });
+    }
+
+    // 各产品今日报废数
+    const productCtx = document.getElementById('ds-chart-product');
+    if (productCtx) {
+      this.charts.product = new Chart(productCtx, {
+        type: 'bar',
+        data: { labels: [], datasets: [] },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    }
+
+    // 产品不良率排名
+    const rankingCtx = document.getElementById('ds-chart-ranking');
+    if (rankingCtx) {
+      this.charts.ranking = new Chart(rankingCtx, {
+        type: 'bar',
+        data: { labels: [], datasets: [] },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          plugins: { legend: { display: false } },
+          scales: { x: { ticks: { callback: v => v + '%' } } }
+        }
+      });
+    }
+  },
+
+  refresh() {
+    const targetDate = this.selectedDate || Utils.getToday();
+    const today = Utils.getToday();
+    const products = DataStore.getProducts();
+    const productionRecords = DataStore.getProductionRecords();
+    const defectRecords = DataStore.getDefectRecords();
+
+    // 更新标签文字
+    const labelEl = document.getElementById('dash-day-label');
+    if (targetDate === today) {
+      labelEl.textContent = '今日';
+    } else {
+      labelEl.textContent = targetDate;
+    }
+
+    // ========== 选定日概览 ==========
+    const dayStats = this.calcPeriodStats(products, productionRecords, defectRecords, [targetDate]);
+    document.getElementById('dash-day-production').textContent = dayStats.totalProduction;
+    document.getElementById('dash-day-defects').textContent = dayStats.totalDefects;
+    document.getElementById('dash-day-rate').textContent = dayStats.totalProduction > 0 
+      ? Utils.formatPercent(Utils.calcDefectRate(dayStats.totalDefects, dayStats.totalProduction))
+      : '需录入产量';
+    document.getElementById('dash-day-product-count').textContent = dayStats.activeProducts;
+
+    // ========== 选定日所在周概览 ==========
+    const weekDates = Utils.getWeekDates(targetDate);
+    const weekStats = this.calcPeriodStats(products, productionRecords, defectRecords, weekDates);
+    document.getElementById('dash-week-production').textContent = weekStats.totalProduction;
+    document.getElementById('dash-week-defects').textContent = weekStats.totalDefects;
+    document.getElementById('dash-week-rate').textContent = weekStats.totalProduction > 0
+      ? Utils.formatPercent(Utils.calcDefectRate(weekStats.totalDefects, weekStats.totalProduction))
+      : '需录入产量';
+    document.getElementById('dash-week-product-count').textContent = weekStats.activeProducts;
+
+    // ========== 选定日所在月概览 ==========
+    const monthStart = targetDate.substring(0, 7) + '-01';
+    const monthDates = Utils.getDateRange(monthStart, targetDate);
+    const monthStats = this.calcPeriodStats(products, productionRecords, defectRecords, monthDates);
+    document.getElementById('dash-month-production').textContent = monthStats.totalProduction;
+    document.getElementById('dash-month-defects').textContent = monthStats.totalDefects;
+    document.getElementById('dash-month-rate').textContent = monthStats.totalProduction > 0
+      ? Utils.formatPercent(Utils.calcDefectRate(monthStats.totalDefects, monthStats.totalProduction))
+      : '需录入产量';
+    document.getElementById('dash-month-product-count').textContent = monthStats.activeProducts;
+
+    // 近7天不良率趋势
+    this.updateTrendChart(products, productionRecords, defectRecords);
+    
+    // 不良类型占比（用本周数据）
+    this.updateTypeChart(defectRecords, weekDates);
+    
+    // 各产品选定日报废数
+    this.updateProductChart(products, defectRecords, targetDate);
+    
+    // 产品不良率排名（用选定日所在周数据）
+    this.updateRankingChart(products, productionRecords, defectRecords, weekDates);
+    
+    // 选定日报废明细
+    this.renderDayDefects(products, defectRecords, targetDate);
+    
+    // 选定日所在周不良描述 TOP10
+    this.renderDefectTop10(products, defectRecords, weekDates);
+  },
+
+  calcPeriodStats(products, productionRecords, defectRecords, dateRange) {
+    let totalProduction = 0;
+    let totalDefects = 0;
+    let activeProducts = 0;
+
+    products.forEach(product => {
+      const prodQty = productionRecords
+        .filter(r => dateRange.includes(r.date) && r.productId === product.id)
+        .reduce((sum, r) => sum + r.quantity, 0);
+      const defects = defectRecords
+        .filter(r => dateRange.includes(r.date) && r.productId === product.id)
+        .reduce((sum, r) => sum + r.quantity, 0);
+      
+      totalProduction += prodQty;
+      totalDefects += defects;
+      if (prodQty > 0 || defects > 0) activeProducts++;
+    });
+
+    return { totalProduction, totalDefects, activeProducts };
+  },
+
+  renderDayDefects(products, defectRecords, targetDate) {
+    if (!targetDate) {
+      document.getElementById('dash-defect-detail-date').textContent = '';
+      document.getElementById('dash-defect-detail').innerHTML = '<tr><td colspan="4" class="text-center text-gray-500 py-8">暂无报废记录</td></tr>';
+      return;
+    }
+
+    const dayRecords = defectRecords.filter(r => r.date === targetDate);
+    const productMap = {};
+    products.forEach(p => productMap[p.id] = p.name);
+
+    document.getElementById('dash-defect-detail-date').textContent = `日期: ${targetDate}`;
+
+    if (dayRecords.length === 0) {
+      document.getElementById('dash-defect-detail').innerHTML = '<tr><td colspan="4" class="text-center text-gray-500 py-8">当日无报废记录</td></tr>';
+      return;
+    }
+
+    document.getElementById('dash-defect-detail').innerHTML = dayRecords.map(record => `
+      <tr>
+        <td>${productMap[record.productId] || '未知'}</td>
+        <td>${record.defectType}</td>
+        <td>${record.defectDesc}</td>
+        <td class="font-semibold text-red-600">${record.quantity}</td>
+      </tr>
+    `).join('');
+  },
+
+  renderDefectTop10(products, defectRecords, dateRange) {
+    const weekRecords = defectRecords.filter(r => dateRange.includes(r.date));
+    
+    if (weekRecords.length === 0) {
+      document.getElementById('dash-defect-top10').innerHTML = '<tr><td colspan="5" class="text-center text-gray-500 py-8">暂无数据</td></tr>';
+      return;
+    }
+
+    // 按不良描述汇总
+    const descCount = {};
+    weekRecords.forEach(r => {
+      const key = `${r.defectDesc}|${r.defectType}`;
+      if (!descCount[key]) {
+        descCount[key] = { desc: r.defectDesc, type: r.defectType, count: 0 };
+      }
+      descCount[key].count += r.quantity;
+    });
+
+    const total = weekRecords.reduce((sum, r) => sum + r.quantity, 0);
+    const sorted = Object.values(descCount).sort((a, b) => b.count - a.count).slice(0, 10);
+
+    document.getElementById('dash-defect-top10').innerHTML = sorted.map((item, index) => {
+      const percent = ((item.count / total) * 100).toFixed(1);
+      const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `${index + 1}`;
+      return `
+        <tr>
+          <td class="text-center font-bold">${medal}</td>
+          <td class="font-medium">${item.desc}</td>
+          <td><span class="px-2 py-0.5 rounded text-xs bg-gray-100">${item.type}</span></td>
+          <td class="font-semibold text-red-600">${item.count}</td>
+          <td class="text-gray-500">${percent}%</td>
+        </tr>
+      `;
+    }).join('');
+  },
+
+  updateTrendChart(products, productionRecords, defectRecords) {
+    const dates = Utils.getRecentDays(7);
+    const rates = dates.map(date => {
+      let totalProd = 0;
+      let totalDefect = 0;
+      products.forEach(product => {
+        const prod = productionRecords.find(r => r.date === date && r.productId === product.id);
+        totalProd += prod ? prod.quantity : 0;
+        totalDefect += defectRecords
+          .filter(r => r.date === date && r.productId === product.id)
+          .reduce((sum, r) => sum + r.quantity, 0);
+      });
+      return Utils.calcDefectRate(totalDefect, totalProd);
+    });
+
+    this.charts.trend.data.labels = dates.map(d => d.slice(5));
+    this.charts.trend.data.datasets = [{
+      label: '综合不良率',
+      data: rates,
+      borderColor: '#3b82f6',
+      backgroundColor: 'rgba(59, 130, 246, 0.1)',
+      fill: true,
+      tension: 0.4
+    }];
+    this.charts.trend.update();
+  },
+
+  updateTypeChart(defectRecords, dateRange) {
+    const typeCount = {};
+    defectRecords
+      .filter(r => dateRange.includes(r.date))
+      .forEach(r => {
+        typeCount[r.defectType] = (typeCount[r.defectType] || 0) + r.quantity;
+      });
+
+    const labels = Object.keys(typeCount);
+    const data = Object.values(typeCount);
+    const colors = ['#3b82f6', '#ef4444', '#f59e0b', '#10b981', '#8b5cf6', '#ec4899'];
+
+    this.charts.type.data.labels = labels;
+    this.charts.type.data.datasets = [{
+      data: data,
+      backgroundColor: colors.slice(0, labels.length)
+    }];
+    this.charts.type.update();
+  },
+
+  updateProductChart(products, defectRecords, today) {
+    const labels = products.map(p => p.name);
+    const data = products.map(product => 
+      defectRecords
+        .filter(r => r.date === today && r.productId === product.id)
+        .reduce((sum, r) => sum + r.quantity, 0)
+    );
+
+    this.charts.product.data.labels = labels;
+    this.charts.product.data.datasets = [{
+      label: '报废数',
+      data: data,
+      backgroundColor: '#ef4444'
+    }];
+    this.charts.product.update();
+  },
+
+  updateRankingChart(products, productionRecords, defectRecords, dateRange) {
+    const rankings = products.map(product => {
+      const prodQty = productionRecords
+        .filter(r => dateRange.includes(r.date) && r.productId === product.id)
+        .reduce((sum, r) => sum + r.quantity, 0);
+      const defects = defectRecords
+        .filter(r => dateRange.includes(r.date) && r.productId === product.id)
+        .reduce((sum, r) => sum + r.quantity, 0);
+      return {
+        name: product.name,
+        rate: Utils.calcDefectRate(defects, prodQty)
+      };
+    }).sort((a, b) => b.rate - a.rate);
+
+    this.charts.ranking.data.labels = rankings.map(r => r.name);
+    this.charts.ranking.data.datasets = [{
+      label: '不良率',
+      data: rankings.map(r => r.rate),
+      backgroundColor: rankings.map(r => 
+        r.rate > 5 ? '#ef4444' : r.rate > 2 ? '#f59e0b' : '#10b981'
+      )
+    }];
+    this.charts.ranking.update();
+  }
+};
+
+// ==================== 不良品登记模块 ====================
+
+const Register = {
+  init() {
+    this.loadProducts();
+  },
+
+  loadProducts() {
+    const select = document.getElementById('defect-product');
+    const products = DataStore.getProducts();
+    select.innerHTML = '<option value="">请选择产品</option>';
+    products.forEach(product => {
+      const option = document.createElement('option');
+      option.value = product.id;
+      option.textContent = product.name;
+      select.appendChild(option);
+    });
+  },
+
+  loadDefectTypes(productId) {
+    const typeSelect = document.getElementById('defect-type');
+    const descSelect = document.getElementById('defect-desc');
+    
+    if (!productId) {
+      typeSelect.innerHTML = '<option value="">请先选择产品</option>';
+      typeSelect.disabled = true;
+      descSelect.innerHTML = '<option value="">请先选择类别</option>';
+      descSelect.disabled = true;
+      return;
+    }
+
+    const product = DataStore.getProductById(productId);
+    if (!product) return;
+
+    typeSelect.innerHTML = '<option value="">请选择不良类别</option>';
+    product.defectTypes.forEach(dt => {
+      const option = document.createElement('option');
+      option.value = dt.type;
+      option.textContent = dt.type;
+      typeSelect.appendChild(option);
+    });
+    typeSelect.disabled = false;
+
+    descSelect.innerHTML = '<option value="">请先选择类别</option>';
+    descSelect.disabled = true;
+  },
+
+  loadDefectDescriptions(type) {
+    const descSelect = document.getElementById('defect-desc');
+    const productId = document.getElementById('defect-product').value;
+    
+    if (!type || !productId) {
+      descSelect.innerHTML = '<option value="">请先选择类别</option>';
+      descSelect.disabled = true;
+      return;
+    }
+
+    const product = DataStore.getProductById(productId);
+    const defectType = product.defectTypes.find(dt => dt.type === type);
+    
+    if (!defectType) return;
+
+    descSelect.innerHTML = '<option value="">请选择不良描述</option>';
+    defectType.descriptions.forEach(desc => {
+      const option = document.createElement('option');
+      option.value = desc;
+      option.textContent = desc;
+      descSelect.appendChild(option);
+    });
+    descSelect.disabled = false;
+  },
+
+  saveDefect() {
+    const date = document.getElementById('defect-date').value;
+    const productId = document.getElementById('defect-product').value;
+    const defectType = document.getElementById('defect-type').value;
+    const defectDesc = document.getElementById('defect-desc').value;
+    const quantity = parseInt(document.getElementById('defect-quantity').value);
+    const note = document.getElementById('defect-note').value;
+
+    if (!date || !productId || !defectType || !defectDesc || !quantity) {
+      Utils.showToast('请填写完整信息', 'error');
+      return;
+    }
+
+    const record = {
+      date,
+      productId,
+      defectType,
+      defectDesc,
+      quantity,
+      note
+    };
+
+    DataStore.addDefectRecord(record);
+    Utils.showToast('登记成功！');
+    
+    // 重置表单
+    document.getElementById('defect-quantity').value = '';
+    document.getElementById('defect-note').value = '';
+    
+    // 刷新记录列表
+    this.loadRecords();
+  },
+
+  loadRecords() {
+    const filterDate = document.getElementById('register-filter-date').value || Utils.getToday();
+    const records = DataStore.getDefectRecords().filter(r => r.date === filterDate);
+    const products = DataStore.getProducts();
+    const tbody = document.getElementById('register-records');
+
+    if (records.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" class="text-center text-gray-500 py-8">暂无记录</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = records.map(record => {
+      const product = products.find(p => p.id === record.productId);
+      return `
+        <tr>
+          <td>${record.date}</td>
+          <td>${product ? product.name : '未知产品'}</td>
+          <td>${record.defectType}</td>
+          <td>${record.defectDesc}</td>
+          <td class="font-semibold text-red-600">${record.quantity}</td>
+          <td>${record.note || '-'}</td>
+          <td>
+            <button onclick="Register.deleteRecord('${record.id}')" class="text-red-600 hover:text-red-800 text-sm">
+              删除
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  },
+
+  deleteRecord(recordId) {
+    if (Utils.confirm('确定要删除这条记录吗？')) {
+      DataStore.deleteDefectRecord(recordId);
+      Utils.showToast('记录已删除');
+      this.loadRecords();
+    }
+  }
+};
+
+// ==================== 产量录入模块 ====================
+
+const Production = {
+  init() {
+    this.loadProducts();
+  },
+
+  loadProducts() {
+    const select = document.getElementById('production-product');
+    const products = DataStore.getProducts();
+    select.innerHTML = '<option value="">请选择产品</option>';
+    products.forEach(product => {
+      const option = document.createElement('option');
+      option.value = product.id;
+      option.textContent = product.name;
+      select.appendChild(option);
+    });
+  },
+
+  saveProduction() {
+    const date = document.getElementById('production-date').value;
+    const productId = document.getElementById('production-product').value;
+    const quantity = parseInt(document.getElementById('production-quantity').value);
+
+    if (!date || !productId || quantity === undefined || isNaN(quantity)) {
+      Utils.showToast('请填写完整信息', 'error');
+      return;
+    }
+
+    const record = {
+      date,
+      productId,
+      quantity
+    };
+
+    DataStore.addProductionRecord(record);
+    Utils.showToast('产量录入成功！');
+    
+    // 重置表单
+    document.getElementById('production-quantity').value = '';
+    
+    // 刷新记录列表
+    this.loadRecords();
+  },
+
+  loadRecords() {
+    const filterDate = document.getElementById('production-filter-date').value;
+    let records = DataStore.getProductionRecords();
+    
+    if (filterDate) {
+      records = records.filter(r => r.date === filterDate);
+    }
+    
+    records = Utils.sortByDateDesc(records);
+    const products = DataStore.getProducts();
+    const tbody = document.getElementById('production-records');
+
+    if (records.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="4" class="text-center text-gray-500 py-8">暂无记录</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = records.map(record => {
+      const product = products.find(p => p.id === record.productId);
+      return `
+        <tr>
+          <td>${record.date}</td>
+          <td>${product ? product.name : '未知产品'}</td>
+          <td class="font-semibold text-green-600">${record.quantity}</td>
+          <td>
+            <button onclick="Production.deleteRecord('${record.id}')" class="text-red-600 hover:text-red-800 text-sm">
+              删除
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  },
+
+  deleteRecord(recordId) {
+    if (Utils.confirm('确定要删除这条记录吗？')) {
+      DataStore.deleteProductionRecord(recordId);
+      Utils.showToast('记录已删除');
+      this.loadRecords();
+    }
+  }
+};
+
+// ==================== 统计报表模块 ====================
+
+const Report = {
+  currentData: [],
+
+  init() {
+    this.loadProducts();
+  },
+
+  loadProducts() {
+    const select = document.getElementById('report-product');
+    const products = DataStore.getProducts();
+    select.innerHTML = '<option value="">全部产品</option>';
+    products.forEach(product => {
+      const option = document.createElement('option');
+      option.value = product.id;
+      option.textContent = product.name;
+      select.appendChild(option);
+    });
+  },
+
+  generate() {
+    const reportType = document.getElementById('report-type').value;
+    const startDate = document.getElementById('report-start').value;
+    const endDate = document.getElementById('report-end').value;
+    const productFilter = document.getElementById('report-product').value;
+
+    if (!startDate || !endDate) {
+      Utils.showToast('请选择日期范围', 'error');
+      return;
+    }
+
+    const products = DataStore.getProducts();
+    const productionRecords = DataStore.getProductionRecords();
+    const defectRecords = DataStore.getDefectRecords();
+    
+    let filteredProducts = productFilter 
+      ? products.filter(p => p.id === productFilter)
+      : products;
+
+    this.currentData = [];
+
+    if (reportType === 'daily') {
+      const dates = Utils.getDateRange(startDate, endDate);
+      dates.forEach(date => {
+        filteredProducts.forEach(product => {
+          const prod = productionRecords.find(r => r.date === date && r.productId === product.id);
+          const prodQty = prod ? prod.quantity : 0;
+          const defects = defectRecords
+            .filter(r => r.date === date && r.productId === product.id)
+            .reduce((sum, r) => sum + r.quantity, 0);
+          
+          if (prodQty > 0 || defects > 0) {
+            this.currentData.push({
+              period: date,
+              product: product.name,
+              production: prodQty,
+              defects: defects,
+              rate: Utils.calcDefectRate(defects, prodQty)
+            });
+          }
+        });
+      });
+    } else if (reportType === 'weekly') {
+      // 按周汇总
+      const start = new Date(startDate);
+      const end = new Date(endDate);
+      let currentWeekStart = new Date(start);
+      
+      while (currentWeekStart <= end) {
+        const weekStart = Utils.getWeekStart(currentWeekStart);
+        const weekEnd = Utils.getWeekEnd(currentWeekStart);
+        const weekDates = Utils.getWeekDates(currentWeekStart);
+        
+        filteredProducts.forEach(product => {
+          const prodQty = productionRecords
+            .filter(r => weekDates.includes(r.date) && r.productId === product.id)
+            .reduce((sum, r) => sum + r.quantity, 0);
+          const defects = defectRecords
+            .filter(r => weekDates.includes(r.date) && r.productId === product.id)
+            .reduce((sum, r) => sum + r.quantity, 0);
+          
+          if (prodQty > 0 || defects > 0) {
+            this.currentData.push({
+              period: `${weekStart} ~ ${weekEnd}`,
+              product: product.name,
+              production: prodQty,
+              defects: defects,
+              rate: Utils.calcDefectRate(defects, prodQty)
+            });
+          }
+        });
+        
+        currentWeekStart.setDate(currentWeekStart.getDate() + 7);
+      }
+    } else if (reportType === 'monthly') {
+      // 按月汇总
+      const start = new Date(startDate);
+      const end = new Date(endDate);
+      
+      filteredProducts.forEach(product => {
+        const prodQty = productionRecords
+          .filter(r => {
+            const d = new Date(r.date);
+            return d >= start && d <= end && r.productId === product.id;
+          })
+          .reduce((sum, r) => sum + r.quantity, 0);
+        const defects = defectRecords
+          .filter(r => {
+            const d = new Date(r.date);
+            return d >= start && d <= end && r.productId === product.id;
+          })
+          .reduce((sum, r) => sum + r.quantity, 0);
+        
+        if (prodQty > 0 || defects > 0) {
+          this.currentData.push({
+            period: `${startDate} ~ ${endDate}`,
+            product: product.name,
+            production: prodQty,
+            defects: defects,
+            rate: Utils.calcDefectRate(defects, prodQty)
+          });
+        }
+      });
+    }
+
+    this.renderTable();
+  },
+
+  renderTable() {
+    const tbody = document.getElementById('report-body');
+    
+    if (this.currentData.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="6" class="text-center text-gray-500 py-8">暂无数据</td></tr>';
+      return;
+    }
+
+    // 按 period 分组计算汇总
+    const periodGroups = {};
+    this.currentData.forEach(row => {
+      if (!periodGroups[row.period]) {
+        periodGroups[row.period] = { totalProduction: 0, totalDefects: 0, rows: [] };
+      }
+      periodGroups[row.period].totalProduction += row.production;
+      periodGroups[row.period].totalDefects += row.defects;
+      periodGroups[row.period].rows.push(row);
+    });
+
+    let html = '';
+    const periods = Object.keys(periodGroups);
+
+    periods.forEach(period => {
+      const group = periodGroups[period];
+      const groupRate = Utils.calcDefectRate(group.totalDefects, group.totalProduction);
+      
+      // 明细行
+      group.rows.forEach(row => {
+        const level = DefectLevels.getLevel(row.rate);
+        html += `
+          <tr class="border-b border-gray-100">
+            <td class="text-gray-500 text-sm">${row.period}</td>
+            <td>${row.product}</td>
+            <td>${row.production}</td>
+            <td class="font-semibold text-red-600">${row.defects}</td>
+            <td class="font-semibold ${level.color}">${Utils.formatPercent(row.rate)}</td>
+            <td><span class="px-2 py-0.5 rounded text-xs font-medium ${level.color} ${level.bg}">${level.level}</span></td>
+          </tr>
+        `;
+      });
+
+      // 汇总行
+      const groupLevel = DefectLevels.getLevel(groupRate);
+      html += `
+        <tr class="bg-blue-50 font-bold">
+          <td>
+            <span class="px-2 py-0.5 bg-blue-600 text-white text-xs rounded">汇总</span>
+            ${period}
+          </td>
+          <td>全部产品</td>
+          <td class="text-blue-700">${group.totalProduction}</td>
+          <td class="text-red-600">${group.totalDefects}</td>
+          <td class="${groupLevel.color}">${Utils.formatPercent(groupRate)}</td>
+          <td><span class="px-2 py-0.5 rounded text-xs font-medium ${groupLevel.color} ${groupLevel.bg}">${groupLevel.level}</span></td>
+        </tr>
+      `;
+    });
+
+    tbody.innerHTML = html;
+  },
+
+  exportExcel() {
+    if (this.currentData.length === 0) {
+      Utils.showToast('请先生成报表', 'error');
+      return;
+    }
+
+    // 按 period 分组
+    const periodGroups = {};
+    this.currentData.forEach(row => {
+      if (!periodGroups[row.period]) {
+        periodGroups[row.period] = { totalProduction: 0, totalDefects: 0, rows: [] };
+      }
+      periodGroups[row.period].totalProduction += row.production;
+      periodGroups[row.period].totalDefects += row.defects;
+      periodGroups[row.period].rows.push(row);
+    });
+
+    let exportData = [];
+    const periods = Object.keys(periodGroups);
+
+    periods.forEach(period => {
+      const group = periodGroups[period];
+      const groupRate = Utils.calcDefectRate(group.totalDefects, group.totalProduction);
+      
+      // 明细行
+      group.rows.forEach(row => {
+        const level = DefectLevels.getLevel(row.rate);
+        exportData.push({
+          '日期/周期': row.period,
+          '产品': row.product,
+          '产量': row.production,
+          '报废数': row.defects,
+          '不良率': Utils.formatPercent(row.rate),
+          '等级': level.level
+        });
+      });
+
+      // 汇总行
+      const groupLevel = DefectLevels.getLevel(groupRate);
+      exportData.push({
+        '日期/周期': period + '【汇总】',
+        '产品': '全部产品',
+        '产量': group.totalProduction,
+        '报废数': group.totalDefects,
+        '不良率': Utils.formatPercent(groupRate),
+        '等级': groupLevel.level
+      });
+    });
+
+    Utils.exportToCSV(exportData, `报废率报表_${Utils.getToday()}.csv`);
+    Utils.showToast('报表已导出');
+  }
+};
+
+// ==================== 产品管理模块 ====================
+
+const Products = {
+  selectedProduct: null,
+
+  init() {
+    this.loadList();
+  },
+
+  loadList() {
+    const products = DataStore.getProducts();
+    const container = document.getElementById('product-list');
+    
+    container.innerHTML = products.map(product => `
+      <div 
+        onclick="Products.selectProduct('${product.id}')"
+        class="p-3 rounded-lg cursor-pointer transition-colors ${this.selectedProduct?.id === product.id ? 'bg-blue-50 border-blue-200 border' : 'hover:bg-gray-50 border border-transparent'}"
+      >
+        <div class="font-medium text-gray-800">${product.name}</div>
+        <div class="text-sm text-gray-500 mt-1">
+          ${product.defectTypes.length} 个类别 / ${product.defectTypes.reduce((sum, dt) => sum + dt.descriptions.length, 0)} 个描述
+        </div>
+      </div>
+    `).join('');
+  },
+
+  selectProduct(productId) {
+    this.selectedProduct = DataStore.getProductById(productId);
+    this.loadList();
+    this.renderDetail();
+  },
+
+  renderDetail() {
+    const container = document.getElementById('product-detail');
+    const title = document.getElementById('product-detail-title');
+    
+    if (!this.selectedProduct) {
+      title.textContent = '选择产品查看详情';
+      container.innerHTML = '<p class="text-gray-500 text-center py-8">请从左侧选择一个产品</p>';
+      return;
+    }
+
+    title.textContent = this.selectedProduct.name;
+    
+    container.innerHTML = `
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h4 class="font-medium text-gray-700">不良类型配置</h4>
+          <div class="space-x-2">
+            <button onclick="Products.editProduct()" class="btn px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm">
+              编辑
+            </button>
+            <button onclick="Products.deleteProduct()" class="btn px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm">
+              删除
+            </button>
+          </div>
+        </div>
+        ${this.selectedProduct.defectTypes.map(dt => `
+          <div class="bg-gray-50 rounded-lg p-4">
+            <div class="font-medium text-gray-800 mb-2">${dt.type}</div>
+            <div class="flex flex-wrap gap-2">
+              ${dt.descriptions.map(desc => `
+                <span class="px-2 py-1 bg-white rounded border text-sm text-gray-600">${desc}</span>
+              `).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  },
+
+  showAddForm() {
+    const name = prompt('请输入产品名称：');
+    if (!name) return;
+
+    const product = {
+      name,
+      defectTypes: [
+        { type: '尺寸超差', descriptions: [] },
+        { type: '人为操作', descriptions: [] },
+        { type: '外观不良', descriptions: [] },
+        { type: '设备原因', descriptions: [] }
+      ]
+    };
+
+    DataStore.addProduct(product);
+    Utils.showToast('产品添加成功');
+    this.loadList();
+  },
+
+  editProduct() {
+    if (!this.selectedProduct) return;
+    
+    const newName = prompt('产品名称：', this.selectedProduct.name);
+    if (newName === null) return;
+    
+    this.selectedProduct.name = newName;
+    DataStore.updateProduct(this.selectedProduct);
+    Utils.showToast('产品更新成功');
+    this.loadList();
+    this.renderDetail();
+  },
+
+  deleteProduct() {
+    if (!this.selectedProduct) return;
+    
+    if (Utils.confirm(`确定要删除产品 "${this.selectedProduct.name}" 吗？相关的产量和不良记录也会被删除。`)) {
+      DataStore.deleteProduct(this.selectedProduct.id);
+      this.selectedProduct = null;
+      Utils.showToast('产品已删除');
+      this.loadList();
+      this.renderDetail();
+    }
+  }
+};
+
+// ==================== 数据管理模块 ====================
+
+const DataManager = {
+  init() {
+    this.refresh();
+  },
+
+  refresh() {
+    document.getElementById('data-product-count').textContent = DataStore.getProducts().length;
+    document.getElementById('data-production-count').textContent = DataStore.getProductionRecords().length;
+    document.getElementById('data-defect-count').textContent = DataStore.getDefectRecords().length;
+    
+    // 显示同步状态
+    const statusEl = document.getElementById('data-storage-status');
+    const syncEl = document.getElementById('data-last-sync');
+    if (CloudSync.isOnline) {
+      statusEl.innerHTML = '<span class="text-green-600">☁️ 云端同步中</span>';
+      syncEl.textContent = '每30秒自动同步';
+    } else {
+      statusEl.innerHTML = '<span class="text-yellow-600">💻 仅本地存储</span>';
+      syncEl.textContent = '服务器未连接';
+    }
+  },
+
+  // ==================== Excel 导入产品配置 ====================
+
+  async importExcel(input) {
+    const file = input.files[0];
+    if (!file) return;
+
+    try {
+      const products = await ExcelImporter.parseProductsFromExcel(file);
+      this.applyImportedProducts(products);
+    } catch (err) {
+      Utils.showToast('导入失败：' + err.message + '，请尝试下方的粘贴方式', 'error');
+    }
+
+    input.value = '';
+  },
+
+  // 从粘贴的 Excel 数据导入（备选方案）
+  importFromPaste() {
+    const text = document.getElementById('paste-excel-data').value.trim();
+    if (!text) {
+      Utils.showToast('请先在 Excel 中复制数据并粘贴到文本框中', 'error');
+      return;
+    }
+
+    const lines = text.split('\n').filter(l => l.trim());
+    const rows = lines.map(line => line.split('\t').map(c => c.trim()));
+    
+    const result = ExcelImporter.parseProductRows(rows);
+    this.applyImportedProducts(result);
+    document.getElementById('paste-excel-data').value = '';
+  },
+
+  applyImportedProducts(result) {
+    const products = result.products || result;
+    const defectRecords = result.defectRecords || [];
+    const productionRecords = result.productionRecords || [];
+    const excelDate = result.excelDate || null;
+
+    if (products.length === 0) {
+      Utils.showToast('未能解析到产品数据，请检查数据格式', 'error');
+      return;
+    }
+
+    let confirmMsg = `解析到 ${products.length} 个产品：\n`;
+    confirmMsg += products.map(p => p.name).join('、');
+    
+    if (defectRecords.length > 0) {
+      confirmMsg += `\n\n报废记录：${defectRecords.length} 条`;
+      if (excelDate) confirmMsg += `（日期：${excelDate}）`;
+    }
+    if (productionRecords.length > 0) {
+      confirmMsg += `\n产量记录：${productionRecords.length} 条`;
+    }
+    
+    confirmMsg += '\n\n导入将替换现有产品配置，确定继续吗？';
+
+    if (Utils.confirm(confirmMsg)) {
+      // 导入产品
+      const productsMap = {};
+      products.forEach(p => {
+        p.id = 'p_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+        productsMap[p.name] = p.id;
+      });
+      DataStore.saveProducts(products);
+
+      // 导入报废记录
+      if (defectRecords.length > 0) {
+        defectRecords.forEach(record => {
+          const productId = productsMap[record.productName];
+          if (productId) {
+            DataStore.addDefectRecord({
+              date: record.date,
+              productId: productId,
+              defectType: record.defectType,
+              defectDesc: record.defectDesc,
+              quantity: record.quantity,
+              note: '从Excel导入'
+            });
+          }
+        });
+      }
+
+      // 导入产量记录
+      if (productionRecords.length > 0) {
+        productionRecords.forEach(record => {
+          const productId = productsMap[record.productName];
+          if (productId) {
+            DataStore.addProductionRecord({
+              date: record.date,
+              productId: productId,
+              quantity: record.quantity
+            });
+          }
+        });
+      }
+
+      const msg = `成功导入 ${products.length} 个产品` + 
+        (defectRecords.length > 0 ? ` + ${defectRecords.length} 条报废` : '') +
+        (productionRecords.length > 0 ? ` + ${productionRecords.length} 条产量` : '');
+      Utils.showToast(msg);
+      this.refresh();
+      Register.loadProducts();
+      Production.loadProducts();
+      Report.loadProducts();
+    }
+  },
+
+  // ==================== CSV 导出 ====================
+
+  exportCSV(type) {
+    const products = DataStore.getProducts();
+    const productMap = {};
+    products.forEach(p => { productMap[p.id] = p.name; });
+
+    let exportData = [];
+    let filename = '';
+
+    if (type === 'production' || type === 'all') {
+      const records = DataStore.getProductionRecords();
+      records.forEach(r => {
+        exportData.push({
+          '日期': r.date,
+          '产品名称': productMap[r.productId] || r.productId,
+          '产量': r.quantity
+        });
+      });
+      if (type === 'production') {
+        filename = `产量记录_${Utils.getToday()}.csv`;
+      }
+    }
+
+    if (type === 'defects' || type === 'all') {
+      const records = DataStore.getDefectRecords();
+      records.forEach(r => {
+        exportData.push({
+          '日期': r.date,
+          '产品名称': productMap[r.productId] || r.productId,
+          '不良类别': r.defectType,
+          '不良描述': r.defectDesc,
+          '数量': r.quantity,
+          '备注': r.note || ''
+        });
+      });
+      if (type === 'defects') {
+        filename = `不良记录_${Utils.getToday()}.csv`;
+      }
+    }
+
+    if (type === 'all') {
+      filename = `全部数据_${Utils.getToday()}.csv`;
+    }
+
+    if (exportData.length === 0) {
+      Utils.showToast('没有可导出的数据', 'error');
+      return;
+    }
+
+    Utils.exportToCSV(exportData, filename);
+    Utils.showToast(`已导出 ${exportData.length} 条记录`);
+  },
+
+  // ==================== CSV 导入 ====================
+
+  async importCSV(input) {
+    const file = input.files[0];
+    if (!file) return;
+
+    try {
+      const text = await Utils.readFileAsText(file);
+      const rows = Utils.parseCSV(text);
+      
+      if (rows.length < 2) {
+        Utils.showToast('CSV 文件为空或格式不正确', 'error');
+        input.value = '';
+        return;
+      }
+
+      const importType = document.getElementById('import-csv-type').value;
+      
+      if (importType === 'production') {
+        this.importProductionCSV(rows);
+      } else {
+        this.importDefectsCSV(rows);
+      }
+    } catch (err) {
+      Utils.showToast('导入失败：' + err.message, 'error');
+    }
+
+    input.value = '';
+  },
+
+  importProductionCSV(rows) {
+    const products = DataStore.getProducts();
+    const productMap = {};
+    products.forEach(p => { productMap[p.name] = p.id; });
+
+    let count = 0;
+    const header = rows[0];
+    const dateIdx = header.findIndex(h => h.includes('日期'));
+    const nameIdx = header.findIndex(h => h.includes('产品') || h.includes('名称'));
+    const qtyIdx = header.findIndex(h => h.includes('产量') || h.includes('数量'));
+
+    if (dateIdx === -1 || nameIdx === -1 || qtyIdx === -1) {
+      Utils.showToast('CSV 表头不正确，需要：日期, 产品名称, 产量', 'error');
+      return;
+    }
+
+    for (let i = 1; i < rows.length; i++) {
+      const row = rows[i];
+      if (row.length < 3) continue;
+
+      const date = row[dateIdx];
+      const productName = row[nameIdx];
+      const quantity = parseInt(row[qtyIdx]);
+
+      if (!date || !productName || isNaN(quantity)) continue;
+
+      const productId = productMap[productName];
+      if (!productId) {
+        console.warn(`产品 "${productName}" 不存在，已跳过`);
+        continue;
+      }
+
+      DataStore.addProductionRecord({ date, productId, quantity });
+      count++;
+    }
+
+    Utils.showToast(`成功导入 ${count} 条产量记录`);
+    this.refresh();
+  },
+
+  importDefectsCSV(rows) {
+    const products = DataStore.getProducts();
+    const productMap = {};
+    products.forEach(p => { productMap[p.name] = p.id; });
+
+    let count = 0;
+    const header = rows[0];
+    const dateIdx = header.findIndex(h => h.includes('日期'));
+    const nameIdx = header.findIndex(h => h.includes('产品'));
+    const typeIdx = header.findIndex(h => h.includes('类别') || h.includes('类型'));
+    const descIdx = header.findIndex(h => h.includes('描述') || h.includes('说明'));
+    const qtyIdx = header.findIndex(h => h.includes('数量') || h.includes('件数'));
+    const noteIdx = header.findIndex(h => h.includes('备注'));
+
+    if (dateIdx === -1 || nameIdx === -1 || typeIdx === -1 || descIdx === -1 || qtyIdx === -1) {
+      Utils.showToast('CSV 表头不正确，需要：日期, 产品名称, 不良类别, 不良描述, 数量, 备注', 'error');
+      return;
+    }
+
+    for (let i = 1; i < rows.length; i++) {
+      const row = rows[i];
+      if (row.length < 5) continue;
+
+      const date = row[dateIdx];
+      const productName = row[nameIdx];
+      const defectType = row[typeIdx];
+      const defectDesc = row[descIdx];
+      const quantity = parseInt(row[qtyIdx]);
+      const note = noteIdx >= 0 ? (row[noteIdx] || '') : '';
+
+      if (!date || !productName || !defectType || !defectDesc || isNaN(quantity)) continue;
+
+      const productId = productMap[productName];
+      if (!productId) {
+        console.warn(`产品 "${productName}" 不存在，已跳过`);
+        continue;
+      }
+
+      DataStore.addDefectRecord({ date, productId, defectType, defectDesc, quantity, note });
+      count++;
+    }
+
+    Utils.showToast(`成功导入 ${count} 条不良记录`);
+    this.refresh();
+  },
+
+  // ==================== JSON 完整备份 ====================
+
+  exportJSON() {
+    const data = DataStore.exportAll();
+    Utils.downloadJSON(data, `完整备份_${Utils.getToday()}.json`);
+    Utils.showToast('完整备份已导出');
+  },
+
+  async importJSON(input) {
+    const file = input.files[0];
+    if (!file) return;
+
+    try {
+      const data = await Utils.readJSONFile(file);
+      if (Utils.confirm('恢复备份将覆盖现有数据，确定要继续吗？')) {
+        DataStore.importAll(data);
+        Utils.showToast('数据恢复成功');
+        this.refresh();
+        Register.loadProducts();
+        Production.loadProducts();
+        Report.loadProducts();
+      }
+    } catch (err) {
+      Utils.showToast(err.message, 'error');
+    }
+    
+    input.value = '';
+  },
+
+  resetData() {
+    if (Utils.confirm('确定要清空所有数据并恢复默认配置吗？此操作不可恢复！')) {
+      DataStore.resetToDefault();
+      Utils.showToast('数据已重置');
+      this.refresh();
+      Register.loadProducts();
+      Production.loadProducts();
+      Report.loadProducts();
+    }
+  },
+
+  // 保存同步 Token
+  saveSyncToken() {
+    const token = document.getElementById('sync-token-input').value.trim();
+    if (!token) {
+      Utils.showToast('请输入 GitHub Token', 'error');
+      return;
+    }
+    CloudSync.setToken(token);
+    document.getElementById('sync-status').innerHTML = '<span class="text-green-600">✅ 已配置同步</span>';
+    Utils.showToast('同步密钥已保存，正在启动同步...');
+    CloudSync.checkOnline().then(() => {
+      CloudSync.startAutoSync();
+      CloudSync.autoSave();
+    });
+  },
+
+  // 立即同步
+  async syncNow() {
+    const statusEl = document.getElementById('sync-status');
+    statusEl.innerHTML = '<span class="text-blue-600">⏳ 正在同步...</span>';
+    const ok = await CloudSync.syncNow();
+    if (ok) {
+      statusEl.innerHTML = '<span class="text-green-600">✅ 同步成功 ' + new Date().toLocaleTimeString() + '</span>';
+      Utils.showToast('数据已同步到云端');
+    } else {
+      statusEl.innerHTML = '<span class="text-red-600">❌ 同步失败，请检查密钥</span>';
+      Utils.showToast('同步失败', 'error');
+    }
+  }
+};
+
+// 启动应用
+// Init handled by CNC scheduler
+
+
     </script>
 </body>
 </html>
