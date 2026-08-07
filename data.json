@@ -1794,7 +1794,156 @@
       "remark": "临时工"
     }
   ],
-  "schedules": [],
+  "schedules": [
+    {
+      "id": "sch_1786093831741",
+      "date": "2026-08-07",
+      "machineId": "CNC16",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "高度：41.15~41.35",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "型线高度：23.95~24.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽高度：9.9~10.1",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽宽度：9~9.1",
+          "instrument": "塞规"
+        },
+        {
+          "dimension": "小孔：∮5±0.1",
+          "instrument": "塞规"
+        }
+      ],
+      "operator": "罗泽创",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 55,
+      "note": "",
+      "createdAt": "2026-08-07T09:10:31.741Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786093839092",
+      "date": "2026-08-07",
+      "machineId": "CNC17",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "高度：41.15~41.35",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "型线高度：23.95~24.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽高度：9.9~10.1",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽宽度：9~9.1",
+          "instrument": "塞规"
+        },
+        {
+          "dimension": "小孔：∮5±0.1",
+          "instrument": "塞规"
+        }
+      ],
+      "operator": "罗泽创",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 55,
+      "note": "",
+      "createdAt": "2026-08-07T09:10:39.092Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786093850477",
+      "date": "2026-08-07",
+      "machineId": "CNC16",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "高度：41.15~41.35",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "型线高度：23.95~24.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽高度：9.9~10.1",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽宽度：9~9.1",
+          "instrument": "塞规"
+        },
+        {
+          "dimension": "小孔：∮5±0.1",
+          "instrument": "塞规"
+        }
+      ],
+      "operator": "路培满",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 55,
+      "note": "",
+      "createdAt": "2026-08-07T09:10:50.477Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786093854540",
+      "date": "2026-08-07",
+      "machineId": "CNC17",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "高度：41.15~41.35",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "型线高度：23.95~24.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽高度：9.9~10.1",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽宽度：9~9.1",
+          "instrument": "塞规"
+        },
+        {
+          "dimension": "小孔：∮5±0.1",
+          "instrument": "塞规"
+        }
+      ],
+      "operator": "路培满",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 55,
+      "note": "",
+      "createdAt": "2026-08-07T09:10:54.540Z",
+      "createdBy": "谭绍景"
+    }
+  ],
   "records": [],
   "downtimes": [],
   "dailyTargets": [],
