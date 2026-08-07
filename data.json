@@ -1,731 +1,1809 @@
 {
+  "users": [
+    {
+      "username": "谭绍景",
+      "password": "226178",
+      "role": "admin",
+      "createdAt": "2026-08-06T11:56:18.618Z"
+    }
+  ],
+  "machines": [
+    {
+      "id": "CNC1",
+      "workshop": "打样车间",
+      "productName": "精雕打样",
+      "process": ""
+    },
+    {
+      "id": "CNC2",
+      "workshop": "打样车间",
+      "productName": "精雕打样",
+      "process": ""
+    },
+    {
+      "id": "CNC3",
+      "workshop": "打样车间",
+      "productName": "精雕打样",
+      "process": ""
+    },
+    {
+      "id": "CNC4",
+      "workshop": "打样车间",
+      "productName": "精雕打样",
+      "process": ""
+    },
+    {
+      "id": "CNC5",
+      "workshop": "打样车间",
+      "productName": "精雕打样",
+      "process": ""
+    },
+    {
+      "id": "CNC6",
+      "workshop": "打样车间",
+      "productName": "精雕打样",
+      "process": ""
+    },
+    {
+      "id": "CNC7",
+      "workshop": "粗加小车间",
+      "productName": "下配重块",
+      "process": "一序"
+    },
+    {
+      "id": "CNC8",
+      "workshop": "粗加小车间",
+      "productName": "下配重块",
+      "process": "一序"
+    },
+    {
+      "id": "CNC9",
+      "workshop": "粗加小车间",
+      "productName": "上配重块",
+      "process": "一序"
+    },
+    {
+      "id": "CNC10",
+      "workshop": "粗加小车间",
+      "productName": "上配重块",
+      "process": "一序"
+    },
+    {
+      "id": "CNC11",
+      "workshop": "粗加小车间",
+      "productName": "上配重块",
+      "process": "一序"
+    },
+    {
+      "id": "CNC12",
+      "workshop": "粗加小车间",
+      "productName": "EM34静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC13",
+      "workshop": "粗加小车间",
+      "productName": "EM34静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC14",
+      "workshop": "粗加小车间",
+      "productName": "EM34静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC15",
+      "workshop": "粗加大车间",
+      "productName": "T45动盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC16",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC17",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC18",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC21",
+      "workshop": "粗加大车间",
+      "productName": "T45动盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC19",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC20",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC22",
+      "workshop": "粗加大车间",
+      "productName": "",
+      "process": ""
+    },
+    {
+      "id": "CNC23",
+      "workshop": "粗加大车间",
+      "productName": "",
+      "process": ""
+    },
+    {
+      "id": "CNC25",
+      "workshop": "粗加大车间",
+      "productName": "下配重块",
+      "process": "一序"
+    },
+    {
+      "id": "CNC27",
+      "workshop": "粗加大车间",
+      "productName": "下配重块",
+      "process": "一序"
+    },
+    {
+      "id": "CNC29",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC30",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC31",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC32",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC33",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC34",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC35",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC36",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC37",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC38",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC39",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC40",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC41",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC42",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC44",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC45",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC46",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC43",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC47",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC48",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC49",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC50",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "四夹"
+    },
+    {
+      "id": "CNC51",
+      "workshop": "粗加大车间",
+      "productName": "",
+      "process": ""
+    },
+    {
+      "id": "CNC24",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC26",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC28",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC52",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序"
+    },
+    {
+      "id": "CNC53",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC54",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC55",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC56",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC57",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC58",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC59",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC60",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC61",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC62",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC63",
+      "workshop": "精加车间",
+      "productName": "EM34静盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC64",
+      "workshop": "精加车间",
+      "productName": "EM34静盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC65",
+      "workshop": "精加车间",
+      "productName": "EM34静盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC66",
+      "workshop": "精加车间",
+      "productName": "EM34静盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC67",
+      "workshop": "精加车间",
+      "productName": "EM34静盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC68",
+      "workshop": "精加车间",
+      "productName": "EM34静盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC69",
+      "workshop": "精加车间",
+      "productName": "T45动盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC70",
+      "workshop": "精加车间",
+      "productName": "T45动盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC71",
+      "workshop": "精加车间",
+      "productName": "T45动盘",
+      "process": "三序"
+    },
+    {
+      "id": "CNC73",
+      "workshop": "精加车间",
+      "productName": "空（新机）",
+      "process": ""
+    },
+    {
+      "id": "CNC73",
+      "workshop": "精加车间",
+      "productName": "空（新机）",
+      "process": ""
+    },
+    {
+      "id": "CNC74",
+      "workshop": "粗加大车间",
+      "productName": "ST动盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC75",
+      "workshop": "粗加大车间",
+      "productName": "ST动盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC76",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC77",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序"
+    },
+    {
+      "id": "CNC78",
+      "workshop": "粗加大车间",
+      "productName": "上配重块",
+      "process": "一序"
+    },
+    {
+      "id": "津上车铣1",
+      "workshop": "车铣精加车间",
+      "productName": "EM34静盘",
+      "process": "二序"
+    },
+    {
+      "id": "津上车铣2",
+      "workshop": "车铣精加车间",
+      "productName": "EM34静盘",
+      "process": "二序"
+    },
+    {
+      "id": "津上车铣4",
+      "workshop": "车铣精加车间",
+      "productName": "EM34静盘",
+      "process": "二序"
+    },
+    {
+      "id": "津上车铣5",
+      "workshop": "车铣精加车间",
+      "productName": "EM34静盘",
+      "process": "二序"
+    },
+    {
+      "id": "津上车铣6",
+      "workshop": "车铣精加车间",
+      "productName": "EM34静盘",
+      "process": "二序"
+    },
+    {
+      "id": "津上车铣3",
+      "workshop": "车铣精加车间",
+      "productName": "ESEA静盘",
+      "process": "三序"
+    },
+    {
+      "id": "津上车铣7",
+      "workshop": "车铣精加车间",
+      "productName": "ESEA静盘",
+      "process": "三序"
+    },
+    {
+      "id": "津上车铣8",
+      "workshop": "车铣精加车间",
+      "productName": "ESEA静盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣9",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣10",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣11",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣12",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣13",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣14",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣15",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣16",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣17",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣18",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣19",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣20",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣35",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣36",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣37",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣38",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣39",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣40",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣21",
+      "workshop": "车铣精加车间",
+      "productName": "ST动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣22",
+      "workshop": "车铣精加车间",
+      "productName": "ST动盘",
+      "process": "三序"
+    },
+    {
+      "id": "隆邦车铣24",
+      "workshop": "车铣精加车间",
+      "productName": "ST动盘",
+      "process": "三序"
+    },
+    {
+      "id": "数车33",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "二序"
+    },
+    {
+      "id": "数车34",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "二序"
+    },
+    {
+      "id": "数车27",
+      "workshop": "粗加小车间",
+      "productName": "ESEA静盘",
+      "process": "二序"
+    },
+    {
+      "id": "数车28",
+      "workshop": "粗加小车间",
+      "productName": "HA动盘",
+      "process": "二序"
+    },
+    {
+      "id": "数车29",
+      "workshop": "粗加小车间",
+      "productName": "ST动盘",
+      "process": "二序"
+    },
+    {
+      "id": "数车30",
+      "workshop": "粗加小车间",
+      "productName": "HA动盘",
+      "process": "二序"
+    },
+    {
+      "id": "数车31",
+      "workshop": "车铣精加车间",
+      "productName": "压铸件去尾钉",
+      "process": ""
+    },
+    {
+      "id": "数车32",
+      "workshop": "车铣精加车间",
+      "productName": "压铸件去尾钉",
+      "process": ""
+    },
+    {
+      "id": "隆邦车铣23",
+      "workshop": "车铣精加车间",
+      "productName": "暂定做27CC静盘",
+      "process": "二序"
+    },
+    {
+      "id": "隆邦车铣25",
+      "workshop": "车铣精加车间",
+      "productName": "打样（泵体壳）",
+      "process": ""
+    },
+    {
+      "id": "津上车铣26",
+      "workshop": "打样车间",
+      "productName": "T45动盘",
+      "process": "三序"
+    }
+  ],
   "products": [
     {
+      "name": "下配重块",
+      "process": "一序",
+      "area": "正反面",
+      "uph": 17.14,
+      "measurements": [
+        {
+          "dimension": "小孔：∮5.05~∮5.15",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高度：8.1~8.15",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "台阶高：5.3~5.4",
+          "instrument": "高度表"
+        }
+      ]
+    },
+    {
+      "name": "上配重块",
+      "process": "一序",
+      "area": "正反面",
+      "uph": 13.33,
+      "measurements": [
+        {
+          "dimension": "小孔：∮5.05~∮5.15",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高度：17.4~17.45",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "台阶高：15.40~15.45",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "台阶高：5.40~5.45",
+          "instrument": "高度表"
+        }
+      ]
+    },
+    {
       "name": "EM34静盘",
-      "defectTypes": [
+      "process": "一序",
+      "area": "型线开粗",
+      "uph": 6.67,
+      "measurements": [
         {
-          "type": "尺寸超差",
-          "descriptions": [
-            "型线超差",
-            "密封槽尺寸超差",
-            "尺寸超差",
-            "板厚超差"
-          ]
-        },
-        {
-          "type": "人为操作",
-          "descriptions": [
-            "调机件",
-            "一夹装偏",
-            "二夹装偏",
-            "三夹装偏",
-            "撞机",
-            "断刀"
-          ]
-        },
-        {
-          "type": "外观不良",
-          "descriptions": [
-            "孔内有台阶",
-            "有台阶",
-            "来料不良",
-            "变形",
-            "漏坯",
-            "磕伤",
-            "压伤",
-            "倒角小",
-            "化学粉氧化",
-            "氧化",
-            "有毛刺"
-          ]
-        },
-        {
-          "type": "设备原因",
-          "descriptions": [
-            "气密报警",
-            "机器故障、异常"
-          ]
+          "dimension": "高度：36.9~37.1",
+          "instrument": "高度表"
         }
-      ],
-      "id": "p_1786089943652_48wvom"
+      ]
     },
     {
-      "name": "ESEA静盘",
-      "defectTypes": [
+      "name": "EM34静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "uph": 10.75,
+      "measurements": [
         {
-          "type": "尺寸超差",
-          "descriptions": [
-            "轴承孔超差",
-            "位置度超差",
-            "型线面键槽超差",
-            "板厚超差",
-            "型线面5毫米孔超差",
-            "同心度超差",
-            "圆柱度超差"
-          ]
+          "dimension": "板厚  35.9±0.05",
+          "instrument": "高度表"
         },
         {
-          "type": "人为操作",
-          "descriptions": [
-            "一夹装偏",
-            "二夹装偏",
-            "三夹装偏",
-            "调机件",
-            "打码不良",
-            "断刀"
-          ]
+          "dimension": "2销孔 ∮ 3.485~3.505",
+          "instrument": "通止规"
         },
         {
-          "type": "外观不良",
-          "descriptions": [
-            "氧化",
-            "型线面漏坯",
-            "背面漏坯",
-            "型线有刀纹",
-            "碰伤",
-            "来料不良",
-            "有台阶",
-            "基准孔倒角偏"
-          ]
+          "dimension": "m6螺纹孔有效深度  9",
+          "instrument": "牙规"
         },
         {
-          "type": "设备原因",
-          "descriptions": [
-            "打滑",
-            "尺寸跳动",
-            "主轴进渣"
-          ]
+          "dimension": "外圆  60±0.1",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "键槽深度  1±0.1",
+          "instrument": "高度规"
         }
-      ],
-      "id": "p_1786089943653_571jbo"
+      ]
     },
     {
-      "name": "HA动盘",
-      "defectTypes": [
+      "name": "EM34静盘",
+      "process": "三序",
+      "area": "型线精加",
+      "uph": 7.69,
+      "measurements": [
         {
-          "type": "尺寸超差",
-          "descriptions": [
-            "6毫米孔位置度超差",
-            "尺寸超差",
-            "轴承孔超差",
-            "外圆超差",
-            "型线超差",
-            "密封槽尺寸超差"
-          ]
+          "dimension": "板厚35.7±0.015",
+          "instrument": "高度表"
         },
         {
-          "type": "人为操作",
-          "descriptions": [
-            "1.2小孔未加工",
-            "调机件",
-            "断刀",
-            "一夹装偏",
-            "二夹装偏",
-            "三夹装偏",
-            "环孔位置度超差",
-            "打码不良",
-            "混料",
-            "二次装夹"
-          ]
+          "dimension": "密封槽宽1.6±0.03",
+          "instrument": "通止规"
         },
         {
-          "type": "外观不良",
-          "descriptions": [
-            "外观不良",
-            "型线过切",
-            "型线有台阶",
-            "型线没倒角",
-            "背面有台阶",
-            "环孔有台阶",
-            "对错刀",
-            "环孔底部粗糙",
-            "环孔漏坯",
-            "夹伤",
-            "机械手划伤",
-            "碰伤",
-            "漏坯",
-            "来料不良",
-            "氧化"
-          ]
+          "dimension": "密封槽高0.99±0.005",
+          "instrument": "高度表"
         },
         {
-          "type": "设备原因",
-          "descriptions": [
-            "机器故障",
-            "主轴进渣",
-            "机械手夹歪",
-            "刀具变动",
-            "打滑"
-          ]
+          "dimension": "齿高（型线高度）18.67±0.005",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "销孔（基准孔）∮3.485--3.505",
+          "instrument": "通止规"
         }
-      ],
-      "id": "p_1786089943654_9jje96"
-    },
-    {
-      "name": "ST动盘",
-      "defectTypes": [
-        {
-          "type": "尺寸超差",
-          "descriptions": [
-            "6毫米孔位置度超差",
-            "有台阶",
-            "尺寸超差",
-            "轴承孔超差",
-            "外圆超差",
-            "型线超差",
-            "密封槽尺寸超差"
-          ]
-        },
-        {
-          "type": "人为操作",
-          "descriptions": [
-            "调机件",
-            "断刀",
-            "一夹装偏",
-            "二夹装偏",
-            "三夹装偏",
-            "打码不良",
-            "混料"
-          ]
-        },
-        {
-          "type": "外观不良",
-          "descriptions": [
-            "外观不良",
-            "型线有台阶",
-            "背面有台阶",
-            "环孔有台阶",
-            "刀具碰伤",
-            "对错刀",
-            "型线没倒角",
-            "机械手划伤",
-            "环孔底部粗糙",
-            "环孔漏坯",
-            "型线漏坯",
-            "夹伤",
-            "碰伤",
-            "漏坯",
-            "来料不良"
-          ]
-        },
-        {
-          "type": "设备原因",
-          "descriptions": [
-            "主轴进渣"
-          ]
-        }
-      ],
-      "id": "p_1786089943655_rkkg6x"
-    },
-    {
-      "name": "T45静盘",
-      "defectTypes": [
-        {
-          "type": "尺寸超差",
-          "descriptions": [
-            "密封槽尺寸超差",
-            "6.3孔偏",
-            "尺寸不良",
-            "板厚不良",
-            "位置度超差"
-          ]
-        },
-        {
-          "type": "人为操作",
-          "descriptions": [
-            "断刀",
-            "撞机",
-            "一、二夹装偏",
-            "三夹装偏",
-            "刀换错了",
-            "调机件"
-          ]
-        },
-        {
-          "type": "外观不良",
-          "descriptions": [
-            "来料不良",
-            "有台阶",
-            "漏坯",
-            "碰伤"
-          ]
-        },
-        {
-          "type": "设备原因",
-          "descriptions": [
-            "主轴进渣",
-            "电源跳闸",
-            "夹具偏移"
-          ]
-        }
-      ],
-      "id": "p_1786089943656_k4y8ad"
-    },
-    {
-      "name": "HTHB静盘",
-      "defectTypes": [
-        {
-          "type": "尺寸超差",
-          "descriptions": [
-            "6.3孔偏",
-            "型线超差",
-            "板厚不良",
-            "位置度超差",
-            "孔大",
-            "密封槽尺寸超差"
-          ]
-        },
-        {
-          "type": "人为操作",
-          "descriptions": [
-            "刀损",
-            "撞机",
-            "调机件",
-            "换刀后未对刀",
-            "返修报废",
-            "断刀",
-            "一、二夹装偏",
-            "三夹装偏"
-          ]
-        },
-        {
-          "type": "外观不良",
-          "descriptions": [
-            "来料不良",
-            "型线没倒角",
-            "有台阶",
-            "漏坯",
-            "碰伤"
-          ]
-        },
-        {
-          "type": "设备原因",
-          "descriptions": [
-            "夹具不良",
-            "主轴进渣",
-            "掉刀",
-            "机器故障"
-          ]
-        }
-      ],
-      "id": "p_1786089943657_ul1fj9"
-    },
-    {
-      "name": "WX静盘",
-      "defectTypes": [
-        {
-          "type": "尺寸超差",
-          "descriptions": [
-            "6.3孔偏",
-            "板厚不良",
-            "位置度超差",
-            "孔大",
-            "密封槽尺寸超差"
-          ]
-        },
-        {
-          "type": "人为操作",
-          "descriptions": [
-            "刀损",
-            "撞机",
-            "调机件",
-            "返修报废",
-            "断刀",
-            "一、二夹装偏",
-            "三夹装偏"
-          ]
-        },
-        {
-          "type": "外观不良",
-          "descriptions": [
-            "来料不良",
-            "型线没倒角",
-            "有台阶",
-            "漏坯",
-            "碰伤"
-          ]
-        },
-        {
-          "type": "设备原因",
-          "descriptions": [
-            "夹具不良",
-            "主轴进渣",
-            "机器故障"
-          ]
-        }
-      ],
-      "id": "p_1786089943658_ab0gy0"
-    },
-    {
-      "name": "配重块",
-      "defectTypes": [
-        {
-          "type": "尺寸超差",
-          "descriptions": [
-            "板厚超差",
-            "尺寸超差"
-          ]
-        },
-        {
-          "type": "人为操作",
-          "descriptions": [
-            "装夹不良",
-            "调机件"
-          ]
-        },
-        {
-          "type": "外观不良",
-          "descriptions": [
-            "来料不良",
-            "有台阶",
-            "氧化",
-            "夹伤",
-            "碰伤",
-            "漏坯"
-          ]
-        },
-        {
-          "type": "设备原因",
-          "descriptions": [
-            "工装偏了"
-          ]
-        }
-      ],
-      "id": "p_1786089943659_21d05o"
+      ]
     },
     {
       "name": "T45动盘",
-      "defectTypes": [
+      "process": "一序",
+      "area": "型线开粗",
+      "uph": 5.71,
+      "measurements": []
+    },
+    {
+      "name": "T45动盘",
+      "process": "二序",
+      "area": "背面开粗",
+      "uph": 17.14,
+      "measurements": []
+    },
+    {
+      "name": "T45动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "uph": 8.18,
+      "measurements": []
+    },
+    {
+      "name": "T45动盘",
+      "process": "四序",
+      "area": "型线精加",
+      "uph": 5.45,
+      "measurements": []
+    },
+    {
+      "name": "ESEA静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "uph": 5.45,
+      "measurements": [
         {
-          "type": "尺寸超差",
-          "descriptions": [
-            "轴承孔大",
-            "键槽超差",
-            "板厚超差",
-            "环孔超差",
-            "尺寸超差",
-            "型线密封槽超差",
-            "调机件",
-            "有台阶",
-            "型线超差"
-          ]
+          "dimension": "高度：41.15~41.35",
+          "instrument": "高度表"
         },
         {
-          "type": "人为操作",
-          "descriptions": [
-            "断刀",
-            "一夹装偏",
-            "二夹装偏",
-            "三夹装偏"
-          ]
+          "dimension": "型线高度：23.95~24.05",
+          "instrument": "高度表"
         },
         {
-          "type": "外观不良",
-          "descriptions": [
-            "来料不良",
-            "漏坯",
-            "碰伤"
-          ]
+          "dimension": "键槽高度：9.9~10.1",
+          "instrument": "高度表"
         },
         {
-          "type": "设备原因",
-          "descriptions": [
-            "机器故障"
-          ]
+          "dimension": "键槽宽度：9~9.1",
+          "instrument": "塞规"
+        },
+        {
+          "dimension": "小孔：∮5±0.1",
+          "instrument": "塞规"
         }
-      ],
-      "id": "p_1786089943660_xmkogn"
+      ]
+    },
+    {
+      "name": "ESEA静盘",
+      "process": "二序",
+      "area": "背面开粗",
+      "uph": 60,
+      "measurements": [
+        {
+          "dimension": "高度：40.8±0.08",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "内孔：∮31.±0.05",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "外圆：∮99.45±0.08",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "轴承孔深度：9±0.1",
+          "instrument": ""
+        },
+        {
+          "dimension": "高度表",
+          "instrument": ""
+        }
+      ]
+    },
+    {
+      "name": "ESEA静盘",
+      "process": "三序",
+      "area": "背面精加",
+      "uph": 14.01,
+      "measurements": [
+        {
+          "dimension": "高度：14.01-14.09",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "内孔：∮31.407-31.413",
+          "instrument": "气密仪"
+        }
+      ]
+    },
+    {
+      "name": "ESEA静盘",
+      "process": "四序",
+      "area": "精加异形孔",
+      "uph": 15,
+      "measurements": []
+    },
+    {
+      "name": "HTHB静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "uph": 2.61,
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  44",
+          "instrument": "高度表"
+        }
+      ]
+    },
+    {
+      "name": "HTHB静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "uph": 3,
+      "measurements": [
+        {
+          "dimension": "两个精孔：∮4.965通 ∮4.977止",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "M6牙孔有效深度7毫米",
+          "instrument": "牙规"
+        },
+        {
+          "dimension": "槽深  1.8±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "槽宽  3.0±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高43.52±0.05",
+          "instrument": "高度表"
+        }
+      ]
+    },
+    {
+      "name": "HTHB静盘",
+      "process": "三序",
+      "area": "打斜孔",
+      "uph": 15,
+      "measurements": [
+        {
+          "dimension": "斜孔：∮6.2+0.02",
+          "instrument": "通止规"
+        }
+      ]
+    },
+    {
+      "name": "T45静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "uph": 2.61,
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  50",
+          "instrument": "高度表"
+        }
+      ]
+    },
+    {
+      "name": "T45静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "uph": 3,
+      "measurements": [
+        {
+          "dimension": "两个精孔：∮4.965通 ∮4.977止",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "M6牙孔有效深度7毫米",
+          "instrument": "牙规"
+        },
+        {
+          "dimension": "槽深  1.8±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "槽宽  3.0±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高49.525±0.03",
+          "instrument": "高度表"
+        }
+      ]
+    },
+    {
+      "name": "T45静盘",
+      "process": "三序",
+      "area": "打斜孔",
+      "uph": 15,
+      "measurements": [
+        {
+          "dimension": "斜孔：∮6.2+0.02",
+          "instrument": "通止规"
+        }
+      ]
+    },
+    {
+      "name": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "uph": 6,
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ]
+    },
+    {
+      "name": "HA动盘",
+      "process": "二序",
+      "area": "背面开粗",
+      "uph": 45.57,
+      "measurements": [
+        {
+          "dimension": "轴承孔  ∮36.6±0.05",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "槽外径  ∮79.2±0.1",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "槽深  5.3±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "板厚  9.6±0.1",
+          "instrument": "卡尺"
+        }
+      ]
+    },
+    {
+      "name": "HA动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "uph": 10.51,
+      "measurements": [
+        {
+          "dimension": "轴承孔  ∮37. 044~∮37.058",
+          "instrument": "气密仪"
+        },
+        {
+          "dimension": "槽外径  ∮79.442~∮79.526",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "槽深 5.28-5.3",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "槽宽  2.342-2.426",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "板厚  9.2±0.05",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "圆环孔深度4.4~4.5",
+          "instrument": "高度表"
+        }
+      ]
+    },
+    {
+      "name": "ST动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "uph": 6,
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：23.3±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.14~82.24",
+          "instrument": "卡尺"
+        }
+      ]
+    },
+    {
+      "name": "ST动盘",
+      "process": "二序",
+      "area": "背面开粗",
+      "uph": 37.5,
+      "measurements": [
+        {
+          "dimension": "轴承孔  ∮36.6±0.05",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "槽外径  ∮79.2±0.1",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "槽深  5.3±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "板厚  9.6±0.1",
+          "instrument": "卡尺"
+        }
+      ]
+    },
+    {
+      "name": "ST动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "uph": 10.81,
+      "measurements": [
+        {
+          "dimension": "轴承孔  ∮37. 044~∮37.058",
+          "instrument": "气密仪"
+        },
+        {
+          "dimension": "槽外径  ∮79.442~∮79.526",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "槽深 5.28-5.3",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "槽宽  2.342-2.426",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "板厚  9.2±0.05",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "圆环孔深度4.4~4.5",
+          "instrument": "高度表"
+        }
+      ]
     }
   ],
-  "production": [
+  "employees": [
     {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_pkto5t",
-      "quantity": 754,
-      "id": "prod_1786016517681"
+      "id": "1",
+      "name": "王日文",
+      "shift": "白班",
+      "position": "CNC师傅",
+      "remark": "人员统筹、协调"
     },
     {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_og94mv",
-      "quantity": 372,
-      "id": "prod_1786016517681"
+      "id": "2",
+      "name": "谭绍景",
+      "shift": "白班",
+      "position": "车床工艺工程师",
+      "remark": "工艺及生产管理\n编程、调机、打样"
     },
     {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_ddp6rp",
-      "quantity": 1572,
-      "id": "prod_1786016517682"
+      "id": "3",
+      "name": "罗泽创",
+      "shift": "白班",
+      "position": "车床技术助理",
+      "remark": "车床巡检、换刀\n送检、看报告"
     },
     {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_klzi22",
-      "quantity": 394,
-      "id": "prod_1786016517682"
+      "id": "4",
+      "name": "何梅",
+      "shift": "白班",
+      "position": "三坐标工程师",
+      "remark": "三坐标测量负责人"
     },
     {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_b8kcnz",
-      "quantity": 316,
-      "id": "prod_1786016517682"
+      "id": "5",
+      "name": "王芳芳",
+      "shift": "白班",
+      "position": "全检外观检验",
+      "remark": ""
     },
     {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_x8dwfl",
-      "quantity": 1596,
-      "id": "prod_1786016517682"
+      "id": "6",
+      "name": "黄有鹏",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": ""
     },
     {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_dawvvb",
-      "quantity": 1000,
-      "id": "prod_1786016517682"
+      "id": "7",
+      "name": "聂敬文",
+      "shift": "白班",
+      "position": "车床师傅",
+      "remark": "车床班组长\n设备调机与维护"
+    },
+    {
+      "id": "8",
+      "name": "江学优",
+      "shift": "白班",
+      "position": "CNC师傅",
+      "remark": "负责打样及精加工"
+    },
+    {
+      "id": "9",
+      "name": "戴平香",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "10",
+      "name": "王志强",
+      "shift": "白班",
+      "position": "CNC编程",
+      "remark": ""
+    },
+    {
+      "id": "11",
+      "name": "黄知敏",
+      "shift": "白班",
+      "position": "CNC师傅",
+      "remark": "CNC班组长\n设备调试与维护"
+    },
+    {
+      "id": "12",
+      "name": "字宝元",
+      "shift": "白班",
+      "position": "车床设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "13",
+      "name": "杨聪",
+      "shift": "白班",
+      "position": "CNC打样技术助理",
+      "remark": "调机、打样"
+    },
+    {
+      "id": "14",
+      "name": "黎荷荣",
+      "shift": "白班",
+      "position": "后勤压饼机操作",
+      "remark": ""
+    },
+    {
+      "id": "15",
+      "name": "胡华平",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": "请长假"
+    },
+    {
+      "id": "16",
+      "name": "范奥登",
+      "shift": "白班",
+      "position": "车床技术助理",
+      "remark": "车床巡检、换刀\n送检、看报告"
+    },
+    {
+      "id": "17",
+      "name": "丘鑫荣",
+      "shift": "白班",
+      "position": "车床设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "18",
+      "name": "周树明",
+      "shift": "白班",
+      "position": "CNC技术助理",
+      "remark": "CNC、换刀\n送检、看报告"
+    },
+    {
+      "id": "19",
+      "name": "唐文斌",
+      "shift": "白班",
+      "position": "CNC巡检",
+      "remark": "CNC、巡检、换刀\n送检、看报告"
+    },
+    {
+      "id": "20",
+      "name": "吴开志",
+      "shift": "白班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "21",
+      "name": "范厚旺",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "22",
+      "name": "林玉淳",
+      "shift": "白班",
+      "position": "全检外观检验",
+      "remark": ""
+    },
+    {
+      "id": "23",
+      "name": "王奥运",
+      "shift": "白班",
+      "position": "物料",
+      "remark": "毛坯和产品接收\n以及发货登记"
+    },
+    {
+      "id": "24",
+      "name": "时国明",
+      "shift": "白班",
+      "position": "车床设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "25",
+      "name": "王瑞",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "26",
+      "name": "宋奥雪",
+      "shift": "白班",
+      "position": "三坐标测量",
+      "remark": ""
+    },
+    {
+      "id": "27",
+      "name": "江翠雯",
+      "shift": "白班",
+      "position": "全检外观检验",
+      "remark": ""
+    },
+    {
+      "id": "28",
+      "name": "朱蓉",
+      "shift": "白班",
+      "position": "打码",
+      "remark": ""
+    },
+    {
+      "id": "29",
+      "name": "黄楚怡",
+      "shift": "白班",
+      "position": "打码",
+      "remark": ""
+    },
+    {
+      "id": "30",
+      "name": "刘江",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "31",
+      "name": "刘安近",
+      "shift": "白班",
+      "position": "清渣",
+      "remark": "临时工"
+    },
+    {
+      "id": "32",
+      "name": "马嘉明",
+      "shift": "白班",
+      "position": "后勤",
+      "remark": "临时工"
+    },
+    {
+      "id": "33",
+      "name": "李会周",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "34",
+      "name": "肖霜",
+      "shift": "白班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "35",
+      "name": "潘围",
+      "shift": "白班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "36",
+      "name": "张万春",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "37",
+      "name": "付元文",
+      "shift": "白班",
+      "position": "车床设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "38",
+      "name": "徐永孟",
+      "shift": "白班",
+      "position": "车床设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "39",
+      "name": "陈家栋",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "40",
+      "name": "吴过",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "41",
+      "name": "陈世豪",
+      "shift": "白班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "42",
+      "name": "付旭洋",
+      "shift": "白班",
+      "position": "仓库助理",
+      "remark": "临时工"
+    },
+    {
+      "id": "43",
+      "name": "彭威",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "44",
+      "name": "王冠清",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "45",
+      "name": "杨红云",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "46",
+      "name": "王子豪",
+      "shift": "白班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "47",
+      "name": "龚建创",
+      "shift": "白班",
+      "position": "车床设备操作员",
+      "remark": "暑假工"
+    },
+    {
+      "id": "48",
+      "name": "姜帅",
+      "shift": "白班",
+      "position": "cnc设备操作员",
+      "remark": "暑假工"
+    },
+    {
+      "id": "49",
+      "name": "何廷塞",
+      "shift": "白班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "50",
+      "name": "何峰",
+      "shift": "夜班",
+      "position": "车床师傅",
+      "remark": "车床班组长\n设备调机与维护"
+    },
+    {
+      "id": "51",
+      "name": "徐长蓉",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "52",
+      "name": "路培满",
+      "shift": "夜班",
+      "position": "车床技术助理",
+      "remark": "车床巡检、送检\n看报告"
+    },
+    {
+      "id": "53",
+      "name": "刘大国",
+      "shift": "夜班",
+      "position": "CNC师傅",
+      "remark": "CNC班组长\n设备调试与维护"
+    },
+    {
+      "id": "54",
+      "name": "赵飞英",
+      "shift": "夜班",
+      "position": "外观检验",
+      "remark": ""
+    },
+    {
+      "id": "55",
+      "name": "刘卜涛",
+      "shift": "夜班",
+      "position": "CNC技术助理",
+      "remark": "CNC、换刀\n送检、看报告"
+    },
+    {
+      "id": "56",
+      "name": "王小琴",
+      "shift": "夜班",
+      "position": "三坐标测量",
+      "remark": ""
+    },
+    {
+      "id": "57",
+      "name": "梅全立",
+      "shift": "夜班",
+      "position": "压饼机操作",
+      "remark": ""
+    },
+    {
+      "id": "58",
+      "name": "江建凯",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "59",
+      "name": "赖亮",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "60",
+      "name": "邱子浩",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "61",
+      "name": "黄镇权",
+      "shift": "夜班",
+      "position": "清洗",
+      "remark": ""
+    },
+    {
+      "id": "62",
+      "name": "徐亚星",
+      "shift": "夜班",
+      "position": "车床技术助理",
+      "remark": "车床巡检、换刀\n送检、看报告"
+    },
+    {
+      "id": "63",
+      "name": "王金才",
+      "shift": "夜班",
+      "position": "CNC巡检",
+      "remark": "CNC、巡检\n送检、看报告"
+    },
+    {
+      "id": "64",
+      "name": "龙珍卉",
+      "shift": "夜班",
+      "position": "全检外观检验",
+      "remark": ""
+    },
+    {
+      "id": "65",
+      "name": "马启森",
+      "shift": "夜班",
+      "position": "车床设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "66",
+      "name": "罗建宇",
+      "shift": "夜班",
+      "position": "车床设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "67",
+      "name": "章开宝",
+      "shift": "夜班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "68",
+      "name": "罗中华",
+      "shift": "夜班",
+      "position": "车床设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "69",
+      "name": "陈保军",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "70",
+      "name": "陈浩",
+      "shift": "夜班",
+      "position": "打码",
+      "remark": "临时工"
+    },
+    {
+      "id": "71",
+      "name": "李嘉浩",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "72",
+      "name": "段成才",
+      "shift": "夜班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "73",
+      "name": "包尚鑫",
+      "shift": "夜班",
+      "position": "打码",
+      "remark": "临时工"
+    },
+    {
+      "id": "74",
+      "name": "赵佰儒",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "75",
+      "name": "荣正根",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "76",
+      "name": "彭英杰",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "77",
+      "name": "冯子明",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "78",
+      "name": "陈国豪",
+      "shift": "夜班",
+      "position": "车床设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "79",
+      "name": "廖明哲",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "80",
+      "name": "刘志远",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "81",
+      "name": "曾宝玲",
+      "shift": "夜班",
+      "position": "打码",
+      "remark": "临时工"
+    },
+    {
+      "id": "82",
+      "name": "安伟",
+      "shift": "夜班",
+      "position": "CNC设备操作员",
+      "remark": "临时工"
     }
   ],
-  "defects": [
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_pkto5t",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ°ÃÂÃÂºÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¸ÃÂÃÂ¨ÃÂÃÂ¶ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ·ÃÂÃÂ®",
-      "defectDesc": "ÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ°ÃÂÃÂÃÂÃÂ¦ÃÂÃÂ§ÃÂÃÂ½ÃÂÃÂ¥ÃÂÃÂ°ÃÂÃÂºÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¸ÃÂÃÂ¨ÃÂÃÂ¶ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ·ÃÂÃÂ®",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517679"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_pkto5t",
-      "defectType": "ÃÂÃÂ¤ÃÂÃÂºÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂºÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ½ÃÂÃÂ",
-      "defectDesc": "ÃÂÃÂ¨ÃÂÃÂ°ÃÂÃÂÃÂÃÂ¦ÃÂÃÂÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂ¶",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517679"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_pkto5t",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "defectDesc": "ÃÂÃÂ¥ÃÂÃÂ­ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ°ÃÂÃÂ©ÃÂÃÂÃÂÃÂ¶",
-      "quantity": 5,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_pkto5t",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "defectDesc": "ÃÂÃÂ¦ÃÂÃÂ¼ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¯",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_pkto5t",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "defectDesc": "ÃÂÃÂ¥ÃÂÃÂÃÂÃÂÃÂÃÂ¨ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ°ÃÂÃÂ",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_pkto5t",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "defectDesc": "ÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¦ÃÂÃÂ¯ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂº",
-      "quantity": 2,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_og94mv",
-      "defectType": "ÃÂÃÂ¤ÃÂÃÂºÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂºÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ½ÃÂÃÂ",
-      "defectDesc": "ÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂ¹ÃÂÃÂ¨ÃÂÃÂ£ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ",
-      "quantity": 2,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_og94mv",
-      "defectType": "ÃÂÃÂ¨ÃÂÃÂ®ÃÂÃÂ¾ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ ",
-      "defectDesc": "ÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¦ÃÂÃÂ»ÃÂÃÂ",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_ddp6rp",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ°ÃÂÃÂºÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¸ÃÂÃÂ¨ÃÂÃÂ¶ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ·ÃÂÃÂ®",
-      "defectDesc": "ÃÂÃÂ¨ÃÂÃÂ½ÃÂÃÂ´ÃÂÃÂ¦ÃÂÃÂÃÂÃÂ¿ÃÂÃÂ¥ÃÂÃÂ­ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ¶ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ·ÃÂÃÂ®",
-      "quantity": 3,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_ddp6rp",
-      "defectType": "ÃÂÃÂ¤ÃÂÃÂºÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂºÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ½ÃÂÃÂ",
-      "defectDesc": "ÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂ¹ÃÂÃÂ¨ÃÂÃÂ£ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ",
-      "quantity": 4,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_ddp6rp",
-      "defectType": "ÃÂÃÂ¤ÃÂÃÂºÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂºÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ½ÃÂÃÂ",
-      "defectDesc": "ÃÂÃÂ¤ÃÂÃÂºÃÂÃÂÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂ¹ÃÂÃÂ¨ÃÂÃÂ£ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ",
-      "quantity": 5,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_ddp6rp",
-      "defectType": "ÃÂÃÂ¤ÃÂÃÂºÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂºÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ½ÃÂÃÂ",
-      "defectDesc": "ÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ§ÃÂÃÂ ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "quantity": 4,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_ddp6rp",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "defectDesc": "ÃÂÃÂ¥ÃÂÃÂÃÂÃÂÃÂÃÂ§ÃÂÃÂºÃÂÃÂ¿ÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ°ÃÂÃÂ©ÃÂÃÂÃÂÃÂ¶",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_ddp6rp",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "defectDesc": "ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¯ÃÂÃÂ¥ÃÂÃÂ­ÃÂÃÂÃÂÃÂ¦ÃÂÃÂ¼ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¯",
-      "quantity": 3,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_ddp6rp",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "defectDesc": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂ¹ÃÂÃÂ¤ÃÂÃÂ¼ÃÂÃÂ¤",
-      "quantity": 3,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517680"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_ddp6rp",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "defectDesc": "ÃÂÃÂ§ÃÂÃÂ¢ÃÂÃÂ°ÃÂÃÂ¤ÃÂÃÂ¼ÃÂÃÂ¤",
-      "quantity": 6,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_klzi22",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ°ÃÂÃÂºÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¸ÃÂÃÂ¨ÃÂÃÂ¶ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ·ÃÂÃÂ®",
-      "defectDesc": "ÃÂÃÂ¨ÃÂÃÂ½ÃÂÃÂ´ÃÂÃÂ¦ÃÂÃÂÃÂÃÂ¿ÃÂÃÂ¥ÃÂÃÂ­ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ¶ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ·ÃÂÃÂ®",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_b8kcnz",
-      "defectType": "ÃÂÃÂ¤ÃÂÃÂºÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂºÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ½ÃÂÃÂ",
-      "defectDesc": "ÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ£ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂºÃÂÃÂÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂ¹ÃÂÃÂ¨ÃÂÃÂ£ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_b8kcnz",
-      "defectType": "ÃÂÃÂ¤ÃÂÃÂºÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂºÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ½ÃÂÃÂ",
-      "defectDesc": "ÃÂÃÂ¨ÃÂÃÂ°ÃÂÃÂÃÂÃÂ¦ÃÂÃÂÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂ¶",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_x8dwfl",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ°ÃÂÃÂºÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¸ÃÂÃÂ¨ÃÂÃÂ¶ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ·ÃÂÃÂ®",
-      "defectDesc": "6.3ÃÂÃÂ¥ÃÂÃÂ­ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_x8dwfl",
-      "defectType": "ÃÂÃÂ¤ÃÂÃÂºÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂºÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ½ÃÂÃÂ",
-      "defectDesc": "ÃÂÃÂ¦ÃÂÃÂÃÂÃÂ­ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_x8dwfl",
-      "defectType": "ÃÂÃÂ¤ÃÂÃÂºÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂºÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ½ÃÂÃÂ",
-      "defectDesc": "ÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ£ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂºÃÂÃÂÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂ¹ÃÂÃÂ¨ÃÂÃÂ£ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ",
-      "quantity": 2,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_x8dwfl",
-      "defectType": "ÃÂÃÂ¤ÃÂÃÂºÃÂÃÂºÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂºÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ½ÃÂÃÂ",
-      "defectDesc": "ÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂ¹ÃÂÃÂ¨ÃÂÃÂ£ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ",
-      "quantity": 4,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_x8dwfl",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "defectDesc": "ÃÂÃÂ§ÃÂÃÂ¢ÃÂÃÂ°ÃÂÃÂ¤ÃÂÃÂ¼ÃÂÃÂ¤",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_x8dwfl",
-      "defectType": "ÃÂÃÂ¨ÃÂÃÂ®ÃÂÃÂ¾ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ ",
-      "defectDesc": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂ¹ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ·ÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "quantity": 1,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_dawvvb",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ°ÃÂÃÂºÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¸ÃÂÃÂ¨ÃÂÃÂ¶ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ·ÃÂÃÂ®",
-      "defectDesc": "ÃÂÃÂ¦ÃÂÃÂÃÂÃÂ¿ÃÂÃÂ¥ÃÂÃÂÃÂÃÂÃÂÃÂ¨ÃÂÃÂ¶ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ·ÃÂÃÂ®",
-      "quantity": 14,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    },
-    {
-      "date": "2026-06-01",
-      "productId": "p_1786016517679_dawvvb",
-      "defectType": "ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂÃÂÃÂ¨ÃÂÃÂ§ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "defectDesc": "ÃÂÃÂ¦ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ¦ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ¸ÃÂÃÂÃÂÃÂ¨ÃÂÃÂÃÂÃÂ¯",
-      "quantity": 3,
-      "note": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂExcelÃÂÃÂ¥ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¥",
-      "id": "defect_1786016517681"
-    }
-  ],
-  "lastSync": "2026-08-07T08:09:05.495Z",
-  "version": 232
+  "schedules": [],
+  "records": [],
+  "downtimes": [],
+  "dailyTargets": [],
+  "githubConfig": {
+    "owner": "TANSHAOJING",
+    "repo": "cnc-scheduler",
+    "branch": "main",
+    "path": "data.json",
+    "autoSync": false
+  },
+  "version": 3
 }
