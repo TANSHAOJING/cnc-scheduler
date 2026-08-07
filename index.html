@@ -1116,6 +1116,125 @@
         <h2 class="text-2xl font-bold text-gray-800">📝 不良品登记</h2>
         <p class="text-gray-500 mt-1">记录每天的不良品信息</p>
       </div>
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <!-- 左侧：登记表单 (占2列) -->
+        <div class="lg:col-span-2">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">新增登记</h3>
+            <form id="defect-form" class="space-y-3">
+              <div class="grid grid-cols-2 gap-3">
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">日期</label><input type="date" id="defect-date" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">工序</label><select id="defect-process" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"><option value="">请选择</option><option>一序</option><option>二序</option><option>三序</option><option>四序</option></select></div>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">车间</label><select id="defect-workshop" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" onchange="Register.loadMachines()"><option value="">请选择车间</option></select></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">机台号</label><select id="defect-machine" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"><option value="">请先选车间</option></select></div>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">产品</label><select id="defect-product" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" onchange="Register.onProductChange()"><option value="">请选择产品</option><option value="__other__">其他...</option></select><input type="text" id="defect-product-other" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm mt-1 hidden" placeholder="手动输入产品名称"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">操作员</label><input type="text" id="defect-operator" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" placeholder="输入操作员姓名"></div>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">不良类别</label><select id="defect-type" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" onchange="Register.onTypeChange()" disabled><option value="">请先选择产品</option><option value="__other__">其他...</option></select><input type="text" id="defect-type-other" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm mt-1 hidden" placeholder="手动输入不良类别"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">不良描述</label><select id="defect-desc" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" onchange="Register.onDescChange()" disabled><option value="">请先选择类别</option><option value="__other__">其他...</option></select><input type="text" id="defect-desc-other" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm mt-1 hidden" placeholder="手动输入不良描述"></div>
+              </div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">数量</label><input type="number" id="defect-quantity" min="1" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" placeholder="输入不良数量"></div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">不良原因（可选）</label><textarea id="defect-cause" rows="2" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" placeholder="描述不良原因..."></textarea></div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">改善方案（可选）</label><textarea id="defect-solution" rows="2" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" placeholder="描述改善措施..."></textarea></div>
+              <div><label class="block text-sm font-medium text-gray-700 mb-1">照片</label><input type="file" id="defect-photo" accept="image/*" capture="environment" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" onchange="Register.onPhotoChange()"><div id="photo-preview" class="mt-2 hidden"><img id="photo-preview-img" class="w-32 h-32 object-cover rounded border"><button onclick="Register.clearPhoto()" class="ml-2 text-xs text-red-600 hover:text-red-800">清除</button></div></div>
+              <button type="submit" class="btn w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 font-medium">保存登记</button>
+            </form>
+          </div>
+        </div>
+        <!-- 右侧：机台问题看板 (占3列) -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🔧 机台问题看板</h3>
+            <div id="machine-board" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 登记记录表格 -->
+      <div class="mt-6 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold text-gray-800">登记记录</h3>
+          <div class="flex items-center space-x-2">
+            <input type="date" id="register-filter-date" class="form-input px-3 py-1 border border-gray-300 rounded-lg text-sm">
+            <button onclick="Register.loadRecords()" class="btn px-3 py-1 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 text-sm">刷新</button>
+          </div>
+        </div>
+        <div class="overflow-x-auto"><table class="data-table text-sm"><thead><tr><th>日期</th><th>工序</th><th>车间</th><th>机台</th><th>产品</th><th>不良类别</th><th>不良描述</th><th>数量</th><th>操作员</th><th>不良原因</th><th>操作</th></tr></thead><tbody id="register-records"><tr><td colspan="11" class="text-center text-gray-500 py-8">暂无记录</td></tr></tbody></table></div>
+      </div>
+    </section>
+<section class="ds-section hidden" class="page-section hidden">
+      <div class="mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">📈 统计报表</h2>
+        <p class="text-gray-500 mt-1">查看详细的报废率统计</p>
+      </div>
+
+      <!-- 筛选条件 -->
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-6">
+        <div class="flex flex-wrap items-end gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">报表类型</label>
+            <select id="report-type" class="form-input px-4 py-2 border border-gray-300 rounded-lg">
+              <option value="daily">日报表</option>
+              <option value="weekly">周报表</option>
+              <option value="monthly">月报表</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">开始日期</label>
+            <input type="date" id="report-start" class="form-input px-4 py-2 border border-gray-300 rounded-lg">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">结束日期</label>
+            <input type="date" id="report-end" class="form-input px-4 py-2 border border-gray-300 rounded-lg">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">产品筛选</label>
+            <select id="report-product" class="form-input px-4 py-2 border border-gray-300 rounded-lg">
+              <option value="">全部产品</option>
+            </select>
+          </div>
+          <button onclick="Report.generate()" class="btn px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
+            生成报表
+          </button>
+          <button onclick="Report.exportExcel()" class="btn px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-medium">
+            导出Excel
+          </button>
+        </div>
+      </div>
+
+      <!-- 报表结果 -->
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">报表结果</h3>
+        <div class="overflow-x-auto">
+          <table class="data-table" id="report-table">
+            <thead>
+              <tr>
+                <th>日期/周期</th>
+                <th>产品</th>
+                <th>产量</th>
+                <th>报废数</th>
+                <th>不良率</th>
+                <th>等级</th>
+              </tr>
+            </thead>
+            <tbody id="report-body">
+              <tr>
+                <td colspan="6" class="text-center text-gray-500 py-8">请选择条件生成报表</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+<section class="ds-section hidden" class="page-section hidden">
+      <div class="mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">📝 不良品登记</h2>
+        <p class="text-gray-500 mt-1">记录每天的不良品信息</p>
+      </div>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="lg:col-span-1">
           <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
@@ -1223,10 +1342,12 @@
           <button onclick="DataManager.exportCSV('all')" class="btn w-full bg-gray-600 text-white py-2 rounded-lg hover:bg-gray-700">导出全部数据</button>
         </div>
         <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-          <h3 class="text-lg font-semibold text-gray-800 mb-4">📥 导入 CSV</h3>
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">📥 导入数据</h3>
           <select id="import-csv-type" class="form-input w-full px-3 py-2 border border-gray-300 rounded-lg mb-2"><option value="production">产量记录</option><option value="defects">不良记录</option></select>
           <input type="file" id="import-csv-file" accept=".csv,.txt" class="hidden" onchange="DataManager.importCSV(this)">
-          <button onclick="document.getElementById('import-csv-file').click()" class="btn w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">选择 CSV 文件导入</button>
+          <button onclick="document.getElementById('import-csv-file').click()" class="btn w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 mb-2">选择 CSV 文件导入</button>
+          <input type="file" id="import-defect-json-file" accept=".json" class="hidden" onchange="DataManager.importDefectJSON(this)">
+          <button onclick="document.getElementById('import-defect-json-file').click()" class="btn w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 text-sm">📋 导入不良品JSON数据</button>
         </div>
         <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
           <h3 class="text-lg font-semibold text-gray-800 mb-4">⚠️ 重置</h3>
@@ -3987,7 +4108,29 @@ const Utils = {
   },
 
   // ÏÔÊ¾ÌáÊ¾ÏûÏ¢
-  showToast(message, type = 'success') {
+  // 通用弹窗
+  showModal(title, htmlContent, options = {}) {
+    const { width = 'max-w-4xl', onClose } = options;
+    const existing = document.getElementById('global-modal-overlay');
+    if (existing) existing.remove();
+    const overlay = document.createElement('div');
+    overlay.id = 'global-modal-overlay';
+    overlay.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+    overlay.innerHTML = '<div class="bg-white rounded-xl shadow-2xl ' + width + ' w-full max-h-[90vh] flex flex-col">' +
+      '<div class="flex items-center justify-between px-6 py-4 border-b">' +
+      '<h3 class="text-lg font-bold text-gray-800">' + title + '</h3>' +
+      '<button id="global-modal-close" class="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>' +
+      '</div>' +
+      '<div class="flex-1 overflow-y-auto px-6 py-4" id="global-modal-body">' + htmlContent + '</div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    const close = () => { overlay.remove(); if (onClose) onClose(); };
+    overlay.querySelector('#global-modal-close').addEventListener('click', close);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+    return { close };
+  },
+
+    showToast(message, type = 'success') {
     const toast = document.createElement('div');
     const bgColor = type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500';
     toast.className = `fixed top-4 right-4 ${bgColor} text-white px-6 py-3 rounded-lg shadow-lg z-50 transition-opacity duration-300`;
@@ -4012,7 +4155,8 @@ const STORAGE_KEYS = {
   PRODUCTS: 'ds_products',
   PRODUCTION: 'ds_production',
   DEFECTS: 'ds_defects',
-  SETTINGS: 'ds_settings'
+  SETTINGS: 'ds_settings',
+  WORKSHOPS: 'ds_workshops'
 };
 
 // ==================== 预设产品数据 ====================
@@ -4214,6 +4358,14 @@ const DEFAULT_PRODUCTS = [
         descriptions: ['机器故障']
       }
     ]
+// ==================== 预设车间/机台数据 ====================
+const DEFAULT_WORKSHOPS = {
+  "一车间": ["1号", "2号", "3号", "4号", "5号"],
+  "二车间": ["1号", "2号", "3号", "4号", "5号"],
+  "三车间": ["1号", "2号", "3号", "4号", "5号"],
+  "四车间": ["1号", "2号", "3号", "4号", "5号"]
+};
+
   }
 ];
 
@@ -4358,7 +4510,50 @@ const DataStore = {
     return defects.reduce((sum, d) => sum + d.quantity, 0);
   },
 
-  // 导出全部数据
+  // 车间/机台管理
+  getWorkshops() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEYS.WORKSHOPS) || '{}');
+  },
+
+  saveWorkshops(workshops) {
+    localStorage.setItem(STORAGE_KEYS.WORKSHOPS, JSON.stringify(workshops));
+  },
+
+  getWorkshopList() {
+    return Object.keys(this.getWorkshops());
+  },
+
+  getMachines(workshop) {
+    const ws = this.getWorkshops();
+    return ws[workshop] || [];
+  },
+
+  addMachine(workshop, machine) {
+    const ws = this.getWorkshops();
+    if (!ws[workshop]) ws[workshop] = [];
+    if (!ws[workshop].includes(machine)) {
+      ws[workshop].push(machine);
+      this.saveWorkshops(ws);
+    }
+  },
+
+  removeMachine(workshop, machine) {
+    const ws = this.getWorkshops();
+    if (ws[workshop]) {
+      ws[workshop] = ws[workshop].filter(m => m !== machine);
+      this.saveWorkshops(ws);
+    }
+  },
+
+  addWorkshop(name) {
+    const ws = this.getWorkshops();
+    if (!ws[name]) {
+      ws[name] = [];
+      this.saveWorkshops(ws);
+    }
+  },
+
+    // 导出全部数据
   exportAll() {
     return {
       products: this.getProducts(),
@@ -4382,11 +4577,59 @@ const DataStore = {
     }
   },
 
+  // 导入不良品JSON数据（合并产品+导入记录）
+  importDefectJSON(jsonData) {
+    let imported = 0;
+
+    // 合并产品
+    if (jsonData.products && jsonData.products.length > 0) {
+      const products = this.getProducts();
+      jsonData.products.forEach(p => {
+        const existing = products.find(ep => ep.name === p.name);
+        if (existing) {
+          // Merge defect types
+          p.defectTypes.forEach(dt => {
+            const existingType = existing.defectTypes.find(et => et.type === dt.type);
+            if (existingType) {
+              dt.descriptions.forEach(d => {
+                if (!existingType.descriptions.includes(d)) {
+                  existingType.descriptions.push(d);
+                }
+              });
+            } else {
+              existing.defectTypes.push(dt);
+            }
+          });
+        } else {
+          products.push({ ...p, id: 'p_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6) });
+        }
+      });
+      this.saveProducts(products);
+    }
+
+    // 导入缺陷记录
+    if (jsonData.defectRecords && jsonData.defectRecords.length > 0) {
+      const records = this.getDefectRecords();
+      jsonData.defectRecords.forEach(r => {
+        records.push({
+          ...r,
+          id: 'defect_import_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6),
+          imported: true
+        });
+        imported++;
+      });
+      this.saveDefectRecords(records);
+    }
+
+    return imported;
+  },
+
   // 清空所有数据
   clearAll() {
     localStorage.removeItem(STORAGE_KEYS.PRODUCTS);
     localStorage.removeItem(STORAGE_KEYS.PRODUCTION);
     localStorage.removeItem(STORAGE_KEYS.DEFECTS);
+    localStorage.removeItem(STORAGE_KEYS.WORKSHOPS);
   }
 };
 
@@ -4395,7 +4638,7 @@ const DataStore = {
 const CloudSync = {
   // GitHub 配置
   GITHUB_OWNER: 'TANSHAOJING',
-  GITHUB_REPO: 'defect-dashboard',
+  GITHUB_REPO: 'cnc-scheduler',
   GITHUB_FILE: 'data.json',
   GITHUB_TOKEN: '',
   
@@ -4765,7 +5008,99 @@ const App = {
   },
 
   initEventListeners() {
-    // 不良品登记表单
+    // Excel导入不良品 - 新格式 (产品+类别+描述+日期+数量)
+    const defectFileInput = document.createElement('input');
+    defectFileInput.type = 'file';
+    defectFileInput.accept = '.xlsx,.xls,.csv';
+    defectFileInput.onchange = async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        showLoading('正在导入不良品数据...');
+        const data = await Utils.readFileAsText(file);
+        const rows = Utils.parseCSV(data);
+        if (rows.length < 2) { Utils.showToast('文件数据为空', 'error'); hideLoading(); return; }
+
+        // 尝试检测表头：产品、不良类别、不良描述、日期、数量
+        const header = rows[0];
+        const idx = {
+          product: header.findIndex(h => h && (h.includes('产品') || h.includes('名称'))),
+          type: header.findIndex(h => h && (h.includes('类别') || h.includes('不良类别'))),
+          desc: header.findIndex(h => h && (h.includes('描述') || h.includes('不良描述'))),
+          date: header.findIndex(h => h && h.includes('日期')),
+          qty: header.findIndex(h => h && (h.includes('数量') || h.includes('报废'))),
+          process: header.findIndex(h => h && h.includes('工序')),
+          workshop: header.findIndex(h => h && h.includes('车间')),
+          machine: header.findIndex(h => h && h.includes('机台')),
+        };
+
+        if (idx.product === -1 || idx.date === -1) {
+          Utils.showToast('缺少必要列：产品、日期', 'error');
+          hideLoading();
+          return;
+        }
+
+        let imported = 0;
+        const existingRecords = DataStore.getDefectRecords();
+
+        for (let i = 1; i < rows.length; i++) {
+          const row = rows[i];
+          if (!row || row.length === 0) continue;
+          const productName = (row[idx.product] || '').trim();
+          if (!productName) continue;
+
+          // Parse date - try various formats
+          let dateStr = (row[idx.date] || '').trim();
+          let date = null;
+          // Try YYYY-MM-DD or YYYY/MM/DD
+          const m = dateStr.match(/(\d{4})[-\/](\d{1,2})[-\/](\d{1,2})/);
+          if (m) {
+            date = `${m[1]}-${m[2].padStart(2,'0')}-${m[3].padStart(2,'0')}`;
+          }
+          // Try M/D/YYYY
+          const m2 = dateStr.match(/(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})/);
+          if (!date && m2) {
+            date = `${m2[3]}-${m2[1].padStart(2,'0')}-${m2[2].padStart(2,'0')}`;
+          }
+          if (!date) {
+            // Try Excel serial number
+            const serial = parseInt(dateStr);
+            if (!isNaN(serial) && serial > 30000) {
+              const d = new Date((serial - 25569) * 86400 * 1000);
+              date = Utils.formatDate(d);
+            }
+          }
+          if (!date) continue;
+
+          const defectType = idx.type >= 0 ? (row[idx.type] || '').trim() : '未分类';
+          const defectDesc = idx.desc >= 0 ? (row[idx.desc] || '').trim() : '';
+          const quantity = idx.qty >= 0 ? (parseInt(row[idx.qty]) || 1) : 1;
+          const process = idx.process >= 0 ? (row[idx.process] || '').trim() : '';
+          const workshop = idx.workshop >= 0 ? (row[idx.workshop] || '').trim() : '';
+          const machine = idx.machine >= 0 ? (row[idx.machine] || '').trim() : '';
+
+          const record = {
+            id: 'defect_import_' + Date.now() + '_' + i,
+            date, process, workshop, machine,
+            productId: null, productName,
+            defectType, defectDesc, quantity,
+            operator: '', cause: '', solution: '', photo: '',
+            imported: true
+          };
+          existingRecords.push(record);
+          imported++;
+        }
+
+        DataStore.saveDefectRecords(existingRecords);
+        Utils.showToast(`成功导入 ${imported} 条不良品记录`, 'success');
+        if (typeof Register !== 'undefined') Register.refresh();
+      } catch (err) {
+        Utils.showToast('导入失败：' + err.message, 'error');
+      }
+      hideLoading();
+    };
+    defectFileInput.click();
+
     document.getElementById('defect-form').addEventListener('submit', (e) => {
       e.preventDefault();
       Register.saveDefect();
@@ -5166,8 +5501,57 @@ const Dashboard = {
 // ==================== 不良品登记模块 ====================
 
 const Register = {
+  _photoData: null,
+
   init() {
+    const today = Utils.getToday();
+    document.getElementById('defect-date').value = today;
+    this.loadWorkshops();
     this.loadProducts();
+    this.loadMachineBoard();
+    this.loadRecords();
+  },
+
+  refresh() {
+    this.loadMachineBoard();
+    this.loadRecords();
+  },
+
+  loadWorkshops() {
+    const select = document.getElementById('defect-workshop');
+    const workshops = DataStore.getWorkshopList();
+    select.innerHTML = '<option value="">请选择车间</option>';
+    workshops.forEach(w => {
+      select.innerHTML += `<option value="${w}">${w}</option>`;
+    });
+    if (workshops.length === 0) {
+      select.innerHTML += '<option value="__other__">其他(新增车间)...</option>';
+    }
+  },
+
+  loadMachines() {
+    const workshop = document.getElementById('defect-workshop').value;
+    const machineSelect = document.getElementById('defect-machine');
+    if (workshop === '__other__') {
+      const name = prompt('请输入新车间名称：');
+      if (name && name.trim()) {
+        DataStore.addWorkshop(name.trim());
+        this.loadWorkshops();
+        document.getElementById('defect-workshop').value = name.trim();
+        this.loadMachines();
+      }
+      return;
+    }
+    if (!workshop) {
+      machineSelect.innerHTML = '<option value="">请先选车间</option>';
+      return;
+    }
+    const machines = DataStore.getMachines(workshop);
+    machineSelect.innerHTML = '<option value="">请选择机台号</option>';
+    machines.forEach(m => {
+      machineSelect.innerHTML += `<option value="${m}">${m}</option>`;
+    });
+    machineSelect.innerHTML += '<option value="__other__">其他(新增机台)...</option>';
   },
 
   loadProducts() {
@@ -5175,135 +5559,345 @@ const Register = {
     const products = DataStore.getProducts();
     select.innerHTML = '<option value="">请选择产品</option>';
     products.forEach(product => {
-      const option = document.createElement('option');
-      option.value = product.id;
-      option.textContent = product.name;
-      select.appendChild(option);
+      select.innerHTML += `<option value="${product.id}">${product.name}</option>`;
     });
+    select.innerHTML += '<option value="__other__">其他...</option>';
+  },
+
+  onProductChange() {
+    const val = document.getElementById('defect-product').value;
+    const otherInput = document.getElementById('defect-product-other');
+    if (val === '__other__') {
+      otherInput.classList.remove('hidden');
+      document.getElementById('defect-type').innerHTML = '<option value="">手动输入产品后可选</option><option value="__other__">其他...</option>';
+      document.getElementById('defect-type').disabled = true;
+      document.getElementById('defect-desc').innerHTML = '<option value="">请先选择类别</option><option value="__other__">其他...</option>';
+      document.getElementById('defect-desc').disabled = true;
+    } else {
+      otherInput.classList.add('hidden');
+      otherInput.value = '';
+      this.loadDefectTypes(val);
+    }
   },
 
   loadDefectTypes(productId) {
     const typeSelect = document.getElementById('defect-type');
     const descSelect = document.getElementById('defect-desc');
-    
     if (!productId) {
-      typeSelect.innerHTML = '<option value="">请先选择产品</option>';
+      typeSelect.innerHTML = '<option value="">请先选择产品</option><option value="__other__">其他...</option>';
       typeSelect.disabled = true;
-      descSelect.innerHTML = '<option value="">请先选择类别</option>';
+      descSelect.innerHTML = '<option value="">请先选择类别</option><option value="__other__">其他...</option>';
       descSelect.disabled = true;
       return;
     }
-
     const product = DataStore.getProductById(productId);
-    if (!product) return;
-
+    if (!product) {
+      typeSelect.innerHTML = '<option value="">产品未找到</option><option value="__other__">其他...</option>';
+      typeSelect.disabled = true;
+      return;
+    }
     typeSelect.innerHTML = '<option value="">请选择不良类别</option>';
     product.defectTypes.forEach(dt => {
-      const option = document.createElement('option');
-      option.value = dt.type;
-      option.textContent = dt.type;
-      typeSelect.appendChild(option);
+      typeSelect.innerHTML += `<option value="${this._escAttr(dt.type)}">${dt.type}</option>`;
     });
+    typeSelect.innerHTML += '<option value="__other__">其他...</option>';
     typeSelect.disabled = false;
-
-    descSelect.innerHTML = '<option value="">请先选择类别</option>';
+    descSelect.innerHTML = '<option value="">请先选择类别</option><option value="__other__">其他...</option>';
     descSelect.disabled = true;
+  },
+
+  onTypeChange() {
+    const val = document.getElementById('defect-type').value;
+    const otherInput = document.getElementById('defect-type-other');
+    if (val === '__other__') {
+      otherInput.classList.remove('hidden');
+      document.getElementById('defect-desc').innerHTML = '<option value="">手动输入类别后可选</option><option value="__other__">其他...</option>';
+      document.getElementById('defect-desc').disabled = true;
+    } else {
+      otherInput.classList.add('hidden');
+      otherInput.value = '';
+      this.loadDefectDescriptions(val);
+    }
   },
 
   loadDefectDescriptions(type) {
     const descSelect = document.getElementById('defect-desc');
     const productId = document.getElementById('defect-product').value;
-    
     if (!type || !productId) {
-      descSelect.innerHTML = '<option value="">请先选择类别</option>';
+      descSelect.innerHTML = '<option value="">请先选择类别</option><option value="__other__">其他...</option>';
       descSelect.disabled = true;
       return;
     }
-
     const product = DataStore.getProductById(productId);
+    if (!product) return;
     const defectType = product.defectTypes.find(dt => dt.type === type);
-    
-    if (!defectType) return;
-
+    if (!defectType) {
+      descSelect.innerHTML = '<option value="">该产品暂无此类别的描述</option><option value="__other__">其他...</option>';
+      descSelect.disabled = false;
+      return;
+    }
     descSelect.innerHTML = '<option value="">请选择不良描述</option>';
     defectType.descriptions.forEach(desc => {
-      const option = document.createElement('option');
-      option.value = desc;
-      option.textContent = desc;
-      descSelect.appendChild(option);
+      descSelect.innerHTML += `<option value="${this._escAttr(desc)}">${desc}</option>`;
     });
+    descSelect.innerHTML += '<option value="__other__">其他...</option>';
     descSelect.disabled = false;
+  },
+
+  onDescChange() {
+    const val = document.getElementById('defect-desc').value;
+    const otherInput = document.getElementById('defect-desc-other');
+    if (val === '__other__') {
+      otherInput.classList.remove('hidden');
+    } else {
+      otherInput.classList.add('hidden');
+      otherInput.value = '';
+    }
+  },
+
+  onPhotoChange() {
+    const file = document.getElementById('defect-photo').files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this._photoData = e.target.result;
+      document.getElementById('photo-preview').classList.remove('hidden');
+      document.getElementById('photo-preview-img').src = this._photoData;
+    };
+    reader.readAsDataURL(file);
+  },
+
+  clearPhoto() {
+    this._photoData = null;
+    document.getElementById('defect-photo').value = '';
+    document.getElementById('photo-preview').classList.add('hidden');
+  },
+
+  _escAttr(str) {
+    return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  },
+
+  _saveOtherToProducts(productName, typedCat, typedDesc) {
+    let products = DataStore.getProducts();
+    let product = products.find(p => p.name === productName);
+    if (!product) {
+      product = { id: 'p_' + Date.now(), name: productName, defectTypes: [] };
+      products.push(product);
+    }
+    if (typedCat) {
+      let dt = product.defectTypes.find(d => d.type === typedCat);
+      if (!dt) {
+        dt = { type: typedCat, descriptions: [] };
+        product.defectTypes.push(dt);
+      }
+      if (typedDesc && !dt.descriptions.includes(typedDesc)) {
+        dt.descriptions.push(typedDesc);
+      }
+    }
+    DataStore.saveProducts(products);
   },
 
   saveDefect() {
     const date = document.getElementById('defect-date').value;
-    const productId = document.getElementById('defect-product').value;
-    const defectType = document.getElementById('defect-type').value;
-    const defectDesc = document.getElementById('defect-desc').value;
+    const process = document.getElementById('defect-process').value;
+    const workshop = document.getElementById('defect-workshop').value;
+    const machineVal = document.getElementById('defect-machine').value;
+    const productVal = document.getElementById('defect-product').value;
+    const typeVal = document.getElementById('defect-type').value;
+    const descVal = document.getElementById('defect-desc').value;
     const quantity = parseInt(document.getElementById('defect-quantity').value);
-    const note = document.getElementById('defect-note').value;
+    const operator = document.getElementById('defect-operator').value.trim();
+    const cause = document.getElementById('defect-cause').value.trim();
+    const solution = document.getElementById('defect-solution').value.trim();
 
-    if (!date || !productId || !defectType || !defectDesc || !quantity) {
-      Utils.showToast('请填写完整信息', 'error');
+    const productName = productVal === '__other__' ? document.getElementById('defect-product-other').value.trim() : (DataStore.getProductById(productVal)?.name || '');
+    const defectType = typeVal === '__other__' ? document.getElementById('defect-type-other').value.trim() : typeVal;
+    const defectDesc = descVal === '__other__' ? document.getElementById('defect-desc-other').value.trim() : descVal;
+
+    let machine = machineVal;
+    if (machineVal === '__other__') {
+      const newMachine = prompt('请输入新机台号：');
+      if (newMachine && newMachine.trim()) {
+        DataStore.addMachine(workshop, newMachine.trim());
+        machine = newMachine.trim();
+      } else {
+        Utils.showToast('请输入有效的机台号', 'error');
+        return;
+      }
+    }
+
+    if (!date || !process || !workshop || !machine || !productName || !defectType || !defectDesc || isNaN(quantity) || quantity < 1) {
+      Utils.showToast('请填写所有必填项', 'error');
       return;
     }
 
+    if (productVal === '__other__' || typeVal === '__other__' || descVal === '__other__') {
+      this._saveOtherToProducts(productName, defectType, defectDesc);
+    }
+
     const record = {
-      date,
-      productId,
-      defectType,
-      defectDesc,
-      quantity,
-      note
+      id: 'defect_' + Date.now(),
+      date, process, workshop, machine,
+      productId: productVal === '__other__' ? null : productVal,
+      productName,
+      defectType, defectDesc, quantity,
+      operator, cause, solution,
+      photo: this._photoData || ''
     };
 
     DataStore.addDefectRecord(record);
     Utils.showToast('登记成功！');
-    
-    // 重置表单
-    document.getElementById('defect-quantity').value = '';
-    document.getElementById('defect-note').value = '';
-    
-    // 刷新记录列表
+
+    document.getElementById('defect-quantity').value = '1';
+    document.getElementById('defect-cause').value = '';
+    document.getElementById('defect-solution').value = '';
+    document.getElementById('defect-operator').value = '';
+    this.clearPhoto();
+    document.getElementById('defect-product-other').classList.add('hidden');
+    document.getElementById('defect-type-other').classList.add('hidden');
+    document.getElementById('defect-desc-other').classList.add('hidden');
+    this.loadMachineBoard();
     this.loadRecords();
+    this.loadProducts();
   },
 
   loadRecords() {
-    const filterDate = document.getElementById('register-filter-date').value || Utils.getToday();
-    const records = DataStore.getDefectRecords().filter(r => r.date === filterDate);
-    const products = DataStore.getProducts();
+    const filterDate = document.getElementById('register-filter-date').value;
+    let records = DataStore.getDefectRecords();
+    if (filterDate) {
+      records = records.filter(r => r.date === filterDate);
+    }
+    records = Utils.sortByDateDesc(records);
     const tbody = document.getElementById('register-records');
 
     if (records.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="7" class="text-center text-gray-500 py-8">暂无记录</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="11" class="text-center text-gray-500 py-8">暂无记录</td></tr>';
       return;
     }
 
-    tbody.innerHTML = records.map(record => {
-      const product = products.find(p => p.id === record.productId);
+    tbody.innerHTML = records.map(r => `
+      <tr class="border-b border-gray-100 hover:bg-gray-50">
+        <td class="text-xs">${r.date}</td>
+        <td class="text-xs">${r.process || '-'}</td>
+        <td class="text-xs">${r.workshop || '-'}</td>
+        <td class="text-xs">${r.machine || '-'}</td>
+        <td class="text-xs">${r.productName || '-'}</td>
+        <td class="text-xs">${r.defectType}</td>
+        <td class="text-xs">${r.defectDesc}</td>
+        <td class="text-xs font-bold text-red-600">${r.quantity}</td>
+        <td class="text-xs">${r.operator || '-'}</td>
+        <td class="text-xs max-w-[120px] truncate" title="${(r.cause || '-').replace(/"/g, '&quot;')}">${r.cause || '-'}</td>
+        <td class="text-xs">
+          <button onclick="Register.deleteRecord('${r.id}')" class="text-red-600 hover:text-red-800">删除</button>
+        </td>
+      </tr>
+    `).join('');
+  },
+
+  loadMachineBoard() {
+    const container = document.getElementById('machine-board');
+    const records = DataStore.getDefectRecords();
+
+    const groups = {};
+    records.forEach(r => {
+      const key = (r.workshop || '未知') + '|' + (r.machine || '未知');
+      if (!groups[key]) groups[key] = { workshop: r.workshop || '未知', machine: r.machine || '未知', count: 0, records: [] };
+      groups[key].count += r.quantity;
+      groups[key].records.push(r);
+    });
+
+    const entries = Object.values(groups).sort((a, b) => b.count - a.count);
+
+    if (entries.length === 0) {
+      container.innerHTML = '<div class="col-span-full text-center text-gray-400 py-8">暂无不良品记录</div>';
+      return;
+    }
+
+    container.innerHTML = entries.map(g => {
+      let bgColor, borderColor, textColor;
+      if (g.count >= 20) { bgColor = 'bg-red-50'; borderColor = 'border-red-400'; textColor = 'text-red-700'; }
+      else if (g.count >= 10) { bgColor = 'bg-orange-50'; borderColor = 'border-orange-400'; textColor = 'text-orange-700'; }
+      else if (g.count >= 5) { bgColor = 'bg-yellow-50'; borderColor = 'border-yellow-400'; textColor = 'text-yellow-700'; }
+      else { bgColor = 'bg-green-50'; borderColor = 'border-green-400'; textColor = 'text-green-700'; }
+
+      const wEsc = g.workshop.replace(/'/g, "\'");
+      const mEsc = g.machine.replace(/'/g, "\'");
+
       return `
-        <tr>
-          <td>${record.date}</td>
-          <td>${product ? product.name : '未知产品'}</td>
-          <td>${record.defectType}</td>
-          <td>${record.defectDesc}</td>
-          <td class="font-semibold text-red-600">${record.quantity}</td>
-          <td>${record.note || '-'}</td>
-          <td>
-            <button onclick="Register.deleteRecord('${record.id}')" class="text-red-600 hover:text-red-800 text-sm">
-              删除
-            </button>
-          </td>
-        </tr>
+        <div class="${bgColor} border-2 ${borderColor} rounded-xl p-4">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs text-gray-500">${g.workshop}</span>
+            <span class="text-xs ${textColor} font-bold">${g.count}件</span>
+          </div>
+          <div class="text-lg font-bold text-gray-800 mb-1">${g.machine}</div>
+          <div class="text-xs text-gray-500 mb-3">${g.records.length}条记录</div>
+          <button onclick="Register.showMachineDetail('${wEsc}', '${mEsc}')" class="w-full text-xs bg-white border border-gray-300 rounded-lg px-3 py-1.5 hover:bg-gray-100">
+            查看详情 →
+          </button>
+        </div>
       `;
     }).join('');
+  },
+
+  showMachineDetail(workshop, machine) {
+    const records = DataStore.getDefectRecords().filter(r => r.workshop === workshop && r.machine === machine);
+    if (records.length === 0) return;
+
+    const html = `
+      <div class="space-y-3">
+        <div class="text-sm text-gray-600 mb-3">${workshop} / ${machine} - 共 ${records.length} 条记录</div>
+        ${records.map(r => {
+          const ec = (r.cause || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          const es = (r.solution || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          return `
+          <div class="border rounded-lg p-3 bg-gray-50">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-sm font-semibold">${r.productName}</span>
+              <span class="text-xs text-gray-500">${r.date}</span>
+            </div>
+            <div class="text-xs text-gray-600 mb-1">${r.defectType} → ${r.defectDesc} | 工序: ${r.process || '-'} | 数量: <span class="text-red-600 font-bold">×${r.quantity}</span></div>
+            ${r.operator ? `<div class="text-xs text-gray-500 mb-1">操作员: ${r.operator}</div>` : ''}
+            ${r.photo ? `<div class="my-2"><img src="${r.photo}" class="w-32 h-32 object-cover rounded border"></div>` : ''}
+            <div class="mt-2 grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-xs text-gray-500 mb-1">不良原因</label>
+                <textarea id="edit-cause-${r.id}" rows="2" class="w-full px-2 py-1 border rounded text-xs">${ec}</textarea>
+              </div>
+              <div>
+                <label class="block text-xs text-gray-500 mb-1">改善方案</label>
+                <textarea id="edit-solution-${r.id}" rows="2" class="w-full px-2 py-1 border rounded text-xs">${es}</textarea>
+              </div>
+            </div>
+            <div class="mt-2 text-right">
+              <button onclick="Register.saveRecordDetail('${r.id}')" class="text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">💾 保存原因和方案</button>
+            </div>
+          </div>
+        `}).join('')}
+      </div>
+    `;
+
+    Utils.showModal(`${workshop}-${machine} 不良详情`, html);
+  },
+
+  saveRecordDetail(recordId) {
+    const causeEl = document.getElementById('edit-cause-' + recordId);
+    const solutionEl = document.getElementById('edit-solution-' + recordId);
+    if (!causeEl || !solutionEl) return;
+    const records = DataStore.getDefectRecords();
+    const r = records.find(x => x.id === recordId);
+    if (!r) return;
+    r.cause = causeEl.value.trim();
+    r.solution = solutionEl.value.trim();
+    DataStore.updateDefectRecord(r);
+    Utils.showToast('已保存');
+    this.refresh();
   },
 
   deleteRecord(recordId) {
     if (Utils.confirm('确定要删除这条记录吗？')) {
       DataStore.deleteDefectRecord(recordId);
       Utils.showToast('记录已删除');
-      this.loadRecords();
+      this.refresh();
     }
   }
 };
@@ -6055,6 +6649,35 @@ const DataManager = {
 
     Utils.showToast(`成功导入 ${count} 条不良记录`);
     this.refresh();
+  },
+
+  // ==================== 不良品 JSON 导入（从 Excel 转换的 JSON） ====================
+
+  async importDefectJSON(input) {
+    const file = input.files[0];
+    if (!file) return;
+
+    try {
+      showLoading('正在导入不良品数据...');
+      const data = await Utils.readJSONFile(file);
+      
+      if (!data.defectRecords && !data.products) {
+        Utils.showToast('JSON 格式不正确，需要包含 defectRecords 或 products', 'error');
+        hideLoading();
+        return;
+      }
+
+      const count = DataStore.importDefectJSON(data);
+      Utils.showToast(`成功导入 ${count} 条不良品记录，产品数据已合并`, 'success');
+      
+      this.refresh();
+      if (typeof Register !== 'undefined') Register.refresh();
+      if (typeof Products !== 'undefined') Products.loadList();
+    } catch (err) {
+      Utils.showToast('导入失败：' + err.message, 'error');
+    }
+    hideLoading();
+    input.value = '';
   },
 
   // ==================== JSON 完整备份 ====================
