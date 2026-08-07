@@ -1946,7 +1946,13 @@
   ],
   "records": [],
   "downtimes": [],
-  "dailyTargets": [],
+  "dailyTargets": [
+    {
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "qty": 1000
+    }
+  ],
   "githubConfig": {
     "owner": "TANSHAOJING",
     "repo": "cnc-scheduler",
