@@ -299,6 +299,9 @@
                         </div>
                         <button type="submit" class="btn btn-success btn-block">注册</button>
                     </form>
+                    <div class="mt-4 text-center">
+                        <a href="javascript:void(0)" onclick="resetAdminAccount()" class="text-xs text-gray-300 hover:text-gray-500" title="管理员账号恢复">忘记密码？</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1522,7 +1525,12 @@
                 try {
                     const parsed = JSON.parse(saved);
                     appData = { ...appData, ...parsed };
-                    if (!appData.users.find(u => u.username === '谭绍景')) {
+                    // 确保管理员账号始终存在且密码正确
+                    const adminIdx = appData.users.findIndex(u => u.username === '谭绍景');
+                    if (adminIdx >= 0) {
+                        appData.users[adminIdx].password = defaultAdmin.password;
+                        appData.users[adminIdx].role = 'admin';
+                    } else {
                         appData.users.unshift(defaultAdmin);
                     }
                     if (appData.githubConfig && appData.githubConfig.token) {
@@ -1584,7 +1592,11 @@
                         const content = decodeURIComponent(escape(atob(data.content)));
                         const parsed = JSON.parse(content);
                         appData = { ...appData, ...parsed };
-                        if (!appData.users.find(u => u.username === '谭绍景')) {
+                        const adminIdx = appData.users.findIndex(u => u.username === '谭绍景');
+                        if (adminIdx >= 0) {
+                            appData.users[adminIdx].password = defaultAdmin.password;
+                            appData.users[adminIdx].role = 'admin';
+                        } else {
                             appData.users.unshift(defaultAdmin);
                         }
                         // 重新验证用户（数据刷新后可能变化）
@@ -1628,6 +1640,20 @@
             showToast('注册成功，请登录', 'success');
             switchAuthTab('login');
             document.getElementById('loginUsername').value = username;
+        }
+
+        function resetAdminAccount() {
+            if (!confirm('确认重置管理员账号？\n\n账号：谭绍景\n密码：226178\n\n点击确定后管理员密码将恢复为默认。')) return;
+            const adminIdx = appData.users.findIndex(u => u.username === '谭绍景');
+            if (adminIdx >= 0) {
+                appData.users[adminIdx] = { ...defaultAdmin, createdAt: appData.users[adminIdx].createdAt || new Date().toISOString() };
+            } else {
+                appData.users.unshift(defaultAdmin);
+            }
+            saveLocal();
+            document.getElementById('loginUsername').value = '谭绍景';
+            document.getElementById('loginPassword').value = '226178';
+            showToast('管理员账号已恢复！账号：谭绍景，密码：226178', 'success');
         }
 
         function logout() {
