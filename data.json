@@ -2102,6 +2102,27 @@
       "note": "",
       "createdAt": "2026-08-08T03:12:44.786Z",
       "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786173968571",
+      "date": "2026-08-08",
+      "machineId": "CNC62",
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "area": "打斜孔",
+      "measurements": [
+        {
+          "dimension": "斜孔：∮6.2+0.02",
+          "instrument": "通止规"
+        }
+      ],
+      "operator": "刘卜涛",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 600,
+      "note": "",
+      "createdAt": "2026-08-08T07:26:08.571Z",
+      "createdBy": "谭绍景"
     }
   ],
   "records": [
@@ -2124,6 +2145,16 @@
       "perClamp": 4,
       "operator": "谭绍景",
       "createdAt": "2026-08-08T03:13:01.075Z"
+    },
+    {
+      "id": "rec_1786173994130",
+      "scheduleId": "sch_1786173968571",
+      "date": "2026-08-08",
+      "qty": 500,
+      "inputQty": 125,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:26:34.130Z"
     }
   ],
   "downtimes": [],
@@ -2132,6 +2163,11 @@
       "productName": "ESEA静盘",
       "process": "一序",
       "qty": 1000
+    },
+    {
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "qty": 2000
     }
   ],
   "githubConfig": {
@@ -2497,7 +2533,12 @@
             ]
           }
         ],
-        "id": "p_1786172906929_gjp2rj"
+        "id": "p_1786172906929_gjp2rj",
+        "process": "一序",
+        "productionFromSchedule": false,
+        "uph": 6.67,
+        "area": "型线开粗",
+        "descriptions": []
       },
       {
         "name": "ESEA静盘",
@@ -2547,7 +2588,12 @@
             ]
           }
         ],
-        "id": "p_1786172906930_5ylada"
+        "id": "p_1786172906930_5ylada",
+        "process": "一序",
+        "productionFromSchedule": false,
+        "uph": 5.45,
+        "area": "型线开粗",
+        "descriptions": []
       },
       {
         "name": "HA动盘",
@@ -2609,7 +2655,12 @@
             ]
           }
         ],
-        "id": "p_1786172906931_on0rz0"
+        "id": "p_1786172906931_on0rz0",
+        "process": "一序",
+        "productionFromSchedule": false,
+        "uph": 6,
+        "area": "型线开粗",
+        "descriptions": []
       },
       {
         "name": "ST动盘",
@@ -2665,7 +2716,12 @@
             ]
           }
         ],
-        "id": "p_1786172906932_hoaia3"
+        "id": "p_1786172906932_hoaia3",
+        "process": "一序",
+        "productionFromSchedule": false,
+        "uph": 6,
+        "area": "型线开粗",
+        "descriptions": []
       },
       {
         "name": "T45静盘",
@@ -2709,7 +2765,12 @@
             ]
           }
         ],
-        "id": "p_1786172906933_asic7v"
+        "id": "p_1786172906933_asic7v",
+        "process": "一序",
+        "productionFromSchedule": false,
+        "uph": 2.61,
+        "area": "型线开粗",
+        "descriptions": []
       },
       {
         "name": "HTHB静盘",
@@ -2758,7 +2819,12 @@
             ]
           }
         ],
-        "id": "p_1786172906934_f0kifr"
+        "id": "p_1786172906934_f0kifr",
+        "process": "一序",
+        "productionFromSchedule": false,
+        "uph": 2.61,
+        "area": "型线开粗",
+        "descriptions": []
       },
       {
         "name": "WX静盘",
@@ -2804,7 +2870,12 @@
             ]
           }
         ],
-        "id": "p_1786172906935_5v5enm"
+        "id": "p_1786172906935_5v5enm",
+        "process": "",
+        "productionFromSchedule": false,
+        "uph": 0,
+        "area": "",
+        "descriptions": []
       },
       {
         "name": "配重块",
@@ -2841,7 +2912,12 @@
             ]
           }
         ],
-        "id": "p_1786172906936_b1n724"
+        "id": "p_1786172906936_b1n724",
+        "process": "",
+        "productionFromSchedule": false,
+        "uph": 0,
+        "area": "",
+        "descriptions": []
       },
       {
         "name": "T45动盘",
@@ -2884,7 +2960,174 @@
             ]
           }
         ],
-        "id": "p_1786172906937_puzjtb"
+        "id": "p_1786172906937_puzjtb",
+        "process": "一序",
+        "productionFromSchedule": false,
+        "uph": 5.71,
+        "area": "型线开粗",
+        "descriptions": []
+      },
+      {
+        "id": "app_下配重块__一序",
+        "name": "下配重块",
+        "process": "一序",
+        "uph": 17.14,
+        "area": "正反面",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_上配重块__一序",
+        "name": "上配重块",
+        "process": "一序",
+        "uph": 13.33,
+        "area": "正反面",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_EM34静盘__二序",
+        "name": "EM34静盘",
+        "process": "二序",
+        "uph": 10.75,
+        "area": "背面精加",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_EM34静盘__三序",
+        "name": "EM34静盘",
+        "process": "三序",
+        "uph": 7.69,
+        "area": "型线精加",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_T45动盘__二序",
+        "name": "T45动盘",
+        "process": "二序",
+        "uph": 17.14,
+        "area": "背面开粗",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_T45动盘__三序",
+        "name": "T45动盘",
+        "process": "三序",
+        "uph": 8.18,
+        "area": "背面精加",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_T45动盘__四序",
+        "name": "T45动盘",
+        "process": "四序",
+        "uph": 5.45,
+        "area": "型线精加",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_ESEA静盘__二序",
+        "name": "ESEA静盘",
+        "process": "二序",
+        "uph": 60,
+        "area": "背面开粗",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_ESEA静盘__三序",
+        "name": "ESEA静盘",
+        "process": "三序",
+        "uph": 14.01,
+        "area": "背面精加",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_ESEA静盘__四序",
+        "name": "ESEA静盘",
+        "process": "四序",
+        "uph": 15,
+        "area": "精加异形孔",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_HTHB静盘__二序",
+        "name": "HTHB静盘",
+        "process": "二序",
+        "uph": 3,
+        "area": "背面精加",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_HTHB静盘__三序",
+        "name": "HTHB静盘",
+        "process": "三序",
+        "uph": 15,
+        "area": "打斜孔",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_T45静盘__二序",
+        "name": "T45静盘",
+        "process": "二序",
+        "uph": 3,
+        "area": "背面精加",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_T45静盘__三序",
+        "name": "T45静盘",
+        "process": "三序",
+        "uph": 15,
+        "area": "打斜孔",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_HA动盘__二序",
+        "name": "HA动盘",
+        "process": "二序",
+        "uph": 45.57,
+        "area": "背面开粗",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_HA动盘__三序",
+        "name": "HA动盘",
+        "process": "三序",
+        "uph": 10.51,
+        "area": "背面精加",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_ST动盘__二序",
+        "name": "ST动盘",
+        "process": "二序",
+        "uph": 37.5,
+        "area": "背面开粗",
+        "productionFromSchedule": false,
+        "descriptions": []
+      },
+      {
+        "id": "app_ST动盘__三序",
+        "name": "ST动盘",
+        "process": "三序",
+        "uph": 10.81,
+        "area": "背面精加",
+        "productionFromSchedule": false,
+        "descriptions": []
       }
     ],
     "production": [
