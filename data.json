@@ -2855,6 +2855,16 @@
   ],
   "records": [
     {
+      "id": "rec_1786158776051",
+      "scheduleId": "sch_1786158728172",
+      "date": "2026-08-08",
+      "qty": 480,
+      "inputQty": 120,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T03:12:56.051Z"
+    },
+    {
       "id": "rec_1786158781075",
       "scheduleId": "sch_1786158764786",
       "date": "2026-08-08",
@@ -3103,16 +3113,6 @@
       "perClamp": 4,
       "operator": "谭绍景",
       "createdAt": "2026-08-08T07:56:32.251Z"
-    },
-    {
-      "id": "rec_1786186986698",
-      "scheduleId": "sch_1786158728172",
-      "date": "2026-08-08",
-      "qty": 480,
-      "inputQty": 120,
-      "perClamp": 4,
-      "operator": "谭绍景",
-      "createdAt": "2026-08-08T11:03:06.698Z"
     }
   ],
   "downtimes": [
