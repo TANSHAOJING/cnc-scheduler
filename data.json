@@ -2553,11 +2553,7 @@
             ]
           }
         ],
-        "id": "p_1786172906929_gjp2rj",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 6.67,
-        "area": "型线开粗"
+        "id": "p_1786172906929_gjp2rj"
       },
       {
         "name": "ESEA静盘",
@@ -2607,11 +2603,7 @@
             ]
           }
         ],
-        "id": "p_1786172906930_5ylada",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 5.45,
-        "area": "型线开粗"
+        "id": "p_1786172906930_5ylada"
       },
       {
         "name": "HA动盘",
@@ -2673,11 +2665,7 @@
             ]
           }
         ],
-        "id": "p_1786172906931_on0rz0",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 6,
-        "area": "型线开粗"
+        "id": "p_1786172906931_on0rz0"
       },
       {
         "name": "ST动盘",
@@ -2733,11 +2721,7 @@
             ]
           }
         ],
-        "id": "p_1786172906932_hoaia3",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 6,
-        "area": "型线开粗"
+        "id": "p_1786172906932_hoaia3"
       },
       {
         "name": "T45静盘",
@@ -2781,11 +2765,7 @@
             ]
           }
         ],
-        "id": "p_1786172906933_asic7v",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 2.61,
-        "area": "型线开粗"
+        "id": "p_1786172906933_asic7v"
       },
       {
         "name": "HTHB静盘",
@@ -2834,11 +2814,7 @@
             ]
           }
         ],
-        "id": "p_1786172906934_f0kifr",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 2.61,
-        "area": "型线开粗"
+        "id": "p_1786172906934_f0kifr"
       },
       {
         "name": "WX静盘",
@@ -2884,11 +2860,7 @@
             ]
           }
         ],
-        "id": "p_1786172906935_5v5enm",
-        "process": "",
-        "productionFromSchedule": false,
-        "uph": 0,
-        "area": ""
+        "id": "p_1786172906935_5v5enm"
       },
       {
         "name": "配重块",
@@ -2925,11 +2897,7 @@
             ]
           }
         ],
-        "id": "p_1786172906936_b1n724",
-        "process": "",
-        "productionFromSchedule": false,
-        "uph": 0,
-        "area": ""
+        "id": "p_1786172906936_b1n724"
       },
       {
         "name": "T45动盘",
@@ -2972,429 +2940,7 @@
             ]
           }
         ],
-        "id": "p_1786172906937_puzjtb",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 5.71,
-        "area": "型线开粗"
-      },
-      {
-        "id": "app_下配重块__一序",
-        "name": "下配重块",
-        "process": "一序",
-        "uph": 17.14,
-        "area": "正反面",
-        "productionFromSchedule": true,
-        "measurements": [
-          {
-            "dimension": "小孔：∮5.05~∮5.15",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "总高度：8.1~8.15",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "台阶高：5.3~5.4",
-            "instrument": "高度表"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_上配重块__一序",
-        "name": "上配重块",
-        "process": "一序",
-        "uph": 13.33,
-        "area": "正反面",
-        "productionFromSchedule": true,
-        "measurements": [
-          {
-            "dimension": "小孔：∮5.05~∮5.15",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "总高度：17.4~17.45",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "台阶高：15.40~15.45",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "台阶高：5.40~5.45",
-            "instrument": "高度表"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_EM34静盘__二序",
-        "name": "EM34静盘",
-        "process": "二序",
-        "uph": 10.75,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "measurements": [
-          {
-            "dimension": "板厚  35.9±0.05",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "2销孔 ∮ 3.485~3.505",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "m6螺纹孔有效深度  9",
-            "instrument": "牙规"
-          },
-          {
-            "dimension": "外圆  60±0.1",
-            "instrument": "卡尺"
-          },
-          {
-            "dimension": "键槽深度  1±0.1",
-            "instrument": "高度规"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_EM34静盘__三序",
-        "name": "EM34静盘",
-        "process": "三序",
-        "uph": 7.69,
-        "area": "型线精加",
-        "productionFromSchedule": true,
-        "measurements": [
-          {
-            "dimension": "板厚35.7±0.015",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "密封槽宽1.6±0.03",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "密封槽高0.99±0.005",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "齿高（型线高度）18.67±0.005",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "销孔（基准孔）∮3.485--3.505",
-            "instrument": "通止规"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_T45动盘__二序",
-        "name": "T45动盘",
-        "process": "二序",
-        "uph": 17.14,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "measurements": [],
-        "defectTypes": []
-      },
-      {
-        "id": "app_T45动盘__三序",
-        "name": "T45动盘",
-        "process": "三序",
-        "uph": 8.18,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "measurements": [],
-        "defectTypes": []
-      },
-      {
-        "id": "app_T45动盘__四序",
-        "name": "T45动盘",
-        "process": "四序",
-        "uph": 5.45,
-        "area": "型线精加",
-        "productionFromSchedule": true,
-        "measurements": [],
-        "defectTypes": []
-      },
-      {
-        "id": "app_ESEA静盘__二序",
-        "name": "ESEA静盘",
-        "process": "二序",
-        "uph": 60,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "measurements": [
-          {
-            "dimension": "高度：40.8±0.08",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "内孔：∮31.±0.05",
-            "instrument": "卡尺"
-          },
-          {
-            "dimension": "外圆：∮99.45±0.08",
-            "instrument": "卡尺"
-          },
-          {
-            "dimension": "轴承孔深度：9±0.1",
-            "instrument": ""
-          },
-          {
-            "dimension": "高度表",
-            "instrument": ""
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_ESEA静盘__三序",
-        "name": "ESEA静盘",
-        "process": "三序",
-        "uph": 14.01,
-        "area": "背面精加",
-        "productionFromSchedule": true,
-        "measurements": [
-          {
-            "dimension": "高度：14.01-14.09",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "内孔：∮31.407-31.413",
-            "instrument": "气密仪"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_ESEA静盘__四序",
-        "name": "ESEA静盘",
-        "process": "四序",
-        "uph": 15,
-        "area": "精加异形孔",
-        "productionFromSchedule": false,
-        "measurements": [],
-        "defectTypes": []
-      },
-      {
-        "id": "app_HTHB静盘__二序",
-        "name": "HTHB静盘",
-        "process": "二序",
-        "uph": 3,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "measurements": [
-          {
-            "dimension": "两个精孔：∮4.965通 ∮4.977止",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "M6牙孔有效深度7毫米",
-            "instrument": "牙规"
-          },
-          {
-            "dimension": "槽深  1.8±0.02",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "槽宽  3.0±0.02",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "总高43.52±0.05",
-            "instrument": "高度表"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_HTHB静盘__三序",
-        "name": "HTHB静盘",
-        "process": "三序",
-        "uph": 15,
-        "area": "打斜孔",
-        "productionFromSchedule": true,
-        "measurements": [
-          {
-            "dimension": "斜孔：∮6.2+0.02",
-            "instrument": "通止规"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_T45静盘__二序",
-        "name": "T45静盘",
-        "process": "二序",
-        "uph": 3,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "measurements": [
-          {
-            "dimension": "两个精孔：∮4.965通 ∮4.977止",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "M6牙孔有效深度7毫米",
-            "instrument": "牙规"
-          },
-          {
-            "dimension": "槽深  1.8±0.02",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "槽宽  3.0±0.02",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "总高49.525±0.03",
-            "instrument": "高度表"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_T45静盘__三序",
-        "name": "T45静盘",
-        "process": "三序",
-        "uph": 15,
-        "area": "打斜孔",
-        "productionFromSchedule": true,
-        "measurements": [
-          {
-            "dimension": "斜孔：∮6.2+0.02",
-            "instrument": "通止规"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_HA动盘__二序",
-        "name": "HA动盘",
-        "process": "二序",
-        "uph": 45.57,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "measurements": [
-          {
-            "dimension": "轴承孔  ∮36.6±0.05",
-            "instrument": "卡尺"
-          },
-          {
-            "dimension": "槽外径  ∮79.2±0.1",
-            "instrument": "卡尺"
-          },
-          {
-            "dimension": "槽深  5.3±0.05",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "板厚  9.6±0.1",
-            "instrument": "卡尺"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_HA动盘__三序",
-        "name": "HA动盘",
-        "process": "三序",
-        "uph": 10.51,
-        "area": "背面精加",
-        "productionFromSchedule": true,
-        "measurements": [
-          {
-            "dimension": "轴承孔  ∮37. 044~∮37.058",
-            "instrument": "气密仪"
-          },
-          {
-            "dimension": "槽外径  ∮79.442~∮79.526",
-            "instrument": "卡尺"
-          },
-          {
-            "dimension": "槽深 5.28-5.3",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "槽宽  2.342-2.426",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "板厚  9.2±0.05",
-            "instrument": "卡尺"
-          },
-          {
-            "dimension": "圆环孔深度4.4~4.5",
-            "instrument": "高度表"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_ST动盘__二序",
-        "name": "ST动盘",
-        "process": "二序",
-        "uph": 37.5,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "measurements": [
-          {
-            "dimension": "轴承孔  ∮36.6±0.05",
-            "instrument": "卡尺"
-          },
-          {
-            "dimension": "槽外径  ∮79.2±0.1",
-            "instrument": "卡尺"
-          },
-          {
-            "dimension": "槽深  5.3±0.05",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "板厚  9.6±0.1",
-            "instrument": "卡尺"
-          }
-        ],
-        "defectTypes": []
-      },
-      {
-        "id": "app_ST动盘__三序",
-        "name": "ST动盘",
-        "process": "三序",
-        "uph": 10.81,
-        "area": "背面精加",
-        "productionFromSchedule": true,
-        "measurements": [
-          {
-            "dimension": "轴承孔  ∮37. 044~∮37.058",
-            "instrument": "气密仪"
-          },
-          {
-            "dimension": "槽外径  ∮79.442~∮79.526",
-            "instrument": "卡尺"
-          },
-          {
-            "dimension": "槽深 5.28-5.3",
-            "instrument": "高度表"
-          },
-          {
-            "dimension": "槽宽  2.342-2.426",
-            "instrument": "通止规"
-          },
-          {
-            "dimension": "板厚  9.2±0.05",
-            "instrument": "卡尺"
-          },
-          {
-            "dimension": "圆环孔深度4.4~4.5",
-            "instrument": "高度表"
-          }
-        ],
-        "defectTypes": []
+        "id": "p_1786172906937_puzjtb"
       }
     ],
     "production": [
