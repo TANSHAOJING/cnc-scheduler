@@ -1334,6 +1334,90 @@
           "instrument": "高度表"
         }
       ]
+    },
+    {
+      "name": "EM34静盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "name": "ESEA静盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "name": "HA动盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "name": "ST动盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "name": "T45静盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "name": "HTHB静盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "name": "WX静盘",
+      "process": "一序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "name": "WX静盘",
+      "process": "二序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "name": "WX静盘",
+      "process": "三序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "name": "WX静盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "name": "配重块",
+      "process": "一序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "name": "T45动盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
     }
   ],
   "employees": [
@@ -2855,6 +2939,16 @@
   ],
   "records": [
     {
+      "id": "rec_1786158776051",
+      "scheduleId": "sch_1786158728172",
+      "date": "2026-08-08",
+      "qty": 480,
+      "inputQty": 120,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T03:12:56.051Z"
+    },
+    {
       "id": "rec_1786158781075",
       "scheduleId": "sch_1786158764786",
       "date": "2026-08-08",
@@ -3103,16 +3197,6 @@
       "perClamp": 4,
       "operator": "谭绍景",
       "createdAt": "2026-08-08T07:56:32.251Z"
-    },
-    {
-      "id": "rec_1786186986698",
-      "scheduleId": "sch_1786158728172",
-      "date": "2026-08-08",
-      "qty": 480,
-      "inputQty": 120,
-      "perClamp": 4,
-      "operator": "谭绍景",
-      "createdAt": "2026-08-08T11:03:06.698Z"
     }
   ],
   "downtimes": [
@@ -3886,10 +3970,11 @@
             "机器故障"
           ],
           "其他工序": [
-            "返修报废",
+            "打码不良",
             "来料不良",
             "漏坯",
-            "碰伤"
+            "碰伤",
+            "返修报废"
           ]
         },
         "id": "p_1786189021617_gyhnat"
@@ -4094,6 +4179,7 @@
             "机器故障"
           ],
           "其他工序": [
+            "打码不良",
             "来料不良",
             "漏坯",
             "碰伤"
