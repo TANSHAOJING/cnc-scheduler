@@ -3573,8 +3573,8 @@
       {
         "name": "ä¸ééå",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "æ­£åé¢",
+        "uph": 17.14,
         "measurements": [
           {
             "dimension": "å°å­ï¼â®5.05~â®5.15",
@@ -3589,14 +3589,13 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true
       },
       {
         "name": "ä¸ééå",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "æ­£åé¢",
+        "uph": 13.33,
         "measurements": [
           {
             "dimension": "å°å­ï¼â®5.05~â®5.15",
@@ -3615,28 +3614,26 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true
       },
       {
         "name": "EM34éç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "åçº¿å¼ç²",
+        "uph": 6.67,
         "measurements": [
           {
             "dimension": "é«åº¦ï¼36.9~37.1",
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "EM34éç",
         "process": "äºåº",
-        "area": "",
-        "uph": 0,
+        "area": "èé¢ç²¾å ",
+        "uph": 10.75,
         "measurements": [
           {
             "dimension": "æ¿å  35.9Â±0.05",
@@ -3659,14 +3656,13 @@
             "instrument": "é«åº¦è§"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "EM34éç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "åçº¿ç²¾å ",
+        "uph": 7.69,
         "measurements": [
           {
             "dimension": "æ¿å35.7Â±0.015",
@@ -3689,50 +3685,45 @@
             "instrument": "éæ­¢è§"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true
       },
       {
         "name": "T45å¨ç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "åçº¿å¼ç²",
+        "uph": 5.71,
         "measurements": [],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45å¨ç",
         "process": "äºåº",
-        "area": "",
-        "uph": 0,
+        "area": "èé¢å¼ç²",
+        "uph": 17.14,
         "measurements": [],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45å¨ç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "èé¢ç²¾å ",
+        "uph": 8.18,
         "measurements": [],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45å¨ç",
         "process": "ååº",
-        "area": "",
-        "uph": 0,
+        "area": "åçº¿ç²¾å ",
+        "uph": 5.45,
         "measurements": [],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true
       },
       {
         "name": "ESEAéç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "åçº¿å¼ç²",
+        "uph": 5.45,
         "measurements": [
           {
             "dimension": "é«åº¦ï¼41.15~41.35",
@@ -3755,14 +3746,13 @@
             "instrument": "å¡è§"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "ESEAéç",
         "process": "äºåº",
-        "area": "",
-        "uph": 0,
+        "area": "èé¢å¼ç²",
+        "uph": 60,
         "measurements": [
           {
             "dimension": "é«åº¦ï¼40.8Â±0.08",
@@ -3785,14 +3775,13 @@
             "instrument": ""
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "ESEAéç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "èé¢ç²¾å ",
+        "uph": 14.01,
         "measurements": [
           {
             "dimension": "é«åº¦ï¼14.01-14.09",
@@ -3803,23 +3792,21 @@
             "instrument": "æ°å¯ä»ª"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true
       },
       {
         "name": "ESEAéç",
         "process": "ååº",
-        "area": "",
-        "uph": 0,
+        "area": "ç²¾å å¼å½¢å­",
+        "uph": 15,
         "measurements": [],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "HTHBéç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "åçº¿å¼ç²",
+        "uph": 2.61,
         "measurements": [
           {
             "dimension": "å®ä½å­  â®4.5Â±0.05",
@@ -3834,14 +3821,13 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "HTHBéç",
         "process": "äºåº",
-        "area": "",
-        "uph": 0,
+        "area": "èé¢ç²¾å ",
+        "uph": 3,
         "measurements": [
           {
             "dimension": "ä¸¤ä¸ªç²¾å­ï¼â®4.965é â®4.977æ­¢",
@@ -3864,28 +3850,26 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "HTHBéç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "ææå­",
+        "uph": 15,
         "measurements": [
           {
             "dimension": "æå­ï¼â®6.2+0.02",
             "instrument": "éæ­¢è§"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true
       },
       {
         "name": "T45éç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "åçº¿å¼ç²",
+        "uph": 2.61,
         "measurements": [
           {
             "dimension": "å®ä½å­  â®4.5Â±0.05",
@@ -3900,14 +3884,13 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45éç",
         "process": "äºåº",
-        "area": "",
-        "uph": 0,
+        "area": "èé¢ç²¾å ",
+        "uph": 3,
         "measurements": [
           {
             "dimension": "ä¸¤ä¸ªç²¾å­ï¼â®4.965é â®4.977æ­¢",
@@ -3930,28 +3913,26 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45éç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "ææå­",
+        "uph": 15,
         "measurements": [
           {
             "dimension": "æå­ï¼â®6.2+0.02",
             "instrument": "éæ­¢è§"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true
       },
       {
         "name": "HAå¨ç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "åçº¿å¼ç²",
+        "uph": 6,
         "measurements": [
           {
             "dimension": "æ¿å10.4~10.6",
@@ -3970,14 +3951,13 @@
             "instrument": "å¡å°º"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "HAå¨ç",
         "process": "äºåº",
-        "area": "",
-        "uph": 0,
+        "area": "èé¢å¼ç²",
+        "uph": 45.57,
         "measurements": [
           {
             "dimension": "è½´æ¿å­  â®36.6Â±0.05",
@@ -3996,14 +3976,13 @@
             "instrument": "å¡å°º"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "HAå¨ç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "èé¢ç²¾å ",
+        "uph": 10.51,
         "measurements": [
           {
             "dimension": "è½´æ¿å­  â®37. 044~â®37.058",
@@ -4030,14 +4009,13 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true
       },
       {
         "name": "STå¨ç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "åçº¿å¼ç²",
+        "uph": 6,
         "measurements": [
           {
             "dimension": "æ¿å10.4~10.6",
@@ -4056,14 +4034,13 @@
             "instrument": "å¡å°º"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "STå¨ç",
         "process": "äºåº",
-        "area": "",
-        "uph": 0,
+        "area": "èé¢å¼ç²",
+        "uph": 37.5,
         "measurements": [
           {
             "dimension": "è½´æ¿å­  â®36.6Â±0.05",
@@ -4082,14 +4059,13 @@
             "instrument": "å¡å°º"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "STå¨ç",
         "process": "ä¸åº",
-        "area": "",
-        "uph": 0,
+        "area": "èé¢ç²¾å ",
+        "uph": 10.81,
         "measurements": [
           {
             "dimension": "è½´æ¿å­  â®37. 044~â®37.058",
@@ -4116,233 +4092,7 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_下配重块__一序",
-        "name": "下配重块",
-        "process": "一序",
-        "uph": 17.14,
-        "area": "正反面",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_上配重块__一序",
-        "name": "上配重块",
-        "process": "一序",
-        "uph": 13.33,
-        "area": "正反面",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_EM34静盘__一序",
-        "name": "EM34静盘",
-        "process": "一序",
-        "uph": 6.67,
-        "area": "型线开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_EM34静盘__二序",
-        "name": "EM34静盘",
-        "process": "二序",
-        "uph": 10.75,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_EM34静盘__三序",
-        "name": "EM34静盘",
-        "process": "三序",
-        "uph": 7.69,
-        "area": "型线精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45动盘__一序",
-        "name": "T45动盘",
-        "process": "一序",
-        "uph": 5.71,
-        "area": "型线开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45动盘__二序",
-        "name": "T45动盘",
-        "process": "二序",
-        "uph": 17.14,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45动盘__三序",
-        "name": "T45动盘",
-        "process": "三序",
-        "uph": 8.18,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45动盘__四序",
-        "name": "T45动盘",
-        "process": "四序",
-        "uph": 5.45,
-        "area": "型线精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_ESEA静盘__一序",
-        "name": "ESEA静盘",
-        "process": "一序",
-        "uph": 5.45,
-        "area": "型线开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_ESEA静盘__二序",
-        "name": "ESEA静盘",
-        "process": "二序",
-        "uph": 60,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_ESEA静盘__三序",
-        "name": "ESEA静盘",
-        "process": "三序",
-        "uph": 14.01,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_ESEA静盘__四序",
-        "name": "ESEA静盘",
-        "process": "四序",
-        "uph": 15,
-        "area": "精加异形孔",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_HTHB静盘__一序",
-        "name": "HTHB静盘",
-        "process": "一序",
-        "uph": 2.61,
-        "area": "型线开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_HTHB静盘__二序",
-        "name": "HTHB静盘",
-        "process": "二序",
-        "uph": 3,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_HTHB静盘__三序",
-        "name": "HTHB静盘",
-        "process": "三序",
-        "uph": 15,
-        "area": "打斜孔",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45静盘__一序",
-        "name": "T45静盘",
-        "process": "一序",
-        "uph": 2.61,
-        "area": "型线开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45静盘__二序",
-        "name": "T45静盘",
-        "process": "二序",
-        "uph": 3,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45静盘__三序",
-        "name": "T45静盘",
-        "process": "三序",
-        "uph": 15,
-        "area": "打斜孔",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_HA动盘__一序",
-        "name": "HA动盘",
-        "process": "一序",
-        "uph": 6,
-        "area": "型线开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_HA动盘__二序",
-        "name": "HA动盘",
-        "process": "二序",
-        "uph": 45.57,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_HA动盘__三序",
-        "name": "HA动盘",
-        "process": "三序",
-        "uph": 10.51,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_ST动盘__一序",
-        "name": "ST动盘",
-        "process": "一序",
-        "uph": 6,
-        "area": "型线开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_ST动盘__二序",
-        "name": "ST动盘",
-        "process": "二序",
-        "uph": 37.5,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_ST动盘__三序",
-        "name": "ST动盘",
-        "process": "三序",
-        "uph": 10.81,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true
       }
     ],
     "production": [
