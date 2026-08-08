@@ -2127,6 +2127,27 @@
       "note": "",
       "createdAt": "2026-08-08T03:12:44.786Z",
       "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786167720235",
+      "date": "2026-08-08",
+      "machineId": "CNC60",
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "area": "打斜孔",
+      "measurements": [
+        {
+          "dimension": "斜孔：∮6.2+0.02",
+          "instrument": "通止规"
+        }
+      ],
+      "operator": "黄有鹏",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 600,
+      "note": "",
+      "createdAt": "2026-08-08T05:42:00.235Z",
+      "createdBy": "谭绍景"
     }
   ],
   "records": [
@@ -2149,6 +2170,16 @@
       "perClamp": 4,
       "operator": "谭绍景",
       "createdAt": "2026-08-08T05:37:54.139Z"
+    },
+    {
+      "id": "rec_1786167731189",
+      "scheduleId": "sch_1786167720235",
+      "date": "2026-08-08",
+      "qty": 568,
+      "inputQty": 142,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T05:42:11.189Z"
     }
   ],
   "downtimes": [],
