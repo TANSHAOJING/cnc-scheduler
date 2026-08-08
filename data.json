@@ -2148,6 +2148,27 @@
       "note": "",
       "createdAt": "2026-08-08T05:42:00.235Z",
       "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786173968571",
+      "date": "2026-08-08",
+      "machineId": "CNC62",
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "area": "打斜孔",
+      "measurements": [
+        {
+          "dimension": "斜孔：∮6.2+0.02",
+          "instrument": "通止规"
+        }
+      ],
+      "operator": "刘卜涛",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 600,
+      "note": "",
+      "createdAt": "2026-08-08T07:26:08.571Z",
+      "createdBy": "谭绍景"
     }
   ],
   "records": [
@@ -2188,6 +2209,111 @@
       "productName": "ESEA静盘",
       "process": "一序",
       "qty": 1000
+    },
+    {
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "qty": 2000
+    },
+    {
+      "productName": "EM34静盘",
+      "process": "一序",
+      "qty": 800
+    },
+    {
+      "productName": "EM34静盘",
+      "process": "三序",
+      "qty": 800
+    },
+    {
+      "productName": "EM34静盘",
+      "process": "二序",
+      "qty": 800
+    },
+    {
+      "productName": "HA动盘",
+      "process": "一序",
+      "qty": 4000
+    },
+    {
+      "productName": "HA动盘",
+      "process": "三序",
+      "qty": 4000
+    },
+    {
+      "productName": "HA动盘",
+      "process": "二序",
+      "qty": 4000
+    },
+    {
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "qty": 2000
+    },
+    {
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "qty": 2000
+    },
+    {
+      "productName": "ST动盘",
+      "process": "一序",
+      "qty": 800
+    },
+    {
+      "productName": "ST动盘",
+      "process": "三序",
+      "qty": 800
+    },
+    {
+      "productName": "ST动盘",
+      "process": "二序",
+      "qty": 800
+    },
+    {
+      "productName": "T45动盘",
+      "process": "一序",
+      "qty": 100
+    },
+    {
+      "productName": "T45动盘",
+      "process": "三序",
+      "qty": 100
+    },
+    {
+      "productName": "T45动盘",
+      "process": "二序",
+      "qty": 100
+    },
+    {
+      "productName": "T45动盘",
+      "process": "四序",
+      "qty": 100
+    },
+    {
+      "productName": "T45静盘",
+      "process": "一序",
+      "qty": 500
+    },
+    {
+      "productName": "T45静盘",
+      "process": "三序",
+      "qty": 500
+    },
+    {
+      "productName": "T45静盘",
+      "process": "二序",
+      "qty": 500
+    },
+    {
+      "productName": "上配重块",
+      "process": "一序",
+      "qty": 500
+    },
+    {
+      "productName": "下配重块",
+      "process": "一序",
+      "qty": 500
     }
   ],
   "githubConfig": {
