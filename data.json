@@ -4540,6 +4540,23 @@
         "cause": "",
         "solution": "",
         "photo": ""
+      },
+      {
+        "id": "defect_1786190250825",
+        "date": "2026-08-08",
+        "shift": "白班",
+        "process": "二序",
+        "workshop": "粗加小车间",
+        "machine": "数车27",
+        "productId": "ESEA静盘",
+        "productName": "ESEA静盘",
+        "defectType": "报废",
+        "defectDesc": "33333",
+        "quantity": 1,
+        "operator": "王日文",
+        "cause": "",
+        "solution": "",
+        "photo": ""
       }
     ],
     "workshops": {
