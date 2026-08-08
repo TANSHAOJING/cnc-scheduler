@@ -854,7 +854,8 @@
           "dimension": "台阶高：5.3~5.4",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "上配重块",
@@ -878,7 +879,8 @@
           "dimension": "台阶高：5.40~5.45",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "EM34静盘",
@@ -890,7 +892,8 @@
           "dimension": "高度：36.9~37.1",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "EM34静盘",
@@ -918,7 +921,8 @@
           "dimension": "键槽深度  1±0.1",
           "instrument": "高度规"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "EM34静盘",
@@ -946,35 +950,40 @@
           "dimension": "销孔（基准孔）∮3.485--3.505",
           "instrument": "通止规"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "T45动盘",
       "process": "一序",
       "area": "型线开粗",
       "uph": 5.71,
-      "measurements": []
+      "measurements": [],
+      "productionFromSchedule": false
     },
     {
       "name": "T45动盘",
       "process": "二序",
       "area": "背面开粗",
       "uph": 17.14,
-      "measurements": []
+      "measurements": [],
+      "productionFromSchedule": false
     },
     {
       "name": "T45动盘",
       "process": "三序",
       "area": "背面精加",
       "uph": 8.18,
-      "measurements": []
+      "measurements": [],
+      "productionFromSchedule": false
     },
     {
       "name": "T45动盘",
       "process": "四序",
       "area": "型线精加",
       "uph": 5.45,
-      "measurements": []
+      "measurements": [],
+      "productionFromSchedule": true
     },
     {
       "name": "ESEA静盘",
@@ -1002,7 +1011,8 @@
           "dimension": "小孔：∮5±0.1",
           "instrument": "塞规"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "ESEA静盘",
@@ -1030,7 +1040,8 @@
           "dimension": "高度表",
           "instrument": ""
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "ESEA静盘",
@@ -1046,14 +1057,16 @@
           "dimension": "内孔：∮31.407-31.413",
           "instrument": "气密仪"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "ESEA静盘",
       "process": "四序",
       "area": "精加异形孔",
       "uph": 15,
-      "measurements": []
+      "measurements": [],
+      "productionFromSchedule": false
     },
     {
       "name": "HTHB静盘",
@@ -1073,7 +1086,8 @@
           "dimension": "总高大于  44",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "HTHB静盘",
@@ -1101,7 +1115,8 @@
           "dimension": "总高43.52±0.05",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "HTHB静盘",
@@ -1113,7 +1128,8 @@
           "dimension": "斜孔：∮6.2+0.02",
           "instrument": "通止规"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "T45静盘",
@@ -1133,7 +1149,8 @@
           "dimension": "总高大于  50",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "T45静盘",
@@ -1161,7 +1178,8 @@
           "dimension": "总高49.525±0.03",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "T45静盘",
@@ -1173,7 +1191,8 @@
           "dimension": "斜孔：∮6.2+0.02",
           "instrument": "通止规"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "HA动盘",
@@ -1197,7 +1216,8 @@
           "dimension": "外圆：∮82.24~82.34",
           "instrument": "卡尺"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "HA动盘",
@@ -1221,7 +1241,8 @@
           "dimension": "板厚  9.6±0.1",
           "instrument": "卡尺"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "HA动盘",
@@ -1253,7 +1274,8 @@
           "dimension": "圆环孔深度4.4~4.5",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "ST动盘",
@@ -1277,7 +1299,8 @@
           "dimension": "外圆：∮82.14~82.24",
           "instrument": "卡尺"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "ST动盘",
@@ -1301,7 +1324,8 @@
           "dimension": "板厚  9.6±0.1",
           "instrument": "卡尺"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "ST动盘",
@@ -1333,7 +1357,8 @@
           "dimension": "圆环孔深度4.4~4.5",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     }
   ],
   "employees": [
@@ -2104,9 +2129,9 @@
       "createdBy": "谭绍景"
     },
     {
-      "id": "sch_1786173968571",
+      "id": "sch_1786167720235",
       "date": "2026-08-08",
-      "machineId": "CNC62",
+      "machineId": "CNC60",
       "productName": "HTHB静盘",
       "process": "三序",
       "area": "打斜孔",
@@ -2116,45 +2141,45 @@
           "instrument": "通止规"
         }
       ],
-      "operator": "刘卜涛",
-      "shift": "夜班",
+      "operator": "黄有鹏",
+      "shift": "白班",
       "hours": 10,
       "planQty": 600,
       "note": "",
-      "createdAt": "2026-08-08T07:26:08.571Z",
+      "createdAt": "2026-08-08T05:42:00.235Z",
       "createdBy": "谭绍景"
     }
   ],
   "records": [
     {
-      "id": "rec_1786158776051",
+      "id": "rec_1786167471563",
       "scheduleId": "sch_1786158728172",
       "date": "2026-08-08",
       "qty": 480,
       "inputQty": 120,
       "perClamp": 4,
       "operator": "谭绍景",
-      "createdAt": "2026-08-08T03:12:56.051Z"
+      "createdAt": "2026-08-08T05:37:51.563Z"
     },
     {
-      "id": "rec_1786158781075",
+      "id": "rec_1786167474139",
       "scheduleId": "sch_1786158764786",
       "date": "2026-08-08",
       "qty": 560,
       "inputQty": 140,
       "perClamp": 4,
       "operator": "谭绍景",
-      "createdAt": "2026-08-08T03:13:01.075Z"
+      "createdAt": "2026-08-08T05:37:54.139Z"
     },
     {
-      "id": "rec_1786173994130",
-      "scheduleId": "sch_1786173968571",
+      "id": "rec_1786167731189",
+      "scheduleId": "sch_1786167720235",
       "date": "2026-08-08",
-      "qty": 500,
-      "inputQty": 125,
+      "qty": 568,
+      "inputQty": 142,
       "perClamp": 4,
       "operator": "谭绍景",
-      "createdAt": "2026-08-08T07:26:34.130Z"
+      "createdAt": "2026-08-08T05:42:11.189Z"
     }
   ],
   "downtimes": [],
@@ -2163,11 +2188,6 @@
       "productName": "ESEA静盘",
       "process": "一序",
       "qty": 1000
-    },
-    {
-      "productName": "HTHB静盘",
-      "process": "三序",
-      "qty": 2000
     }
   ],
   "githubConfig": {
@@ -2505,8 +2525,7 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "ä¸ééå",
@@ -2531,8 +2550,7 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "EM34éç",
@@ -2545,8 +2563,7 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "EM34éç",
@@ -2575,8 +2592,7 @@
             "instrument": "é«åº¦è§"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "EM34éç",
@@ -2605,8 +2621,7 @@
             "instrument": "éæ­¢è§"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45å¨ç",
@@ -2614,8 +2629,7 @@
         "area": "",
         "uph": 0,
         "measurements": [],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45å¨ç",
@@ -2623,8 +2637,7 @@
         "area": "",
         "uph": 0,
         "measurements": [],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45å¨ç",
@@ -2632,8 +2645,7 @@
         "area": "",
         "uph": 0,
         "measurements": [],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45å¨ç",
@@ -2641,8 +2653,7 @@
         "area": "",
         "uph": 0,
         "measurements": [],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "ESEAéç",
@@ -2671,8 +2682,7 @@
             "instrument": "å¡è§"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "ESEAéç",
@@ -2701,8 +2711,7 @@
             "instrument": ""
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "ESEAéç",
@@ -2719,8 +2728,7 @@
             "instrument": "æ°å¯ä»ª"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "ESEAéç",
@@ -2728,8 +2736,7 @@
         "area": "",
         "uph": 0,
         "measurements": [],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "HTHBéç",
@@ -2750,8 +2757,7 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "HTHBéç",
@@ -2780,8 +2786,7 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "HTHBéç",
@@ -2794,8 +2799,7 @@
             "instrument": "éæ­¢è§"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45éç",
@@ -2816,8 +2820,7 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45éç",
@@ -2846,8 +2849,7 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "T45éç",
@@ -2860,8 +2862,7 @@
             "instrument": "éæ­¢è§"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "HAå¨ç",
@@ -2886,8 +2887,7 @@
             "instrument": "å¡å°º"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "HAå¨ç",
@@ -2912,8 +2912,7 @@
             "instrument": "å¡å°º"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "HAå¨ç",
@@ -2946,8 +2945,7 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "STå¨ç",
@@ -2972,8 +2970,7 @@
             "instrument": "å¡å°º"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "STå¨ç",
@@ -2998,8 +2995,7 @@
             "instrument": "å¡å°º"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "name": "STå¨ç",
@@ -3032,8 +3028,7 @@
             "instrument": "é«åº¦è¡¨"
           }
         ],
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": false
       },
       {
         "id": "app_下配重块__一序",
@@ -3041,8 +3036,22 @@
         "process": "一序",
         "uph": 17.14,
         "area": "正反面",
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true,
+        "measurements": [
+          {
+            "dimension": "小孔：∮5.05~∮5.15",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "总高度：8.1~8.15",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "台阶高：5.3~5.4",
+            "instrument": "高度表"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_上配重块__一序",
@@ -3050,8 +3059,26 @@
         "process": "一序",
         "uph": 13.33,
         "area": "正反面",
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true,
+        "measurements": [
+          {
+            "dimension": "小孔：∮5.05~∮5.15",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "总高度：17.4~17.45",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "台阶高：15.40~15.45",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "台阶高：5.40~5.45",
+            "instrument": "高度表"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_EM34静盘__一序",
@@ -3060,7 +3087,13 @@
         "uph": 6.67,
         "area": "型线开粗",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "高度：36.9~37.1",
+            "instrument": "高度表"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_EM34静盘__二序",
@@ -3069,7 +3102,29 @@
         "uph": 10.75,
         "area": "背面精加",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "板厚  35.9±0.05",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "2销孔 ∮ 3.485~3.505",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "m6螺纹孔有效深度  9",
+            "instrument": "牙规"
+          },
+          {
+            "dimension": "外圆  60±0.1",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "键槽深度  1±0.1",
+            "instrument": "高度规"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_EM34静盘__三序",
@@ -3077,8 +3132,30 @@
         "process": "三序",
         "uph": 7.69,
         "area": "型线精加",
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true,
+        "measurements": [
+          {
+            "dimension": "板厚35.7±0.015",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "密封槽宽1.6±0.03",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "密封槽高0.99±0.005",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "齿高（型线高度）18.67±0.005",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "销孔（基准孔）∮3.485--3.505",
+            "instrument": "通止规"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_T45动盘__一序",
@@ -3087,7 +3164,8 @@
         "uph": 5.71,
         "area": "型线开粗",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [],
+        "defectTypes": []
       },
       {
         "id": "app_T45动盘__二序",
@@ -3096,7 +3174,8 @@
         "uph": 17.14,
         "area": "背面开粗",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [],
+        "defectTypes": []
       },
       {
         "id": "app_T45动盘__三序",
@@ -3105,7 +3184,8 @@
         "uph": 8.18,
         "area": "背面精加",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [],
+        "defectTypes": []
       },
       {
         "id": "app_T45动盘__四序",
@@ -3113,8 +3193,9 @@
         "process": "四序",
         "uph": 5.45,
         "area": "型线精加",
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true,
+        "measurements": [],
+        "defectTypes": []
       },
       {
         "id": "app_ESEA静盘__一序",
@@ -3123,7 +3204,29 @@
         "uph": 5.45,
         "area": "型线开粗",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "高度：41.15~41.35",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "型线高度：23.95~24.05",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "键槽高度：9.9~10.1",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "键槽宽度：9~9.1",
+            "instrument": "塞规"
+          },
+          {
+            "dimension": "小孔：∮5±0.1",
+            "instrument": "塞规"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_ESEA静盘__二序",
@@ -3132,7 +3235,29 @@
         "uph": 60,
         "area": "背面开粗",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "高度：40.8±0.08",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "内孔：∮31.±0.05",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "外圆：∮99.45±0.08",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "轴承孔深度：9±0.1",
+            "instrument": ""
+          },
+          {
+            "dimension": "高度表",
+            "instrument": ""
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_ESEA静盘__三序",
@@ -3140,8 +3265,18 @@
         "process": "三序",
         "uph": 14.01,
         "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true,
+        "measurements": [
+          {
+            "dimension": "高度：14.01-14.09",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "内孔：∮31.407-31.413",
+            "instrument": "气密仪"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_ESEA静盘__四序",
@@ -3150,7 +3285,8 @@
         "uph": 15,
         "area": "精加异形孔",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [],
+        "defectTypes": []
       },
       {
         "id": "app_HTHB静盘__一序",
@@ -3159,7 +3295,21 @@
         "uph": 2.61,
         "area": "型线开粗",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "定位孔  ∮4.5±0.05",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "6个通孔 ∮6.3±0.1",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "总高大于  44",
+            "instrument": "高度表"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_HTHB静盘__二序",
@@ -3168,7 +3318,29 @@
         "uph": 3,
         "area": "背面精加",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "两个精孔：∮4.965通 ∮4.977止",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "M6牙孔有效深度7毫米",
+            "instrument": "牙规"
+          },
+          {
+            "dimension": "槽深  1.8±0.02",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "槽宽  3.0±0.02",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "总高43.52±0.05",
+            "instrument": "高度表"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_HTHB静盘__三序",
@@ -3176,8 +3348,14 @@
         "process": "三序",
         "uph": 15,
         "area": "打斜孔",
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true,
+        "measurements": [
+          {
+            "dimension": "斜孔：∮6.2+0.02",
+            "instrument": "通止规"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_T45静盘__一序",
@@ -3186,7 +3364,21 @@
         "uph": 2.61,
         "area": "型线开粗",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "定位孔  ∮4.5±0.05",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "6个通孔 ∮6.3±0.1",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "总高大于  50",
+            "instrument": "高度表"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_T45静盘__二序",
@@ -3195,7 +3387,29 @@
         "uph": 3,
         "area": "背面精加",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "两个精孔：∮4.965通 ∮4.977止",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "M6牙孔有效深度7毫米",
+            "instrument": "牙规"
+          },
+          {
+            "dimension": "槽深  1.8±0.02",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "槽宽  3.0±0.02",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "总高49.525±0.03",
+            "instrument": "高度表"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_T45静盘__三序",
@@ -3203,8 +3417,14 @@
         "process": "三序",
         "uph": 15,
         "area": "打斜孔",
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true,
+        "measurements": [
+          {
+            "dimension": "斜孔：∮6.2+0.02",
+            "instrument": "通止规"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_HA动盘__一序",
@@ -3213,7 +3433,25 @@
         "uph": 6,
         "area": "型线开粗",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "板厚10.4~10.6",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "小孔∮1.2±0.05",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "型线高度：19.8±0.05",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "外圆：∮82.24~82.34",
+            "instrument": "卡尺"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_HA动盘__二序",
@@ -3222,7 +3460,25 @@
         "uph": 45.57,
         "area": "背面开粗",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "轴承孔  ∮36.6±0.05",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "槽外径  ∮79.2±0.1",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "槽深  5.3±0.05",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "板厚  9.6±0.1",
+            "instrument": "卡尺"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_HA动盘__三序",
@@ -3230,8 +3486,34 @@
         "process": "三序",
         "uph": 10.51,
         "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true,
+        "measurements": [
+          {
+            "dimension": "轴承孔  ∮37. 044~∮37.058",
+            "instrument": "气密仪"
+          },
+          {
+            "dimension": "槽外径  ∮79.442~∮79.526",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "槽深 5.28-5.3",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "槽宽  2.342-2.426",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "板厚  9.2±0.05",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "圆环孔深度4.4~4.5",
+            "instrument": "高度表"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_ST动盘__一序",
@@ -3240,7 +3522,25 @@
         "uph": 6,
         "area": "型线开粗",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "板厚10.4~10.6",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "小孔∮1.2±0.05",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "型线高度：23.3±0.05",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "外圆：∮82.14~82.24",
+            "instrument": "卡尺"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_ST动盘__二序",
@@ -3249,7 +3549,25 @@
         "uph": 37.5,
         "area": "背面开粗",
         "productionFromSchedule": false,
-        "descriptions": []
+        "measurements": [
+          {
+            "dimension": "轴承孔  ∮36.6±0.05",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "槽外径  ∮79.2±0.1",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "槽深  5.3±0.05",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "板厚  9.6±0.1",
+            "instrument": "卡尺"
+          }
+        ],
+        "defectTypes": []
       },
       {
         "id": "app_ST动盘__三序",
@@ -3257,8 +3575,34 @@
         "process": "三序",
         "uph": 10.81,
         "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
+        "productionFromSchedule": true,
+        "measurements": [
+          {
+            "dimension": "轴承孔  ∮37. 044~∮37.058",
+            "instrument": "气密仪"
+          },
+          {
+            "dimension": "槽外径  ∮79.442~∮79.526",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "槽深 5.28-5.3",
+            "instrument": "高度表"
+          },
+          {
+            "dimension": "槽宽  2.342-2.426",
+            "instrument": "通止规"
+          },
+          {
+            "dimension": "板厚  9.2±0.05",
+            "instrument": "卡尺"
+          },
+          {
+            "dimension": "圆环孔深度4.4~4.5",
+            "instrument": "高度表"
+          }
+        ],
+        "defectTypes": []
       }
     ],
     "production": [
