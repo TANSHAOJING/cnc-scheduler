@@ -854,7 +854,8 @@
           "dimension": "台阶高：5.3~5.4",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "上配重块",
@@ -878,7 +879,8 @@
           "dimension": "台阶高：5.40~5.45",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "EM34静盘",
@@ -890,7 +892,8 @@
           "dimension": "高度：36.9~37.1",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "EM34静盘",
@@ -918,7 +921,8 @@
           "dimension": "键槽深度  1±0.1",
           "instrument": "高度规"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "EM34静盘",
@@ -946,35 +950,40 @@
           "dimension": "销孔（基准孔）∮3.485--3.505",
           "instrument": "通止规"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "T45动盘",
       "process": "一序",
       "area": "型线开粗",
       "uph": 5.71,
-      "measurements": []
+      "measurements": [],
+      "productionFromSchedule": false
     },
     {
       "name": "T45动盘",
       "process": "二序",
       "area": "背面开粗",
       "uph": 17.14,
-      "measurements": []
+      "measurements": [],
+      "productionFromSchedule": false
     },
     {
       "name": "T45动盘",
       "process": "三序",
       "area": "背面精加",
       "uph": 8.18,
-      "measurements": []
+      "measurements": [],
+      "productionFromSchedule": false
     },
     {
       "name": "T45动盘",
       "process": "四序",
       "area": "型线精加",
       "uph": 5.45,
-      "measurements": []
+      "measurements": [],
+      "productionFromSchedule": true
     },
     {
       "name": "ESEA静盘",
@@ -1002,7 +1011,8 @@
           "dimension": "小孔：∮5±0.1",
           "instrument": "塞规"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "ESEA静盘",
@@ -1030,7 +1040,8 @@
           "dimension": "高度表",
           "instrument": ""
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "ESEA静盘",
@@ -1046,14 +1057,16 @@
           "dimension": "内孔：∮31.407-31.413",
           "instrument": "气密仪"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "ESEA静盘",
       "process": "四序",
       "area": "精加异形孔",
       "uph": 15,
-      "measurements": []
+      "measurements": [],
+      "productionFromSchedule": false
     },
     {
       "name": "HTHB静盘",
@@ -1073,7 +1086,8 @@
           "dimension": "总高大于  44",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "HTHB静盘",
@@ -1101,7 +1115,8 @@
           "dimension": "总高43.52±0.05",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "HTHB静盘",
@@ -1113,7 +1128,8 @@
           "dimension": "斜孔：∮6.2+0.02",
           "instrument": "通止规"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "T45静盘",
@@ -1133,7 +1149,8 @@
           "dimension": "总高大于  50",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "T45静盘",
@@ -1161,7 +1178,8 @@
           "dimension": "总高49.525±0.03",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "T45静盘",
@@ -1173,7 +1191,8 @@
           "dimension": "斜孔：∮6.2+0.02",
           "instrument": "通止规"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "HA动盘",
@@ -1197,7 +1216,8 @@
           "dimension": "外圆：∮82.24~82.34",
           "instrument": "卡尺"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "HA动盘",
@@ -1221,7 +1241,8 @@
           "dimension": "板厚  9.6±0.1",
           "instrument": "卡尺"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "HA动盘",
@@ -1253,7 +1274,8 @@
           "dimension": "圆环孔深度4.4~4.5",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     },
     {
       "name": "ST动盘",
@@ -1277,7 +1299,8 @@
           "dimension": "外圆：∮82.14~82.24",
           "instrument": "卡尺"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "ST动盘",
@@ -1301,7 +1324,8 @@
           "dimension": "板厚  9.6±0.1",
           "instrument": "卡尺"
         }
-      ]
+      ],
+      "productionFromSchedule": false
     },
     {
       "name": "ST动盘",
@@ -1333,7 +1357,8 @@
           "dimension": "圆环孔深度4.4~4.5",
           "instrument": "高度表"
         }
-      ]
+      ],
+      "productionFromSchedule": true
     }
   ],
   "employees": [
