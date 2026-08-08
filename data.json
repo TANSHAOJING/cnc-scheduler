@@ -2887,7 +2887,14 @@
         "id": "p_1786158799954_gjds42"
       }
     ],
-    "production": [],
+    "production": [
+      {
+        "date": "2026-08-08",
+        "productId": "p_1786158799951_h657bn",
+        "quantity": 110,
+        "id": "prod_1786158912307"
+      }
+    ],
     "defects": [
       {
         "id": "defect_1786094054196",
