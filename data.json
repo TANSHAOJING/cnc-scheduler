@@ -854,8 +854,7 @@
           "dimension": "台阶高：5.3~5.4",
           "instrument": "高度表"
         }
-      ],
-      "productionFromSchedule": true
+      ]
     },
     {
       "name": "上配重块",
@@ -879,8 +878,7 @@
           "dimension": "台阶高：5.40~5.45",
           "instrument": "高度表"
         }
-      ],
-      "productionFromSchedule": true
+      ]
     },
     {
       "name": "EM34静盘",
@@ -892,8 +890,7 @@
           "dimension": "高度：36.9~37.1",
           "instrument": "高度表"
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "EM34静盘",
@@ -921,8 +918,7 @@
           "dimension": "键槽深度  1±0.1",
           "instrument": "高度规"
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "EM34静盘",
@@ -950,40 +946,35 @@
           "dimension": "销孔（基准孔）∮3.485--3.505",
           "instrument": "通止规"
         }
-      ],
-      "productionFromSchedule": true
+      ]
     },
     {
       "name": "T45动盘",
       "process": "一序",
       "area": "型线开粗",
       "uph": 5.71,
-      "measurements": [],
-      "productionFromSchedule": false
+      "measurements": []
     },
     {
       "name": "T45动盘",
       "process": "二序",
       "area": "背面开粗",
       "uph": 17.14,
-      "measurements": [],
-      "productionFromSchedule": false
+      "measurements": []
     },
     {
       "name": "T45动盘",
       "process": "三序",
       "area": "背面精加",
       "uph": 8.18,
-      "measurements": [],
-      "productionFromSchedule": false
+      "measurements": []
     },
     {
       "name": "T45动盘",
       "process": "四序",
       "area": "型线精加",
       "uph": 5.45,
-      "measurements": [],
-      "productionFromSchedule": true
+      "measurements": []
     },
     {
       "name": "ESEA静盘",
@@ -1011,8 +1002,7 @@
           "dimension": "小孔：∮5±0.1",
           "instrument": "塞规"
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "ESEA静盘",
@@ -1040,8 +1030,7 @@
           "dimension": "高度表",
           "instrument": ""
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "ESEA静盘",
@@ -1057,16 +1046,14 @@
           "dimension": "内孔：∮31.407-31.413",
           "instrument": "气密仪"
         }
-      ],
-      "productionFromSchedule": true
+      ]
     },
     {
       "name": "ESEA静盘",
       "process": "四序",
       "area": "精加异形孔",
       "uph": 15,
-      "measurements": [],
-      "productionFromSchedule": false
+      "measurements": []
     },
     {
       "name": "HTHB静盘",
@@ -1086,8 +1073,7 @@
           "dimension": "总高大于  44",
           "instrument": "高度表"
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "HTHB静盘",
@@ -1115,8 +1101,7 @@
           "dimension": "总高43.52±0.05",
           "instrument": "高度表"
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "HTHB静盘",
@@ -1128,8 +1113,7 @@
           "dimension": "斜孔：∮6.2+0.02",
           "instrument": "通止规"
         }
-      ],
-      "productionFromSchedule": true
+      ]
     },
     {
       "name": "T45静盘",
@@ -1149,8 +1133,7 @@
           "dimension": "总高大于  50",
           "instrument": "高度表"
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "T45静盘",
@@ -1178,8 +1161,7 @@
           "dimension": "总高49.525±0.03",
           "instrument": "高度表"
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "T45静盘",
@@ -1191,8 +1173,7 @@
           "dimension": "斜孔：∮6.2+0.02",
           "instrument": "通止规"
         }
-      ],
-      "productionFromSchedule": true
+      ]
     },
     {
       "name": "HA动盘",
@@ -1216,8 +1197,7 @@
           "dimension": "外圆：∮82.24~82.34",
           "instrument": "卡尺"
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "HA动盘",
@@ -1241,8 +1221,7 @@
           "dimension": "板厚  9.6±0.1",
           "instrument": "卡尺"
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "HA动盘",
@@ -1274,8 +1253,7 @@
           "dimension": "圆环孔深度4.4~4.5",
           "instrument": "高度表"
         }
-      ],
-      "productionFromSchedule": true
+      ]
     },
     {
       "name": "ST动盘",
@@ -1299,8 +1277,7 @@
           "dimension": "外圆：∮82.14~82.24",
           "instrument": "卡尺"
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "ST动盘",
@@ -1324,8 +1301,7 @@
           "dimension": "板厚  9.6±0.1",
           "instrument": "卡尺"
         }
-      ],
-      "productionFromSchedule": false
+      ]
     },
     {
       "name": "ST动盘",
@@ -1357,8 +1333,7 @@
           "dimension": "圆环孔深度4.4~4.5",
           "instrument": "高度表"
         }
-      ],
-      "productionFromSchedule": true
+      ]
     }
   ],
   "employees": [
@@ -2129,8 +2104,359 @@
       "createdBy": "谭绍景"
     },
     {
-      "id": "sch_1786167720235",
+      "id": "sch_1786173968571",
       "date": "2026-08-08",
+      "machineId": "CNC62",
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "area": "打斜孔",
+      "measurements": [
+        {
+          "dimension": "斜孔：∮6.2+0.02",
+          "instrument": "通止规"
+        }
+      ],
+      "operator": "刘卜涛",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 600,
+      "note": "",
+      "createdAt": "2026-08-08T07:26:08.571Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175058851",
+      "date": "2026-08-08",
+      "machineId": "CNC16",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "高度：41.15~41.35",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "型线高度：23.95~24.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽高度：9.9~10.1",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽宽度：9~9.1",
+          "instrument": "塞规"
+        },
+        {
+          "dimension": "小孔：∮5±0.1",
+          "instrument": "塞规"
+        }
+      ],
+      "operator": "罗泽创",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 110,
+      "note": "",
+      "createdAt": "2026-08-08T07:44:18.851Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175253058",
+      "date": "2026-08-07",
+      "machineId": "CNC30",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  44",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "王芳芳",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 104,
+      "note": "",
+      "createdAt": "2026-08-08T07:47:33.058Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175264163",
+      "date": "2026-08-07",
+      "machineId": "CNC31",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "两个精孔：∮4.965通 ∮4.977止",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "M6牙孔有效深度7毫米",
+          "instrument": "牙规"
+        },
+        {
+          "dimension": "槽深  1.8±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "槽宽  3.0±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高43.52±0.05",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "王芳芳",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 120,
+      "note": "",
+      "createdAt": "2026-08-08T07:47:44.163Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175276378",
+      "date": "2026-08-07",
+      "machineId": "CNC32",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  44",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "王芳芳",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 104,
+      "note": "",
+      "createdAt": "2026-08-08T07:47:56.379Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175291170",
+      "date": "2026-08-07",
+      "machineId": "CNC33",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "两个精孔：∮4.965通 ∮4.977止",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "M6牙孔有效深度7毫米",
+          "instrument": "牙规"
+        },
+        {
+          "dimension": "槽深  1.8±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "槽宽  3.0±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高43.52±0.05",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "王芳芳",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 120,
+      "note": "",
+      "createdAt": "2026-08-08T07:48:11.170Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175314154",
+      "date": "2026-08-07",
+      "machineId": "CNC34",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  44",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "王芳芳",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 104,
+      "note": "",
+      "createdAt": "2026-08-08T07:48:34.154Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175320514",
+      "date": "2026-08-07",
+      "machineId": "CNC35",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "两个精孔：∮4.965通 ∮4.977止",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "M6牙孔有效深度7毫米",
+          "instrument": "牙规"
+        },
+        {
+          "dimension": "槽深  1.8±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "槽宽  3.0±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高43.52±0.05",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "黄有鹏",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 120,
+      "note": "",
+      "createdAt": "2026-08-08T07:48:40.514Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175328177",
+      "date": "2026-08-07",
+      "machineId": "CNC36",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  44",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "黄有鹏",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 104,
+      "note": "",
+      "createdAt": "2026-08-08T07:48:48.177Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175332170",
+      "date": "2026-08-07",
+      "machineId": "CNC37",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "两个精孔：∮4.965通 ∮4.977止",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "M6牙孔有效深度7毫米",
+          "instrument": "牙规"
+        },
+        {
+          "dimension": "槽深  1.8±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "槽宽  3.0±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高43.52±0.05",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "黎荷荣",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 120,
+      "note": "",
+      "createdAt": "2026-08-08T07:48:52.170Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175335529",
+      "date": "2026-08-07",
+      "machineId": "CNC38",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  44",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "范奥登",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 104,
+      "note": "",
+      "createdAt": "2026-08-08T07:48:55.529Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175345393",
+      "date": "2026-08-07",
       "machineId": "CNC60",
       "productName": "HTHB静盘",
       "process": "三序",
@@ -2141,53 +2467,791 @@
           "instrument": "通止规"
         }
       ],
-      "operator": "黄有鹏",
+      "operator": "黄知敏",
       "shift": "白班",
       "hours": 10,
       "planQty": 600,
       "note": "",
-      "createdAt": "2026-08-08T05:42:00.235Z",
+      "createdAt": "2026-08-08T07:49:05.393Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175352369",
+      "date": "2026-08-07",
+      "machineId": "CNC61",
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "area": "打斜孔",
+      "measurements": [
+        {
+          "dimension": "斜孔：∮6.2+0.02",
+          "instrument": "通止规"
+        }
+      ],
+      "operator": "杨聪",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 600,
+      "note": "",
+      "createdAt": "2026-08-08T07:49:12.369Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175357337",
+      "date": "2026-08-07",
+      "machineId": "CNC62",
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "area": "打斜孔",
+      "measurements": [
+        {
+          "dimension": "斜孔：∮6.2+0.02",
+          "instrument": "通止规"
+        }
+      ],
+      "operator": "戴平香",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 600,
+      "note": "",
+      "createdAt": "2026-08-08T07:49:17.337Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175370234",
+      "date": "2026-08-07",
+      "machineId": "CNC30",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  44",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "赵飞英",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 104,
+      "note": "",
+      "createdAt": "2026-08-08T07:49:30.234Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175375458",
+      "date": "2026-08-07",
+      "machineId": "CNC31",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "两个精孔：∮4.965通 ∮4.977止",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "M6牙孔有效深度7毫米",
+          "instrument": "牙规"
+        },
+        {
+          "dimension": "槽深  1.8±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "槽宽  3.0±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高43.52±0.05",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "赵飞英",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 120,
+      "note": "",
+      "createdAt": "2026-08-08T07:49:35.458Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175379193",
+      "date": "2026-08-07",
+      "machineId": "CNC32",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  44",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "赵飞英",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 104,
+      "note": "",
+      "createdAt": "2026-08-08T07:49:39.193Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175382977",
+      "date": "2026-08-07",
+      "machineId": "CNC33",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "两个精孔：∮4.965通 ∮4.977止",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "M6牙孔有效深度7毫米",
+          "instrument": "牙规"
+        },
+        {
+          "dimension": "槽深  1.8±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "槽宽  3.0±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高43.52±0.05",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "赵飞英",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 120,
+      "note": "",
+      "createdAt": "2026-08-08T07:49:42.977Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175387265",
+      "date": "2026-08-07",
+      "machineId": "CNC34",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  44",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "赵飞英",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 104,
+      "note": "",
+      "createdAt": "2026-08-08T07:49:47.265Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175396689",
+      "date": "2026-08-07",
+      "machineId": "CNC35",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "两个精孔：∮4.965通 ∮4.977止",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "M6牙孔有效深度7毫米",
+          "instrument": "牙规"
+        },
+        {
+          "dimension": "槽深  1.8±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "槽宽  3.0±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高43.52±0.05",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "王小琴",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 120,
+      "note": "",
+      "createdAt": "2026-08-08T07:49:56.689Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175400442",
+      "date": "2026-08-07",
+      "machineId": "CNC36",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  44",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "赖亮",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 104,
+      "note": "",
+      "createdAt": "2026-08-08T07:50:00.442Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175406153",
+      "date": "2026-08-07",
+      "machineId": "CNC37",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "两个精孔：∮4.965通 ∮4.977止",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "M6牙孔有效深度7毫米",
+          "instrument": "牙规"
+        },
+        {
+          "dimension": "槽深  1.8±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "槽宽  3.0±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高43.52±0.05",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "刘卜涛",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 120,
+      "note": "",
+      "createdAt": "2026-08-08T07:50:06.153Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175437098",
+      "date": "2026-08-07",
+      "machineId": "CNC38",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "定位孔  ∮4.5±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "6个通孔 ∮6.3±0.1",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高大于  44",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "王小琴",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 104,
+      "note": "",
+      "createdAt": "2026-08-08T07:50:37.098Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175442209",
+      "date": "2026-08-07",
+      "machineId": "CNC60",
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "area": "打斜孔",
+      "measurements": [
+        {
+          "dimension": "斜孔：∮6.2+0.02",
+          "instrument": "通止规"
+        }
+      ],
+      "operator": "江建凯",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 600,
+      "note": "",
+      "createdAt": "2026-08-08T07:50:42.209Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786175448073",
+      "date": "2026-08-07",
+      "machineId": "CNC61",
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "area": "打斜孔",
+      "measurements": [
+        {
+          "dimension": "斜孔：∮6.2+0.02",
+          "instrument": "通止规"
+        }
+      ],
+      "operator": "赖亮",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 600,
+      "note": "",
+      "createdAt": "2026-08-08T07:50:48.073Z",
       "createdBy": "谭绍景"
     }
   ],
   "records": [
     {
-      "id": "rec_1786167471563",
-      "scheduleId": "sch_1786158728172",
-      "date": "2026-08-08",
-      "qty": 480,
-      "inputQty": 120,
-      "perClamp": 4,
-      "operator": "谭绍景",
-      "createdAt": "2026-08-08T05:37:51.563Z"
-    },
-    {
-      "id": "rec_1786167474139",
+      "id": "rec_1786158781075",
       "scheduleId": "sch_1786158764786",
       "date": "2026-08-08",
       "qty": 560,
       "inputQty": 140,
       "perClamp": 4,
       "operator": "谭绍景",
-      "createdAt": "2026-08-08T05:37:54.139Z"
+      "createdAt": "2026-08-08T03:13:01.075Z"
     },
     {
-      "id": "rec_1786167731189",
-      "scheduleId": "sch_1786167720235",
+      "id": "rec_1786173994130",
+      "scheduleId": "sch_1786173968571",
       "date": "2026-08-08",
-      "qty": 568,
-      "inputQty": 142,
+      "qty": 500,
+      "inputQty": 125,
       "perClamp": 4,
       "operator": "谭绍景",
-      "createdAt": "2026-08-08T05:42:11.189Z"
+      "createdAt": "2026-08-08T07:26:34.130Z"
+    },
+    {
+      "id": "rec_1786175598458",
+      "scheduleId": "sch_1786175253058",
+      "date": "2026-08-07",
+      "qty": 80,
+      "inputQty": 20,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:53:18.458Z"
+    },
+    {
+      "id": "rec_1786175606754",
+      "scheduleId": "sch_1786175264163",
+      "date": "2026-08-07",
+      "qty": 96,
+      "inputQty": 24,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:53:26.754Z"
+    },
+    {
+      "id": "rec_1786175612027",
+      "scheduleId": "sch_1786175276378",
+      "date": "2026-08-07",
+      "qty": 100,
+      "inputQty": 25,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:53:32.027Z"
+    },
+    {
+      "id": "rec_1786175617929",
+      "scheduleId": "sch_1786175291170",
+      "date": "2026-08-07",
+      "qty": 96,
+      "inputQty": 24,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:53:37.929Z"
+    },
+    {
+      "id": "rec_1786175621905",
+      "scheduleId": "sch_1786175314154",
+      "date": "2026-08-07",
+      "qty": 92,
+      "inputQty": 23,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:53:41.905Z"
+    },
+    {
+      "id": "rec_1786175626193",
+      "scheduleId": "sch_1786175320514",
+      "date": "2026-08-07",
+      "qty": 88,
+      "inputQty": 22,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:53:46.193Z"
+    },
+    {
+      "id": "rec_1786175630433",
+      "scheduleId": "sch_1786175328177",
+      "date": "2026-08-07",
+      "qty": 104,
+      "inputQty": 26,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:53:50.433Z"
+    },
+    {
+      "id": "rec_1786175638393",
+      "scheduleId": "sch_1786175332170",
+      "date": "2026-08-07",
+      "qty": 92,
+      "inputQty": 23,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:53:58.393Z"
+    },
+    {
+      "id": "rec_1786175642033",
+      "scheduleId": "sch_1786175335529",
+      "date": "2026-08-07",
+      "qty": 108,
+      "inputQty": 27,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:54:02.033Z"
+    },
+    {
+      "id": "rec_1786175653521",
+      "scheduleId": "sch_1786175345393",
+      "date": "2026-08-07",
+      "qty": 480,
+      "inputQty": 120,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:54:13.521Z"
+    },
+    {
+      "id": "rec_1786175659147",
+      "scheduleId": "sch_1786175352369",
+      "date": "2026-08-07",
+      "qty": 492,
+      "inputQty": 123,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:54:19.147Z"
+    },
+    {
+      "id": "rec_1786175663737",
+      "scheduleId": "sch_1786175357337",
+      "date": "2026-08-07",
+      "qty": 496,
+      "inputQty": 124,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:54:23.737Z"
+    },
+    {
+      "id": "rec_1786175673802",
+      "scheduleId": "sch_1786175370234",
+      "date": "2026-08-07",
+      "qty": 92,
+      "inputQty": 23,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:54:33.802Z"
+    },
+    {
+      "id": "rec_1786175682674",
+      "scheduleId": "sch_1786175375458",
+      "date": "2026-08-07",
+      "qty": 104,
+      "inputQty": 26,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:54:42.674Z"
+    },
+    {
+      "id": "rec_1786175687010",
+      "scheduleId": "sch_1786175379193",
+      "date": "2026-08-07",
+      "qty": 96,
+      "inputQty": 24,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:54:47.010Z"
+    },
+    {
+      "id": "rec_1786175694554",
+      "scheduleId": "sch_1786175382977",
+      "date": "2026-08-07",
+      "qty": 80,
+      "inputQty": 20,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:54:54.554Z"
+    },
+    {
+      "id": "rec_1786175701458",
+      "scheduleId": "sch_1786175387265",
+      "date": "2026-08-07",
+      "qty": 100,
+      "inputQty": 25,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:55:01.458Z"
+    },
+    {
+      "id": "rec_1786175714258",
+      "scheduleId": "sch_1786175396689",
+      "date": "2026-08-07",
+      "qty": 100,
+      "inputQty": 25,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:55:14.258Z"
+    },
+    {
+      "id": "rec_1786175767578",
+      "scheduleId": "sch_1786175400442",
+      "date": "2026-08-07",
+      "qty": 140,
+      "inputQty": 35,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:56:07.578Z"
+    },
+    {
+      "id": "rec_1786175775082",
+      "scheduleId": "sch_1786175406153",
+      "date": "2026-08-07",
+      "qty": 104,
+      "inputQty": 26,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:56:15.082Z"
+    },
+    {
+      "id": "rec_1786175780482",
+      "scheduleId": "sch_1786175437098",
+      "date": "2026-08-07",
+      "qty": 100,
+      "inputQty": 25,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:56:20.482Z"
+    },
+    {
+      "id": "rec_1786175787714",
+      "scheduleId": "sch_1786175442209",
+      "date": "2026-08-07",
+      "qty": 488,
+      "inputQty": 122,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:56:27.714Z"
+    },
+    {
+      "id": "rec_1786175792251",
+      "scheduleId": "sch_1786175448073",
+      "date": "2026-08-07",
+      "qty": 500,
+      "inputQty": 125,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:56:32.251Z"
+    },
+    {
+      "id": "rec_1786186986698",
+      "scheduleId": "sch_1786158728172",
+      "date": "2026-08-08",
+      "qty": 480,
+      "inputQty": 120,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T11:03:06.698Z"
     }
   ],
-  "downtimes": [],
+  "downtimes": [
+    {
+      "id": "dt_1786175694554",
+      "scheduleId": "sch_1786175382977",
+      "date": "2026-08-07",
+      "reason": "刀具达到寿命换刀",
+      "customNote": "",
+      "minutes": 60,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-08T07:54:54.554Z"
+    }
+  ],
   "dailyTargets": [
     {
       "productName": "ESEA静盘",
       "process": "一序",
-      "qty": 1000
+      "qty": 300
+    },
+    {
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "qty": 2000
+    },
+    {
+      "productName": "EM34静盘",
+      "process": "一序",
+      "qty": 800
+    },
+    {
+      "productName": "EM34静盘",
+      "process": "三序",
+      "qty": 800
+    },
+    {
+      "productName": "EM34静盘",
+      "process": "二序",
+      "qty": 800
+    },
+    {
+      "productName": "ESEA静盘",
+      "process": "三序",
+      "qty": 300
+    },
+    {
+      "productName": "ESEA静盘",
+      "process": "二序",
+      "qty": 300
+    },
+    {
+      "productName": "ESEA静盘",
+      "process": "四序",
+      "qty": 300
+    },
+    {
+      "productName": "HA动盘",
+      "process": "一序",
+      "qty": 4000
+    },
+    {
+      "productName": "HA动盘",
+      "process": "三序",
+      "qty": 4000
+    },
+    {
+      "productName": "HA动盘",
+      "process": "二序",
+      "qty": 4000
+    },
+    {
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "qty": 2000
+    },
+    {
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "qty": 2000
+    },
+    {
+      "productName": "ST动盘",
+      "process": "一序",
+      "qty": 800
+    },
+    {
+      "productName": "ST动盘",
+      "process": "三序",
+      "qty": 800
+    },
+    {
+      "productName": "ST动盘",
+      "process": "二序",
+      "qty": 800
+    },
+    {
+      "productName": "T45动盘",
+      "process": "一序",
+      "qty": 100
+    },
+    {
+      "productName": "T45动盘",
+      "process": "三序",
+      "qty": 100
+    },
+    {
+      "productName": "T45动盘",
+      "process": "二序",
+      "qty": 100
+    },
+    {
+      "productName": "T45动盘",
+      "process": "四序",
+      "qty": 100
+    },
+    {
+      "productName": "T45静盘",
+      "process": "一序",
+      "qty": 500
+    },
+    {
+      "productName": "T45静盘",
+      "process": "三序",
+      "qty": 500
+    },
+    {
+      "productName": "T45静盘",
+      "process": "二序",
+      "qty": 500
+    },
+    {
+      "productName": "上配重块",
+      "process": "一序",
+      "qty": 500
+    },
+    {
+      "productName": "下配重块",
+      "process": "一序",
+      "qty": 500
     }
   ],
   "githubConfig": {
@@ -2565,12 +3629,7 @@
             "打码不良"
           ]
         },
-        "id": "p_1786187057921_jjkb84",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 6.67,
-        "area": "型线开粗",
-        "descriptions": []
+        "id": "p_1786187057921_jjkb84"
       },
       {
         "name": "ESEA静盘",
@@ -2626,12 +3685,7 @@
             "来料不良"
           ]
         },
-        "id": "p_1786187057921_dkj7ey",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 5.45,
-        "area": "型线开粗",
-        "descriptions": []
+        "id": "p_1786187057921_dkj7ey"
       },
       {
         "name": "HA动盘",
@@ -2703,12 +3757,7 @@
             "氧化"
           ]
         },
-        "id": "p_1786187057921_ygcsoq",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 6,
-        "area": "型线开粗",
-        "descriptions": []
+        "id": "p_1786187057921_ygcsoq"
       },
       {
         "name": "ST动盘",
@@ -2780,12 +3829,7 @@
             "氧化"
           ]
         },
-        "id": "p_1786187057921_oin4mo",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 6,
-        "area": "型线开粗",
-        "descriptions": []
+        "id": "p_1786187057921_oin4mo"
       },
       {
         "name": "T45静盘",
@@ -2848,12 +3892,7 @@
             "碰伤"
           ]
         },
-        "id": "p_1786187057921_j29aw9",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 2.61,
-        "area": "型线开粗",
-        "descriptions": []
+        "id": "p_1786187057921_j29aw9"
       },
       {
         "name": "HTHB静盘",
@@ -2916,12 +3955,7 @@
             "碰伤"
           ]
         },
-        "id": "p_1786187057921_m241x2",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 2.61,
-        "area": "型线开粗",
-        "descriptions": []
+        "id": "p_1786187057921_m241x2"
       },
       {
         "name": "WX静盘",
@@ -2984,12 +4018,7 @@
             "碰伤"
           ]
         },
-        "id": "p_1786187057921_qlq5nz",
-        "process": "",
-        "productionFromSchedule": false,
-        "uph": 0,
-        "area": "",
-        "descriptions": []
+        "id": "p_1786187057921_qlq5nz"
       },
       {
         "name": "配重块",
@@ -3008,12 +4037,7 @@
             "工装偏了"
           ]
         },
-        "id": "p_1786187057921_xe6pfg",
-        "process": "",
-        "productionFromSchedule": false,
-        "uph": 0,
-        "area": "",
-        "descriptions": []
+        "id": "p_1786187057921_xe6pfg"
       },
       {
         "name": "T45动盘",
@@ -3075,174 +4099,7 @@
             "碰伤"
           ]
         },
-        "id": "p_1786187057921_mlob5r",
-        "process": "一序",
-        "productionFromSchedule": false,
-        "uph": 5.71,
-        "area": "型线开粗",
-        "descriptions": []
-      },
-      {
-        "id": "app_下配重块__一序",
-        "name": "下配重块",
-        "process": "一序",
-        "uph": 17.14,
-        "area": "正反面",
-        "productionFromSchedule": true,
-        "descriptions": []
-      },
-      {
-        "id": "app_上配重块__一序",
-        "name": "上配重块",
-        "process": "一序",
-        "uph": 13.33,
-        "area": "正反面",
-        "productionFromSchedule": true,
-        "descriptions": []
-      },
-      {
-        "id": "app_EM34静盘__二序",
-        "name": "EM34静盘",
-        "process": "二序",
-        "uph": 10.75,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_EM34静盘__三序",
-        "name": "EM34静盘",
-        "process": "三序",
-        "uph": 7.69,
-        "area": "型线精加",
-        "productionFromSchedule": true,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45动盘__二序",
-        "name": "T45动盘",
-        "process": "二序",
-        "uph": 17.14,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45动盘__三序",
-        "name": "T45动盘",
-        "process": "三序",
-        "uph": 8.18,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45动盘__四序",
-        "name": "T45动盘",
-        "process": "四序",
-        "uph": 5.45,
-        "area": "型线精加",
-        "productionFromSchedule": true,
-        "descriptions": []
-      },
-      {
-        "id": "app_ESEA静盘__二序",
-        "name": "ESEA静盘",
-        "process": "二序",
-        "uph": 60,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_ESEA静盘__三序",
-        "name": "ESEA静盘",
-        "process": "三序",
-        "uph": 14.01,
-        "area": "背面精加",
-        "productionFromSchedule": true,
-        "descriptions": []
-      },
-      {
-        "id": "app_ESEA静盘__四序",
-        "name": "ESEA静盘",
-        "process": "四序",
-        "uph": 15,
-        "area": "精加异形孔",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_HTHB静盘__二序",
-        "name": "HTHB静盘",
-        "process": "二序",
-        "uph": 3,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_HTHB静盘__三序",
-        "name": "HTHB静盘",
-        "process": "三序",
-        "uph": 15,
-        "area": "打斜孔",
-        "productionFromSchedule": true,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45静盘__二序",
-        "name": "T45静盘",
-        "process": "二序",
-        "uph": 3,
-        "area": "背面精加",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_T45静盘__三序",
-        "name": "T45静盘",
-        "process": "三序",
-        "uph": 15,
-        "area": "打斜孔",
-        "productionFromSchedule": true,
-        "descriptions": []
-      },
-      {
-        "id": "app_HA动盘__二序",
-        "name": "HA动盘",
-        "process": "二序",
-        "uph": 45.57,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_HA动盘__三序",
-        "name": "HA动盘",
-        "process": "三序",
-        "uph": 10.51,
-        "area": "背面精加",
-        "productionFromSchedule": true,
-        "descriptions": []
-      },
-      {
-        "id": "app_ST动盘__二序",
-        "name": "ST动盘",
-        "process": "二序",
-        "uph": 37.5,
-        "area": "背面开粗",
-        "productionFromSchedule": false,
-        "descriptions": []
-      },
-      {
-        "id": "app_ST动盘__三序",
-        "name": "ST动盘",
-        "process": "三序",
-        "uph": 10.81,
-        "area": "背面精加",
-        "productionFromSchedule": true,
-        "descriptions": []
+        "id": "p_1786187057921_mlob5r"
       }
     ],
     "production": [
