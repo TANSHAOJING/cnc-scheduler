@@ -3093,14 +3093,14 @@
       "createdAt": "2026-08-09T11:58:14.893Z"
     },
     {
-      "id": "rec_1786276703948",
+      "id": "rec_1786276758398",
       "scheduleId": "sch_1786276419038",
       "date": "2026-08-09",
-      "qty": 101,
-      "inputQty": 101,
+      "qty": 102,
+      "inputQty": 102,
       "perClamp": 1,
       "operator": "罗泽创",
-      "createdAt": "2026-08-09T11:58:23.948Z"
+      "createdAt": "2026-08-09T11:59:18.398Z"
     }
   ],
   "downtimes": [
