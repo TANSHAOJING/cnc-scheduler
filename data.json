@@ -1780,6 +1780,16 @@
       "perClamp": 4,
       "operator": "谭绍景",
       "createdAt": "2026-08-09T03:14:04.400Z"
+    },
+    {
+      "id": "rec_1786245675377",
+      "scheduleId": "sch_1786234938216_gb3877",
+      "date": "2026-08-09",
+      "qty": 222,
+      "inputQty": 111,
+      "perClamp": 2,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T03:21:15.377Z"
     }
   ],
   "downtimes": [
