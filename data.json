@@ -1359,6 +1359,102 @@
         }
       ],
       "productionFromSchedule": true
+    },
+    {
+      "id": "p_pzk_一序",
+      "name": "配重块",
+      "process": "一序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_em34_其他工序",
+      "name": "EM34静盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_esea_其他工序",
+      "name": "ESEA静盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_ha_其他工序",
+      "name": "HA动盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_hthd_其他工序",
+      "name": "HTHB静盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_st_其他工序",
+      "name": "ST动盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_t45d_其他工序",
+      "name": "T45动盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_t45j_其他工序",
+      "name": "T45静盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_wx_一序",
+      "name": "WX静盘",
+      "process": "一序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_wx_二序",
+      "name": "WX静盘",
+      "process": "二序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_wx_三序",
+      "name": "WX静盘",
+      "process": "三序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_wx_其他工序",
+      "name": "WX静盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
     }
   ],
   "employees": [
@@ -1367,319 +1463,312 @@
       "name": "王日文",
       "shift": "白班",
       "position": "CNC师傅",
-      "remark": "人员统筹、协调"
+      "remark": "人员统筹、综合协调"
     },
     {
       "id": "2",
       "name": "谭绍景",
       "shift": "白班",
       "position": "车床工艺工程师",
-      "remark": "工艺及生产管理\n编程、调机、打样"
+      "remark": "车铣人员管理、编程"
     },
     {
       "id": "3",
-      "name": "罗泽创",
-      "shift": "白班",
-      "position": "车床技术助理",
-      "remark": "车床巡检、换刀\n送检、看报告"
-    },
-    {
-      "id": "4",
       "name": "何梅",
       "shift": "白班",
       "position": "三坐标工程师",
       "remark": "三坐标测量负责人"
     },
     {
-      "id": "5",
+      "id": "4",
       "name": "王芳芳",
       "shift": "白班",
-      "position": "全检外观检验",
+      "position": "外观检验",
       "remark": ""
     },
     {
-      "id": "6",
-      "name": "黄有鹏",
-      "shift": "白班",
-      "position": "CNC设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "7",
-      "name": "聂敬文",
-      "shift": "白班",
-      "position": "车床师傅",
-      "remark": "车床班组长\n设备调机与维护"
-    },
-    {
-      "id": "8",
+      "id": "5",
       "name": "江学优",
       "shift": "白班",
       "position": "CNC师傅",
-      "remark": "负责打样及精加工"
+      "remark": "打样量产精加工调试"
+    },
+    {
+      "id": "6",
+      "name": "王志强",
+      "shift": "白班",
+      "position": "CNC工艺工程师",
+      "remark": "程序编写、优化参数"
+    },
+    {
+      "id": "7",
+      "name": "杨聪",
+      "shift": "白班",
+      "position": "打样技术助理",
+      "remark": "打样"
+    },
+    {
+      "id": "8",
+      "name": "黎荷荣",
+      "shift": "白班",
+      "position": "压饼机操作",
+      "remark": ""
     },
     {
       "id": "9",
-      "name": "戴平香",
-      "shift": "白班",
-      "position": "CNC设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "10",
-      "name": "王志强",
-      "shift": "白班",
-      "position": "CNC编程",
-      "remark": ""
-    },
-    {
-      "id": "11",
-      "name": "黄知敏",
-      "shift": "白班",
-      "position": "CNC师傅",
-      "remark": "CNC班组长\n设备调试与维护"
-    },
-    {
-      "id": "12",
-      "name": "字宝元",
-      "shift": "白班",
-      "position": "车床设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "13",
-      "name": "杨聪",
-      "shift": "白班",
-      "position": "CNC打样技术助理",
-      "remark": "调机、打样"
-    },
-    {
-      "id": "14",
-      "name": "黎荷荣",
-      "shift": "白班",
-      "position": "后勤压饼机操作",
-      "remark": ""
-    },
-    {
-      "id": "15",
-      "name": "胡华平",
-      "shift": "白班",
-      "position": "CNC设备操作员",
-      "remark": "请长假"
-    },
-    {
-      "id": "16",
-      "name": "范奥登",
-      "shift": "白班",
-      "position": "车床技术助理",
-      "remark": "车床巡检、换刀\n送检、看报告"
-    },
-    {
-      "id": "17",
       "name": "丘鑫荣",
-      "shift": "白班",
-      "position": "车床设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "18",
-      "name": "周树明",
-      "shift": "白班",
-      "position": "CNC技术助理",
-      "remark": "CNC、换刀\n送检、看报告"
-    },
-    {
-      "id": "19",
-      "name": "唐文斌",
-      "shift": "白班",
-      "position": "CNC巡检",
-      "remark": "CNC、巡检、换刀\n送检、看报告"
-    },
-    {
-      "id": "20",
-      "name": "吴开志",
       "shift": "白班",
       "position": "设备操作员",
       "remark": ""
     },
     {
-      "id": "21",
-      "name": "范厚旺",
-      "shift": "白班",
-      "position": "CNC设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "22",
+      "id": "10",
       "name": "林玉淳",
       "shift": "白班",
-      "position": "全检外观检验",
+      "position": "外观检验",
       "remark": ""
     },
     {
-      "id": "23",
+      "id": "11",
       "name": "王奥运",
       "shift": "白班",
       "position": "物料",
-      "remark": "毛坯和产品接收\n以及发货登记"
-    },
-    {
-      "id": "24",
-      "name": "时国明",
-      "shift": "白班",
-      "position": "车床设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "25",
-      "name": "王瑞",
-      "shift": "白班",
-      "position": "CNC设备操作员",
       "remark": ""
     },
     {
-      "id": "26",
-      "name": "宋奥雪",
-      "shift": "白班",
-      "position": "三坐标测量",
-      "remark": ""
-    },
-    {
-      "id": "27",
-      "name": "江翠雯",
-      "shift": "白班",
-      "position": "全检外观检验",
-      "remark": ""
-    },
-    {
-      "id": "28",
-      "name": "朱蓉",
-      "shift": "白班",
-      "position": "打码",
-      "remark": ""
-    },
-    {
-      "id": "29",
+      "id": "12",
       "name": "黄楚怡",
       "shift": "白班",
       "position": "打码",
       "remark": ""
     },
     {
-      "id": "30",
-      "name": "刘江",
-      "shift": "白班",
-      "position": "CNC设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "31",
+      "id": "13",
       "name": "刘安近",
       "shift": "白班",
-      "position": "清渣",
+      "position": "清渣后勤",
       "remark": "临时工"
     },
     {
-      "id": "32",
+      "id": "14",
       "name": "马嘉明",
       "shift": "白班",
       "position": "后勤",
       "remark": "临时工"
     },
     {
-      "id": "33",
-      "name": "李会周",
+      "id": "15",
+      "name": "付旭洋",
       "shift": "白班",
-      "position": "CNC设备操作员",
+      "position": "物料协助",
+      "remark": "临时工"
+    },
+    {
+      "id": "16",
+      "name": "何峰",
+      "shift": "白班",
+      "position": "车床师傅",
+      "remark": "车床班组长"
+    },
+    {
+      "id": "17",
+      "name": "徐长蓉",
+      "shift": "白班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "18",
+      "name": "路培满",
+      "shift": "白班",
+      "position": "车床技术助理",
+      "remark": "车床巡检送检看报告"
+    },
+    {
+      "id": "19",
+      "name": "刘大国",
+      "shift": "白班",
+      "position": "CNC师傅",
+      "remark": "CNC班组长"
+    },
+    {
+      "id": "20",
+      "name": "赵飞英",
+      "shift": "白班",
+      "position": "外观检验",
+      "remark": ""
+    },
+    {
+      "id": "21",
+      "name": "刘卜涛",
+      "shift": "白班",
+      "position": "CNC技术助理",
+      "remark": "CNC换刀送检看报告"
+    },
+    {
+      "id": "22",
+      "name": "王小琴",
+      "shift": "白班",
+      "position": "三坐标测量",
+      "remark": "报告传输、异常登记"
+    },
+    {
+      "id": "23",
+      "name": "江建凯",
+      "shift": "白班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "24",
+      "name": "赖亮",
+      "shift": "白班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "25",
+      "name": "邱子浩",
+      "shift": "白班",
+      "position": "设备操作员",
+      "remark": "暑假工"
+    },
+    {
+      "id": "26",
+      "name": "黄镇权",
+      "shift": "白班",
+      "position": "清洗",
+      "remark": ""
+    },
+    {
+      "id": "27",
+      "name": "徐亚星",
+      "shift": "白班",
+      "position": "车床技术助理",
+      "remark": "车床换刀送检看报告"
+    },
+    {
+      "id": "28",
+      "name": "王金才",
+      "shift": "白班",
+      "position": "cnc巡检",
+      "remark": "CNC巡检送检看报告"
+    },
+    {
+      "id": "29",
+      "name": "罗建宇",
+      "shift": "白班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "30",
+      "name": "章开宝",
+      "shift": "白班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "31",
+      "name": "罗中华",
+      "shift": "白班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "32",
+      "name": "陈保军",
+      "shift": "白班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "33",
+      "name": "陈浩",
+      "shift": "白班",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
       "id": "34",
-      "name": "肖霜",
+      "name": "李嘉浩",
       "shift": "白班",
-      "position": "清洗",
-      "remark": "临时工"
-    },
-    {
-      "id": "35",
-      "name": "潘围",
-      "shift": "白班",
-      "position": "清洗",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
       "id": "36",
-      "name": "张万春",
+      "name": "包尚鑫",
       "shift": "白班",
-      "position": "CNC设备操作员",
+      "position": "打码",
       "remark": "临时工"
     },
     {
       "id": "37",
-      "name": "付元文",
+      "name": "赵佰儒",
       "shift": "白班",
-      "position": "车床设备操作员",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
       "id": "38",
-      "name": "徐永孟",
+      "name": "荣正根",
       "shift": "白班",
-      "position": "车床设备操作员",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
       "id": "39",
-      "name": "陈家栋",
+      "name": "彭英杰",
       "shift": "白班",
-      "position": "CNC设备操作员",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
       "id": "40",
-      "name": "吴过",
+      "name": "冯子明",
       "shift": "白班",
-      "position": "CNC设备操作员",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
       "id": "41",
-      "name": "陈世豪",
+      "name": "陈国豪",
       "shift": "白班",
-      "position": "清洗",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
       "id": "42",
-      "name": "付旭洋",
+      "name": "廖明哲",
       "shift": "白班",
-      "position": "仓库助理",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
       "id": "43",
-      "name": "彭威",
+      "name": "刘志远",
       "shift": "白班",
-      "position": "CNC设备操作员",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
       "id": "44",
-      "name": "王冠清",
+      "name": "安伟",
       "shift": "白班",
-      "position": "CNC设备操作员",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
       "id": "45",
-      "name": "杨红云",
+      "name": "黄仔兴",
       "shift": "白班",
-      "position": "CNC设备操作员",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
       "id": "46",
-      "name": "王子豪",
+      "name": "刘江",
       "shift": "白班",
       "position": "CNC设备操作员",
       "remark": "临时工"
@@ -1688,252 +1777,259 @@
       "id": "47",
       "name": "龚建创",
       "shift": "白班",
-      "position": "车床设备操作员",
-      "remark": "暑假工"
+      "position": "设备操作员",
+      "remark": "临时工/暑假工"
     },
     {
       "id": "48",
       "name": "姜帅",
       "shift": "白班",
-      "position": "cnc设备操作员",
-      "remark": "暑假工"
+      "position": "设备操作员",
+      "remark": "临时工/暑假工"
     },
     {
       "id": "49",
-      "name": "何廷塞",
+      "name": "贾紫嫣",
       "shift": "白班",
-      "position": "设备操作员",
-      "remark": "临时工"
+      "position": "打码",
+      "remark": ""
     },
     {
       "id": "50",
-      "name": "何峰",
-      "shift": "夜班",
-      "position": "车床师傅",
-      "remark": "车床班组长\n设备调机与维护"
+      "name": "郭海平",
+      "shift": "白班",
+      "position": "打样",
+      "remark": ""
     },
     {
-      "id": "51",
-      "name": "徐长蓉",
+      "id": "1",
+      "name": "聂敬文",
+      "shift": "夜班",
+      "position": "车床师傅",
+      "remark": "车床班组长"
+    },
+    {
+      "id": "2",
+      "name": "黄知敏",
+      "shift": "夜班",
+      "position": "CNC师傅",
+      "remark": "CNC班组长"
+    },
+    {
+      "id": "3",
+      "name": "罗泽创",
+      "shift": "夜班",
+      "position": "车床技术助理",
+      "remark": "车床换刀送检看报告"
+    },
+    {
+      "id": "4",
+      "name": "黄有鹏",
       "shift": "夜班",
       "position": "CNC设备操作员",
       "remark": ""
     },
     {
-      "id": "52",
-      "name": "路培满",
+      "id": "5",
+      "name": "戴平香",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "6",
+      "name": "字宝元",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "7",
+      "name": "范奥登",
       "shift": "夜班",
       "position": "车床技术助理",
-      "remark": "车床巡检、送检\n看报告"
+      "remark": "车床换刀送检看报告"
     },
     {
-      "id": "53",
-      "name": "刘大国",
+      "id": "8",
+      "name": "周树明",
       "shift": "夜班",
-      "position": "CNC师傅",
-      "remark": "CNC班组长\n设备调试与维护"
+      "position": "CNC技术助理",
+      "remark": "CNC换刀送检看报告"
     },
     {
-      "id": "54",
-      "name": "赵飞英",
+      "id": "9",
+      "name": "唐文斌",
+      "shift": "夜班",
+      "position": "CNC巡检",
+      "remark": "CNC巡检送检看报告"
+    },
+    {
+      "id": "10",
+      "name": "吴开志",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "11",
+      "name": "范厚旺",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "12",
+      "name": "时国明",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "13",
+      "name": "朱蓉",
+      "shift": "夜班",
+      "position": "打码",
+      "remark": "暑假工"
+    },
+    {
+      "id": "14",
+      "name": "王瑞",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "15",
+      "name": "宋奥雪",
+      "shift": "夜班",
+      "position": "三坐标测量",
+      "remark": "报告传输、异常登记"
+    },
+    {
+      "id": "16",
+      "name": "江翠雯",
       "shift": "夜班",
       "position": "外观检验",
       "remark": ""
     },
     {
-      "id": "55",
-      "name": "刘卜涛",
-      "shift": "夜班",
-      "position": "CNC技术助理",
-      "remark": "CNC、换刀\n送检、看报告"
-    },
-    {
-      "id": "56",
-      "name": "王小琴",
-      "shift": "夜班",
-      "position": "三坐标测量",
-      "remark": ""
-    },
-    {
-      "id": "57",
-      "name": "梅全立",
-      "shift": "夜班",
-      "position": "压饼机操作",
-      "remark": ""
-    },
-    {
-      "id": "58",
-      "name": "江建凯",
-      "shift": "夜班",
-      "position": "CNC设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "59",
-      "name": "赖亮",
-      "shift": "夜班",
-      "position": "CNC设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "60",
-      "name": "邱子浩",
-      "shift": "夜班",
-      "position": "CNC设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "61",
-      "name": "黄镇权",
-      "shift": "夜班",
-      "position": "清洗",
-      "remark": ""
-    },
-    {
-      "id": "62",
-      "name": "徐亚星",
-      "shift": "夜班",
-      "position": "车床技术助理",
-      "remark": "车床巡检、换刀\n送检、看报告"
-    },
-    {
-      "id": "63",
-      "name": "王金才",
-      "shift": "夜班",
-      "position": "CNC巡检",
-      "remark": "CNC、巡检\n送检、看报告"
-    },
-    {
-      "id": "64",
+      "id": "17",
       "name": "龙珍卉",
       "shift": "夜班",
-      "position": "全检外观检验",
+      "position": "外观检验",
       "remark": ""
     },
     {
-      "id": "65",
-      "name": "马启森",
-      "shift": "夜班",
-      "position": "车床设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "66",
-      "name": "罗建宇",
-      "shift": "夜班",
-      "position": "车床设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "67",
-      "name": "章开宝",
-      "shift": "夜班",
-      "position": "清洗",
-      "remark": "临时工"
-    },
-    {
-      "id": "68",
-      "name": "罗中华",
-      "shift": "夜班",
-      "position": "车床设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "69",
-      "name": "陈保军",
-      "shift": "夜班",
-      "position": "CNC设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "70",
-      "name": "陈浩",
-      "shift": "夜班",
-      "position": "打码",
-      "remark": "临时工"
-    },
-    {
-      "id": "71",
-      "name": "李嘉浩",
-      "shift": "夜班",
-      "position": "CNC设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "72",
-      "name": "段成才",
-      "shift": "夜班",
-      "position": "清洗",
-      "remark": "临时工"
-    },
-    {
-      "id": "73",
-      "name": "包尚鑫",
-      "shift": "夜班",
-      "position": "打码",
-      "remark": "临时工"
-    },
-    {
-      "id": "74",
-      "name": "赵佰儒",
-      "shift": "夜班",
-      "position": "CNC设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "75",
-      "name": "荣正根",
-      "shift": "夜班",
-      "position": "CNC设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "76",
-      "name": "彭英杰",
-      "shift": "夜班",
-      "position": "CNC设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "77",
-      "name": "冯子明",
-      "shift": "夜班",
-      "position": "CNC设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "78",
-      "name": "陈国豪",
-      "shift": "夜班",
-      "position": "车床设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "79",
-      "name": "廖明哲",
-      "shift": "夜班",
-      "position": "CNC设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "80",
-      "name": "刘志远",
-      "shift": "夜班",
-      "position": "CNC设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "81",
+      "id": "18",
       "name": "曾宝玲",
       "shift": "夜班",
       "position": "打码",
       "remark": "临时工"
     },
     {
-      "id": "82",
-      "name": "安伟",
+      "id": "19",
+      "name": "梅全立",
+      "shift": "夜班",
+      "position": "压饼机操作",
+      "remark": ""
+    },
+    {
+      "id": "20",
+      "name": "李会周",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "21",
+      "name": "肖霜",
+      "shift": "夜班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "22",
+      "name": "潘围",
+      "shift": "夜班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "23",
+      "name": "张万春",
       "shift": "夜班",
       "position": "CNC设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "24",
+      "name": "付元文",
+      "shift": "夜班",
+      "position": "车床设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "25",
+      "name": "徐永孟",
+      "shift": "夜班",
+      "position": "车床设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "26",
+      "name": "陈家栋",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "27",
+      "name": "吴过",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "28",
+      "name": "陈世豪",
+      "shift": "夜班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "29",
+      "name": "彭威",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "30",
+      "name": "王冠清",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "31",
+      "name": "杨红云",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "32",
+      "name": "王子豪",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "33",
+      "name": "何廷塞",
+      "shift": "夜班",
+      "position": "设备操作员",
       "remark": "临时工"
     }
   ],
