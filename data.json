@@ -5,12 +5,6 @@
       "password": "226178",
       "role": "admin",
       "createdAt": "2026-08-07T09:08:53.501Z"
-    },
-    {
-      "username": "罗泽创",
-      "password": "111",
-      "role": "operator",
-      "createdAt": "2026-08-09T11:57:19.984Z"
     }
   ],
   "machines": [
@@ -3087,6 +3081,26 @@
       "perClamp": 2,
       "operator": "谭绍景",
       "createdAt": "2026-08-09T11:08:06.176Z"
+    },
+    {
+      "id": "rec_1786276694893",
+      "scheduleId": "sch_1786276400164",
+      "date": "2026-08-09",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "罗泽创",
+      "createdAt": "2026-08-09T11:58:14.893Z"
+    },
+    {
+      "id": "rec_1786276703948",
+      "scheduleId": "sch_1786276419038",
+      "date": "2026-08-09",
+      "qty": 101,
+      "inputQty": 101,
+      "perClamp": 1,
+      "operator": "罗泽创",
+      "createdAt": "2026-08-09T11:58:23.948Z"
     }
   ],
   "downtimes": [
