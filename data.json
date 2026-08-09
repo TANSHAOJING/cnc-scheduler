@@ -1675,6 +1675,46 @@
       "perClamp": 2,
       "operator": "谭绍景",
       "createdAt": "2026-08-09T01:36:39.664Z"
+    },
+    {
+      "id": "rec_1786239441465",
+      "scheduleId": "sch_1786239305360",
+      "date": "2026-08-09",
+      "qty": 500,
+      "inputQty": 125,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T01:37:21.465Z"
+    },
+    {
+      "id": "rec_1786239446840",
+      "scheduleId": "sch_1786239310064",
+      "date": "2026-08-09",
+      "qty": 440,
+      "inputQty": 110,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T01:37:26.840Z"
+    },
+    {
+      "id": "rec_1786239451063",
+      "scheduleId": "sch_1786239319999",
+      "date": "2026-08-09",
+      "qty": 492,
+      "inputQty": 123,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T01:37:31.064Z"
+    },
+    {
+      "id": "rec_1786239458207",
+      "scheduleId": "sch_1786239324040",
+      "date": "2026-08-09",
+      "qty": 520,
+      "inputQty": 130,
+      "perClamp": 4,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T01:37:38.207Z"
     }
   ],
   "downtimes": [
@@ -1697,6 +1737,16 @@
       "minutes": 90,
       "operator": "谭绍景",
       "createdAt": "2026-08-09T01:36:39.665Z"
+    },
+    {
+      "id": "dt_1786239441465",
+      "scheduleId": "sch_1786239305360",
+      "date": "2026-08-09",
+      "reason": "刀具达到寿命换刀",
+      "customNote": "",
+      "minutes": 50,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T01:37:21.465Z"
     }
   ],
   "dailyTargets": [
