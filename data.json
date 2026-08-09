@@ -2262,6 +2262,47 @@
       "note": "",
       "createdAt": "2026-08-09T08:46:07.467Z",
       "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786268136657",
+      "date": "2026-08-09",
+      "machineId": "隆邦车铣12",
+      "productName": "HA动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "轴承孔  ∮37. 044~∮37.058",
+          "instrument": "气密仪"
+        },
+        {
+          "dimension": "槽外径  ∮79.442~∮79.526",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "槽深 5.28-5.3",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "槽宽  2.342-2.426",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "板厚  9.2±0.05",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "圆环孔深度4.4~4.5",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "刘安近",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 105,
+      "note": "",
+      "createdAt": "2026-08-09T09:35:36.657Z",
+      "createdBy": "谭绍景"
     }
   ],
   "records": [
