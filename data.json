@@ -2858,24 +2858,24 @@
       "createdAt": "2026-08-09T11:05:21.008Z"
     },
     {
-      "id": "rec_1786273569216",
-      "scheduleId": "sch_1786234938216_iv6oqg",
-      "date": "2026-08-09",
-      "qty": 66,
-      "inputQty": 33,
-      "perClamp": 2,
-      "operator": "谭绍景",
-      "createdAt": "2026-08-09T11:06:09.216Z"
-    },
-    {
-      "id": "rec_1786273599448",
+      "id": "rec_1786273682481",
       "scheduleId": "sch_1786234938216_gb3877",
       "date": "2026-08-09",
       "qty": 22,
       "inputQty": 11,
       "perClamp": 2,
       "operator": "谭绍景",
-      "createdAt": "2026-08-09T11:06:39.448Z"
+      "createdAt": "2026-08-09T11:08:02.481Z"
+    },
+    {
+      "id": "rec_1786273686176",
+      "scheduleId": "sch_1786234938216_iv6oqg",
+      "date": "2026-08-09",
+      "qty": 66,
+      "inputQty": 33,
+      "perClamp": 2,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T11:08:06.176Z"
     }
   ],
   "downtimes": [
@@ -2920,14 +2920,14 @@
       "createdAt": "2026-08-09T05:14:52.751Z"
     },
     {
-      "id": "dt_1786273569217",
+      "id": "dt_1786273686176",
       "scheduleId": "sch_1786234938216_iv6oqg",
       "date": "2026-08-09",
       "reason": "因断刀换刀",
       "customNote": "",
       "minutes": 90,
       "operator": "谭绍景",
-      "createdAt": "2026-08-09T11:06:09.217Z"
+      "createdAt": "2026-08-09T11:08:06.176Z"
     }
   ],
   "dailyTargets": [
