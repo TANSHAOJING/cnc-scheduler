@@ -1665,6 +1665,16 @@
       "perClamp": 2,
       "operator": "谭绍景",
       "createdAt": "2026-08-09T01:36:06.896Z"
+    },
+    {
+      "id": "rec_1786239399664",
+      "scheduleId": "sch_1786234938216_iv6oqg",
+      "date": "2026-08-09",
+      "qty": 70,
+      "inputQty": 35,
+      "perClamp": 2,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T01:36:39.664Z"
     }
   ],
   "downtimes": [
@@ -1677,6 +1687,16 @@
       "minutes": 60,
       "operator": "谭绍景",
       "createdAt": "2026-08-08T07:54:54.554Z"
+    },
+    {
+      "id": "dt_1786239399665",
+      "scheduleId": "sch_1786234938216_iv6oqg",
+      "date": "2026-08-09",
+      "reason": "因断刀换刀",
+      "customNote": "",
+      "minutes": 90,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T01:36:39.665Z"
     }
   ],
   "dailyTargets": [
