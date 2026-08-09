@@ -2975,6 +2975,16 @@
       "productName": "下配重块",
       "process": "一序",
       "qty": 500
+    },
+    {
+      "productName": "EM34静盘",
+      "process": "三序",
+      "qty": 800
+    },
+    {
+      "productName": "EM34静盘",
+      "process": "二序",
+      "qty": 800
     }
   ],
   "githubConfig": {
