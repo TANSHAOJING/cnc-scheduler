@@ -2876,6 +2876,56 @@
       "perClamp": 2,
       "operator": "谭绍景",
       "createdAt": "2026-08-09T05:32:59.443Z"
+    },
+    {
+      "id": "rec_1786273493481",
+      "scheduleId": "sch_1786265167467",
+      "date": "2026-08-09",
+      "qty": 111,
+      "inputQty": 111,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T11:04:53.481Z"
+    },
+    {
+      "id": "rec_1786273500536",
+      "scheduleId": "sch_1786268235215",
+      "date": "2026-08-09",
+      "qty": 55,
+      "inputQty": 55,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T11:05:00.536Z"
+    },
+    {
+      "id": "rec_1786273511753",
+      "scheduleId": "sch_1786269318894",
+      "date": "2026-08-09",
+      "qty": 66,
+      "inputQty": 66,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T11:05:11.753Z"
+    },
+    {
+      "id": "rec_1786273517409",
+      "scheduleId": "sch_1786269322686",
+      "date": "2026-08-09",
+      "qty": 77,
+      "inputQty": 77,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T11:05:17.409Z"
+    },
+    {
+      "id": "rec_1786273521008",
+      "scheduleId": "sch_1786269326118",
+      "date": "2026-08-09",
+      "qty": 66,
+      "inputQty": 66,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T11:05:21.008Z"
     }
   ],
   "downtimes": [
