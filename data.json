@@ -2305,7 +2305,7 @@
       "createdBy": "谭绍景"
     },
     {
-      "id": "sch_1786269254270",
+      "id": "sch_1786269318894",
       "date": "2026-08-09",
       "machineId": "CNC63",
       "productName": "EM34静盘",
@@ -2333,16 +2333,16 @@
           "instrument": "通止规"
         }
       ],
-      "operator": "林玉淳",
+      "operator": "王奥运",
       "shift": "白班",
       "hours": 10,
       "planQty": 77,
       "note": "",
-      "createdAt": "2026-08-09T09:54:14.270Z",
+      "createdAt": "2026-08-09T09:55:18.894Z",
       "createdBy": "谭绍景"
     },
     {
-      "id": "sch_1786269259710",
+      "id": "sch_1786269322686",
       "date": "2026-08-09",
       "machineId": "CNC64",
       "productName": "EM34静盘",
@@ -2370,16 +2370,16 @@
           "instrument": "通止规"
         }
       ],
-      "operator": "林玉淳",
+      "operator": "黄楚怡",
       "shift": "白班",
       "hours": 10,
       "planQty": 77,
       "note": "",
-      "createdAt": "2026-08-09T09:54:19.710Z",
+      "createdAt": "2026-08-09T09:55:22.686Z",
       "createdBy": "谭绍景"
     },
     {
-      "id": "sch_1786269267061",
+      "id": "sch_1786269326118",
       "date": "2026-08-09",
       "machineId": "CNC65",
       "productName": "EM34静盘",
@@ -2412,7 +2412,7 @@
       "hours": 10,
       "planQty": 77,
       "note": "",
-      "createdAt": "2026-08-09T09:54:27.061Z",
+      "createdAt": "2026-08-09T09:55:26.118Z",
       "createdBy": "谭绍景"
     }
   ],
@@ -2678,6 +2678,16 @@
       "createdAt": "2026-08-08T07:56:32.251Z"
     },
     {
+      "id": "rec_1786239366896",
+      "scheduleId": "sch_1786234938216_gb3877",
+      "date": "2026-08-09",
+      "qty": 108,
+      "inputQty": 54,
+      "perClamp": 2,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T01:36:06.896Z"
+    },
+    {
       "id": "rec_1786239441465",
       "scheduleId": "sch_1786239305360",
       "date": "2026-08-09",
@@ -2718,6 +2728,36 @@
       "createdAt": "2026-08-09T01:37:38.207Z"
     },
     {
+      "id": "rec_1786240481129",
+      "scheduleId": "sch_1786234938216_gb3877",
+      "date": "2026-08-09",
+      "qty": 108,
+      "inputQty": 54,
+      "perClamp": 2,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T01:54:41.129Z"
+    },
+    {
+      "id": "rec_1786242614728",
+      "scheduleId": "sch_1786234938216_gb3877",
+      "date": "2026-08-09",
+      "qty": 108,
+      "inputQty": 54,
+      "perClamp": 2,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T02:30:14.728Z"
+    },
+    {
+      "id": "rec_1786242620400",
+      "scheduleId": "sch_1786234938216_gb3877",
+      "date": "2026-08-09",
+      "qty": 110,
+      "inputQty": 55,
+      "perClamp": 2,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T02:30:20.400Z"
+    },
+    {
       "id": "rec_1786245238481",
       "scheduleId": "sch_1786245189424",
       "date": "2026-08-09",
@@ -2736,6 +2776,16 @@
       "perClamp": 4,
       "operator": "谭绍景",
       "createdAt": "2026-08-09T03:14:04.400Z"
+    },
+    {
+      "id": "rec_1786245675377",
+      "scheduleId": "sch_1786234938216_gb3877",
+      "date": "2026-08-09",
+      "qty": 222,
+      "inputQty": 111,
+      "perClamp": 2,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T03:21:15.377Z"
     },
     {
       "id": "rec_1786245747104",
@@ -2808,24 +2858,24 @@
       "createdAt": "2026-08-09T05:14:52.751Z"
     },
     {
-      "id": "rec_1786269218967",
-      "scheduleId": "sch_1786234938216_iv6oqg",
-      "date": "2026-08-09",
-      "qty": 66,
-      "inputQty": 33,
-      "perClamp": 2,
-      "operator": "谭绍景",
-      "createdAt": "2026-08-09T09:53:38.967Z"
-    },
-    {
-      "id": "rec_1786269221990",
+      "id": "rec_1786253445432",
       "scheduleId": "sch_1786234938216_gb3877",
       "date": "2026-08-09",
-      "qty": 22,
-      "inputQty": 11,
+      "qty": 2222,
+      "inputQty": 1111,
       "perClamp": 2,
       "operator": "谭绍景",
-      "createdAt": "2026-08-09T09:53:41.990Z"
+      "createdAt": "2026-08-09T05:30:45.432Z"
+    },
+    {
+      "id": "rec_1786253579442",
+      "scheduleId": "sch_1786234938216_iv6oqg",
+      "date": "2026-08-09",
+      "qty": 6666,
+      "inputQty": 3333,
+      "perClamp": 2,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-09T05:32:59.443Z"
     }
   ],
   "downtimes": [
@@ -2870,14 +2920,14 @@
       "createdAt": "2026-08-09T05:14:52.751Z"
     },
     {
-      "id": "dt_1786269218967",
+      "id": "dt_1786253579445",
       "scheduleId": "sch_1786234938216_iv6oqg",
       "date": "2026-08-09",
       "reason": "因断刀换刀",
       "customNote": "",
       "minutes": 90,
       "operator": "谭绍景",
-      "createdAt": "2026-08-09T09:53:38.967Z"
+      "createdAt": "2026-08-09T05:32:59.445Z"
     }
   ],
   "dailyTargets": [
