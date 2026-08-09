@@ -5,6 +5,12 @@
       "password": "226178",
       "role": "admin",
       "createdAt": "2026-08-07T09:08:53.501Z"
+    },
+    {
+      "username": "罗泽创",
+      "password": "111",
+      "role": "operator",
+      "createdAt": "2026-08-09T11:57:19.984Z"
     }
   ],
   "machines": [
