@@ -2985,6 +2985,21 @@
       "productName": "EM34静盘",
       "process": "二序",
       "qty": 800
+    },
+    {
+      "productName": "HA动盘",
+      "process": "二序",
+      "qty": 2000
+    },
+    {
+      "productName": "HA动盘",
+      "process": "三序",
+      "qty": 2000
+    },
+    {
+      "productName": "HA动盘",
+      "process": "其他工序",
+      "qty": 2000
     }
   ],
   "githubConfig": {
