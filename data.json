@@ -5370,6 +5370,23 @@
         "cause": "",
         "solution": "",
         "photo": ""
+      },
+      {
+        "id": "defect_1786236103200",
+        "date": "2026-08-09",
+        "shift": "白班",
+        "process": "二序",
+        "workshop": "粗加大车间",
+        "machine": "CNC29",
+        "productId": "HTHB静盘",
+        "productName": "HTHB静盘",
+        "defectType": "报废",
+        "defectDesc": "调机件",
+        "quantity": 1,
+        "operator": "王日文",
+        "cause": "",
+        "solution": "",
+        "photo": ""
       }
     ],
     "workshops": {
