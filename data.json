@@ -2986,6 +2986,23 @@
         "cause": "",
         "solution": "",
         "photo": ""
+      },
+      {
+        "id": "defect_1786247749282",
+        "date": "2026-08-09",
+        "shift": "夜班",
+        "process": "三序",
+        "workshop": "车铣精加车间",
+        "machine": "隆邦车铣13",
+        "productId": "HA动盘",
+        "productName": "HA动盘",
+        "defectType": "报废",
+        "defectDesc": "漏坯",
+        "quantity": 1,
+        "operator": "聂敬文",
+        "cause": "",
+        "solution": "",
+        "photo": ""
       }
     ],
     "workshops": {
