@@ -12,31 +12,820 @@
       "id": "CNC1",
       "workshop": "打样车间",
       "productName": "精雕打样",
-      "process": ""
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC2",
+      "workshop": "打样车间",
+      "productName": "精雕打样",
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC3",
+      "workshop": "打样车间",
+      "productName": "精雕打样",
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC4",
+      "workshop": "打样车间",
+      "productName": "精雕打样",
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC5",
+      "workshop": "打样车间",
+      "productName": "精雕打样",
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC6",
+      "workshop": "打样车间",
+      "productName": "精雕打样",
+      "process": "",
+      "perClamp": 1
     },
     {
       "id": "CNC7",
       "workshop": "粗加小车间",
       "productName": "下配重块",
-      "process": "一序"
+      "process": "一序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC8",
+      "workshop": "粗加小车间",
+      "productName": "下配重块",
+      "process": "一序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC9",
+      "workshop": "粗加小车间",
+      "productName": "上配重块",
+      "process": "一序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC10",
+      "workshop": "粗加小车间",
+      "productName": "上配重块",
+      "process": "一序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC11",
+      "workshop": "粗加小车间",
+      "productName": "上配重块",
+      "process": "一序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC12",
+      "workshop": "粗加小车间",
+      "productName": "EM34静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC13",
+      "workshop": "粗加小车间",
+      "productName": "EM34静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC14",
+      "workshop": "粗加小车间",
+      "productName": "EM34静盘",
+      "process": "一序",
+      "perClamp": 4
     },
     {
       "id": "CNC15",
       "workshop": "粗加大车间",
       "productName": "T45动盘",
-      "process": "一序"
+      "process": "一序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC16",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "perClamp": 2
+    },
+    {
+      "id": "CNC17",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "perClamp": 2
+    },
+    {
+      "id": "CNC18",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "perClamp": 2
+    },
+    {
+      "id": "CNC21",
+      "workshop": "粗加大车间",
+      "productName": "T45动盘",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC19",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "perClamp": 2
+    },
+    {
+      "id": "CNC20",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "perClamp": 2
+    },
+    {
+      "id": "CNC22",
+      "workshop": "粗加大车间",
+      "productName": "",
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC23",
+      "workshop": "粗加大车间",
+      "productName": "",
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC25",
+      "workshop": "粗加大车间",
+      "productName": "下配重块",
+      "process": "一序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC27",
+      "workshop": "粗加大车间",
+      "productName": "下配重块",
+      "process": "一序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC29",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC30",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC31",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC32",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC33",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC34",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC35",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC36",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC37",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC38",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC39",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC40",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC41",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC42",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC44",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "三序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC45",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC46",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC43",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC47",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC48",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC49",
+      "workshop": "粗加大车间",
+      "productName": "T45静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC50",
+      "workshop": "粗加大车间",
+      "productName": "ESEA静盘",
+      "process": "四夹",
+      "perClamp": 6
+    },
+    {
+      "id": "CNC51",
+      "workshop": "粗加大车间",
+      "productName": "",
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC24",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC26",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC28",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC52",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC53",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC54",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "一序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC55",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序",
+      "perClamp": 6
+    },
+    {
+      "id": "CNC56",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序",
+      "perClamp": 6
+    },
+    {
+      "id": "CNC57",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序",
+      "perClamp": 6
+    },
+    {
+      "id": "CNC58",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序",
+      "perClamp": 6
+    },
+    {
+      "id": "CNC59",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序",
+      "perClamp": 6
+    },
+    {
+      "id": "CNC60",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC61",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "perClamp": 4
+    },
+    {
+      "id": "CNC62",
+      "workshop": "粗加大车间",
+      "productName": "HTHB静盘",
+      "process": "三序",
+      "perClamp": 4
     },
     {
       "id": "CNC63",
       "workshop": "精加车间",
       "productName": "EM34静盘",
-      "process": "三序"
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC64",
+      "workshop": "精加车间",
+      "productName": "EM34静盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC65",
+      "workshop": "精加车间",
+      "productName": "EM34静盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC66",
+      "workshop": "精加车间",
+      "productName": "EM34静盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC67",
+      "workshop": "精加车间",
+      "productName": "EM34静盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC68",
+      "workshop": "精加车间",
+      "productName": "EM34静盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC69",
+      "workshop": "精加车间",
+      "productName": "T45动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC70",
+      "workshop": "精加车间",
+      "productName": "T45动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC71",
+      "workshop": "精加车间",
+      "productName": "T45动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC73",
+      "workshop": "精加车间",
+      "productName": "空（新机）",
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "CNC74",
+      "workshop": "粗加大车间",
+      "productName": "ST动盘",
+      "process": "一序",
+      "perClamp": 6
+    },
+    {
+      "id": "CNC75",
+      "workshop": "粗加大车间",
+      "productName": "ST动盘",
+      "process": "一序",
+      "perClamp": 6
+    },
+    {
+      "id": "CNC76",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序",
+      "perClamp": 6
+    },
+    {
+      "id": "CNC77",
+      "workshop": "粗加大车间",
+      "productName": "HA动盘",
+      "process": "一序",
+      "perClamp": 6
+    },
+    {
+      "id": "CNC78",
+      "workshop": "粗加大车间",
+      "productName": "上配重块",
+      "process": "一序",
+      "perClamp": 12
     },
     {
       "id": "津上车铣1",
       "workshop": "车铣精加车间",
       "productName": "EM34静盘",
-      "process": "二序"
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "津上车铣2",
+      "workshop": "车铣精加车间",
+      "productName": "EM34静盘",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "津上车铣4",
+      "workshop": "车铣精加车间",
+      "productName": "EM34静盘",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "津上车铣5",
+      "workshop": "车铣精加车间",
+      "productName": "EM34静盘",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "津上车铣6",
+      "workshop": "车铣精加车间",
+      "productName": "EM34静盘",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "津上车铣3",
+      "workshop": "车铣精加车间",
+      "productName": "ESEA静盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "津上车铣7",
+      "workshop": "车铣精加车间",
+      "productName": "ESEA静盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "津上车铣8",
+      "workshop": "车铣精加车间",
+      "productName": "ESEA静盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣9",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣10",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣11",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣12",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣13",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣14",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣15",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣16",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣17",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣18",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣19",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣20",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣35",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣36",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣37",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣38",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣39",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣40",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣21",
+      "workshop": "车铣精加车间",
+      "productName": "ST动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣22",
+      "workshop": "车铣精加车间",
+      "productName": "ST动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣24",
+      "workshop": "车铣精加车间",
+      "productName": "ST动盘",
+      "process": "三序",
+      "perClamp": 1
+    },
+    {
+      "id": "数车33",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "数车34",
+      "workshop": "车铣精加车间",
+      "productName": "HA动盘（新增）",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "数车27",
+      "workshop": "粗加小车间",
+      "productName": "ESEA静盘",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "数车28",
+      "workshop": "粗加小车间",
+      "productName": "HA动盘",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "数车29",
+      "workshop": "粗加小车间",
+      "productName": "ST动盘",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "数车30",
+      "workshop": "粗加小车间",
+      "productName": "HA动盘",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "数车31",
+      "workshop": "车铣精加车间",
+      "productName": "压铸件去尾钉",
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "数车32",
+      "workshop": "车铣精加车间",
+      "productName": "压铸件去尾钉",
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣23",
+      "workshop": "车铣精加车间",
+      "productName": "暂定做27CC静盘",
+      "process": "二序",
+      "perClamp": 1
+    },
+    {
+      "id": "隆邦车铣25",
+      "workshop": "车铣精加车间",
+      "productName": "打样（泵体壳）",
+      "process": "",
+      "perClamp": 1
+    },
+    {
+      "id": "津上车铣26",
+      "workshop": "打样车间",
+      "productName": "T45动盘",
+      "process": "三序",
+      "perClamp": 1
     }
   ],
   "products": [
