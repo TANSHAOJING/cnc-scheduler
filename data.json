@@ -513,6 +513,13 @@
       "perClamp": 1
     },
     {
+      "id": "CNC73",
+      "workshop": "精加车间",
+      "productName": "空（新机）",
+      "process": "",
+      "perClamp": 1
+    },
+    {
       "id": "CNC74",
       "workshop": "粗加大车间",
       "productName": "ST动盘",
