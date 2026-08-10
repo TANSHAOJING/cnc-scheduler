@@ -1770,7 +1770,7 @@
       "id": "46",
       "name": "刘江",
       "shift": "白班",
-      "position": "CNC设备操作员",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
@@ -1826,7 +1826,7 @@
       "id": "4",
       "name": "黄有鹏",
       "shift": "夜班",
-      "position": "CNC设备操作员",
+      "position": "设备操作员",
       "remark": ""
     },
     {
@@ -1959,7 +1959,7 @@
       "id": "23",
       "name": "张万春",
       "shift": "夜班",
-      "position": "CNC设备操作员",
+      "position": "设备操作员",
       "remark": "临时工"
     },
     {
@@ -2651,6 +2651,39 @@
       "planQty": 360,
       "note": "",
       "createdAt": "2026-08-10T02:01:24.577Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786327988984",
+      "date": "2026-08-10",
+      "machineId": "CNC56",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "冯子明",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-10T02:13:08.984Z",
       "createdBy": "谭绍景"
     }
   ],
