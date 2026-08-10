@@ -513,13 +513,6 @@
       "perClamp": 1
     },
     {
-      "id": "CNC73",
-      "workshop": "精加车间",
-      "productName": "空（新机）",
-      "process": "",
-      "perClamp": 1
-    },
-    {
       "id": "CNC74",
       "workshop": "粗加大车间",
       "productName": "ST动盘",
@@ -1800,237 +1793,6 @@
       "shift": "白班",
       "position": "打样",
       "remark": ""
-    },
-    {
-      "id": "1",
-      "name": "聂敬文",
-      "shift": "夜班",
-      "position": "车床师傅",
-      "remark": "车床班组长"
-    },
-    {
-      "id": "2",
-      "name": "黄知敏",
-      "shift": "夜班",
-      "position": "CNC师傅",
-      "remark": "CNC班组长"
-    },
-    {
-      "id": "3",
-      "name": "罗泽创",
-      "shift": "夜班",
-      "position": "车床技术助理",
-      "remark": "车床换刀送检看报告"
-    },
-    {
-      "id": "4",
-      "name": "黄有鹏",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "5",
-      "name": "戴平香",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "6",
-      "name": "字宝元",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "7",
-      "name": "范奥登",
-      "shift": "夜班",
-      "position": "车床技术助理",
-      "remark": "车床换刀送检看报告"
-    },
-    {
-      "id": "8",
-      "name": "周树明",
-      "shift": "夜班",
-      "position": "CNC技术助理",
-      "remark": "CNC换刀送检看报告"
-    },
-    {
-      "id": "9",
-      "name": "唐文斌",
-      "shift": "夜班",
-      "position": "CNC巡检",
-      "remark": "CNC巡检送检看报告"
-    },
-    {
-      "id": "10",
-      "name": "吴开志",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "11",
-      "name": "范厚旺",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "12",
-      "name": "时国明",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "13",
-      "name": "朱蓉",
-      "shift": "夜班",
-      "position": "打码",
-      "remark": "暑假工"
-    },
-    {
-      "id": "14",
-      "name": "王瑞",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": ""
-    },
-    {
-      "id": "15",
-      "name": "宋奥雪",
-      "shift": "夜班",
-      "position": "三坐标测量",
-      "remark": "报告传输、异常登记"
-    },
-    {
-      "id": "16",
-      "name": "江翠雯",
-      "shift": "夜班",
-      "position": "外观检验",
-      "remark": ""
-    },
-    {
-      "id": "17",
-      "name": "龙珍卉",
-      "shift": "夜班",
-      "position": "外观检验",
-      "remark": ""
-    },
-    {
-      "id": "18",
-      "name": "曾宝玲",
-      "shift": "夜班",
-      "position": "打码",
-      "remark": "临时工"
-    },
-    {
-      "id": "19",
-      "name": "梅全立",
-      "shift": "夜班",
-      "position": "压饼机操作",
-      "remark": ""
-    },
-    {
-      "id": "20",
-      "name": "李会周",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "21",
-      "name": "肖霜",
-      "shift": "夜班",
-      "position": "清洗",
-      "remark": "临时工"
-    },
-    {
-      "id": "22",
-      "name": "潘围",
-      "shift": "夜班",
-      "position": "清洗",
-      "remark": "临时工"
-    },
-    {
-      "id": "23",
-      "name": "张万春",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "24",
-      "name": "付元文",
-      "shift": "夜班",
-      "position": "车床设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "25",
-      "name": "徐永孟",
-      "shift": "夜班",
-      "position": "车床设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "26",
-      "name": "陈家栋",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "27",
-      "name": "吴过",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "28",
-      "name": "陈世豪",
-      "shift": "夜班",
-      "position": "清洗",
-      "remark": "临时工"
-    },
-    {
-      "id": "29",
-      "name": "彭威",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "30",
-      "name": "王冠清",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "31",
-      "name": "杨红云",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "32",
-      "name": "王子豪",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": "临时工"
-    },
-    {
-      "id": "33",
-      "name": "何廷塞",
-      "shift": "夜班",
-      "position": "设备操作员",
-      "remark": "临时工"
     }
   ],
   "schedules": [
@@ -2076,47 +1838,6 @@
       "createdBy": "谭绍景"
     },
     {
-      "id": "sch_1786342465526",
-      "date": "2026-08-10",
-      "machineId": "隆邦车铣10",
-      "productName": "HA动盘",
-      "process": "三序",
-      "area": "背面精加",
-      "measurements": [
-        {
-          "dimension": "轴承孔  ∮37. 044~∮37.058",
-          "instrument": "气密仪"
-        },
-        {
-          "dimension": "槽外径  ∮79.442~∮79.526",
-          "instrument": "卡尺"
-        },
-        {
-          "dimension": "槽深 5.28-5.3",
-          "instrument": "高度表"
-        },
-        {
-          "dimension": "槽宽  2.342-2.426",
-          "instrument": "通止规"
-        },
-        {
-          "dimension": "板厚  9.2±0.05",
-          "instrument": "卡尺"
-        },
-        {
-          "dimension": "圆环孔深度4.4~4.5",
-          "instrument": "高度表"
-        }
-      ],
-      "operator": "罗中华",
-      "shift": "白班",
-      "hours": 10,
-      "planQty": 105,
-      "note": "",
-      "createdAt": "2026-08-10T06:14:25.526Z",
-      "createdBy": "谭绍景"
-    },
-    {
       "id": "sch_1786342480758",
       "date": "2026-08-10",
       "machineId": "隆邦车铣9",
@@ -2155,88 +1876,6 @@
       "planQty": 105,
       "note": "",
       "createdAt": "2026-08-10T06:14:40.758Z",
-      "createdBy": "谭绍景"
-    },
-    {
-      "id": "sch_1786342488662",
-      "date": "2026-08-10",
-      "machineId": "隆邦车铣10",
-      "productName": "HA动盘",
-      "process": "三序",
-      "area": "背面精加",
-      "measurements": [
-        {
-          "dimension": "轴承孔  ∮37. 044~∮37.058",
-          "instrument": "气密仪"
-        },
-        {
-          "dimension": "槽外径  ∮79.442~∮79.526",
-          "instrument": "卡尺"
-        },
-        {
-          "dimension": "槽深 5.28-5.3",
-          "instrument": "高度表"
-        },
-        {
-          "dimension": "槽宽  2.342-2.426",
-          "instrument": "通止规"
-        },
-        {
-          "dimension": "板厚  9.2±0.05",
-          "instrument": "卡尺"
-        },
-        {
-          "dimension": "圆环孔深度4.4~4.5",
-          "instrument": "高度表"
-        }
-      ],
-      "operator": "付元文",
-      "shift": "夜班",
-      "hours": 10,
-      "planQty": 105,
-      "note": "",
-      "createdAt": "2026-08-10T06:14:48.662Z",
-      "createdBy": "谭绍景"
-    },
-    {
-      "id": "sch_1786342496781",
-      "date": "2026-08-10",
-      "machineId": "隆邦车铣11",
-      "productName": "HA动盘",
-      "process": "三序",
-      "area": "背面精加",
-      "measurements": [
-        {
-          "dimension": "轴承孔  ∮37. 044~∮37.058",
-          "instrument": "气密仪"
-        },
-        {
-          "dimension": "槽外径  ∮79.442~∮79.526",
-          "instrument": "卡尺"
-        },
-        {
-          "dimension": "槽深 5.28-5.3",
-          "instrument": "高度表"
-        },
-        {
-          "dimension": "槽宽  2.342-2.426",
-          "instrument": "通止规"
-        },
-        {
-          "dimension": "板厚  9.2±0.05",
-          "instrument": "卡尺"
-        },
-        {
-          "dimension": "圆环孔深度4.4~4.5",
-          "instrument": "高度表"
-        }
-      ],
-      "operator": "付元文",
-      "shift": "夜班",
-      "hours": 10,
-      "planQty": 105,
-      "note": "",
-      "createdAt": "2026-08-10T06:14:56.781Z",
       "createdBy": "谭绍景"
     }
   ],
@@ -2892,7 +2531,110 @@
       }
     ],
     "production": [],
-    "defects": [],
+    "defects": [
+      {
+        "id": "defect_1786348985958",
+        "date": "2026-08-10",
+        "shift": "夜班",
+        "process": "三序",
+        "workshop": "车铣精加车间",
+        "machine": "隆邦车铣10",
+        "productId": "HA动盘",
+        "productName": "HA动盘",
+        "defectType": "报废",
+        "defectDesc": "密封槽尺寸超差",
+        "quantity": 3,
+        "operator": "付元文",
+        "cause": "",
+        "solution": "",
+        "photo": ""
+      },
+      {
+        "id": "defect_1786349004717",
+        "date": "2026-08-10",
+        "shift": "夜班",
+        "process": "三序",
+        "workshop": "车铣精加车间",
+        "machine": "隆邦车铣10",
+        "productId": "HA动盘",
+        "productName": "HA动盘",
+        "defectType": "报废",
+        "defectDesc": "氧化",
+        "quantity": 1,
+        "operator": "付元文",
+        "cause": "",
+        "solution": "",
+        "photo": ""
+      },
+      {
+        "id": "defect_1786349017933",
+        "date": "2026-08-10",
+        "shift": "白班",
+        "process": "三序",
+        "workshop": "车铣精加车间",
+        "machine": "隆邦车铣10",
+        "productId": "HA动盘",
+        "productName": "HA动盘",
+        "defectType": "报废",
+        "defectDesc": "氧化",
+        "quantity": 2,
+        "operator": "罗中华",
+        "cause": "",
+        "solution": "",
+        "photo": ""
+      },
+      {
+        "id": "defect_1786349050532",
+        "date": "2026-08-10",
+        "shift": "夜班",
+        "process": "三序",
+        "workshop": "车铣精加车间",
+        "machine": "隆邦车铣9",
+        "productId": "HA动盘",
+        "productName": "HA动盘",
+        "defectType": "报废",
+        "defectDesc": "漏坯",
+        "quantity": 1,
+        "operator": "付元文",
+        "cause": "",
+        "solution": "",
+        "photo": ""
+      },
+      {
+        "id": "defect_1786349056958",
+        "date": "2026-08-10",
+        "shift": "夜班",
+        "process": "三序",
+        "workshop": "车铣精加车间",
+        "machine": "隆邦车铣9",
+        "productId": "HA动盘",
+        "productName": "HA动盘",
+        "defectType": "报废",
+        "defectDesc": "环孔漏坯",
+        "quantity": 1,
+        "operator": "付元文",
+        "cause": "",
+        "solution": "",
+        "photo": ""
+      },
+      {
+        "id": "defect_1786349064469",
+        "date": "2026-08-10",
+        "shift": "夜班",
+        "process": "三序",
+        "workshop": "车铣精加车间",
+        "machine": "隆邦车铣9",
+        "productId": "HA动盘",
+        "productName": "HA动盘",
+        "defectType": "报废",
+        "defectDesc": "环孔位置度超差",
+        "quantity": 1,
+        "operator": "付元文",
+        "cause": "",
+        "solution": "",
+        "photo": ""
+      }
+    ],
     "workshops": {
       "一车间": [
         "1号",
