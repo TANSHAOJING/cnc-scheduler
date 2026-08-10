@@ -2240,9 +2240,77 @@
       "createdBy": "谭绍景"
     }
   ],
-  "records": [],
-  "downtimes": [],
-  "dailyTargets": [],
+  "records": [
+    {
+      "id": "rec_1786343855341_k19lv",
+      "scheduleId": "sch_1786342459111",
+      "date": "2026-08-10",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-10T06:37:35.341Z"
+    },
+    {
+      "id": "rec_1786343855341_499jw",
+      "scheduleId": "sch_1786342465526",
+      "date": "2026-08-10",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-10T06:37:35.341Z"
+    },
+    {
+      "id": "rec_1786343855341_fj6rz",
+      "scheduleId": "sch_1786342480758",
+      "date": "2026-08-10",
+      "qty": 50,
+      "inputQty": 50,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-10T06:37:35.341Z"
+    },
+    {
+      "id": "rec_1786343855341_q8umi",
+      "scheduleId": "sch_1786342488662",
+      "date": "2026-08-10",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-10T06:37:35.341Z"
+    },
+    {
+      "id": "rec_1786343855341_r95yq",
+      "scheduleId": "sch_1786342496781",
+      "date": "2026-08-10",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-10T06:37:35.341Z"
+    }
+  ],
+  "downtimes": [
+    {
+      "id": "dt_1786343855341_u6mbv",
+      "scheduleId": "sch_1786342480758",
+      "date": "2026-08-10",
+      "reason": "因断刀换刀",
+      "customNote": "",
+      "minutes": 180,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-10T06:37:35.341Z"
+    }
+  ],
+  "dailyTargets": [
+    {
+      "productName": "HA动盘",
+      "process": "三序",
+      "qty": 2000
+    }
+  ],
   "githubConfig": {
     "owner": "TANSHAOJING",
     "repo": "cnc-scheduler",
