@@ -3997,6 +3997,31 @@
       "note": "",
       "createdAt": "2026-08-10T06:14:40.758Z",
       "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786355665791",
+      "date": "2026-08-10",
+      "machineId": "津上车铣8",
+      "productName": "ESEA静盘",
+      "process": "三序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "高度：14.01-14.09",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "内孔：∮31.407-31.413",
+          "instrument": "气密仪"
+        }
+      ],
+      "operator": "罗建宇",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 140,
+      "note": "",
+      "createdAt": "2026-08-10T09:54:25.791Z",
+      "createdBy": "谭绍景"
     }
   ],
   "records": [
