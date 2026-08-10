@@ -3326,14 +3326,14 @@
       "createdAt": "2026-08-10T05:41:45.666Z"
     },
     {
-      "id": "rec_1786340799801_lf5ia",
+      "id": "rec_1786340729039_k4w3w",
       "scheduleId": "sch_1786276390964",
       "date": "2026-08-09",
       "qty": 90,
       "inputQty": 90,
       "perClamp": 1,
       "operator": "谭绍景",
-      "createdAt": "2026-08-10T05:46:39.801Z"
+      "createdAt": "2026-08-10T05:45:29.040Z"
     }
   ],
   "downtimes": [
@@ -3388,14 +3388,14 @@
       "createdAt": "2026-08-09T11:08:06.176Z"
     },
     {
-      "id": "dt_1786340799801_2txwe",
+      "id": "dt_1786340729040_ocpi0",
       "scheduleId": "sch_1786276390964",
       "date": "2026-08-09",
       "reason": "刀具达到寿命换刀",
       "customNote": "",
       "minutes": 60,
       "operator": "谭绍景",
-      "createdAt": "2026-08-10T05:46:39.801Z"
+      "createdAt": "2026-08-10T05:45:29.040Z"
     }
   ],
   "dailyTargets": [
