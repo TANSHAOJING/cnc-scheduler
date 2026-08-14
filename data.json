@@ -1354,15 +1354,7 @@
       "productionFromSchedule": true
     },
     {
-      "id": "p_pzk_一序",
-      "name": "配重块",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_em34_其他工序",
+      "id": "p_1786707685307_zmh7h3_其他工序",
       "name": "EM34静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1370,7 +1362,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_esea_其他工序",
+      "id": "p_1786707685307_wdk1kv_其他工序",
       "name": "ESEA静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1378,7 +1370,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_ha_其他工序",
+      "id": "p_1786707685307_hs7ypi_其他工序",
       "name": "HA动盘",
       "process": "其他工序",
       "uph": 0,
@@ -1386,15 +1378,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_hthd_其他工序",
-      "name": "HTHB静盘",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_st_其他工序",
+      "id": "p_1786707685307_dnnh21_其他工序",
       "name": "ST动盘",
       "process": "其他工序",
       "uph": 0,
@@ -1402,15 +1386,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_t45d_其他工序",
-      "name": "T45动盘",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_t45j_其他工序",
+      "id": "p_1786707685307_38g580_其他工序",
       "name": "T45静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1418,7 +1394,15 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_wx_一序",
+      "id": "p_1786707685307_9k3e0i_其他工序",
+      "name": "HTHB静盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_1786707685307_ay9kj1_一序",
       "name": "WX静盘",
       "process": "一序",
       "uph": 0,
@@ -1426,7 +1410,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_wx_二序",
+      "id": "p_1786707685307_ay9kj1_二序",
       "name": "WX静盘",
       "process": "二序",
       "uph": 0,
@@ -1434,7 +1418,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_wx_三序",
+      "id": "p_1786707685307_ay9kj1_三序",
       "name": "WX静盘",
       "process": "三序",
       "uph": 0,
@@ -1442,9 +1426,25 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_wx_其他工序",
+      "id": "p_1786707685307_ay9kj1_其他工序",
       "name": "WX静盘",
       "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_1786707685307_mqrcle_其他工序",
+      "name": "T45动盘",
+      "process": "其他工序",
+      "uph": 0,
+      "area": "",
+      "productionFromSchedule": false
+    },
+    {
+      "id": "p_pzk_一序",
+      "name": "配重块",
+      "process": "一序",
       "uph": 0,
       "area": "",
       "productionFromSchedule": false
@@ -5241,7 +5241,7 @@
         }
       },
       {
-        "id": "p_1786342272398_gh8nla",
+        "id": "p_1786707685307_4d9mp1",
         "name": "上配重块",
         "processes": {
           "一序": [
@@ -5260,7 +5260,7 @@
         }
       },
       {
-        "id": "p_1786342272398_ihhbdg",
+        "id": "p_1786707685307_gm9o29",
         "name": "下配重块",
         "processes": {
           "一序": [
@@ -5279,7 +5279,7 @@
         }
       },
       {
-        "id": "p_em34",
+        "id": "p_1786707685307_zmh7h3",
         "name": "EM34静盘",
         "processes": {
           "一序": [
@@ -5340,7 +5340,7 @@
         }
       },
       {
-        "id": "p_esea",
+        "id": "p_1786707685307_wdk1kv",
         "name": "ESEA静盘",
         "processes": {
           "一序": [
@@ -5396,7 +5396,7 @@
         }
       },
       {
-        "id": "p_ha",
+        "id": "p_1786707685307_hs7ypi",
         "name": "HA动盘",
         "processes": {
           "一序": [
@@ -5468,7 +5468,7 @@
         }
       },
       {
-        "id": "p_hthd",
+        "id": "p_1786707685307_9k3e0i",
         "name": "HTHB静盘",
         "processes": {
           "一序": [
@@ -5531,7 +5531,7 @@
         }
       },
       {
-        "id": "p_st",
+        "id": "p_1786707685307_dnnh21",
         "name": "ST动盘",
         "processes": {
           "一序": [
@@ -5603,7 +5603,7 @@
         }
       },
       {
-        "id": "p_t45d",
+        "id": "p_1786707685307_mqrcle",
         "name": "T45动盘",
         "processes": {
           "一序": [
@@ -5665,7 +5665,7 @@
         }
       },
       {
-        "id": "p_t45j",
+        "id": "p_1786707685307_38g580",
         "name": "T45静盘",
         "processes": {
           "一序": [
@@ -5728,7 +5728,7 @@
         }
       },
       {
-        "id": "p_wx",
+        "id": "p_1786707685307_ay9kj1",
         "name": "WX静盘",
         "processes": {
           "一序": [
