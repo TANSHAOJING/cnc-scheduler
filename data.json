@@ -513,6 +513,13 @@
       "perClamp": 1
     },
     {
+      "id": "CNC73",
+      "workshop": "精加车间",
+      "productName": "空（新机）",
+      "process": "",
+      "perClamp": 1
+    },
+    {
       "id": "CNC74",
       "workshop": "粗加大车间",
       "productName": "ST动盘",
@@ -1354,7 +1361,7 @@
       "productionFromSchedule": true
     },
     {
-      "id": "p_1786707976477_blxkwl_其他工序",
+      "id": "p_1786708367915_zqd5na_其他工序",
       "name": "EM34静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1362,7 +1369,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786707976477_d1urtf_其他工序",
+      "id": "p_1786708367915_sog1wh_其他工序",
       "name": "ESEA静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1370,7 +1377,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786707976477_zo16ap_其他工序",
+      "id": "p_1786708367915_rp9hil_其他工序",
       "name": "HA动盘",
       "process": "其他工序",
       "uph": 0,
@@ -1378,7 +1385,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786707976477_w4wgbw_其他工序",
+      "id": "p_1786708367915_vmkc25_其他工序",
       "name": "ST动盘",
       "process": "其他工序",
       "uph": 0,
@@ -1386,7 +1393,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786707976477_rg5a67_其他工序",
+      "id": "p_1786708367915_i3jcar_其他工序",
       "name": "T45静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1394,7 +1401,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786707976477_0sm9gi_其他工序",
+      "id": "p_1786708367915_kk94u7_其他工序",
       "name": "HTHB静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1402,7 +1409,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786707976477_ht7wtz_一序",
+      "id": "p_1786708367915_ahtkc9_一序",
       "name": "WX静盘",
       "process": "一序",
       "uph": 0,
@@ -1410,7 +1417,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786707976477_ht7wtz_二序",
+      "id": "p_1786708367915_ahtkc9_二序",
       "name": "WX静盘",
       "process": "二序",
       "uph": 0,
@@ -1418,7 +1425,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786707976477_ht7wtz_三序",
+      "id": "p_1786708367915_ahtkc9_三序",
       "name": "WX静盘",
       "process": "三序",
       "uph": 0,
@@ -1426,7 +1433,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786707976477_ht7wtz_其他工序",
+      "id": "p_1786708367915_ahtkc9_其他工序",
       "name": "WX静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1434,2137 +1441,9 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786707976477_tiqvy9_其他工序",
+      "id": "p_1786708367915_l8cwmw_其他工序",
       "name": "T45动盘",
       "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_pzk_一序",
-      "name": "配重块",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8v7ng5_一序",
-      "name": "1",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8v7ng5_二序",
-      "name": "1",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8v7ng5_三序",
-      "name": "1",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8v7ng5_四序",
-      "name": "1",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8v7ng5_其他工序",
-      "name": "1",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8v7ng5_工序6",
-      "name": "1",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8v7ng5_工序7",
-      "name": "1",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_e0629c_一序",
-      "name": "10",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_e0629c_二序",
-      "name": "10",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_e0629c_四序",
-      "name": "10",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_e0629c_其他工序",
-      "name": "10",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_e0629c_工序6",
-      "name": "10",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_plnhzm_一序",
-      "name": "11",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_plnhzm_二序",
-      "name": "11",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_plnhzm_四序",
-      "name": "11",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_plnhzm_其他工序",
-      "name": "11",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_plnhzm_工序6",
-      "name": "11",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9kayzr_一序",
-      "name": "12",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9kayzr_二序",
-      "name": "12",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9kayzr_四序",
-      "name": "12",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9kayzr_其他工序",
-      "name": "12",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9kayzr_工序6",
-      "name": "12",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9kayzr_工序7",
-      "name": "12",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_k8trn8_一序",
-      "name": "13",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_k8trn8_二序",
-      "name": "13",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_k8trn8_三序",
-      "name": "13",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_k8trn8_四序",
-      "name": "13",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_k8trn8_其他工序",
-      "name": "13",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_k8trn8_工序6",
-      "name": "13",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_k8trn8_工序7",
-      "name": "13",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_4by9q4_一序",
-      "name": "14",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_4by9q4_二序",
-      "name": "14",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_4by9q4_三序",
-      "name": "14",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_4by9q4_四序",
-      "name": "14",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_4by9q4_其他工序",
-      "name": "14",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_4by9q4_工序6",
-      "name": "14",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_wb9vhd_一序",
-      "name": "15",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_wb9vhd_二序",
-      "name": "15",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_wb9vhd_三序",
-      "name": "15",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_wb9vhd_四序",
-      "name": "15",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_wb9vhd_其他工序",
-      "name": "15",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_wb9vhd_工序6",
-      "name": "15",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_wb9vhd_工序7",
-      "name": "15",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_kiag29_一序",
-      "name": "16",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_kiag29_二序",
-      "name": "16",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_kiag29_三序",
-      "name": "16",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_kiag29_四序",
-      "name": "16",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_kiag29_其他工序",
-      "name": "16",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_kiag29_工序6",
-      "name": "16",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nwftav_一序",
-      "name": "17",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nwftav_二序",
-      "name": "17",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nwftav_四序",
-      "name": "17",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nwftav_其他工序",
-      "name": "17",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nwftav_工序6",
-      "name": "17",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_d0jwkq_一序",
-      "name": "18",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_d0jwkq_二序",
-      "name": "18",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_d0jwkq_三序",
-      "name": "18",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_d0jwkq_四序",
-      "name": "18",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_d0jwkq_其他工序",
-      "name": "18",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_d0jwkq_工序6",
-      "name": "18",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_d0jwkq_工序7",
-      "name": "18",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_sxx0n6_一序",
-      "name": "19",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_sxx0n6_二序",
-      "name": "19",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_sxx0n6_三序",
-      "name": "19",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_sxx0n6_四序",
-      "name": "19",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_sxx0n6_其他工序",
-      "name": "19",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_sxx0n6_工序6",
-      "name": "19",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_u8tjtc_一序",
-      "name": "2",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_u8tjtc_二序",
-      "name": "2",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_u8tjtc_三序",
-      "name": "2",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_u8tjtc_四序",
-      "name": "2",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_u8tjtc_其他工序",
-      "name": "2",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_u8tjtc_工序6",
-      "name": "2",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_u8tjtc_工序7",
-      "name": "2",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nqybg5_一序",
-      "name": "20",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nqybg5_二序",
-      "name": "20",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nqybg5_四序",
-      "name": "20",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nqybg5_其他工序",
-      "name": "20",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nqybg5_工序6",
-      "name": "20",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nqybg5_工序7",
-      "name": "20",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8jplfx_一序",
-      "name": "21",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8jplfx_二序",
-      "name": "21",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8jplfx_三序",
-      "name": "21",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8jplfx_四序",
-      "name": "21",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8jplfx_其他工序",
-      "name": "21",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8jplfx_工序6",
-      "name": "21",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_8jplfx_工序7",
-      "name": "21",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_o4iuzu_一序",
-      "name": "22",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_o4iuzu_二序",
-      "name": "22",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_o4iuzu_三序",
-      "name": "22",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_o4iuzu_四序",
-      "name": "22",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_o4iuzu_其他工序",
-      "name": "22",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_o4iuzu_工序6",
-      "name": "22",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_o4iuzu_工序7",
-      "name": "22",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_cho4no_一序",
-      "name": "23",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_cho4no_二序",
-      "name": "23",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_cho4no_四序",
-      "name": "23",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_cho4no_其他工序",
-      "name": "23",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_cho4no_工序6",
-      "name": "23",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_cho4no_工序7",
-      "name": "23",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_eia4qz_一序",
-      "name": "24",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_eia4qz_二序",
-      "name": "24",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_eia4qz_四序",
-      "name": "24",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_eia4qz_其他工序",
-      "name": "24",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_eia4qz_工序6",
-      "name": "24",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_eia4qz_工序7",
-      "name": "24",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_t4w3s6_一序",
-      "name": "25",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_t4w3s6_二序",
-      "name": "25",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_t4w3s6_三序",
-      "name": "25",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_t4w3s6_四序",
-      "name": "25",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_t4w3s6_其他工序",
-      "name": "25",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_t4w3s6_工序6",
-      "name": "25",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_t4w3s6_工序7",
-      "name": "25",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ti90ez_一序",
-      "name": "26",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ti90ez_二序",
-      "name": "26",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ti90ez_四序",
-      "name": "26",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ti90ez_其他工序",
-      "name": "26",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ti90ez_工序6",
-      "name": "26",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ti90ez_工序7",
-      "name": "26",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ub3j1o_一序",
-      "name": "27",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ub3j1o_二序",
-      "name": "27",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ub3j1o_三序",
-      "name": "27",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ub3j1o_四序",
-      "name": "27",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ub3j1o_其他工序",
-      "name": "27",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ub3j1o_工序6",
-      "name": "27",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_ub3j1o_工序7",
-      "name": "27",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_igasj3_一序",
-      "name": "28",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_igasj3_二序",
-      "name": "28",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_igasj3_三序",
-      "name": "28",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_igasj3_四序",
-      "name": "28",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_igasj3_其他工序",
-      "name": "28",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_igasj3_工序6",
-      "name": "28",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_igasj3_工序7",
-      "name": "28",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hl9ba9_一序",
-      "name": "29",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hl9ba9_二序",
-      "name": "29",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hl9ba9_三序",
-      "name": "29",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hl9ba9_四序",
-      "name": "29",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hl9ba9_其他工序",
-      "name": "29",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hl9ba9_工序6",
-      "name": "29",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hl9ba9_工序7",
-      "name": "29",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_105uur_一序",
-      "name": "3",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_105uur_二序",
-      "name": "3",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_105uur_三序",
-      "name": "3",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_105uur_四序",
-      "name": "3",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_105uur_其他工序",
-      "name": "3",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_105uur_工序6",
-      "name": "3",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_105uur_工序7",
-      "name": "3",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_50yedl_一序",
-      "name": "30",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_50yedl_二序",
-      "name": "30",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_50yedl_三序",
-      "name": "30",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_50yedl_四序",
-      "name": "30",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_50yedl_其他工序",
-      "name": "30",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_50yedl_工序6",
-      "name": "30",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_50yedl_工序7",
-      "name": "30",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9vlc99_一序",
-      "name": "31",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9vlc99_二序",
-      "name": "31",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9vlc99_三序",
-      "name": "31",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9vlc99_四序",
-      "name": "31",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9vlc99_其他工序",
-      "name": "31",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9vlc99_工序6",
-      "name": "31",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9vlc99_工序7",
-      "name": "31",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_c66hqn_一序",
-      "name": "32",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_c66hqn_二序",
-      "name": "32",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_c66hqn_三序",
-      "name": "32",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_c66hqn_四序",
-      "name": "32",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_c66hqn_其他工序",
-      "name": "32",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_c66hqn_工序6",
-      "name": "32",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_c66hqn_工序7",
-      "name": "32",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_zd7l2l_一序",
-      "name": "33",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_zd7l2l_二序",
-      "name": "33",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_zd7l2l_三序",
-      "name": "33",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_zd7l2l_四序",
-      "name": "33",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_zd7l2l_其他工序",
-      "name": "33",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_zd7l2l_工序6",
-      "name": "33",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_zd7l2l_工序7",
-      "name": "33",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_d4cu8t_一序",
-      "name": "34",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_d4cu8t_二序",
-      "name": "34",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_d4cu8t_三序",
-      "name": "34",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_w6usra_一序",
-      "name": "36",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_w6usra_二序",
-      "name": "36",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_w6usra_三序",
-      "name": "36",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nlpm0n_一序",
-      "name": "37",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nlpm0n_二序",
-      "name": "37",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_nlpm0n_三序",
-      "name": "37",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_974wms_一序",
-      "name": "38",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_974wms_二序",
-      "name": "38",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_974wms_三序",
-      "name": "38",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_w12c9s_一序",
-      "name": "39",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_w12c9s_二序",
-      "name": "39",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_w12c9s_三序",
-      "name": "39",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_38es3n_一序",
-      "name": "4",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_38es3n_二序",
-      "name": "4",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_38es3n_四序",
-      "name": "4",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_38es3n_其他工序",
-      "name": "4",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_38es3n_工序6",
-      "name": "4",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_2azvwb_一序",
-      "name": "40",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_2azvwb_二序",
-      "name": "40",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_2azvwb_三序",
-      "name": "40",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_347ctp_一序",
-      "name": "41",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_347ctp_二序",
-      "name": "41",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_347ctp_三序",
-      "name": "41",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_j21z4k_一序",
-      "name": "42",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_j21z4k_二序",
-      "name": "42",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_j21z4k_三序",
-      "name": "42",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_grqnvv_一序",
-      "name": "43",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_grqnvv_二序",
-      "name": "43",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_grqnvv_三序",
-      "name": "43",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_71xc4f_一序",
-      "name": "44",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_71xc4f_二序",
-      "name": "44",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_71xc4f_三序",
-      "name": "44",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_plsr0c_一序",
-      "name": "45",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_plsr0c_二序",
-      "name": "45",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_plsr0c_三序",
-      "name": "45",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_1ulcuj_一序",
-      "name": "46",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_1ulcuj_二序",
-      "name": "46",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_1ulcuj_三序",
-      "name": "46",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9gxf4z_一序",
-      "name": "47",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9gxf4z_二序",
-      "name": "47",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_9gxf4z_三序",
-      "name": "47",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_jjnaal_一序",
-      "name": "48",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_jjnaal_二序",
-      "name": "48",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_jjnaal_三序",
-      "name": "48",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_sqx9dr_一序",
-      "name": "49",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_sqx9dr_二序",
-      "name": "49",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_jmuy73_一序",
-      "name": "5",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_jmuy73_二序",
-      "name": "5",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_jmuy73_三序",
-      "name": "5",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_jmuy73_四序",
-      "name": "5",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_jmuy73_其他工序",
-      "name": "5",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_jmuy73_工序6",
-      "name": "5",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_qlgzcy_一序",
-      "name": "50",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_qlgzcy_二序",
-      "name": "50",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hhdl2g_一序",
-      "name": "6",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hhdl2g_二序",
-      "name": "6",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hhdl2g_三序",
-      "name": "6",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hhdl2g_四序",
-      "name": "6",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hhdl2g_其他工序",
-      "name": "6",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_hhdl2g_工序6",
-      "name": "6",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_uidh5t_一序",
-      "name": "7",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_uidh5t_二序",
-      "name": "7",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_uidh5t_三序",
-      "name": "7",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_uidh5t_四序",
-      "name": "7",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_uidh5t_其他工序",
-      "name": "7",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_uidh5t_工序6",
-      "name": "7",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_uidh5t_工序7",
-      "name": "7",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_5ar3bu_一序",
-      "name": "8",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_5ar3bu_二序",
-      "name": "8",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_5ar3bu_四序",
-      "name": "8",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_5ar3bu_其他工序",
-      "name": "8",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_5ar3bu_工序6",
-      "name": "8",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_5ar3bu_工序7",
-      "name": "8",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_p49ing_一序",
-      "name": "9",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_p49ing_二序",
-      "name": "9",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_p49ing_四序",
-      "name": "9",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_p49ing_其他工序",
-      "name": "9",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_p49ing_工序6",
-      "name": "9",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_p49ing_工序7",
-      "name": "9",
-      "process": "工序7",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_rzrvr6_四序",
-      "name": "白班",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_g7uzun_一序",
-      "name": "编号",
-      "process": "一序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_g7uzun_二序",
-      "name": "编号",
-      "process": "二序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_g7uzun_三序",
-      "name": "编号",
-      "process": "三序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_g7uzun_四序",
-      "name": "编号",
-      "process": "四序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_g7uzun_其他工序",
-      "name": "编号",
-      "process": "其他工序",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_g7uzun_工序6",
-      "name": "编号",
-      "process": "工序6",
-      "uph": 0,
-      "area": "",
-      "productionFromSchedule": false
-    },
-    {
-      "id": "p_1786351742618_g7uzun_工序7",
-      "name": "编号",
-      "process": "工序7",
       "uph": 0,
       "area": "",
       "productionFromSchedule": false
@@ -3913,6 +1792,237 @@
       "shift": "白班",
       "position": "打样",
       "remark": ""
+    },
+    {
+      "id": "1",
+      "name": "聂敬文",
+      "shift": "夜班",
+      "position": "车床师傅",
+      "remark": "车床班组长"
+    },
+    {
+      "id": "2",
+      "name": "黄知敏",
+      "shift": "夜班",
+      "position": "CNC师傅",
+      "remark": "CNC班组长"
+    },
+    {
+      "id": "3",
+      "name": "罗泽创",
+      "shift": "夜班",
+      "position": "车床技术助理",
+      "remark": "车床换刀送检看报告"
+    },
+    {
+      "id": "4",
+      "name": "黄有鹏",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "5",
+      "name": "戴平香",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "6",
+      "name": "字宝元",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "7",
+      "name": "范奥登",
+      "shift": "夜班",
+      "position": "车床技术助理",
+      "remark": "车床换刀送检看报告"
+    },
+    {
+      "id": "8",
+      "name": "周树明",
+      "shift": "夜班",
+      "position": "CNC技术助理",
+      "remark": "CNC换刀送检看报告"
+    },
+    {
+      "id": "9",
+      "name": "唐文斌",
+      "shift": "夜班",
+      "position": "CNC巡检",
+      "remark": "CNC巡检送检看报告"
+    },
+    {
+      "id": "10",
+      "name": "吴开志",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "11",
+      "name": "范厚旺",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "12",
+      "name": "时国明",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "13",
+      "name": "朱蓉",
+      "shift": "夜班",
+      "position": "打码",
+      "remark": "暑假工"
+    },
+    {
+      "id": "14",
+      "name": "王瑞",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": ""
+    },
+    {
+      "id": "15",
+      "name": "宋奥雪",
+      "shift": "夜班",
+      "position": "三坐标测量",
+      "remark": "报告传输、异常登记"
+    },
+    {
+      "id": "16",
+      "name": "江翠雯",
+      "shift": "夜班",
+      "position": "外观检验",
+      "remark": ""
+    },
+    {
+      "id": "17",
+      "name": "龙珍卉",
+      "shift": "夜班",
+      "position": "外观检验",
+      "remark": ""
+    },
+    {
+      "id": "18",
+      "name": "曾宝玲",
+      "shift": "夜班",
+      "position": "打码",
+      "remark": "临时工"
+    },
+    {
+      "id": "19",
+      "name": "梅全立",
+      "shift": "夜班",
+      "position": "压饼机操作",
+      "remark": ""
+    },
+    {
+      "id": "20",
+      "name": "李会周",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "21",
+      "name": "肖霜",
+      "shift": "夜班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "22",
+      "name": "潘围",
+      "shift": "夜班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "23",
+      "name": "张万春",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "24",
+      "name": "付元文",
+      "shift": "夜班",
+      "position": "车床设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "25",
+      "name": "徐永孟",
+      "shift": "夜班",
+      "position": "车床设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "26",
+      "name": "陈家栋",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "27",
+      "name": "吴过",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "28",
+      "name": "陈世豪",
+      "shift": "夜班",
+      "position": "清洗",
+      "remark": "临时工"
+    },
+    {
+      "id": "29",
+      "name": "彭威",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "30",
+      "name": "王冠清",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "31",
+      "name": "杨红云",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "32",
+      "name": "王子豪",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
+    },
+    {
+      "id": "33",
+      "name": "何廷塞",
+      "shift": "夜班",
+      "position": "设备操作员",
+      "remark": "临时工"
     }
   ],
   "schedules": [
@@ -4106,1689 +2216,554 @@
   "_datastore": {
     "products": [
       {
-        "id": "p_1786351742618_8v7ng5",
-        "name": "1",
-        "processes": {
-          "一序": [
-            "王日文"
-          ],
-          "二序": [
-            "CNC师傅"
-          ],
-          "三序": [
-            "人员统筹、综合协调"
-          ],
-          "四序": [
-            "1"
-          ],
-          "其他工序": [
-            "聂敬文"
-          ],
-          "工序6": [
-            "车床师傅"
-          ],
-          "工序7": [
-            "车床班组长"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_e0629c",
-        "name": "10",
-        "processes": {
-          "一序": [
-            "林玉淳"
-          ],
-          "二序": [
-            "外观检验"
-          ],
-          "四序": [
-            "10"
-          ],
-          "其他工序": [
-            "吴开志"
-          ],
-          "工序6": [
-            "设备操作员"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_plnhzm",
-        "name": "11",
-        "processes": {
-          "一序": [
-            "王奥运"
-          ],
-          "二序": [
-            "物料"
-          ],
-          "四序": [
-            "11"
-          ],
-          "其他工序": [
-            "范厚旺"
-          ],
-          "工序6": [
-            "设备操作员"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_9kayzr",
-        "name": "12",
-        "processes": {
-          "一序": [
-            "黄楚怡"
-          ],
-          "二序": [
-            "打码"
-          ],
-          "四序": [
-            "12"
-          ],
-          "其他工序": [
-            "时国明"
-          ],
-          "工序6": [
-            "设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_k8trn8",
-        "name": "13",
-        "processes": {
-          "一序": [
-            "刘安近"
-          ],
-          "二序": [
-            "清渣后勤"
-          ],
-          "三序": [
-            "临时工"
-          ],
-          "四序": [
-            "13"
-          ],
-          "其他工序": [
-            "朱蓉"
-          ],
-          "工序6": [
-            "打码"
-          ],
-          "工序7": [
-            "暑假工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_4by9q4",
-        "name": "14",
-        "processes": {
-          "一序": [
-            "马嘉明"
-          ],
-          "二序": [
-            "后勤"
-          ],
-          "三序": [
-            "临时工"
-          ],
-          "四序": [
-            "14"
-          ],
-          "其他工序": [
-            "王瑞"
-          ],
-          "工序6": [
-            "设备操作员"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_wb9vhd",
-        "name": "15",
-        "processes": {
-          "一序": [
-            "付旭洋"
-          ],
-          "二序": [
-            "物料协助"
-          ],
-          "三序": [
-            "临时工"
-          ],
-          "四序": [
-            "15"
-          ],
-          "其他工序": [
-            "宋奥雪"
-          ],
-          "工序6": [
-            "三坐标测量"
-          ],
-          "工序7": [
-            "报告传输、异常登记"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_kiag29",
-        "name": "16",
-        "processes": {
-          "一序": [
-            "何峰"
-          ],
-          "二序": [
-            "车床师傅"
-          ],
-          "三序": [
-            "车床班组长"
-          ],
-          "四序": [
-            "16"
-          ],
-          "其他工序": [
-            "江翠雯"
-          ],
-          "工序6": [
-            "外观检验"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_nwftav",
-        "name": "17",
-        "processes": {
-          "一序": [
-            "徐长蓉"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "四序": [
-            "17"
-          ],
-          "其他工序": [
-            "龙珍卉"
-          ],
-          "工序6": [
-            "外观检验"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_d0jwkq",
-        "name": "18",
-        "processes": {
-          "一序": [
-            "路培满"
-          ],
-          "二序": [
-            "车床技术助理"
-          ],
-          "三序": [
-            "车床巡检送检看报告"
-          ],
-          "四序": [
-            "18"
-          ],
-          "其他工序": [
-            "曾宝玲"
-          ],
-          "工序6": [
-            "打码"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_sxx0n6",
-        "name": "19",
-        "processes": {
-          "一序": [
-            "刘大国"
-          ],
-          "二序": [
-            "CNC师傅"
-          ],
-          "三序": [
-            "CNC班组长"
-          ],
-          "四序": [
-            "19"
-          ],
-          "其他工序": [
-            "梅全立"
-          ],
-          "工序6": [
-            "压饼机操作"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_u8tjtc",
-        "name": "2",
-        "processes": {
-          "一序": [
-            "谭绍景"
-          ],
-          "二序": [
-            "车床工艺工程师"
-          ],
-          "三序": [
-            "车铣人员管理、编程"
-          ],
-          "四序": [
-            "2"
-          ],
-          "其他工序": [
-            "黄知敏"
-          ],
-          "工序6": [
-            "CNC师傅"
-          ],
-          "工序7": [
-            "CNC班组长"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_nqybg5",
-        "name": "20",
-        "processes": {
-          "一序": [
-            "赵飞英"
-          ],
-          "二序": [
-            "外观检验"
-          ],
-          "四序": [
-            "20"
-          ],
-          "其他工序": [
-            "李会周"
-          ],
-          "工序6": [
-            "设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_8jplfx",
-        "name": "21",
-        "processes": {
-          "一序": [
-            "刘卜涛"
-          ],
-          "二序": [
-            "CNC技术助理"
-          ],
-          "三序": [
-            "CNC换刀送检看报告"
-          ],
-          "四序": [
-            "21"
-          ],
-          "其他工序": [
-            "肖霜"
-          ],
-          "工序6": [
-            "清洗"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_o4iuzu",
-        "name": "22",
-        "processes": {
-          "一序": [
-            "王小琴"
-          ],
-          "二序": [
-            "三坐标测量"
-          ],
-          "三序": [
-            "报告传输、异常登记"
-          ],
-          "四序": [
-            "22"
-          ],
-          "其他工序": [
-            "潘围"
-          ],
-          "工序6": [
-            "清洗"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_cho4no",
-        "name": "23",
-        "processes": {
-          "一序": [
-            "江建凯"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "四序": [
-            "23"
-          ],
-          "其他工序": [
-            "张万春"
-          ],
-          "工序6": [
-            "设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_eia4qz",
-        "name": "24",
-        "processes": {
-          "一序": [
-            "赖亮"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "四序": [
-            "24"
-          ],
-          "其他工序": [
-            "付元文"
-          ],
-          "工序6": [
-            "车床设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_t4w3s6",
-        "name": "25",
-        "processes": {
-          "一序": [
-            "邱子浩"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "暑假工"
-          ],
-          "四序": [
-            "25"
-          ],
-          "其他工序": [
-            "徐永孟"
-          ],
-          "工序6": [
-            "车床设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_ti90ez",
-        "name": "26",
-        "processes": {
-          "一序": [
-            "黄镇权"
-          ],
-          "二序": [
-            "清洗"
-          ],
-          "四序": [
-            "26"
-          ],
-          "其他工序": [
-            "陈家栋"
-          ],
-          "工序6": [
-            "设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_ub3j1o",
-        "name": "27",
-        "processes": {
-          "一序": [
-            "徐亚星"
-          ],
-          "二序": [
-            "车床技术助理"
-          ],
-          "三序": [
-            "车床换刀送检看报告"
-          ],
-          "四序": [
-            "27"
-          ],
-          "其他工序": [
-            "吴过"
-          ],
-          "工序6": [
-            "设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_igasj3",
-        "name": "28",
-        "processes": {
-          "一序": [
-            "王金才"
-          ],
-          "二序": [
-            "cnc巡检"
-          ],
-          "三序": [
-            "CNC巡检送检看报告"
-          ],
-          "四序": [
-            "28"
-          ],
-          "其他工序": [
-            "陈世豪"
-          ],
-          "工序6": [
-            "清洗"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_hl9ba9",
-        "name": "29",
-        "processes": {
-          "一序": [
-            "罗建宇"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ],
-          "四序": [
-            "29"
-          ],
-          "其他工序": [
-            "彭威"
-          ],
-          "工序6": [
-            "设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_105uur",
-        "name": "3",
-        "processes": {
-          "一序": [
-            "何梅"
-          ],
-          "二序": [
-            "三坐标工程师"
-          ],
-          "三序": [
-            "三坐标测量负责人"
-          ],
-          "四序": [
-            "3"
-          ],
-          "其他工序": [
-            "罗泽创"
-          ],
-          "工序6": [
-            "车床技术助理"
-          ],
-          "工序7": [
-            "车床换刀送检看报告"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_50yedl",
-        "name": "30",
-        "processes": {
-          "一序": [
-            "章开宝"
-          ],
-          "二序": [
-            "清洗"
-          ],
-          "三序": [
-            "临时工"
-          ],
-          "四序": [
-            "30"
-          ],
-          "其他工序": [
-            "王冠清"
-          ],
-          "工序6": [
-            "设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_9vlc99",
-        "name": "31",
-        "processes": {
-          "一序": [
-            "罗中华"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ],
-          "四序": [
-            "31"
-          ],
-          "其他工序": [
-            "杨红云"
-          ],
-          "工序6": [
-            "设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_c66hqn",
-        "name": "32",
-        "processes": {
-          "一序": [
-            "陈保军"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ],
-          "四序": [
-            "32"
-          ],
-          "其他工序": [
-            "王子豪"
-          ],
-          "工序6": [
-            "设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_zd7l2l",
-        "name": "33",
-        "processes": {
-          "一序": [
-            "陈浩"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ],
-          "四序": [
-            "33"
-          ],
-          "其他工序": [
-            "何廷塞"
-          ],
-          "工序6": [
-            "设备操作员"
-          ],
-          "工序7": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_d4cu8t",
-        "name": "34",
-        "processes": {
-          "一序": [
-            "李嘉浩"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_leexl3",
-        "name": "35",
-        "processes": {}
-      },
-      {
-        "id": "p_1786351742618_w6usra",
-        "name": "36",
-        "processes": {
-          "一序": [
-            "包尚鑫"
-          ],
-          "二序": [
-            "打码"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_nlpm0n",
-        "name": "37",
-        "processes": {
-          "一序": [
-            "赵佰儒"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_974wms",
-        "name": "38",
-        "processes": {
-          "一序": [
-            "荣正根"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_w12c9s",
-        "name": "39",
-        "processes": {
-          "一序": [
-            "彭英杰"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_38es3n",
-        "name": "4",
-        "processes": {
-          "一序": [
-            "王芳芳"
-          ],
-          "二序": [
-            "外观检验"
-          ],
-          "四序": [
-            "4"
-          ],
-          "其他工序": [
-            "黄有鹏"
-          ],
-          "工序6": [
-            "设备操作员"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_2azvwb",
-        "name": "40",
-        "processes": {
-          "一序": [
-            "冯子明"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_347ctp",
-        "name": "41",
-        "processes": {
-          "一序": [
-            "陈国豪"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_j21z4k",
-        "name": "42",
-        "processes": {
-          "一序": [
-            "廖明哲"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_grqnvv",
-        "name": "43",
-        "processes": {
-          "一序": [
-            "刘志远"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_71xc4f",
-        "name": "44",
-        "processes": {
-          "一序": [
-            "安伟"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_plsr0c",
-        "name": "45",
-        "processes": {
-          "一序": [
-            "黄仔兴"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_1ulcuj",
-        "name": "46",
-        "processes": {
-          "一序": [
-            "刘江"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_9gxf4z",
-        "name": "47",
-        "processes": {
-          "一序": [
-            "龚建创"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工/暑假工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_jjnaal",
-        "name": "48",
-        "processes": {
-          "一序": [
-            "姜帅"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "三序": [
-            "临时工/暑假工"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_sqx9dr",
-        "name": "49",
-        "processes": {
-          "一序": [
-            "贾紫嫣"
-          ],
-          "二序": [
-            "打码"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_jmuy73",
-        "name": "5",
-        "processes": {
-          "一序": [
-            "江学优"
-          ],
-          "二序": [
-            "CNC师傅"
-          ],
-          "三序": [
-            "打样量产精加工调试"
-          ],
-          "四序": [
-            "5"
-          ],
-          "其他工序": [
-            "戴平香"
-          ],
-          "工序6": [
-            "设备操作员"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_qlgzcy",
-        "name": "50",
-        "processes": {
-          "一序": [
-            "郭海平"
-          ],
-          "二序": [
-            "打样"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_iltpn4",
-        "name": "51",
-        "processes": {}
-      },
-      {
-        "id": "p_1786351742618_jfkyxt",
-        "name": "52",
-        "processes": {}
-      },
-      {
-        "id": "p_1786351742618_hhdl2g",
-        "name": "6",
-        "processes": {
-          "一序": [
-            "王志强"
-          ],
-          "二序": [
-            "CNC工艺工程师"
-          ],
-          "三序": [
-            "程序编写、优化参数"
-          ],
-          "四序": [
-            "6"
-          ],
-          "其他工序": [
-            "字宝元"
-          ],
-          "工序6": [
-            "设备操作员"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_uidh5t",
-        "name": "7",
-        "processes": {
-          "一序": [
-            "杨聪"
-          ],
-          "二序": [
-            "打样技术助理"
-          ],
-          "三序": [
-            "打样"
-          ],
-          "四序": [
-            "7"
-          ],
-          "其他工序": [
-            "范奥登"
-          ],
-          "工序6": [
-            "车床技术助理"
-          ],
-          "工序7": [
-            "车床换刀送检看报告"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_5ar3bu",
-        "name": "8",
-        "processes": {
-          "一序": [
-            "黎荷荣"
-          ],
-          "二序": [
-            "压饼机操作"
-          ],
-          "四序": [
-            "8"
-          ],
-          "其他工序": [
-            "周树明"
-          ],
-          "工序6": [
-            "CNC技术助理"
-          ],
-          "工序7": [
-            "CNC换刀送检看报告"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_p49ing",
-        "name": "9",
-        "processes": {
-          "一序": [
-            "丘鑫荣"
-          ],
-          "二序": [
-            "设备操作员"
-          ],
-          "四序": [
-            "9"
-          ],
-          "其他工序": [
-            "唐文斌"
-          ],
-          "工序6": [
-            "CNC巡检"
-          ],
-          "工序7": [
-            "CNC巡检送检看报告"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_rzrvr6",
-        "name": "白班",
-        "processes": {
-          "四序": [
-            "夜班"
-          ]
-        }
-      },
-      {
-        "id": "p_1786351742618_g7uzun",
-        "name": "编号",
-        "processes": {
-          "一序": [
-            "姓名"
-          ],
-          "二序": [
-            "职位/岗位"
-          ],
-          "三序": [
-            "备注/负责事项"
-          ],
-          "四序": [
-            "编号"
-          ],
-          "其他工序": [
-            "姓名"
-          ],
-          "工序6": [
-            "职位/岗位"
-          ],
-          "工序7": [
-            "备注/负责事项"
-          ]
-        }
-      },
-      {
-        "id": "p_pzk",
-        "name": "配重块",
-        "processes": {
-          "一序": [
-            "夹伤",
-            "尺寸超差",
-            "工装偏了",
-            "有台阶",
-            "来料不良",
-            "板厚超差",
-            "氧化",
-            "漏坯",
-            "碰伤",
-            "装夹不良",
-            "调机件"
-          ]
-        }
-      },
-      {
-        "id": "p_1786707976477_5zmvgp",
-        "name": "上配重块",
-        "processes": {
-          "一序": [
-            "夹伤",
-            "尺寸超差",
-            "工装偏了",
-            "有台阶",
-            "来料不良",
-            "板厚超差",
-            "氧化",
-            "漏坯",
-            "碰伤",
-            "装夹不良",
-            "调机件"
-          ]
-        }
-      },
-      {
-        "id": "p_1786707976477_ayf8ok",
-        "name": "下配重块",
-        "processes": {
-          "一序": [
-            "夹伤",
-            "尺寸超差",
-            "工装偏了",
-            "有台阶",
-            "来料不良",
-            "板厚超差",
-            "氧化",
-            "漏坯",
-            "碰伤",
-            "装夹不良",
-            "调机件"
-          ]
-        }
-      },
-      {
-        "id": "p_1786707976477_blxkwl",
         "name": "EM34静盘",
         "processes": {
           "一序": [
-            "压伤",
+            "调机件",
+            "装夹不良",
             "撞机",
             "断刀",
             "有台阶",
-            "有毛刺",
             "来料不良",
-            "氧化",
             "漏坯",
             "磕伤",
-            "装夹不良",
-            "调机件"
+            "压伤",
+            "氧化",
+            "有毛刺"
           ],
           "二序": [
-            "压伤",
-            "孔内有台阶",
+            "调机件",
+            "装夹不良",
             "撞机",
             "断刀",
+            "孔内有台阶",
             "有台阶",
-            "有毛刺",
             "来料不良",
-            "氧化",
             "漏坯",
             "磕伤",
-            "装夹不良",
-            "调机件"
+            "压伤",
+            "氧化",
+            "有毛刺"
           ],
           "三序": [
-            "压伤",
-            "变形",
             "型线超差",
-            "孔内有台阶",
             "密封槽尺寸超差",
             "尺寸超差",
+            "板厚超差",
+            "调机件",
+            "装夹不良",
             "撞机",
             "断刀",
+            "孔内有台阶",
             "有台阶",
-            "有毛刺",
-            "机器故障、异常",
             "来料不良",
-            "板厚超差",
-            "气密报警",
-            "氧化",
+            "变形",
             "漏坯",
             "磕伤",
-            "装夹不良",
-            "调机件"
+            "压伤",
+            "氧化",
+            "有毛刺",
+            "气密报警",
+            "机器故障、异常"
           ],
           "其他工序": [
-            "压伤",
-            "打码不良",
             "氧化",
+            "压伤",
             "漏坯",
-            "磕伤"
+            "磕伤",
+            "打码不良"
           ]
-        }
+        },
+        "id": "p_1786708367915_zqd5na"
       },
       {
-        "id": "p_1786707976477_d1urtf",
         "name": "ESEA静盘",
         "processes": {
           "一序": [
-            "主轴进渣",
-            "型线有刀纹",
-            "型线面5毫米孔超差",
-            "型线面漏坯",
             "型线面键槽超差",
-            "断刀",
-            "有台阶",
-            "来料不良",
             "板厚超差",
-            "碰伤",
-            "装夹不良",
-            "调机件"
-          ],
-          "二序": [
-            "断刀",
-            "有台阶",
-            "来料不良",
-            "板厚超差",
-            "碰伤",
-            "装夹不良",
-            "调机件"
-          ],
-          "三序": [
-            "位置度超差",
-            "同心度超差",
-            "圆柱度超差",
-            "打滑",
-            "断刀",
-            "有台阶",
-            "来料不良",
-            "板厚超差",
-            "氧化",
-            "碰伤",
-            "背面漏坯",
+            "型线面5毫米孔超差",
             "装夹不良",
             "调机件",
-            "轴承孔超差"
+            "断刀",
+            "型线面漏坯",
+            "型线有刀纹",
+            "碰伤",
+            "来料不良",
+            "有台阶",
+            "主轴进渣"
+          ],
+          "二序": [
+            "板厚超差",
+            "装夹不良",
+            "调机件",
+            "断刀",
+            "碰伤",
+            "来料不良",
+            "有台阶"
+          ],
+          "三序": [
+            "轴承孔超差",
+            "位置度超差",
+            "板厚超差",
+            "同心度超差",
+            "圆柱度超差",
+            "装夹不良",
+            "调机件",
+            "断刀",
+            "氧化",
+            "背面漏坯",
+            "碰伤",
+            "来料不良",
+            "有台阶",
+            "打滑"
           ],
           "四序": [
-            "有台阶",
-            "来料不良",
             "氧化",
-            "碰伤"
+            "碰伤",
+            "来料不良",
+            "有台阶"
           ],
           "其他工序": [
-            "来料不良",
             "氧化",
-            "碰伤"
+            "碰伤",
+            "来料不良"
           ]
-        }
+        },
+        "id": "p_1786708367915_sog1wh"
       },
       {
-        "id": "p_1786707976477_zo16ap",
         "name": "HA动盘",
         "processes": {
           "一序": [
+            "尺寸超差",
+            "外圆超差",
+            "型线超差",
             "1.2小孔未加工",
-            "主轴进渣",
+            "调机件",
+            "断刀",
+            "装夹不良",
+            "外观不良",
+            "型线过切",
             "型线有台阶",
             "型线没倒角",
-            "型线超差",
-            "型线过切",
-            "外圆超差",
-            "外观不良",
-            "尺寸超差",
-            "断刀",
-            "机器故障",
-            "来料不良",
-            "漏坯",
             "碰伤",
-            "装夹不良",
-            "调机件"
+            "漏坯",
+            "来料不良",
+            "机器故障",
+            "主轴进渣"
           ],
           "二序": [
+            "尺寸超差",
+            "轴承孔超差",
+            "密封槽尺寸超差",
+            "调机件",
+            "断刀",
+            "装夹不良",
             "外观不良",
             "夹伤",
-            "密封槽尺寸超差",
-            "尺寸超差",
-            "断刀",
-            "机器故障",
             "机械手划伤",
-            "机械手夹歪",
+            "碰伤",
+            "漏坯",
             "来料不良",
             "氧化",
-            "漏坯",
-            "碰伤",
-            "装夹不良",
-            "调机件",
-            "轴承孔超差"
+            "机器故障",
+            "机械手夹歪"
           ],
           "三序": [
-            "外观不良",
-            "密封槽尺寸超差",
             "尺寸超差",
-            "打滑",
+            "轴承孔超差",
+            "密封槽尺寸超差",
+            "调机件",
             "断刀",
-            "机器故障",
+            "装夹不良",
+            "环孔位置度超差",
+            "外观不良",
+            "背面有台阶",
+            "环孔有台阶",
+            "环孔底部粗糙",
+            "环孔漏坯",
             "机械手划伤",
-            "机械手夹歪",
+            "碰伤",
+            "漏坯",
             "来料不良",
             "氧化",
-            "漏坯",
-            "环孔位置度超差",
-            "环孔底部粗糙",
-            "环孔有台阶",
-            "环孔漏坯",
-            "碰伤",
-            "背面有台阶",
-            "装夹不良",
-            "调机件",
-            "轴承孔超差"
+            "机器故障",
+            "机械手夹歪",
+            "打滑"
           ],
           "其他工序": [
-            "外观不良",
             "尺寸超差",
             "打码不良",
-            "来料不良",
-            "氧化",
+            "外观不良",
+            "碰伤",
             "漏坯",
-            "碰伤"
+            "来料不良",
+            "氧化"
           ]
-        }
+        },
+        "id": "p_1786708367915_rp9hil"
       },
       {
-        "id": "p_1786707976477_0sm9gi",
-        "name": "HTHB静盘",
-        "processes": {
-          "一序": [
-            "主轴进渣",
-            "位置度超差",
-            "刀损",
-            "型线没倒角",
-            "型线超差",
-            "孔大",
-            "掉刀",
-            "撞机",
-            "断刀",
-            "有台阶",
-            "机器故障",
-            "来料不良",
-            "漏坯",
-            "碰伤",
-            "装夹不良",
-            "调机件"
-          ],
-          "二序": [
-            "主轴进渣",
-            "位置度超差",
-            "刀损",
-            "孔大",
-            "密封槽尺寸超差",
-            "掉刀",
-            "撞机",
-            "断刀",
-            "有台阶",
-            "机器故障",
-            "来料不良",
-            "板厚不良",
-            "漏坯",
-            "碰伤",
-            "装夹不良",
-            "调机件"
-          ],
-          "三序": [
-            "主轴进渣",
-            "刀损",
-            "孔大",
-            "掉刀",
-            "撞机",
-            "断刀",
-            "有台阶",
-            "机器故障",
-            "来料不良",
-            "漏坯",
-            "碰伤",
-            "装夹不良",
-            "调机件"
-          ],
-          "其他工序": [
-            "来料不良",
-            "漏坯",
-            "碰伤",
-            "返修报废"
-          ]
-        }
-      },
-      {
-        "id": "p_1786707976477_w4wgbw",
         "name": "ST动盘",
         "processes": {
           "一序": [
+            "尺寸超差",
+            "外圆超差",
+            "型线超差",
             "1.2小孔未加工",
-            "主轴进渣",
+            "调机件",
+            "断刀",
+            "装夹不良",
+            "外观不良",
+            "型线过切",
             "型线有台阶",
             "型线没倒角",
-            "型线超差",
-            "型线过切",
-            "外圆超差",
-            "外观不良",
-            "尺寸超差",
-            "断刀",
-            "机器故障",
-            "来料不良",
-            "漏坯",
             "碰伤",
-            "装夹不良",
-            "调机件"
+            "漏坯",
+            "来料不良",
+            "机器故障",
+            "主轴进渣"
           ],
           "二序": [
+            "尺寸超差",
+            "轴承孔超差",
+            "密封槽尺寸超差",
+            "调机件",
+            "断刀",
+            "装夹不良",
             "外观不良",
             "夹伤",
-            "密封槽尺寸超差",
-            "尺寸超差",
-            "断刀",
-            "机器故障",
             "机械手划伤",
-            "机械手夹歪",
+            "碰伤",
+            "漏坯",
             "来料不良",
             "氧化",
-            "漏坯",
-            "碰伤",
-            "装夹不良",
-            "调机件",
-            "轴承孔超差"
+            "机器故障",
+            "机械手夹歪"
           ],
           "三序": [
-            "外观不良",
-            "密封槽尺寸超差",
             "尺寸超差",
-            "打滑",
+            "轴承孔超差",
+            "密封槽尺寸超差",
+            "调机件",
             "断刀",
-            "机器故障",
+            "装夹不良",
+            "环孔位置度超差",
+            "外观不良",
+            "背面有台阶",
+            "环孔有台阶",
+            "环孔底部粗糙",
+            "环孔漏坯",
             "机械手划伤",
-            "机械手夹歪",
+            "碰伤",
+            "漏坯",
             "来料不良",
             "氧化",
-            "漏坯",
-            "环孔位置度超差",
-            "环孔底部粗糙",
-            "环孔有台阶",
-            "环孔漏坯",
-            "碰伤",
-            "背面有台阶",
-            "装夹不良",
-            "调机件",
-            "轴承孔超差"
+            "机器故障",
+            "机械手夹歪",
+            "打滑"
           ],
           "其他工序": [
-            "外观不良",
             "尺寸超差",
             "打码不良",
-            "来料不良",
-            "氧化",
+            "外观不良",
+            "碰伤",
             "漏坯",
-            "碰伤"
+            "来料不良",
+            "氧化"
           ]
-        }
+        },
+        "id": "p_1786708367915_vmkc25"
       },
       {
-        "id": "p_1786707976477_tiqvy9",
-        "name": "T45动盘",
-        "processes": {
-          "一序": [
-            "型线超差",
-            "尺寸超差",
-            "断刀",
-            "有台阶",
-            "机器故障",
-            "来料不良",
-            "漏坯",
-            "碰伤",
-            "装夹不良",
-            "调机件"
-          ],
-          "二序": [
-            "尺寸超差",
-            "断刀",
-            "有台阶",
-            "机器故障",
-            "来料不良",
-            "漏坯",
-            "碰伤",
-            "装夹不良",
-            "调机件"
-          ],
-          "三序": [
-            "尺寸超差",
-            "断刀",
-            "有台阶",
-            "机器故障",
-            "来料不良",
-            "漏坯",
-            "环孔超差",
-            "碰伤",
-            "背面槽超差",
-            "装夹不良",
-            "调机件",
-            "轴承孔大"
-          ],
-          "四序": [
-            "型线密封槽超差",
-            "型线超差",
-            "尺寸超差",
-            "断刀",
-            "有台阶",
-            "机器故障",
-            "来料不良",
-            "板厚超差",
-            "漏坯",
-            "碰伤",
-            "装夹不良",
-            "调机件"
-          ],
-          "其他工序": [
-            "来料不良",
-            "漏坯",
-            "碰伤"
-          ]
-        }
-      },
-      {
-        "id": "p_1786707976477_rg5a67",
         "name": "T45静盘",
         "processes": {
           "一序": [
-            "主轴进渣",
-            "位置度超差",
-            "刀损",
-            "型线没倒角",
             "型线超差",
+            "位置度超差",
             "孔大",
-            "掉刀",
+            "刀损",
             "撞机",
+            "调机件",
             "断刀",
-            "有台阶",
-            "机器故障",
+            "装夹不良",
             "来料不良",
+            "型线没倒角",
+            "有台阶",
             "漏坯",
             "碰伤",
-            "装夹不良",
-            "调机件"
+            "主轴进渣",
+            "掉刀",
+            "机器故障"
           ],
           "二序": [
-            "主轴进渣",
+            "板厚不良",
             "位置度超差",
-            "刀损",
             "孔大",
             "密封槽尺寸超差",
-            "掉刀",
+            "刀损",
             "撞机",
+            "调机件",
             "断刀",
-            "有台阶",
-            "机器故障",
+            "装夹不良",
             "来料不良",
-            "板厚不良",
+            "有台阶",
             "漏坯",
             "碰伤",
-            "装夹不良",
-            "调机件"
+            "主轴进渣",
+            "掉刀",
+            "机器故障"
           ],
           "三序": [
-            "主轴进渣",
-            "刀损",
             "孔大",
-            "掉刀",
+            "刀损",
             "撞机",
+            "调机件",
             "断刀",
-            "有台阶",
-            "机器故障",
+            "装夹不良",
             "来料不良",
+            "有台阶",
             "漏坯",
             "碰伤",
-            "装夹不良",
-            "调机件"
+            "主轴进渣",
+            "掉刀",
+            "机器故障"
           ],
           "其他工序": [
+            "返修报废",
             "来料不良",
             "漏坯",
-            "碰伤",
-            "返修报废"
+            "碰伤"
           ]
-        }
+        },
+        "id": "p_1786708367915_i3jcar"
       },
       {
-        "id": "p_1786707976477_ht7wtz",
+        "name": "HTHB静盘",
+        "processes": {
+          "一序": [
+            "型线超差",
+            "位置度超差",
+            "孔大",
+            "刀损",
+            "撞机",
+            "调机件",
+            "断刀",
+            "装夹不良",
+            "来料不良",
+            "型线没倒角",
+            "有台阶",
+            "漏坯",
+            "碰伤",
+            "主轴进渣",
+            "掉刀",
+            "机器故障"
+          ],
+          "二序": [
+            "板厚不良",
+            "位置度超差",
+            "孔大",
+            "密封槽尺寸超差",
+            "刀损",
+            "撞机",
+            "调机件",
+            "断刀",
+            "装夹不良",
+            "来料不良",
+            "有台阶",
+            "漏坯",
+            "碰伤",
+            "主轴进渣",
+            "掉刀",
+            "机器故障"
+          ],
+          "三序": [
+            "孔大",
+            "刀损",
+            "撞机",
+            "调机件",
+            "断刀",
+            "装夹不良",
+            "来料不良",
+            "有台阶",
+            "漏坯",
+            "碰伤",
+            "主轴进渣",
+            "掉刀",
+            "机器故障"
+          ],
+          "其他工序": [
+            "返修报废",
+            "来料不良",
+            "漏坯",
+            "碰伤"
+          ]
+        },
+        "id": "p_1786708367915_kk94u7"
+      },
+      {
         "name": "WX静盘",
         "processes": {
           "一序": [
-            "主轴进渣",
-            "位置度超差",
-            "刀损",
-            "型线没倒角",
             "型线超差",
+            "位置度超差",
             "孔大",
-            "掉刀",
+            "刀损",
             "撞机",
+            "调机件",
             "断刀",
-            "有台阶",
-            "机器故障",
+            "装夹不良",
             "来料不良",
+            "型线没倒角",
+            "有台阶",
             "漏坯",
             "碰伤",
-            "装夹不良",
-            "调机件"
+            "主轴进渣",
+            "掉刀",
+            "机器故障"
           ],
           "二序": [
-            "主轴进渣",
+            "板厚不良",
             "位置度超差",
-            "刀损",
             "孔大",
             "密封槽尺寸超差",
-            "掉刀",
+            "刀损",
             "撞机",
+            "调机件",
             "断刀",
-            "有台阶",
-            "机器故障",
+            "装夹不良",
             "来料不良",
-            "板厚不良",
+            "有台阶",
             "漏坯",
             "碰伤",
-            "装夹不良",
-            "调机件"
+            "主轴进渣",
+            "掉刀",
+            "机器故障"
           ],
           "三序": [
-            "主轴进渣",
-            "刀损",
             "孔大",
-            "掉刀",
+            "刀损",
             "撞机",
+            "调机件",
             "断刀",
+            "装夹不良",
+            "来料不良",
             "有台阶",
-            "机器故障",
+            "漏坯",
+            "碰伤",
+            "主轴进渣",
+            "掉刀",
+            "机器故障"
+          ],
+          "其他工序": [
+            "返修报废",
+            "来料不良",
+            "漏坯",
+            "碰伤"
+          ]
+        },
+        "id": "p_1786708367915_ahtkc9"
+      },
+      {
+        "name": "上配重块",
+        "processes": {
+          "一序": [
+            "板厚超差",
+            "尺寸超差",
+            "装夹不良",
+            "调机件",
+            "来料不良",
+            "有台阶",
+            "氧化",
+            "夹伤",
+            "碰伤",
+            "漏坯",
+            "工装偏了"
+          ]
+        },
+        "id": "p_1786708367915_47q9jh"
+      },
+      {
+        "name": "T45动盘",
+        "processes": {
+          "一序": [
+            "尺寸超差",
+            "调机件",
+            "有台阶",
+            "型线超差",
+            "断刀",
+            "装夹不良",
             "来料不良",
             "漏坯",
             "碰伤",
+            "机器故障"
+          ],
+          "二序": [
+            "尺寸超差",
+            "调机件",
+            "有台阶",
+            "断刀",
             "装夹不良",
-            "调机件"
+            "来料不良",
+            "漏坯",
+            "碰伤",
+            "机器故障"
+          ],
+          "三序": [
+            "轴承孔大",
+            "背面槽超差",
+            "环孔超差",
+            "尺寸超差",
+            "调机件",
+            "有台阶",
+            "断刀",
+            "装夹不良",
+            "来料不良",
+            "漏坯",
+            "碰伤",
+            "机器故障"
+          ],
+          "四序": [
+            "型线密封槽超差",
+            "板厚超差",
+            "尺寸超差",
+            "调机件",
+            "有台阶",
+            "型线超差",
+            "断刀",
+            "装夹不良",
+            "来料不良",
+            "漏坯",
+            "碰伤",
+            "机器故障"
           ],
           "其他工序": [
             "来料不良",
             "漏坯",
-            "碰伤",
-            "返修报废"
+            "碰伤"
           ]
-        }
+        },
+        "id": "p_1786708367915_l8cwmw"
+      },
+      {
+        "name": "下配重块",
+        "processes": {
+          "一序": [
+            "板厚超差",
+            "尺寸超差",
+            "装夹不良",
+            "调机件",
+            "来料不良",
+            "有台阶",
+            "氧化",
+            "夹伤",
+            "碰伤",
+            "漏坯",
+            "工装偏了"
+          ]
+        },
+        "id": "p_1786708367915_9ts8aq"
       }
     ],
     "production": [],
