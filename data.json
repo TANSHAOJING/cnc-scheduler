@@ -1361,7 +1361,7 @@
       "productionFromSchedule": true
     },
     {
-      "id": "p_1786708367915_zqd5na_其他工序",
+      "id": "p_1786760814173_0888b5_其他工序",
       "name": "EM34静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1369,7 +1369,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786708367915_sog1wh_其他工序",
+      "id": "p_1786760814173_ap7oaj_其他工序",
       "name": "ESEA静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1377,7 +1377,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786708367915_rp9hil_其他工序",
+      "id": "p_1786760814173_mdhlrq_其他工序",
       "name": "HA动盘",
       "process": "其他工序",
       "uph": 0,
@@ -1385,7 +1385,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786708367915_vmkc25_其他工序",
+      "id": "p_1786760814173_zvn3nw_其他工序",
       "name": "ST动盘",
       "process": "其他工序",
       "uph": 0,
@@ -1393,7 +1393,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786708367915_i3jcar_其他工序",
+      "id": "p_1786760814173_ek53yj_其他工序",
       "name": "T45静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1401,7 +1401,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786708367915_kk94u7_其他工序",
+      "id": "p_1786760814173_1xj95o_其他工序",
       "name": "HTHB静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1409,7 +1409,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786708367915_ahtkc9_一序",
+      "id": "p_1786760814173_8q0xhi_一序",
       "name": "WX静盘",
       "process": "一序",
       "uph": 0,
@@ -1417,7 +1417,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786708367915_ahtkc9_二序",
+      "id": "p_1786760814173_8q0xhi_二序",
       "name": "WX静盘",
       "process": "二序",
       "uph": 0,
@@ -1425,7 +1425,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786708367915_ahtkc9_三序",
+      "id": "p_1786760814173_8q0xhi_三序",
       "name": "WX静盘",
       "process": "三序",
       "uph": 0,
@@ -1433,7 +1433,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786708367915_ahtkc9_其他工序",
+      "id": "p_1786760814173_8q0xhi_其他工序",
       "name": "WX静盘",
       "process": "其他工序",
       "uph": 0,
@@ -1441,7 +1441,7 @@
       "productionFromSchedule": false
     },
     {
-      "id": "p_1786708367915_l8cwmw_其他工序",
+      "id": "p_1786760814173_hi4mrz_其他工序",
       "name": "T45动盘",
       "process": "其他工序",
       "uph": 0,
@@ -2274,7 +2274,7 @@
             "打码不良"
           ]
         },
-        "id": "p_1786708367915_zqd5na"
+        "id": "p_1786760814173_0888b5"
       },
       {
         "name": "ESEA静盘",
@@ -2330,7 +2330,7 @@
             "来料不良"
           ]
         },
-        "id": "p_1786708367915_sog1wh"
+        "id": "p_1786760814173_ap7oaj"
       },
       {
         "name": "HA动盘",
@@ -2402,7 +2402,7 @@
             "氧化"
           ]
         },
-        "id": "p_1786708367915_rp9hil"
+        "id": "p_1786760814173_mdhlrq"
       },
       {
         "name": "ST动盘",
@@ -2474,7 +2474,7 @@
             "氧化"
           ]
         },
-        "id": "p_1786708367915_vmkc25"
+        "id": "p_1786760814173_zvn3nw"
       },
       {
         "name": "T45静盘",
@@ -2537,7 +2537,7 @@
             "碰伤"
           ]
         },
-        "id": "p_1786708367915_i3jcar"
+        "id": "p_1786760814173_ek53yj"
       },
       {
         "name": "HTHB静盘",
@@ -2600,7 +2600,7 @@
             "碰伤"
           ]
         },
-        "id": "p_1786708367915_kk94u7"
+        "id": "p_1786760814173_1xj95o"
       },
       {
         "name": "WX静盘",
@@ -2663,7 +2663,7 @@
             "碰伤"
           ]
         },
-        "id": "p_1786708367915_ahtkc9"
+        "id": "p_1786760814173_8q0xhi"
       },
       {
         "name": "上配重块",
@@ -2682,7 +2682,7 @@
             "工装偏了"
           ]
         },
-        "id": "p_1786708367915_47q9jh"
+        "id": "p_1786760814173_rd8qjn"
       },
       {
         "name": "T45动盘",
@@ -2744,7 +2744,7 @@
             "碰伤"
           ]
         },
-        "id": "p_1786708367915_l8cwmw"
+        "id": "p_1786760814173_hi4mrz"
       },
       {
         "name": "下配重块",
@@ -2763,7 +2763,7 @@
             "工装偏了"
           ]
         },
-        "id": "p_1786708367915_9ts8aq"
+        "id": "p_1786760814173_vsmvf2"
       }
     ],
     "production": [],
