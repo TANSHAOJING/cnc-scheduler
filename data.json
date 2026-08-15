@@ -3439,7 +3439,7 @@
           "instrument": "高度表"
         }
       ],
-      "operator": "陈保军",
+      "operator": "安菓",
       "shift": "白班",
       "hours": 10,
       "planQty": 105,
@@ -3480,12 +3480,176 @@
           "instrument": "高度表"
         }
       ],
-      "operator": "陈保军",
+      "operator": "安菓",
       "shift": "白班",
       "hours": 10,
       "planQty": 105,
       "note": "",
       "createdAt": "2026-08-15T07:45:41.717Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786780244391",
+      "date": "2026-08-15",
+      "machineId": "隆邦车铣11",
+      "productName": "HA动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "轴承孔  ∮37. 044~∮37.058",
+          "instrument": "气密仪"
+        },
+        {
+          "dimension": "槽外径  ∮79.442~∮79.526",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "槽深 5.28-5.3",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "槽宽  2.342-2.426",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "板厚  9.2±0.05",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "圆环孔深度4.4~4.5",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "安菓",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 105,
+      "note": "",
+      "createdAt": "2026-08-15T07:50:44.391Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786780258989",
+      "date": "2026-08-15",
+      "machineId": "隆邦车铣12",
+      "productName": "HA动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "轴承孔  ∮37. 044~∮37.058",
+          "instrument": "气密仪"
+        },
+        {
+          "dimension": "槽外径  ∮79.442~∮79.526",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "槽深 5.28-5.3",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "槽宽  2.342-2.426",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "板厚  9.2±0.05",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "圆环孔深度4.4~4.5",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "安菓",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 105,
+      "note": "",
+      "createdAt": "2026-08-15T07:50:58.989Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786780262653",
+      "date": "2026-08-15",
+      "machineId": "隆邦车铣13",
+      "productName": "HA动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "轴承孔  ∮37. 044~∮37.058",
+          "instrument": "气密仪"
+        },
+        {
+          "dimension": "槽外径  ∮79.442~∮79.526",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "槽深 5.28-5.3",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "槽宽  2.342-2.426",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "板厚  9.2±0.05",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "圆环孔深度4.4~4.5",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "安菓",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 105,
+      "note": "",
+      "createdAt": "2026-08-15T07:51:02.653Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786780266902",
+      "date": "2026-08-15",
+      "machineId": "隆邦车铣14",
+      "productName": "HA动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "轴承孔  ∮37. 044~∮37.058",
+          "instrument": "气密仪"
+        },
+        {
+          "dimension": "槽外径  ∮79.442~∮79.526",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "槽深 5.28-5.3",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "槽宽  2.342-2.426",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "板厚  9.2±0.05",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "圆环孔深度4.4~4.5",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "安菓",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 105,
+      "note": "",
+      "createdAt": "2026-08-15T07:51:06.902Z",
       "createdBy": "谭绍景"
     }
   ],
