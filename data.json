@@ -389,14 +389,14 @@
     {
       "id": "CNC55",
       "workshop": "粗加大车间",
-      "productName": "ST动盘",
+      "productName": "HA动盘",
       "process": "一序",
       "perClamp": 6
     },
     {
       "id": "CNC56",
       "workshop": "粗加大车间",
-      "productName": "ST动盘",
+      "productName": "HA动盘",
       "process": "一序",
       "perClamp": 6
     },
@@ -2362,6 +2362,171 @@
       "planQty": 360,
       "note": "",
       "createdAt": "2026-08-15T07:11:20.352Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786778056760",
+      "date": "2026-08-15",
+      "machineId": "CNC57",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "吴开志",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:14:16.760Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786778062448",
+      "date": "2026-08-15",
+      "machineId": "CNC58",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "吴开志",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:14:22.448Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786778065632",
+      "date": "2026-08-15",
+      "machineId": "CNC59",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "吴开志",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:14:25.632Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786778068825",
+      "date": "2026-08-15",
+      "machineId": "CNC76",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "吴开志",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:14:28.825Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786778072256",
+      "date": "2026-08-15",
+      "machineId": "CNC77",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "吴开志",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:14:32.256Z",
       "createdBy": "谭绍景"
     }
   ],
