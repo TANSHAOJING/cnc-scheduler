@@ -389,14 +389,14 @@
     {
       "id": "CNC55",
       "workshop": "粗加大车间",
-      "productName": "HA动盘",
+      "productName": "ST动盘",
       "process": "一序",
       "perClamp": 6
     },
     {
       "id": "CNC56",
       "workshop": "粗加大车间",
-      "productName": "HA动盘",
+      "productName": "ST动盘",
       "process": "一序",
       "perClamp": 6
     },
@@ -2131,6 +2131,237 @@
       "planQty": 140,
       "note": "",
       "createdAt": "2026-08-10T09:54:25.791Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786777838091",
+      "date": "2026-08-15",
+      "machineId": "CNC55",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "邱子浩",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:10:38.091Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786777847921",
+      "date": "2026-08-15",
+      "machineId": "CNC56",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "邱子浩",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:10:47.921Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786777852633",
+      "date": "2026-08-15",
+      "machineId": "CNC57",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "邱子浩",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:10:52.633Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786777856178",
+      "date": "2026-08-15",
+      "machineId": "CNC58",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "邱子浩",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:10:56.178Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786777866633",
+      "date": "2026-08-15",
+      "machineId": "CNC59",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "赖亮",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:11:06.633Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786777877120",
+      "date": "2026-08-15",
+      "machineId": "CNC76",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "赖亮",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:11:17.120Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786777880352",
+      "date": "2026-08-15",
+      "machineId": "CNC77",
+      "productName": "HA动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：19.8±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.24~82.34",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "赖亮",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 360,
+      "note": "",
+      "createdAt": "2026-08-15T07:11:20.352Z",
       "createdBy": "谭绍景"
     }
   ],
