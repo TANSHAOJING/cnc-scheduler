@@ -4145,54 +4145,6 @@
       "createdBy": "谭绍景"
     },
     {
-      "id": "sch_1786870087799",
-      "date": "2026-08-15",
-      "machineId": "CNC69",
-      "productName": "T45动盘",
-      "process": "三序",
-      "area": "背面精加",
-      "measurements": [],
-      "operator": "刘江",
-      "shift": "白班",
-      "hours": 10,
-      "planQty": 82,
-      "note": "",
-      "createdAt": "2026-08-16T08:48:07.799Z",
-      "createdBy": "谭绍景"
-    },
-    {
-      "id": "sch_1786870092447",
-      "date": "2026-08-15",
-      "machineId": "CNC70",
-      "productName": "T45动盘",
-      "process": "三序",
-      "area": "背面精加",
-      "measurements": [],
-      "operator": "刘江",
-      "shift": "白班",
-      "hours": 10,
-      "planQty": 82,
-      "note": "",
-      "createdAt": "2026-08-16T08:48:12.447Z",
-      "createdBy": "谭绍景"
-    },
-    {
-      "id": "sch_1786870099759",
-      "date": "2026-08-15",
-      "machineId": "CNC71",
-      "productName": "T45动盘",
-      "process": "三序",
-      "area": "背面精加",
-      "measurements": [],
-      "operator": "刘江",
-      "shift": "白班",
-      "hours": 10,
-      "planQty": 82,
-      "note": "",
-      "createdAt": "2026-08-16T08:48:19.759Z",
-      "createdBy": "谭绍景"
-    },
-    {
       "id": "sch_1786871629239",
       "date": "2026-08-15",
       "machineId": "津上车铣26",
@@ -4363,6 +4315,54 @@
       "createdBy": "谭绍景"
     },
     {
+      "id": "sch_1786870087799",
+      "date": "2026-08-15",
+      "machineId": "CNC69",
+      "productName": "T45动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "measurements": [],
+      "operator": "刘江",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 82,
+      "note": "",
+      "createdAt": "2026-08-16T08:48:07.799Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786870092447",
+      "date": "2026-08-15",
+      "machineId": "CNC70",
+      "productName": "T45动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "measurements": [],
+      "operator": "刘江",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 82,
+      "note": "",
+      "createdAt": "2026-08-16T08:48:12.447Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786870099759",
+      "date": "2026-08-15",
+      "machineId": "CNC71",
+      "productName": "T45动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "measurements": [],
+      "operator": "刘江",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 82,
+      "note": "",
+      "createdAt": "2026-08-16T08:48:19.759Z",
+      "createdBy": "谭绍景"
+    },
+    {
       "id": "sch_1786877498575",
       "date": "2026-08-15",
       "machineId": "CNC17",
@@ -4467,36 +4467,6 @@
       "perClamp": 1,
       "operator": "谭绍景",
       "createdAt": "2026-08-10T06:37:35.341Z"
-    },
-    {
-      "id": "rec_1786870364601_99glo",
-      "scheduleId": "sch_1786870087799",
-      "date": "2026-08-15",
-      "qty": 80,
-      "inputQty": 80,
-      "perClamp": 1,
-      "operator": "谭绍景",
-      "createdAt": "2026-08-16T08:52:44.601Z"
-    },
-    {
-      "id": "rec_1786870364601_d2rks",
-      "scheduleId": "sch_1786870092447",
-      "date": "2026-08-15",
-      "qty": 78,
-      "inputQty": 78,
-      "perClamp": 1,
-      "operator": "谭绍景",
-      "createdAt": "2026-08-16T08:52:44.601Z"
-    },
-    {
-      "id": "rec_1786870364601_qbsry",
-      "scheduleId": "sch_1786870099759",
-      "date": "2026-08-15",
-      "qty": 70,
-      "inputQty": 70,
-      "perClamp": 1,
-      "operator": "谭绍景",
-      "createdAt": "2026-08-16T08:52:44.601Z"
     },
     {
       "id": "rec_1786872264926_969ce",
@@ -5037,6 +5007,126 @@
       "perClamp": 1,
       "operator": "谭绍景",
       "createdAt": "2026-08-16T09:24:24.927Z"
+    },
+    {
+      "id": "rec_1786877663599_ynkhe",
+      "scheduleId": "sch_1786870063928",
+      "date": "2026-08-15",
+      "qty": 75,
+      "inputQty": 75,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T10:54:23.599Z"
+    },
+    {
+      "id": "rec_1786877663599_1fczf",
+      "scheduleId": "sch_1786870074927",
+      "date": "2026-08-15",
+      "qty": 55,
+      "inputQty": 55,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T10:54:23.599Z"
+    },
+    {
+      "id": "rec_1786877663599_1ypx7",
+      "scheduleId": "sch_1786870081567",
+      "date": "2026-08-15",
+      "qty": 55,
+      "inputQty": 55,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T10:54:23.599Z"
+    },
+    {
+      "id": "rec_1786877663599_ejn0v",
+      "scheduleId": "sch_1786871629239",
+      "date": "2026-08-15",
+      "qty": 70,
+      "inputQty": 70,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T10:54:23.599Z"
+    },
+    {
+      "id": "rec_1786877663599_xzdns",
+      "scheduleId": "sch_1786871633263",
+      "date": "2026-08-15",
+      "qty": 54,
+      "inputQty": 54,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T10:54:23.599Z"
+    },
+    {
+      "id": "rec_1786877663599_ae16w",
+      "scheduleId": "sch_1786871637566",
+      "date": "2026-08-15",
+      "qty": 54,
+      "inputQty": 54,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T10:54:23.599Z"
+    },
+    {
+      "id": "rec_1786877663599_81p15",
+      "scheduleId": "sch_1786871642054",
+      "date": "2026-08-15",
+      "qty": 50,
+      "inputQty": 50,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T10:54:23.599Z"
+    },
+    {
+      "id": "rec_1786877663599_431yf",
+      "scheduleId": "sch_1786871645677",
+      "date": "2026-08-15",
+      "qty": 50,
+      "inputQty": 50,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T10:54:23.599Z"
+    },
+    {
+      "id": "rec_1786877663599_1gff9",
+      "scheduleId": "sch_1786871649494",
+      "date": "2026-08-15",
+      "qty": 50,
+      "inputQty": 50,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T10:54:23.599Z"
+    },
+    {
+      "id": "rec_1786870364601_99glo",
+      "scheduleId": "sch_1786870087799",
+      "date": "2026-08-15",
+      "qty": 80,
+      "inputQty": 80,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T08:52:44.601Z"
+    },
+    {
+      "id": "rec_1786870364601_d2rks",
+      "scheduleId": "sch_1786870092447",
+      "date": "2026-08-15",
+      "qty": 78,
+      "inputQty": 78,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T08:52:44.601Z"
+    },
+    {
+      "id": "rec_1786870364601_qbsry",
+      "scheduleId": "sch_1786870099759",
+      "date": "2026-08-15",
+      "qty": 70,
+      "inputQty": 70,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T08:52:44.601Z"
     },
     {
       "id": "rec_1786873913692_hhp9e",
@@ -6851,16 +6941,6 @@
   ],
   "downtimes": [
     {
-      "id": "dt_1786870364601_6g5vb",
-      "scheduleId": "sch_1786870099759",
-      "date": "2026-08-15",
-      "reason": "因断刀换刀",
-      "customNote": "",
-      "minutes": 50,
-      "operator": "谭绍景",
-      "createdAt": "2026-08-16T08:52:44.601Z"
-    },
-    {
       "id": "dt_1786872264926_hxcnx",
       "scheduleId": "sch_1786777838091",
       "date": "2026-08-15",
@@ -6919,6 +6999,36 @@
       "minutes": 180,
       "operator": "谭绍景",
       "createdAt": "2026-08-16T09:24:24.927Z"
+    },
+    {
+      "id": "dt_1786877663599_72iya",
+      "scheduleId": "sch_1786870063928",
+      "date": "2026-08-15",
+      "reason": "撞机",
+      "customNote": "",
+      "minutes": 50,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T10:54:23.599Z"
+    },
+    {
+      "id": "dt_1786877663599_5knyj",
+      "scheduleId": "sch_1786870081567",
+      "date": "2026-08-15",
+      "reason": "其他",
+      "customNote": "等料",
+      "minutes": 400,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T10:54:23.599Z"
+    },
+    {
+      "id": "dt_1786870364601_6g5vb",
+      "scheduleId": "sch_1786870099759",
+      "date": "2026-08-15",
+      "reason": "因断刀换刀",
+      "customNote": "",
+      "minutes": 50,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-16T08:52:44.601Z"
     },
     {
       "id": "dt_1786873913692_air5c",
