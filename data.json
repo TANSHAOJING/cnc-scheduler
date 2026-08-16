@@ -4476,6 +4476,11 @@
       "productName": "HA动盘",
       "process": "三序",
       "qty": 2000
+    },
+    {
+      "productName": "ST动盘",
+      "process": "一序",
+      "qty": 1400
     }
   ],
   "githubConfig": {
