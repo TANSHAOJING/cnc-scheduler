@@ -4191,6 +4191,102 @@
       "note": "",
       "createdAt": "2026-08-16T08:48:19.759Z",
       "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786871420216",
+      "date": "2026-08-15",
+      "machineId": "津上车铣26",
+      "productName": "T45动盘",
+      "process": "三序",
+      "area": "背面精加",
+      "measurements": [],
+      "operator": "何廷塞",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 82,
+      "note": "",
+      "createdAt": "2026-08-16T09:10:20.216Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786871483606",
+      "date": "2026-08-15",
+      "machineId": "CNC15",
+      "productName": "T45动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [],
+      "operator": "王子豪",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 57,
+      "note": "",
+      "createdAt": "2026-08-16T09:11:23.606Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786871487839",
+      "date": "2026-08-15",
+      "machineId": "CNC21",
+      "productName": "T45动盘",
+      "process": "二序",
+      "area": "背面开粗",
+      "measurements": [],
+      "operator": "王子豪",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 171,
+      "note": "",
+      "createdAt": "2026-08-16T09:11:27.839Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786871492751",
+      "date": "2026-08-15",
+      "machineId": "CNC69",
+      "productName": "T45动盘",
+      "process": "四序",
+      "area": "型线精加",
+      "measurements": [],
+      "operator": "杨红云",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 55,
+      "note": "",
+      "createdAt": "2026-08-16T09:11:32.751Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786871496599",
+      "date": "2026-08-15",
+      "machineId": "CNC70",
+      "productName": "T45动盘",
+      "process": "四序",
+      "area": "型线精加",
+      "measurements": [],
+      "operator": "杨红云",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 55,
+      "note": "",
+      "createdAt": "2026-08-16T09:11:36.599Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1786871500982",
+      "date": "2026-08-15",
+      "machineId": "CNC71",
+      "productName": "T45动盘",
+      "process": "四序",
+      "area": "型线精加",
+      "measurements": [],
+      "operator": "杨红云",
+      "shift": "夜班",
+      "hours": 10,
+      "planQty": 55,
+      "note": "",
+      "createdAt": "2026-08-16T09:11:40.982Z",
+      "createdBy": "谭绍景"
     }
   ],
   "records": [
@@ -6137,6 +6233,21 @@
       "productName": "ST动盘",
       "process": "三序",
       "qty": 800
+    },
+    {
+      "productName": "T45动盘",
+      "process": "三序",
+      "qty": 160
+    },
+    {
+      "productName": "T45动盘",
+      "process": "一序",
+      "qty": 120
+    },
+    {
+      "productName": "T45动盘",
+      "process": "二序",
+      "qty": 120
     }
   ],
   "githubConfig": {
