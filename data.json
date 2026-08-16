@@ -4363,7 +4363,7 @@
       "createdBy": "谭绍景"
     },
     {
-      "id": "sch_1786877357672",
+      "id": "sch_1786877498575",
       "date": "2026-08-15",
       "machineId": "CNC17",
       "productName": "ESEA静盘",
@@ -4391,12 +4391,12 @@
           "instrument": "塞规"
         }
       ],
-      "operator": "徐长蓉",
+      "operator": "赖亮",
       "shift": "白班",
       "hours": 10,
       "planQty": 110,
       "note": "",
-      "createdAt": "2026-08-16T10:49:17.672Z",
+      "createdAt": "2026-08-16T10:51:38.575Z",
       "createdBy": "谭绍景"
     },
     {
