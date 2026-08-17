@@ -9,20 +9,23 @@
     {
       "username": "字宝元",
       "password": "111",
-      "role": "operator",
-      "createdAt": "2026-08-17T05:29:12.758Z"
+      "role": "manager",
+      "createdAt": "2026-08-17T05:29:12.758Z",
+      "updatedAt": "2026-08-17T07:05:19.872Z"
     },
     {
       "username": "张三",
       "password": "111",
-      "role": "operator",
-      "createdAt": "2026-08-17T06:16:08.207Z"
+      "role": "foreman",
+      "createdAt": "2026-08-17T06:16:08.207Z",
+      "updatedAt": "2026-08-17T07:05:21.296Z"
     },
     {
       "username": "罗中华",
       "password": "111",
-      "role": "operator",
-      "createdAt": "2026-08-17T06:20:52.127Z"
+      "role": "qc",
+      "createdAt": "2026-08-17T06:20:52.127Z",
+      "updatedAt": "2026-08-17T07:05:23.504Z"
     },
     {
       "username": "李四",
