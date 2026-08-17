@@ -9,13 +9,13 @@
     {
       "username": "字宝元",
       "password": "111",
-      "role": "operator",
+      "role": "manager",
       "createdAt": "2026-08-17T05:29:12.758Z"
     },
     {
       "username": "张三",
       "password": "111",
-      "role": "operator",
+      "role": "foreman",
       "createdAt": "2026-08-17T06:16:08.207Z"
     },
     {
@@ -27,7 +27,7 @@
     {
       "username": "李四",
       "password": "111",
-      "role": "operator",
+      "role": "qc",
       "createdAt": "2026-08-17T06:32:11.223Z"
     }
   ],
