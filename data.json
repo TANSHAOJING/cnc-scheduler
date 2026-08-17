@@ -5,6 +5,12 @@
       "password": "226178",
       "role": "admin",
       "createdAt": "2026-08-10T06:03:09.577Z"
+    },
+    {
+      "username": "字宝元",
+      "password": "111",
+      "role": "operator",
+      "createdAt": "2026-08-17T05:29:12.758Z"
     }
   ],
   "machines": [
