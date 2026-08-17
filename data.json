@@ -23,6 +23,12 @@
       "password": "111",
       "role": "operator",
       "createdAt": "2026-08-17T06:20:52.127Z"
+    },
+    {
+      "username": "李四",
+      "password": "111",
+      "role": "operator",
+      "createdAt": "2026-08-17T06:32:11.223Z"
     }
   ],
   "machines": [
