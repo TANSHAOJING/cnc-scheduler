@@ -10448,8 +10448,8 @@
         "defectDesc": "型线没倒角",
         "quantity": 10,
         "operator": "邱子浩",
-        "cause": "",
-        "solution": "",
+        "cause": "22",
+        "solution": "22",
         "photo": "data:image/png;base64,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"
       },
       {
@@ -10533,8 +10533,8 @@
         "defectDesc": "孔大",
         "quantity": 1,
         "operator": "王日文",
-        "cause": "",
-        "solution": "",
+        "cause": "22",
+        "solution": "22",
         "photo": ""
       },
       {
@@ -10550,8 +10550,8 @@
         "defectDesc": "孔大",
         "quantity": 1,
         "operator": "王日文",
-        "cause": "",
-        "solution": "",
+        "cause": "22",
+        "solution": "22",
         "photo": ""
       },
       {
@@ -10567,8 +10567,8 @@
         "defectDesc": "孔大",
         "quantity": 1,
         "operator": "王日文",
-        "cause": "",
-        "solution": "",
+        "cause": "222",
+        "solution": "22",
         "photo": ""
       },
       {
@@ -10584,8 +10584,8 @@
         "defectDesc": "刀损",
         "quantity": 1,
         "operator": "王日文",
-        "cause": "",
-        "solution": "",
+        "cause": "22",
+        "solution": "22",
         "photo": ""
       },
       {
@@ -10601,8 +10601,8 @@
         "defectDesc": "刀损",
         "quantity": 1,
         "operator": "王日文",
-        "cause": "",
-        "solution": "",
+        "cause": "22",
+        "solution": "22",
         "photo": ""
       },
       {
@@ -10618,8 +10618,8 @@
         "defectDesc": "刀损",
         "quantity": 1,
         "operator": "王日文",
-        "cause": "",
-        "solution": "",
+        "cause": "22",
+        "solution": "22",
         "photo": ""
       },
       {
@@ -10635,8 +10635,8 @@
         "defectDesc": "刀损",
         "quantity": 1,
         "operator": "王日文",
-        "cause": "",
-        "solution": "",
+        "cause": "22",
+        "solution": "22",
         "photo": ""
       },
       {
@@ -10652,8 +10652,8 @@
         "defectDesc": "刀损",
         "quantity": 1,
         "operator": "王日文",
-        "cause": "",
-        "solution": "",
+        "cause": "22",
+        "solution": "22",
         "photo": ""
       },
       {
@@ -10669,8 +10669,8 @@
         "defectDesc": "刀损",
         "quantity": 1,
         "operator": "王日文",
-        "cause": "",
-        "solution": "",
+        "cause": "22",
+        "solution": "22",
         "photo": ""
       },
       {
@@ -10686,8 +10686,25 @@
         "defectDesc": "刀损",
         "quantity": 1,
         "operator": "王日文",
-        "cause": "",
-        "solution": "",
+        "cause": "22",
+        "solution": "22",
+        "photo": ""
+      },
+      {
+        "id": "defect_1786958243939",
+        "date": "2026-08-15",
+        "shift": "白班",
+        "process": "一序",
+        "workshop": "粗加大车间",
+        "machine": "CNC42",
+        "productId": "HTHB静盘",
+        "productName": "HTHB静盘",
+        "defectType": "报废",
+        "defectDesc": "刀损",
+        "quantity": 1,
+        "operator": "王日文",
+        "cause": "22",
+        "solution": "22",
         "photo": ""
       }
     ],
