@@ -17,6 +17,12 @@
       "password": "111",
       "role": "operator",
       "createdAt": "2026-08-17T06:16:08.207Z"
+    },
+    {
+      "username": "罗中华",
+      "password": "111",
+      "role": "operator",
+      "createdAt": "2026-08-17T06:20:52.127Z"
     }
   ],
   "machines": [
