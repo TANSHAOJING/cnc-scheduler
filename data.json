@@ -9581,6 +9581,886 @@
       "createdAt": "2026-08-10T06:37:35.341Z"
     },
     {
+      "id": "rec_1787065897933_lrpwb",
+      "scheduleId": "sch_1787021478808_bkbise",
+      "date": "2026-08-18",
+      "qty": 360,
+      "inputQty": 60,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.933Z"
+    },
+    {
+      "id": "rec_1787065897933_oyodh",
+      "scheduleId": "sch_1787021478808_azyztq",
+      "date": "2026-08-18",
+      "qty": 360,
+      "inputQty": 60,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.933Z"
+    },
+    {
+      "id": "rec_1787065897933_sr6l5",
+      "scheduleId": "sch_1787021478808_k70g0c",
+      "date": "2026-08-18",
+      "qty": 360,
+      "inputQty": 60,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.933Z"
+    },
+    {
+      "id": "rec_1787065897933_qahnx",
+      "scheduleId": "sch_1787021478808_l6ndqy",
+      "date": "2026-08-18",
+      "qty": 460,
+      "inputQty": 460,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.933Z"
+    },
+    {
+      "id": "rec_1787065897933_65f7y",
+      "scheduleId": "sch_1787021478808_wa3kw2",
+      "date": "2026-08-18",
+      "qty": 460,
+      "inputQty": 460,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.933Z"
+    },
+    {
+      "id": "rec_1787065897935_jod7m",
+      "scheduleId": "sch_1787021478808_00sji4",
+      "date": "2026-08-18",
+      "qty": 330,
+      "inputQty": 55,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_a345v",
+      "scheduleId": "sch_1787021478808_492qxi",
+      "date": "2026-08-18",
+      "qty": 360,
+      "inputQty": 60,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_g0v2d",
+      "scheduleId": "sch_1787021478808_d3hrr7",
+      "date": "2026-08-18",
+      "qty": 336,
+      "inputQty": 56,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_kjizu",
+      "scheduleId": "sch_1787021478808_j0yozf",
+      "date": "2026-08-18",
+      "qty": 336,
+      "inputQty": 56,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_91bdo",
+      "scheduleId": "sch_1787063926645",
+      "date": "2026-08-18",
+      "qty": 150,
+      "inputQty": 150,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_fnhd6",
+      "scheduleId": "sch_1786938747168_z6d5fl",
+      "date": "2026-08-16",
+      "qty": 300,
+      "inputQty": 50,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_doo5v",
+      "scheduleId": "sch_1786938747168_fybhgb",
+      "date": "2026-08-16",
+      "qty": 300,
+      "inputQty": 50,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_w56em",
+      "scheduleId": "sch_1786938747168_zjdnec",
+      "date": "2026-08-16",
+      "qty": 300,
+      "inputQty": 50,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_b5z6u",
+      "scheduleId": "sch_1786938747168_xfw9ue",
+      "date": "2026-08-16",
+      "qty": 300,
+      "inputQty": 50,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_6ah7w",
+      "scheduleId": "sch_1786938747168_3nih8r",
+      "date": "2026-08-16",
+      "qty": 330,
+      "inputQty": 55,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_yo68w",
+      "scheduleId": "sch_1786938747168_gdeamz",
+      "date": "2026-08-16",
+      "qty": 312,
+      "inputQty": 52,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_yldaf",
+      "scheduleId": "sch_1786938747168_zrs6i5",
+      "date": "2026-08-16",
+      "qty": 270,
+      "inputQty": 45,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_3sbaa",
+      "scheduleId": "sch_1786938747168_myhvvx",
+      "date": "2026-08-16",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_ris32",
+      "scheduleId": "sch_1786938747168_33cyl7",
+      "date": "2026-08-16",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_avazi",
+      "scheduleId": "sch_1786938747168_qkkouz",
+      "date": "2026-08-16",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897935_n6sjm",
+      "scheduleId": "sch_1786938747168_vxx3iz",
+      "date": "2026-08-16",
+      "qty": 90,
+      "inputQty": 90,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "rec_1787065897936_fmvhi",
+      "scheduleId": "sch_1786938747168_v2l4z1",
+      "date": "2026-08-16",
+      "qty": 98,
+      "inputQty": 98,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_3vkqy",
+      "scheduleId": "sch_1786938747168_52yc90",
+      "date": "2026-08-16",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_hj7qk",
+      "scheduleId": "sch_1786777838091",
+      "date": "2026-08-15",
+      "qty": 300,
+      "inputQty": 50,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_abh1j",
+      "scheduleId": "sch_1786777847921",
+      "date": "2026-08-15",
+      "qty": 300,
+      "inputQty": 50,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_o2tix",
+      "scheduleId": "sch_1786777852633",
+      "date": "2026-08-15",
+      "qty": 330,
+      "inputQty": 55,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_blyc3",
+      "scheduleId": "sch_1786777856178",
+      "date": "2026-08-15",
+      "qty": 330,
+      "inputQty": 55,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_4fnf4",
+      "scheduleId": "sch_1786777866633",
+      "date": "2026-08-15",
+      "qty": 180,
+      "inputQty": 30,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_9iabp",
+      "scheduleId": "sch_1786777877120",
+      "date": "2026-08-15",
+      "qty": 180,
+      "inputQty": 30,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_dqngk",
+      "scheduleId": "sch_1786777880352",
+      "date": "2026-08-15",
+      "qty": 300,
+      "inputQty": 50,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_9z6gs",
+      "scheduleId": "sch_1786778056760",
+      "date": "2026-08-15",
+      "qty": 330,
+      "inputQty": 55,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_uu80t",
+      "scheduleId": "sch_1786778062448",
+      "date": "2026-08-15",
+      "qty": 330,
+      "inputQty": 55,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_cj6by",
+      "scheduleId": "sch_1786778065632",
+      "date": "2026-08-15",
+      "qty": 300,
+      "inputQty": 50,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_3ynhb",
+      "scheduleId": "sch_1786778068825",
+      "date": "2026-08-15",
+      "qty": 330,
+      "inputQty": 55,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_bb83d",
+      "scheduleId": "sch_1786778072256",
+      "date": "2026-08-15",
+      "qty": 360,
+      "inputQty": 60,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_x810z",
+      "scheduleId": "sch_1786779628790",
+      "date": "2026-08-15",
+      "qty": 460,
+      "inputQty": 460,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_st3fr",
+      "scheduleId": "sch_1786779633485",
+      "date": "2026-08-15",
+      "qty": 460,
+      "inputQty": 460,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_je55q",
+      "scheduleId": "sch_1786779641501",
+      "date": "2026-08-15",
+      "qty": 468,
+      "inputQty": 468,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_o0f2u",
+      "scheduleId": "sch_1786779645357",
+      "date": "2026-08-15",
+      "qty": 465,
+      "inputQty": 465,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_v9l26",
+      "scheduleId": "sch_1786779676406",
+      "date": "2026-08-15",
+      "qty": 110,
+      "inputQty": 110,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_trhtg",
+      "scheduleId": "sch_1786779679934",
+      "date": "2026-08-15",
+      "qty": 107,
+      "inputQty": 107,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_a1grs",
+      "scheduleId": "sch_1786779683350",
+      "date": "2026-08-15",
+      "qty": 105,
+      "inputQty": 105,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_21e5c",
+      "scheduleId": "sch_1786779686773",
+      "date": "2026-08-15",
+      "qty": 104,
+      "inputQty": 104,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_ve5qd",
+      "scheduleId": "sch_1786779690181",
+      "date": "2026-08-15",
+      "qty": 106,
+      "inputQty": 106,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_p3dq8",
+      "scheduleId": "sch_1786779693726",
+      "date": "2026-08-15",
+      "qty": 107,
+      "inputQty": 107,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_desbk",
+      "scheduleId": "sch_1786779784751",
+      "date": "2026-08-15",
+      "qty": 105,
+      "inputQty": 105,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_kzqpa",
+      "scheduleId": "sch_1786779828949",
+      "date": "2026-08-15",
+      "qty": 103,
+      "inputQty": 103,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_tupxz",
+      "scheduleId": "sch_1786779834438",
+      "date": "2026-08-15",
+      "qty": 106,
+      "inputQty": 106,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_7bplx",
+      "scheduleId": "sch_1786779837926",
+      "date": "2026-08-15",
+      "qty": 106,
+      "inputQty": 106,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_ftjfa",
+      "scheduleId": "sch_1786779841230",
+      "date": "2026-08-15",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_io8vw",
+      "scheduleId": "sch_1786779847301",
+      "date": "2026-08-15",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_bkktj",
+      "scheduleId": "sch_1786779851301",
+      "date": "2026-08-15",
+      "qty": 104,
+      "inputQty": 104,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_hzjtd",
+      "scheduleId": "sch_1786779862373",
+      "date": "2026-08-15",
+      "qty": 103,
+      "inputQty": 103,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_b2nls",
+      "scheduleId": "sch_1786779865686",
+      "date": "2026-08-15",
+      "qty": 95,
+      "inputQty": 95,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_tz0uw",
+      "scheduleId": "sch_1786779868910",
+      "date": "2026-08-15",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897936_nkd72",
+      "scheduleId": "sch_1786779873927",
+      "date": "2026-08-15",
+      "qty": 105,
+      "inputQty": 105,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "rec_1787065897937_pnk3u",
+      "scheduleId": "sch_1786779878278",
+      "date": "2026-08-15",
+      "qty": 105,
+      "inputQty": 105,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_in5n2",
+      "scheduleId": "sch_1786779938245",
+      "date": "2026-08-15",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_3yry8",
+      "scheduleId": "sch_1786779941717",
+      "date": "2026-08-15",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_a7450",
+      "scheduleId": "sch_1786780244391",
+      "date": "2026-08-15",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_w59h6",
+      "scheduleId": "sch_1786780258989",
+      "date": "2026-08-15",
+      "qty": 105,
+      "inputQty": 105,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_moih7",
+      "scheduleId": "sch_1786780262653",
+      "date": "2026-08-15",
+      "qty": 105,
+      "inputQty": 105,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_ewyj3",
+      "scheduleId": "sch_1786780266902",
+      "date": "2026-08-15",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_963vy",
+      "scheduleId": "sch_1786859967791",
+      "date": "2026-08-15",
+      "qty": 366,
+      "inputQty": 61,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_4oxm9",
+      "scheduleId": "sch_1786859973190",
+      "date": "2026-08-15",
+      "qty": 366,
+      "inputQty": 61,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_pote6",
+      "scheduleId": "sch_1786859991101",
+      "date": "2026-08-15",
+      "qty": 380,
+      "inputQty": 380,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_7bzoy",
+      "scheduleId": "sch_1786859998494",
+      "date": "2026-08-15",
+      "qty": 108,
+      "inputQty": 108,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_4t9m6",
+      "scheduleId": "sch_1786860002357",
+      "date": "2026-08-15",
+      "qty": 109,
+      "inputQty": 109,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_dh4u3",
+      "scheduleId": "sch_1786860007198",
+      "date": "2026-08-15",
+      "qty": 108,
+      "inputQty": 108,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_jyslx",
+      "scheduleId": "sch_1786860024701",
+      "date": "2026-08-15",
+      "qty": 360,
+      "inputQty": 60,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_e1jsw",
+      "scheduleId": "sch_1786860030038",
+      "date": "2026-08-15",
+      "qty": 348,
+      "inputQty": 58,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_38po9",
+      "scheduleId": "sch_1786860037381",
+      "date": "2026-08-15",
+      "qty": 380,
+      "inputQty": 380,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_1t81b",
+      "scheduleId": "sch_1786860041814",
+      "date": "2026-08-15",
+      "qty": 110,
+      "inputQty": 110,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_lp68f",
+      "scheduleId": "sch_1786860044677",
+      "date": "2026-08-15",
+      "qty": 110,
+      "inputQty": 110,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_8ud9c",
+      "scheduleId": "sch_1786860048253",
+      "date": "2026-08-15",
+      "qty": 50,
+      "inputQty": 50,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_8h7jj",
+      "scheduleId": "sch_1786870063928",
+      "date": "2026-08-15",
+      "qty": 75,
+      "inputQty": 75,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_b1dc4",
+      "scheduleId": "sch_1786870074927",
+      "date": "2026-08-15",
+      "qty": 55,
+      "inputQty": 55,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_2fksq",
+      "scheduleId": "sch_1786870081567",
+      "date": "2026-08-15",
+      "qty": 55,
+      "inputQty": 55,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_lc7sp",
+      "scheduleId": "sch_1786871629239",
+      "date": "2026-08-15",
+      "qty": 70,
+      "inputQty": 70,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_wwnz9",
+      "scheduleId": "sch_1786871633263",
+      "date": "2026-08-15",
+      "qty": 54,
+      "inputQty": 54,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_dyp0m",
+      "scheduleId": "sch_1786871637566",
+      "date": "2026-08-15",
+      "qty": 54,
+      "inputQty": 54,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_tcj2r",
+      "scheduleId": "sch_1786871642054",
+      "date": "2026-08-15",
+      "qty": 50,
+      "inputQty": 50,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_z5nt8",
+      "scheduleId": "sch_1786871645677",
+      "date": "2026-08-15",
+      "qty": 50,
+      "inputQty": 50,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_bg7p6",
+      "scheduleId": "sch_1786871649494",
+      "date": "2026-08-15",
+      "qty": 50,
+      "inputQty": 50,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_cb213",
+      "scheduleId": "sch_1786870087799",
+      "date": "2026-08-15",
+      "qty": 80,
+      "inputQty": 80,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_s6d56",
+      "scheduleId": "sch_1786870099759",
+      "date": "2026-08-15",
+      "qty": 70,
+      "inputQty": 70,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_nec1n",
+      "scheduleId": "sch_1786342459111",
+      "date": "2026-08-10",
+      "qty": 100,
+      "inputQty": 100,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "rec_1787065897937_8qr0w",
+      "scheduleId": "sch_1786342480758",
+      "date": "2026-08-10",
+      "qty": 50,
+      "inputQty": 50,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
       "id": "rec_1787065715187_7lz8z",
       "scheduleId": "sch_1787021478808_00sji4",
       "date": "2026-08-18",
@@ -13552,6 +14432,126 @@
     }
   ],
   "downtimes": [
+    {
+      "id": "dt_1787065897935_uo2q1",
+      "scheduleId": "sch_1787021478808_00sji4",
+      "date": "2026-08-18",
+      "reason": "刀具达到寿命换刀",
+      "customNote": "",
+      "minutes": 50,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.935Z"
+    },
+    {
+      "id": "dt_1787065897935_zd8bt",
+      "scheduleId": "sch_1786938747168_vxx3iz",
+      "date": "2026-08-16",
+      "reason": "刀具达到寿命换刀",
+      "customNote": "",
+      "minutes": 50,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "dt_1787065897936_1zoao",
+      "scheduleId": "sch_1786938747168_v2l4z1",
+      "date": "2026-08-16",
+      "reason": "刀具达到寿命换刀",
+      "customNote": "",
+      "minutes": 50,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "dt_1787065897936_2gspd",
+      "scheduleId": "sch_1786777838091",
+      "date": "2026-08-15",
+      "reason": "刀具达到寿命换刀",
+      "customNote": "",
+      "minutes": 60,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "dt_1787065897936_d3r6v",
+      "scheduleId": "sch_1786777847921",
+      "date": "2026-08-15",
+      "reason": "刀具达到寿命换刀",
+      "customNote": "",
+      "minutes": 60,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "dt_1787065897936_9dqo5",
+      "scheduleId": "sch_1786778065632",
+      "date": "2026-08-15",
+      "reason": "刀具达到寿命换刀",
+      "customNote": "",
+      "minutes": 60,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "dt_1787065897936_fxmpm",
+      "scheduleId": "sch_1786779865686",
+      "date": "2026-08-15",
+      "reason": "刀具达到寿命换刀",
+      "customNote": "",
+      "minutes": 50,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.936Z"
+    },
+    {
+      "id": "dt_1787065897937_mtrbd",
+      "scheduleId": "sch_1786860048253",
+      "date": "2026-08-15",
+      "reason": "修夹具",
+      "customNote": "",
+      "minutes": 90,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "dt_1787065897937_m0ele",
+      "scheduleId": "sch_1786870063928",
+      "date": "2026-08-15",
+      "reason": "撞机",
+      "customNote": "",
+      "minutes": 50,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "dt_1787065897937_dz9us",
+      "scheduleId": "sch_1786870081567",
+      "date": "2026-08-15",
+      "reason": "其他",
+      "customNote": "等料",
+      "minutes": 400,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "dt_1787065897937_ljq2c",
+      "scheduleId": "sch_1786870099759",
+      "date": "2026-08-15",
+      "reason": "因断刀换刀",
+      "customNote": "",
+      "minutes": 50,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
+    {
+      "id": "dt_1787065897937_kl5fi",
+      "scheduleId": "sch_1786342480758",
+      "date": "2026-08-10",
+      "reason": "因断刀换刀",
+      "customNote": "",
+      "minutes": 180,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T15:11:37.937Z"
+    },
     {
       "id": "dt_1787065715188_hfkmx",
       "scheduleId": "sch_1787021478808_00sji4",
