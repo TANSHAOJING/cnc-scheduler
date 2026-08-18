@@ -10361,6 +10361,26 @@
       "createdAt": "2026-08-17T08:25:30.288Z"
     },
     {
+      "id": "rec_1787064104825_daegd",
+      "scheduleId": "sch_1787021478808_00sji4",
+      "date": "2026-08-18",
+      "qty": 330,
+      "inputQty": 55,
+      "perClamp": 6,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T14:41:44.825Z"
+    },
+    {
+      "id": "rec_1787064104827_fmxfy",
+      "scheduleId": "sch_1787063926645",
+      "date": "2026-08-18",
+      "qty": 150,
+      "inputQty": 150,
+      "perClamp": 1,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T14:41:44.827Z"
+    },
+    {
       "id": "rec_1787064050442_mak5t",
       "scheduleId": "sch_1787063926645",
       "date": "2026-08-18",
@@ -11981,6 +12001,16 @@
       "minutes": 180,
       "operator": "谭绍景",
       "createdAt": "2026-08-17T08:25:30.288Z"
+    },
+    {
+      "id": "dt_1787064104825_2k05u",
+      "scheduleId": "sch_1787021478808_00sji4",
+      "date": "2026-08-18",
+      "reason": "刀具达到寿命换刀",
+      "customNote": "",
+      "minutes": 50,
+      "operator": "谭绍景",
+      "createdAt": "2026-08-18T14:41:44.825Z"
     },
     {
       "id": "dt_1786870364601_6g5vb",
