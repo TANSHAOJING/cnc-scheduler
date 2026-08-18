@@ -4,8 +4,8 @@
       "username": "谭绍景",
       "password": "226178",
       "role": "admin",
-      "createdAt": "2026-08-17T09:31:50.631Z",
-      "updatedAt": "2026-08-17T09:31:50.631Z"
+      "createdAt": "2026-08-18T14:35:56.693Z",
+      "updatedAt": "2026-08-18T14:35:56.693Z"
     },
     {
       "username": "字宝元",
@@ -204,14 +204,16 @@
       "workshop": "粗加大车间",
       "productName": "下配重块",
       "process": "一序",
-      "perClamp": 1
+      "perClamp": 1,
+      "uph": 17.14
     },
     {
       "id": "CNC27",
       "workshop": "粗加大车间",
       "productName": "下配重块",
       "process": "一序",
-      "perClamp": 1
+      "perClamp": 1,
+      "uph": 17.14
     },
     {
       "id": "CNC29",
@@ -9484,6 +9486,66 @@
       "planQty": 110,
       "perClamp": 2,
       "createdAt": "2026-08-18T02:51:18.808Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1787063926645",
+      "date": "2026-08-18",
+      "machineId": "CNC25",
+      "productName": "下配重块",
+      "process": "一序",
+      "area": "正反面",
+      "measurements": [
+        {
+          "dimension": "小孔：∮5.05~∮5.15",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高度：8.1~8.15",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "台阶高：5.3~5.4",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "冯子明",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 171,
+      "perClamp": 1,
+      "note": "",
+      "createdAt": "2026-08-18T14:38:46.646Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1787063949009",
+      "date": "2026-08-18",
+      "machineId": "CNC27",
+      "productName": "下配重块",
+      "process": "一序",
+      "area": "正反面",
+      "measurements": [
+        {
+          "dimension": "小孔：∮5.05~∮5.15",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高度：8.1~8.15",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "台阶高：5.3~5.4",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "冯子明",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 171,
+      "perClamp": 1,
+      "note": "",
+      "createdAt": "2026-08-18T14:39:09.009Z",
       "createdBy": "谭绍景"
     }
   ],
