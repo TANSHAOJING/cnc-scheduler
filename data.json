@@ -62,9 +62,10 @@
     {
       "id": "CNC3",
       "workshop": "打样车间",
-      "productName": "精雕打样",
-      "process": "",
-      "perClamp": 1
+      "productName": "ST动盘",
+      "process": "一序",
+      "perClamp": 6,
+      "uph": 6
     },
     {
       "id": "CNC4",
@@ -9683,6 +9684,40 @@
       "perClamp": 1,
       "note": "",
       "createdAt": "2026-08-19T03:40:52.811Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1787111059941",
+      "date": "2026-08-18",
+      "machineId": "CNC3",
+      "productName": "ST动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "板厚10.4~10.6",
+          "instrument": "卡尺"
+        },
+        {
+          "dimension": "小孔∮1.2±0.05",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "型线高度：23.3±0.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "外圆：∮82.14~82.24",
+          "instrument": "卡尺"
+        }
+      ],
+      "operator": "江建凯",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 360,
+      "perClamp": 6,
+      "note": "",
+      "createdAt": "2026-08-19T03:44:19.941Z",
       "createdBy": "谭绍景"
     }
   ],
