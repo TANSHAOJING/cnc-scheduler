@@ -4,8 +4,8 @@
       "username": "谭绍景",
       "password": "226178",
       "role": "admin",
-      "createdAt": "2026-08-18T15:36:36.928Z",
-      "updatedAt": "2026-08-18T15:36:36.929Z"
+      "createdAt": "2026-08-19T03:20:54.408Z",
+      "updatedAt": "2026-08-19T03:20:54.408Z"
     },
     {
       "username": "字宝元",
@@ -53,9 +53,10 @@
     {
       "id": "CNC2",
       "workshop": "打样车间",
-      "productName": "精雕打样",
-      "process": "",
-      "perClamp": 1
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "perClamp": 4,
+      "uph": 3
     },
     {
       "id": "CNC3",
@@ -9609,6 +9610,44 @@
       "perClamp": 2,
       "note": "",
       "createdAt": "2026-08-19T01:39:14.718Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1787109722798",
+      "date": "2026-08-18",
+      "machineId": "CNC2",
+      "productName": "HTHB静盘",
+      "process": "二序",
+      "area": "背面精加",
+      "measurements": [
+        {
+          "dimension": "两个精孔：∮4.965通 ∮4.977止",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "M6牙孔有效深度7毫米",
+          "instrument": "牙规"
+        },
+        {
+          "dimension": "槽深  1.8±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "槽宽  3.0±0.02",
+          "instrument": "通止规"
+        },
+        {
+          "dimension": "总高43.52±0.05",
+          "instrument": "高度表"
+        }
+      ],
+      "operator": "李嘉浩",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 120,
+      "perClamp": 4,
+      "note": "",
+      "createdAt": "2026-08-19T03:22:02.798Z",
       "createdBy": "谭绍景"
     }
   ],
