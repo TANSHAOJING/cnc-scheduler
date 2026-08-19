@@ -47,9 +47,9 @@
       "id": "CNC1",
       "workshop": "打样车间",
       "productName": "HA动盘",
-      "process": "一序",
-      "perClamp": 6,
-      "uph": 6
+      "process": "二序",
+      "perClamp": 1,
+      "uph": 45.57
     },
     {
       "id": "CNC2",
@@ -9656,31 +9656,31 @@
       "date": "2026-08-18",
       "machineId": "CNC1",
       "productName": "HA动盘",
-      "process": "一序",
-      "area": "型线开粗",
+      "process": "二序",
+      "area": "背面开粗",
       "measurements": [
         {
-          "dimension": "板厚10.4~10.6",
+          "dimension": "轴承孔  ∮36.6±0.05",
           "instrument": "卡尺"
         },
         {
-          "dimension": "小孔∮1.2±0.05",
-          "instrument": "通止规"
+          "dimension": "槽外径  ∮79.2±0.1",
+          "instrument": "卡尺"
         },
         {
-          "dimension": "型线高度：19.8±0.05",
+          "dimension": "槽深  5.3±0.05",
           "instrument": "高度表"
         },
         {
-          "dimension": "外圆：∮82.24~82.34",
+          "dimension": "板厚  9.6±0.1",
           "instrument": "卡尺"
         }
       ],
       "operator": "陈浩",
       "shift": "白班",
       "hours": 10,
-      "planQty": 360,
-      "perClamp": 6,
+      "planQty": 456,
+      "perClamp": 1,
       "note": "",
       "createdAt": "2026-08-19T03:40:52.811Z",
       "createdBy": "谭绍景"
