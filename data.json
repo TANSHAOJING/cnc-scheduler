@@ -165,7 +165,8 @@
       "workshop": "粗加大车间",
       "productName": "ESEA静盘",
       "process": "一序",
-      "perClamp": 2
+      "perClamp": 2,
+      "uph": 5.45
     },
     {
       "id": "CNC18",
@@ -9718,6 +9719,44 @@
       "perClamp": 6,
       "note": "",
       "createdAt": "2026-08-19T03:44:19.941Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1787116652783",
+      "date": "2026-08-19",
+      "machineId": "CNC17",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "高度：41.15~41.35",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "型线高度：23.95~24.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽高度：9.9~10.1",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽宽度：9~9.1",
+          "instrument": "塞规"
+        },
+        {
+          "dimension": "小孔：∮5±0.1",
+          "instrument": "塞规"
+        }
+      ],
+      "operator": "李嘉浩",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 110,
+      "perClamp": 2,
+      "note": "",
+      "createdAt": "2026-08-19T05:17:32.783Z",
       "createdBy": "谭绍景"
     }
   ],
