@@ -8,13 +8,6 @@
       "updatedAt": "2026-08-18T15:36:36.929Z"
     },
     {
-      "username": "WDF",
-      "password": "WDF123456789",
-      "role": "operator",
-      "createdAt": "2026-08-18T15:38:36.748Z",
-      "updatedAt": "2026-08-18T15:38:36.748Z"
-    },
-    {
       "username": "字宝元",
       "password": "111",
       "role": "manager",
@@ -40,6 +33,13 @@
       "password": "111",
       "role": "operator",
       "createdAt": "2026-08-17T06:32:11.223Z"
+    },
+    {
+      "username": "WDF",
+      "password": "WDF123456789",
+      "role": "operator",
+      "createdAt": "2026-08-18T15:38:36.748Z",
+      "updatedAt": "2026-08-18T15:38:36.748Z"
     }
   ],
   "machines": [
@@ -146,7 +146,8 @@
       "workshop": "粗加大车间",
       "productName": "T45动盘",
       "process": "一序",
-      "perClamp": 1
+      "perClamp": 1,
+      "uph": 5.71
     },
     {
       "id": "CNC16",
@@ -9553,6 +9554,61 @@
       "perClamp": 1,
       "note": "",
       "createdAt": "2026-08-18T14:39:09.009Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1787103300447",
+      "date": "2026-08-19",
+      "machineId": "CNC15",
+      "productName": "T45动盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [],
+      "operator": "李嘉浩",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 57,
+      "perClamp": 1,
+      "note": "",
+      "createdAt": "2026-08-19T01:35:00.447Z",
+      "createdBy": "谭绍景"
+    },
+    {
+      "id": "sch_1787103554718",
+      "date": "2026-08-19",
+      "machineId": "CNC16",
+      "productName": "ESEA静盘",
+      "process": "一序",
+      "area": "型线开粗",
+      "measurements": [
+        {
+          "dimension": "高度：41.15~41.35",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "型线高度：23.95~24.05",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽高度：9.9~10.1",
+          "instrument": "高度表"
+        },
+        {
+          "dimension": "键槽宽度：9~9.1",
+          "instrument": "塞规"
+        },
+        {
+          "dimension": "小孔：∮5±0.1",
+          "instrument": "塞规"
+        }
+      ],
+      "operator": "李嘉浩",
+      "shift": "白班",
+      "hours": 10,
+      "planQty": 110,
+      "perClamp": 2,
+      "note": "",
+      "createdAt": "2026-08-19T01:39:14.718Z",
       "createdBy": "谭绍景"
     }
   ],
